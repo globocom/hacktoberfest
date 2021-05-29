@@ -37,6 +37,7 @@
     }
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "formik": "^1.5.8",
     "gatsby": "^2.18.10",
     "gatsby-plugin-alias-imports": "^1.0.5",
