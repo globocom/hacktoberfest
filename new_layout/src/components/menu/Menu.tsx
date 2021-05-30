@@ -1,14 +1,10 @@
 import React from 'react'
 import { Menu as MenuProps } from '@types'
+import  MenuItem from './MenuItem'
 import { Grid, Theme } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
-
-const MENU_ITEMS = [
-    {label: 'Projetos', link: '/foo'},
-    {label: 'Regras e Princípios', link: '/foo'},
-    {label: 'Participantes', link: '/foo'},
-    {label: 'Minha Área', link: '/foo'},
-]
+import { MenuDefinitions } from '@definitions'
+import { MenuDefinition as MenuDefinitionType } from '@types'
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -16,6 +12,9 @@ const useStyles = makeStyles((theme: Theme) => ({
         display: 'inline-block',
         border: '3px solid white',
         padding: 30
+    },
+    rightAlign: {
+        textAlign: "right"
     }
 }))
 
@@ -26,15 +25,18 @@ const Logo = () => {
     )
 }
 
+const RenderItems = () => MenuDefinitions.map((def: MenuDefinitionType) => <MenuItem {...def} />)
+
 const DeskMenu = () => {
+    const classes = useStyles()
     return (
         <React.Fragment>
             <Grid item lg={10} md={9}>
                 <Logo/>
-                {MENU_ITEMS.map((menu) => <span>{menu.label}</span>)}
+                {RenderItems()}
             </Grid>
-            <Grid item lg={2} md={3}>
-                <b> globo.com </b> opensource
+            <Grid item lg={2} md={3} className={classes.rightAlign}>
+                <span><b> globo.com </b> opensource </span>
             </Grid>
         </React.Fragment>
     )

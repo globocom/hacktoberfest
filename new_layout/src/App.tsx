@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import  theme  from '@themes/2021'
 import Header from '@components/Header'
 
-function App() {
+function HacktoberfestApp() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
@@ -15,4 +15,4 @@ function App() {
   );
 }
 
-export default App;
+export default HacktoberfestApp;

@@ -1,11 +1,12 @@
+import React from "react";
 
 
 export interface Menu {
     mode: "desk" | "smart"
-    items?: Array<MenuItem>
 }
 
-export interface MenuItem {
+export interface MenuDefinition {
     label: string
-    ref: string
+    link: string
+    page: React.ReactNode
 }

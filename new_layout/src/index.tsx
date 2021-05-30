@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import HacktoverfestApp from './App';
 import '@themes/reset.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <HacktoverfestApp />
   </React.StrictMode>,
   document.getElementById('root')
 );

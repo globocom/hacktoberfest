@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Theme } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import Hidden from '@material-ui/core/Hidden';
-import Menu from '@components/Menu'
+import Menu from '@components/menu'
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
