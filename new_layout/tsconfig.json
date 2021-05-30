@@ -1,28 +1,23 @@
 {
-  "extends": "./tsconfig.paths.json",
-  "include": [
-    "src",
-    " config-overrides.js"
-  ],
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es6",
+      "jsx": "preserve",
+      "lib": ["dom", "es2015", "es2017"],
+      "strict": true,
+      "noEmit": true,
+      "isolatedModules": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "removeComments": false,
+      "baseUrl": ".",
+      "paths": {
+        "@themes/*":["src/themes/*"],
+        "@components/*":["src/components/*"],
+        "@definitions":["src/definitions"]
+    }
+    },
+    "include": ["./src/**/*"]
   }
-}
