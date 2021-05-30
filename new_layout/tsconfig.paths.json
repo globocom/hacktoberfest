@@ -4,6 +4,7 @@
         "paths": {
             "@themes/*":["src/themes/*"],
             "@components/*":["src/components/*"],
+            "@types":["src/types"]
         }
   }
 }

@@ -7,6 +7,7 @@ module.exports = function override(config) {
       ...config.alias,
       '@themes': path.resolve(__dirname, 'src/themes'),
       '@components': path.resolve(__dirname, 'src/components'),
+      '@types': path.resolve(__dirname, 'src/types'),
     },
   };
 
