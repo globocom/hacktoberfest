@@ -19,6 +19,11 @@ declare namespace Props {
         }
     }
 
+    export interface Seo {
+        description: string
+        meta?: Array
+        title: string
+    }
 
 }
 

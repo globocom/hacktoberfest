@@ -14,7 +14,7 @@
       "removeComments": false,
       "baseUrl": ".",
       "paths": {
-        "@themes/*":["src/themes/*"],
+        "@themes":["src/themes"],
         "@components/*":["src/components/*"],
         "@definitions":["src/definitions"]
     }

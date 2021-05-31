@@ -1,24 +1,18 @@
 const path = require('path')
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Hacktoberfest`,
+    description: `Projeto opensource do Hacktoberfest promovido pela Globo.com`,
+    author: `@globocom`,
   },
   plugins: [
+    `gatsby-plugin-top-layout`,
+    `gatsby-plugin-material-ui`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-gatsby-cloud`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ['Roboto', 'Material Icons']
-        }
-      }
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

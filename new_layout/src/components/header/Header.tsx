@@ -24,10 +24,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 }))
 
 export const MenuItems = [
-    {label: 'Projetos', link: '/foo'},
-    {label: 'Regras e Princípios', link: '/foo'},
-    {label: 'Participantes', link: '/foo'},
-    {label: 'Minha Área', link: '/foo'},
+    {label: 'Projetos', link: '/projects'},
+    {label: 'Regras e Princípios', link: '/rulebook'},
+    {label: 'Participantes', link: '/participants'},
+    {label: 'Minha Área', link: '/personalArea'},
 ]
 
 
