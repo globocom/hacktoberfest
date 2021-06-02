@@ -2,12 +2,11 @@ import React from "react"
 import Layout from "@components/layout"
 import SEO from "@components/seo"
 import {makeStyles, Theme} from '@material-ui/core/styles'
-import { Grid, Typography } from "@material-ui/core"
+import { Button, Grid, Typography, Paper } from "@material-ui/core"
 
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-      height: "100%",
       color: theme.palette.primary.contrastText
   },
   panel: {
@@ -17,68 +16,80 @@ const useStyles = makeStyles((theme: Theme) => ({
     zIndex: -100,
     position: 'absolute',
   },
-  mainCall: {
-    //Start Mobile
-    textAlign: 'center',
-    '& p': {
-      fontSize: '1.5rem',
-      marginBottom: 38,
-    },
-    '& .tshirt-call': {
-      height: 80,
-      border: '1px solid #fff',
-      display: 'flex',
-      flexDirection: 'column'
-    },
-    //End Mobile
-    //Start Desktop
+  info: {
+
+  },
+  margin: (props: any) => ({
+    margin: props.marginSmart,
     [theme.breakpoints.up('md')]: {
-      '& h1': {
-        fontSize: '5rem',
-        lineHeight: '68px'
-      },
-      '& p': {
-        marginBottom: 24,
-      },
+      margin: props.marginDesktop
     }
-    //End Desktop
-  }
+  })
+
 }))
 
-const Panel = (props: PanelProps) => {
-  const classes = useStyles();
-  return(
-    <div className={classes.panel}/>
-  )
-}     
+const Element = (props: ElementProps) => {
+  const classes = useStyles(props)
+  return React.cloneElement(props.children, {
+    className: classes.margin
+  })
 
+}   
 
-
-const IndexPage = () => {
-  const classes = useStyles();
+const IndexPage = (props: IndexPageProps) => {
+  const classes = useStyles(props);
   return (
       <Layout>
         <SEO description="Globo Hacktoberfest" title="Início" />
         <div className={classes.root}>
-            <Grid container justify="center">
-              <Panel/>
-              <Grid item className={classes.mainCall}>
-                <Typography> 01 a 31 de Outubro</Typography>
-                <Typography component="h1" variant="h1" > Hacktoberfest <br/> Globo 2021</Typography>
-                <div className="tshirt-call">
-                    <Typography> Contribua e ganhe uma camseta exclusiva</Typography>
-                    <div/>
-                </div>
-              </Grid>
+          <div className={classes.panel}/>
+            <Grid direction="column" container alignItems="center" alignContent="center">
+                <Grid item>
+                  <Element marginDesktop={"0px 0px 24px"} marginSmart={"0px 0px 38px"}>
+                    <Typography align="center" variant="h2" > 01 a 31 de Outubro</Typography>  
+                  </Element>
+                </Grid>
+                <Grid item>
+                  <Element marginDesktop={"0px 0px 16px"} marginSmart={"0px 0px 20px"}>
+                    <Typography variant="h1" align="center" > Hacktoberfest <br/> Globo 2021</Typography>
+                  </Element>
+                </Grid>
+                <Grid item>
+                  <Element marginDesktop={"0px 0px 17px"} marginSmart={"0px 0px 76px"}>
+                      <Typography variant="subtitle2"> Contribua e ganhe uma camiseta exclusiva</Typography>
+                  </Element>
+                </Grid>
+                <Grid item>
+                  <Element marginDesktop={"0px 0px 17px"} marginSmart={"0px 0px 24px"}>
+                    <Button color="secondary" variant="contained">Clique para participar agora</Button>
+                  </Element>
+                </Grid>
+                <Grid item>
+                    <Element marginDesktop={"0px 0px 17px"} marginSmart={"0px 0px 24px"}>
+                      <Typography>Ver Regras</Typography>
+                    </Element>
+                </Grid>
+                <Grid item xs={12} md={12} lg={12}>
+                    <Element marginDesktop={"0px 0px 17px"} marginSmart={"0px 0px 24px"}>
+                      <Paper elevation={2}>
+                        Ola Mundo
+                      </Paper>
+                    </Element>
+                </Grid>
             </Grid>
         </div>
       </Layout>
     )
 }
 
+interface ElementProps {
+  children: React.ReactElement,
+  marginDesktop: string,
+  marginSmart: string
+}
+interface IndexPageProps {
 
-interface PanelProps {
-  
+
 }
 
 export default IndexPage

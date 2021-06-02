@@ -14,7 +14,7 @@ theme.palette = {
     main: "#E85593",
     contrastText: "#fff",
     light: "#000",
-    dark: "#000"
+    dark: "#bf497b"
   },
   type: "light",
 }
@@ -40,8 +40,21 @@ theme.typography = {
         lineHeight: '24px'
       }
     },
+    subtitle1: {
+      fontSize: '1.125rem',
+      lineHeight: '27px'
+    },
+    subtitle2: {
+      fontSize: '1.25rem',
+      lineHeight: '24px'
+    },
     body1: {
-      
+      fontSize: '1.125rem',
+      lineHeight: '27px',
+    },
+    body2: {
+      fontSize: '1rem',
+      lineHeight: '24px'
     },
     fontFamily: 'Roboto',
 }
