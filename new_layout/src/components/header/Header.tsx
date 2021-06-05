@@ -6,6 +6,7 @@ import Navigation from '@components/navigation'
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
+        fontFamily: theme.typography.fontFamily,
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.primary.contrastText,
         [theme.breakpoints.down('sm')]: {
@@ -22,26 +23,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
 }))
 
-export const MenuItems = [
-    {label: 'Projetos', link: '/projects'},
-    {label: 'Regras e Princípios', link: '/rulebook'},
-    {label: 'Participantes', link: '/participants'},
-    {label: 'Minha Área', link: '/personalArea'},
-]
-
 
 const Header = () => {
     const classes = useStyles()
     return (
         <header className={classes.root}>
-            <Grid container className={classes.container} direction="row" alignItems="center" justify="space-around">
                 <Hidden smDown>
-                    <Navigation mode="desk" items={MenuItems}/>
+                    <Navigation mode="desk"/>
                 </Hidden>
                 <Hidden mdUp>
-                    <Navigation mode="smart" items={MenuItems}/>
+                    <Navigation mode="smart"/>
                 </Hidden>
-            </Grid>
         </header>
     )
 }

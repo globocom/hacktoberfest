@@ -1,6 +1,4 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import './reset.css'
 import Header from "@components/header"
 import { makeStyles, Theme } from "@material-ui/core"
@@ -11,22 +9,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const Layout = ({ children }) => {
+const Layout = (props: LayoutProps) => {
   const classes = useStyles()
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   return (
     <>
-      <Header  siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <main className={classes.root}>{children}</main>
+      <Header />
+        <main className={classes.root}>{props.children}</main>
         <footer
             style={{
               marginTop: `2rem`,
@@ -40,8 +29,8 @@ const Layout = ({ children }) => {
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+interface LayoutProps {
+  children: React.ReactNode
 }
 
 export default Layout

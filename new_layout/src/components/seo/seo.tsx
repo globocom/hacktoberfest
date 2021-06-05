@@ -2,7 +2,17 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { Seo as SeoProps } from '@components/index'
+
+interface Meta {
+  name?: string,
+  property?: string,
+  content: string
+}
+interface SeoProps {
+  description: string
+  meta?: Array<Meta>
+  title: string
+}
 
 const Seo = (props: SeoProps) => {
   const { site } = useStaticQuery(

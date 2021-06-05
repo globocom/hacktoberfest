@@ -1,6 +1,10 @@
 import React from 'react'
-import Props from '@components/index'
 import { makeStyles, Theme } from '@material-ui/core/styles';
+
+interface NavigationItemProps {
+    label: string
+    link: string
+}
 
 const useStyles = makeStyles((theme: Theme) => ({
     item: {
@@ -14,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 }))
 
-const MenuItem = (props: Props.Navigation.NavigationItem) => {
+const MenuItem = (props: NavigationItemProps) => {
     const classes = useStyles()
     return(
       <li className={classes.item}>
