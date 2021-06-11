@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "globo-hacktoberfest",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Projeto opensource do Hacktoberfest promovido pela Globo.com",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Opensource Globo.com",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@types/react": "^17.0.8",
@@ -23,7 +23,8 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-slideshow-image": "^3.4.6"
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.1",
@@ -44,9 +45,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/globocom/hacktoberfest"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/globocom/hacktoberfest/issues"
   }
 }

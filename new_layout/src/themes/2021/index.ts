@@ -8,13 +8,23 @@ theme.palette = {
     main: "#211680",
     contrastText: "#fff",
     light: "#4E3BFB",
-    dark: "#000"
+    dark: "#090055"
   },
   secondary: {
     main: "#E85593",
     contrastText: "#fff",
     light: "#000",
     dark: "#bf497b"
+  },
+  background: {
+    default: "#E5E5E5",
+    paper: "#E5E5E5"
+  },
+  text: {
+    primary: "#090055",
+    secondary: "#E85593",
+    disabled: "#DEDEDE",
+    hint: "#090055"
   },
   type: "light",
 }
@@ -55,6 +65,10 @@ theme.typography = {
     body2: {
       fontSize: '1rem',
       lineHeight: '24px'
+    },
+    caption: {
+      fontSize: '0.75rem',
+      lineHeight: '14px'
     },
     fontFamily: 'Roboto',
 }

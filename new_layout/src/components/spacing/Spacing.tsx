@@ -8,7 +8,7 @@ interface Spacing {
 
 interface SpacingProps {
     children: React.ReactElement,
-    desktop: Spacing,
+    desktop?: Spacing,
     smart: Spacing
 }
 
@@ -17,8 +17,8 @@ const useMargins = makeStyles((theme: Theme) => ({
       margin: props.smart.margin,
       padding: props.smart.padding,
       [theme.breakpoints.up('md')]: {
-        margin: props.desktop.margin,
-        padding: props.desktop.padding,
+        margin: props.desktop?.margin,
+        padding: props.desktop?.padding,
       }
     })
 }))
