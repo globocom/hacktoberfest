@@ -20,16 +20,21 @@ const useStyles = makeStyles((theme: Theme) => ({
   info: {
     backgroundColor: theme.palette.primary.light,
     borderRadius: 5
-  }
+  },
+  large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+  },
 }))
 
 
 const Rule = () => {
+  const classes = useStyles()
   return (
     <Grid container justify="center" alignItems="center">
       <Grid item>
         <Spacing desktop={{margin: "0px 0px 16px"}} smart={{margin: "0px 0px 20px"}}>
-          <Avatar variant="rounded">
+          <Avatar className={classes.large} variant="rounded">
           </Avatar>
         </Spacing>
       </Grid>
@@ -71,6 +76,7 @@ const IndexPage = () => {
         <SEO description="Globo Hacktoberfest" title="Início" />
         <div className={classes.root}>
           <div className={classes.panel}/>
+          <Spacing desktop={{margin: "0px 0px 72px"}} smart={{margin: "0px 0px 24px"}}>
             <Grid direction="column" container alignItems="center" alignContent="center">
                 <Spacing desktop={{margin: "0px 0px 24px"}} smart={{margin: "0px 0px 38px"}}>
                   <Grid item>
@@ -92,17 +98,33 @@ const IndexPage = () => {
                       <Button color="secondary" variant="contained">Clique para participar agora</Button>
                   </Grid>
                 </Spacing>
-                <Spacing desktop={{margin: "0px 0px 72px"}} smart={{margin: "0px 0px 24px"}}>
-                  <Grid item>
-                        <Typography>Ver Regras</Typography>
-                  </Grid>
-                </Spacing>
-            </Grid>
+                <Grid item>
+                      <Typography>Ver Regras</Typography>
+                </Grid>
+              </Grid>
+            </Spacing>
+          <Spacing smart={{margin: "0px 0px 64px"}}>
             <Grid container alignItems="center" justify="center">
-                  <Grid item xs={12} md={9} lg={9}>
-                      <IndexRules/>
-                  </Grid>
+                    <Spacing desktop={{margin: "0px 0px 8px"}} smart={{margin: "0px 0px 16px"}}>
+                      <Grid item xs={12} md={9} lg={9}>
+                          <IndexRules/>
+                      </Grid>
+                    </Spacing>
+                      <Grid item xs={12}>
+                          <Typography variant="caption" component="p" align="center" color="textPrimary">* a camiseta será entregue exclusivamente em território brasileiro</Typography>
+                      </Grid>
+              </Grid>
+            </Spacing>
+          <Spacing smart={{margin: "0px 0px 64px"}}>
+            <Grid container direction="column" justify="center" alignItems="center">
+                <Grid item xs={12} md={12} lg={12}>
+                    <Typography variant="h2" color="secondary">Projetos</Typography>
+                </Grid>
+                <Grid item xs={8} md={6} lg={6}>
+                  <Typography align="center" variant="body1" color="textPrimary">Some of the most popular developer tools, frameworks and experiences in the world are built around open communities. Here are a few featured Microsoft projects of note.</Typography>
+                </Grid>
             </Grid>
+          </Spacing>
         </div>
       </Layout>
     )

@@ -35,12 +35,14 @@ const NavigationItems = (props: Props.NavigationItems) => {
 const DeskMenu = () => {
     const classes = useStyles()
     return (
-        <Grid container className={classes.container} direction="row" justify="space-between" alignItems="center">
-            <Grid item md={10}>
+        <Grid container className={classes.container} direction="row" justify="center" alignItems="center">
+            <Grid item xs={2} md={2} lg={2}>
                 <Logo/>
+            </Grid>
+            <Grid item md={8} lg={8}>
                 <NavigationItems items={MenuItems}/>
             </Grid>
-            <Grid item md={2}>
+            <Grid item md={2} lg={2}>
                 <Typography variant="subtitle1">
                     <b> globo.com </b> opensource 
                 </Typography>

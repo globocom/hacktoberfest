@@ -38,7 +38,7 @@ const FooterItems = (props: FooterItemsProps) => {
         <React.Fragment>
             {props.menuItems.map((item: MenuItem) => (
                 <Spacing smart={{margin: "0 0 8px"}}>
-                    <Grid key={item.link} item xs={12} lg={2}>
+                    <Grid key={item.link} item xs={12} md={2} lg={2}>
                         <Typography variant="body1" component="a" href={item.link}> {item.label} </Typography>
                     </Grid>
                 </Spacing>

@@ -3,16 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
     logo: {
-        display: 'inline-block',
         border: '3px solid white',
-        padding: 30
+        padding: 10,
+        textAlign: "center",
+        width: "100%"
     }
 }))
 
 const Logo = () => {
     const classes = useStyles()
     return (
-        <div className={classes.logo}> HacktoberFest Logo</div>
+        <div className={classes.logo}> HacktoberFest </div>
     )
 }
 
