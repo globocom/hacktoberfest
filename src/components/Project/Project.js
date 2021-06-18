@@ -16,16 +16,16 @@ import Colors from "@constants/colors"
 import BracketImage from "@images/2020/open-bracket.svg"
 
 const REPOSITORY_COUNT_ICONS = {
-  stars: home => () => starsIcon(home),
-  commits: home => () => iconCommits(home),
-  prs: home => () => iconPrs(home),
-  issues: home => () => iconIssues(home),
+  stars: (home) => () => starsIcon(home),
+  commits: (home) => () => iconCommits(home),
+  prs: (home) => () => iconPrs(home),
+  issues: (home) => () => iconIssues(home),
 }
 
 const ProjectWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  ${props =>
+  ${(props) =>
     !props.isFeatured &&
     css`
       margin-bottom: 1.7rem;
@@ -38,13 +38,13 @@ const ProjectDetails = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  ${props =>
+  ${(props) =>
     !props.isFeatured &&
     `
     align-items: flex-start;
   `}
   transition: visibility 225ms;
-  ${props =>
+  ${(props) =>
     !props.open
       ? css`
           display: none;
@@ -55,7 +55,7 @@ const ProjectDetails = styled.div`
         `}
   ${media.greaterThan("medium")`
     visibility: visible;
-    ${props =>
+    ${(props) =>
       props.isFeatured &&
       `
       display: inherit;
@@ -67,7 +67,7 @@ const ProjectName = styled.h2`
   flex: 1;
   font-size: 1.6rem;
   font-weight: bold;
-  color: ${props => (props.home ? "#fff" : "#000")};
+  color: ${(props) => (props.home ? "#fff" : "#000")};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,9 +79,9 @@ const ProjectName = styled.h2`
 const ProjectDescription = styled.p`
   padding: 1.5rem 0;
   line-height: 1.25;
-  color: ${props => (props.home ? "#fff" : "#000")};
+  color: ${(props) => (props.home ? "#fff" : "#000")};
   letter-spacing: 0.4px;
-  text-align: ${props => (!props.isFeatured ? "left" : "center")};
+  text-align: ${(props) => (!props.isFeatured ? "left" : "center")};
 `
 
 const ProjectWebSite = styled.a`
@@ -99,7 +99,7 @@ const ProjectLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  ${props =>
+  ${(props) =>
     !props.isFeatured &&
     `
     width: 100%;
@@ -109,8 +109,8 @@ const ProjectLinks = styled.div`
 
 const ProjectLink = styled.a`
   font-weight: bold;
-  color: ${props => (props.home ? "#fff" : "#000")};
-  padding: ${props => (props.home ? "0px 10px" : "0px")};
+  color: ${(props) => (props.home ? "#fff" : "#000")};
+  padding: ${(props) => (props.home ? "0px 10px" : "0px")};
 `
 
 const Nav = styled.div`
@@ -128,7 +128,7 @@ const Nav = styled.div`
 const NavButton = styled.i`
   width: 24px;
   height: 24px;
-  ${props =>
+  ${(props) =>
     props.open
       ? css`
           background-image: url(${iconExpandLess});
@@ -151,7 +151,7 @@ const RepoInfo = styled.div`
   display: flex;
   justify-content: space-between;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: ${props => (props.home ? "0px" : "35px")};
+  grid-gap: ${(props) => (props.home ? "0px" : "35px")};
 `
 
 const RepoCounterWrapper = styled.div`
@@ -172,8 +172,8 @@ const RepoCounterIcon = styled.i`
 `
 
 const Bracket = styled.img`
-  transform: scaleX(${props => (props.inverted ? -1 : 1)});
-  width: ${props => (props.width ? props.width : "26px")};
+  transform: scaleX(${(props) => (props.inverted ? -1 : 1)});
+  width: ${(props) => (props.width ? props.width : "26px")};
 `
 
 const StyledBracketWrapper = styled.div`
@@ -181,7 +181,7 @@ const StyledBracketWrapper = styled.div`
   align-items: center;
 `
 
-const BracketWrapper = props => {
+const BracketWrapper = (props) => {
   return (
     <StyledBracketWrapper style={{ ...props.style }}>
       {props.home && <Bracket src={BracketImage} width={props.width} />}

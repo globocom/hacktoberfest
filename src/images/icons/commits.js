@@ -1,5 +1,5 @@
 import React from "react"
-const commits = home => (
+const commits = (home) => (
   <svg fill="none" height="13" width="29" xmlns="http://www.w3.org/2000/svg">
     <g stroke={home ? "#fff" : "#000"}>
       <path

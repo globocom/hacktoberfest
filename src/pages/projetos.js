@@ -29,7 +29,7 @@ function ProjectsPage() {
 
   useEffect(() => {
     async function fetchProjects() {
-      getProjects().then(projects => {
+      getProjects().then((projects) => {
         setProjects(projects)
         setIsLoading(false)
       })
@@ -46,7 +46,7 @@ function ProjectsPage() {
       <Container>
         <ProjectList>
           {projects
-            .filter(project => project.featured)
+            .filter((project) => project.featured)
             .filter(Boolean)
             .map((project, i) => (
               <Project
@@ -67,7 +67,7 @@ function ProjectsPage() {
         ) : (
           <ProjectList>
             {projects
-              .filter(project => !project.featured)
+              .filter((project) => !project.featured)
               .filter(Boolean)
               .map((project, i) => (
                 <Project key={project.id} isFirst={i === 0} {...project} />

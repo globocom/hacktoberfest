@@ -25,7 +25,7 @@ const Input = styled.input`
   -webkit-appearance: none;
   transition: border-color 0.5s;
 
-  ${props =>
+  ${(props) =>
     props.hasError &&
     css`
       border-color: #d32f2f;

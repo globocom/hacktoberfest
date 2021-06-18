@@ -31,7 +31,7 @@ const CoderRoot = styled.div`
     height: 140px;
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
 
-    ${props =>
+    ${(props) =>
       props.approved &&
       css`
         width: 100%;
@@ -139,7 +139,7 @@ function CodersPage() {
       />
       <Container>
         <Coders>
-          {coders.map(coder => {
+          {coders.map((coder) => {
             return (
               <Coder
                 key={coder.githubID}

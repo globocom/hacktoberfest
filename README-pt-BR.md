@@ -49,4 +49,4 @@ GATSBY_GITHUB_TOKEN=<your_token_here>
 
 Este projeto está licenciado sob a Licença MIT - leia o arquivo [LICENSE.md](LICENSE) para detalhes.
 
-*Este artigo foi traduzido do [Inglês](README.md) para o [Português (Brasil)](README-pt-BR.md).*
+_Este artigo foi traduzido do [Inglês](README.md) para o [Português (Brasil)](README-pt-BR.md)._

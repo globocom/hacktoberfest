@@ -9,7 +9,7 @@ const ORGS = [
   { login: "tsuru", stars: 30 },
 ]
 
-const ORG_LOGINS = ORGS.map(org => org.login)
+const ORG_LOGINS = ORGS.map((org) => org.login)
 
 const githubClient = async (query, variables = {}) => {
   let resp
@@ -35,7 +35,7 @@ const githubClient = async (query, variables = {}) => {
   return data.data
 }
 
-const getUserProgress = async login => {
+const getUserProgress = async (login) => {
   const query = `
     query GetUserProgress($login: String!) {
       user(login: $login) {
@@ -73,7 +73,7 @@ const getUserProgress = async login => {
     const stats = { ...user, merged: 0, opened: 0 }
 
     pullRequests.nodes
-      .filter(pr => {
+      .filter((pr) => {
         const currentYear = new Date().getFullYear()
         const startDate = new Date(currentYear, 9, 1, 0, 0)
         const endDate = new Date(currentYear, 10, 1, 0, 0)
@@ -86,7 +86,7 @@ const getUserProgress = async login => {
           ORG_LOGINS.includes(targetOrg)
         )
       })
-      .forEach(pr => {
+      .forEach((pr) => {
         if (pr.state === "MERGED") {
           stats.merged += 1
           stats.opened += 1
@@ -104,7 +104,7 @@ const getIssuesUrl = () => {
   const url = new URL("https://github.com/search")
   const query = ["label:hacktoberfest", "state:open", "type:issue"]
 
-  ORG_LOGINS.forEach(login => {
+  ORG_LOGINS.forEach((login) => {
     query.push(`user:${login}`)
   })
   url.searchParams.append("q", query.join(" "))

@@ -87,16 +87,16 @@ async function getCoders() {
   return data.result
 }
 
-async function haveOpenEdition(){
-  try{
+async function haveOpenEdition() {
+  try {
     //const resp  = await fetch(`${apiUrl}/haveOpenEdition`)
     //const data = await resp.json()
-    return true;
-  }catch(error){
-    return false;
+    return true
+  } catch (error) {
+    return false
   }
 
-  return false;
+  return false
 }
 
 async function getProjects() {
@@ -132,4 +132,11 @@ async function getProjects() {
   return data
 }
 
-export { getUser, updateUser, getCoders, getEdition, getProjects, haveOpenEdition }
+export {
+  getUser,
+  updateUser,
+  getCoders,
+  getEdition,
+  getProjects,
+  haveOpenEdition,
+}

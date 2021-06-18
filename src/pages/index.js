@@ -8,7 +8,7 @@ import Layout, { Container } from "@components/Layout"
 import ProjectList from "@components/ProjectList"
 import Project from "@components/Project"
 import HacktoberFestCall from "@components/HacktoberFestCall"
-import Colors from '@constants/colors'
+import Colors from "@constants/colors"
 
 import ByTheCodeImage from "@images/2020/together-by-the-code.png"
 import BGImage from "@images/2020/background.png"
@@ -54,11 +54,9 @@ const HeroWrapper = styled.div`
     margin-bottom: 1.5rem;
     line-height: normal;
     text-align: right;
-    color: ${Colors.PRIMARY_COLOR}
-
-    ${media.greaterThan("medium")`
+    color: ${Colors.PRIMARY_COLOR} ${media.greaterThan("medium")`
       font-size: 3.75rem;
-    `}
+    `};
   }
 
   span {
@@ -78,7 +76,6 @@ const HeroWrapper = styled.div`
     ${media.greaterThan("medium")`
       width: 100%;
     `}
-
   }
 `
 
@@ -130,14 +127,14 @@ function IndexPage() {
       }
     }
   `)
-  const featured = data.allFeaturedProjectsJson.edges.map(edge => edge.node)
+  const featured = data.allFeaturedProjectsJson.edges.map((edge) => edge.node)
   useEffect(() => {
     async function populateProjects() {
-      const getByName = name => featured.filter(k => k.name === name)[0]
-      getProjects().then(projects => {
+      const getByName = (name) => featured.filter((k) => k.name === name)[0]
+      getProjects().then((projects) => {
         projects = projects
-          .filter(p => p.featured)
-          .map(p => ({
+          .filter((p) => p.featured)
+          .map((p) => ({
             ...p,
             image: { publicURL: get(getByName(p.name), "image.publicURL") },
           }))

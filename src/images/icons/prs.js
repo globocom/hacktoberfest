@@ -1,5 +1,5 @@
 import React from "react"
-const prs = home => (
+const prs = (home) => (
   <svg width="16" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fill-rule="evenodd"

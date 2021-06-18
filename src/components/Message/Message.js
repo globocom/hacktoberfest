@@ -16,20 +16,19 @@ const Container = styled.div`
   padding: 15px 20px;
   border-radius: 5px;
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 
-  ${props =>
+  ${(props) =>
     props.variant === "info" &&
     css`
       background-color: #90caf9;
     `}
-  ${props =>
+  ${(props) =>
     props.variant === "success" &&
     css`
       background-color: #43a047;
     `}
-  ${props =>
+  ${(props) =>
     props.variant === "error" &&
     css`
       background-color: #d32f2f;
