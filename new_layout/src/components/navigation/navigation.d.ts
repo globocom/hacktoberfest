@@ -1,21 +1,17 @@
 declare namespace Props {
+  interface Navigation {
+    mode: "desk" | "smart"
+  }
 
-    interface Navigation {
-        mode: "desk" | "smart"
-    }
-    
-    interface NavigationItems {
-        items: Array<NavigationItem>
-    }
+  interface NavigationItems {
+    items: Array<NavigationItem>
+  }
 
-    interface NavigationItem {
-        label: string
-        link: string
-    }
-
+  interface NavigationItem {
+    label: string
+    link: string
+  }
 }
 
-
-
-export = Props 
+export = Props
 export as namespace Props

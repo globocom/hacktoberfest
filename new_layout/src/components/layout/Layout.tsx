@@ -9,11 +9,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     backgroundColor: theme.palette.background.default,
     fontFamily: theme.typography.fontFamily,
-    '& a': {
-      textDecoration: 'none',
-      color: theme.palette.primary.contrastText
-    }
-  }
+    "& a": {
+      textDecoration: "none",
+      color: theme.palette.primary.contrastText,
+    },
+  },
 }))
 
 const Layout = (props: LayoutProps) => {

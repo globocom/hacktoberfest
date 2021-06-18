@@ -1,36 +1,33 @@
-import React from 'react'
+import React from "react"
 import { makeStyles, Theme, Typography } from "@material-ui/core"
-import Spacing from '@components/spacing'
-import { Grid } from '@material-ui/core'
+import Spacing from "@components/spacing"
+import { Grid } from "@material-ui/core"
 
-interface FooterProps {
-
-}
+interface FooterProps {}
 
 interface FooterItemsProps {
-    menuItems: Array<MenuItem>
+  menuItems: Array<MenuItem>
 }
 
 interface MenuItem {
-    label: string,
-    link: string
+  label: string
+  link: string
 }
 
-
-const MENU_ITEMS: Array<MenuItem>  = [
-    {label: "Globo.com", link: "/foo"},
-    {label: "Github", link: "/foo"},
-    {label: "Open Source", link: "/foo"},
-    {label: "Trabalhe Conosco", link: "/foo"},
+const MENU_ITEMS: Array<MenuItem> = [
+  { label: "Globo.com", link: "/foo" },
+  { label: "Github", link: "/foo" },
+  { label: "Open Source", link: "/foo" },
+  { label: "Trabalhe Conosco", link: "/foo" },
 ]
 
 const makeCss = makeStyles((theme: Theme) => ({
-    root: {
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
-        padding: 30,
-        textAlign: "center"
-    }
+  root: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    padding: 30,
+    textAlign: "center",
+  },
 }))
 
 const FooterItems = (props: FooterItemsProps) => {
@@ -57,6 +54,5 @@ const Footer = (props: FooterProps) => {
           </footer>
     )
 }
-
 
 export default Footer

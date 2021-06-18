@@ -4,21 +4,20 @@ import Spacing from '@components/spacing'
 import {makeStyles, Theme} from '@material-ui/core/styles'
 import { Button, Grid, Typography, Avatar } from "@material-ui/core"
 
-
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-      color: theme.palette.primary.contrastText
+    color: theme.palette.primary.contrastText,
   },
   panel: {
     backgroundColor: theme.palette.primary.main,
     height: "60%",
     width: "100%",
     zIndex: -100,
-    position: 'absolute',
+    position: "absolute",
   },
   info: {
     backgroundColor: theme.palette.primary.light,
-    borderRadius: 5
+    borderRadius: 5,
   },
   large: {
     width: theme.spacing(7),
@@ -30,19 +29,24 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-
 const Rule = () => {
   const classes = useStyles()
   return (
     <Grid container justifyContent="center" alignItems="center">
       <Grid item>
-        <Spacing desktop={{margin: "0px 0px 16px"}} smart={{margin: "0px 0px 20px"}}>
-          <Avatar className={classes.large} variant="rounded">
-          </Avatar>
+        <Spacing
+          desktop={{ margin: "0px 0px 16px" }}
+          smart={{ margin: "0px 0px 20px" }}
+        >
+          <Avatar className={classes.large} variant="rounded"></Avatar>
         </Spacing>
       </Grid>
       <Grid item>
-        <Typography variant="body2"> Contribua com dois PRs em qualquer projeto Open Source da Globo durante o mês de outubro. </Typography>
+        <Typography variant="body2">
+          {" "}
+          Contribua com dois PRs em qualquer projeto Open Source da Globo
+          durante o mês de outubro.{" "}
+        </Typography>
       </Grid>
     </Grid>
   )
@@ -52,28 +56,28 @@ const Rule = () => {
 const IndexRules = () => {
   const classes = useStyles();
   return (
-      <Grid container className={classes.info}>
-          <Spacing desktop={{padding: "40px"}} smart={{padding: "20px"}}>
-            <Grid item xs={12} md={4} lg={4}>
-                  <Rule/>
-            </Grid>
-          </Spacing>
-          <Spacing desktop={{padding: "40px"}} smart={{padding: "20px"}}>
-            <Grid item xs={12} md={4} lg={4}>
-                  <Rule/>
-            </Grid>
-          </Spacing>
-          <Spacing desktop={{padding: "40px"}} smart={{padding: "20px"}}>
-            <Grid item xs={12} md={4} lg={4}>
-                  <Rule/>
-            </Grid>
-          </Spacing>
-      </Grid>
+    <Grid container className={classes.info}>
+      <Spacing desktop={{ padding: "40px" }} smart={{ padding: "20px" }}>
+        <Grid item xs={12} md={4} lg={4}>
+          <Rule />
+        </Grid>
+      </Spacing>
+      <Spacing desktop={{ padding: "40px" }} smart={{ padding: "20px" }}>
+        <Grid item xs={12} md={4} lg={4}>
+          <Rule />
+        </Grid>
+      </Spacing>
+      <Spacing desktop={{ padding: "40px" }} smart={{ padding: "20px" }}>
+        <Grid item xs={12} md={4} lg={4}>
+          <Rule />
+        </Grid>
+      </Spacing>
+    </Grid>
   )
 }
 
 const IndexPage = () => {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
       <Layout title="Início - Globo Hacktoberfest">
         <div className={classes.root}>

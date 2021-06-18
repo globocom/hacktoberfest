@@ -1,2 +1,2 @@
-import Spacing from './Spacing'
+import Spacing from "./Spacing"
 export default Spacing
