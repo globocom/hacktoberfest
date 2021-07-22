@@ -21,7 +21,7 @@ const ButtonWrapper = styled.button`
   font-family: inherit;
   transition: all 0.5s ease 0s;
 
-  ${props =>
+  ${(props) =>
     props.dark
       ? css`
           color: #fff;

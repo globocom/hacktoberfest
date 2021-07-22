@@ -28,7 +28,7 @@ const Select = styled.select`
   transition: border-color 0.5s;
   cursor: pointer;
 
-  ${props =>
+  ${(props) =>
     props.hasError &&
     css`
       border-color: #d32f2f;

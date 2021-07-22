@@ -8,8 +8,8 @@ import Header from "./Header"
 import Footer from "./Footer"
 
 const Main = styled.main`
-  background-color: ${props => (props.dark ? "#000" : "transparent")};
-  padding: ${props => (props.noPadding ? "0" : "2rem 0")};
+  background-color: ${(props) => (props.dark ? "#000" : "transparent")};
+  padding: ${(props) => (props.noPadding ? "0" : "2rem 0")};
   min-height: calc(100vh - 3.75rem - 7rem);
 
   ${media.greaterThan("large")`

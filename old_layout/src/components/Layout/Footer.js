@@ -7,8 +7,8 @@ import Container from "./Container"
 
 const FooterWrapper = styled.footer`
   height: 7rem;
-  background-color: ${props => (props.dark ? "unset" : "")};
-  color: ${props => (props.dark ? "#ffffff" : "#000000")};
+  background-color: ${(props) => (props.dark ? "unset" : "")};
+  color: ${(props) => (props.dark ? "#ffffff" : "#000000")};
 
   ${media.greaterThan("large")`
     height: 6.25rem;
@@ -42,7 +42,7 @@ const FooterLinks = styled.nav`
   }
 
   li {
-    color: ${props => (props.dark ? "#ffffff" : "#000000")};
+    color: ${(props) => (props.dark ? "#ffffff" : "#000000")};
   }
 
   li + li {

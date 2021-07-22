@@ -43,7 +43,7 @@ const ProgressLine = styled.div`
   flex: 1;
   border-top: 3px solid #cfd3d4;
 
-  ${props =>
+  ${(props) =>
     !props.completed
       ? css`
           color: #cfd3d4;
@@ -65,7 +65,7 @@ const ProgressItem = styled.div`
   border-radius: 50%;
   border-style: solid;
 
-  ${props =>
+  ${(props) =>
     !props.completed
       ? css`
           border-width: 3px;

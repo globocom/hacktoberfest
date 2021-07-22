@@ -27,12 +27,10 @@ module.exports = {
           "@icons": "src/icons",
           "@images": "src/images",
           "@pages": "src/pages",
-          "@services": "src/services"
+          "@services": "src/services",
         },
-        extensions: [
-          "js"
-        ]
-      }
+        extensions: ["js"],
+      },
     },
     {
       resolve: "gatsby-plugin-manifest",

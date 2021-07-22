@@ -18,7 +18,7 @@ const HeaderWrapper = styled.header`
     height: 7.625rem;
   `}
 
-  ${props =>
+  ${(props) =>
     props.dark &&
     css`
       background-color: unset;
@@ -56,7 +56,7 @@ const MenuBurguer = styled.button`
   svg {
     width: 24px;
     height: 24px;
-    fill: ${props => (props.dark ? "#ffffff" : "#000000")};
+    fill: ${(props) => (props.dark ? "#ffffff" : "#000000")};
   }
 `
 
@@ -74,10 +74,10 @@ const Brand = styled.div`
   a {
     display: flex;
     align-items: center;
-    color: ${props => (props.dark ? "#ffffff" : "#000000")};
+    color: ${(props) => (props.dark ? "#ffffff" : "#000000")};
 
     svg {
-      fill: ${props => (props.dark ? "#ffffff" : "#000000")};
+      fill: ${(props) => (props.dark ? "#ffffff" : "#000000")};
       width: 80px;
     }
 
@@ -104,7 +104,7 @@ const Menu = styled.nav`
   z-index: 1200;
   transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 
-  ${props =>
+  ${(props) =>
     props.open
       ? css`
           transform: none;
@@ -143,7 +143,7 @@ const Menu = styled.nav`
       color: #ffffff;
 
       ${media.greaterThan("large")`
-        color: ${props => (props.dark ? "#ffffff" : "#000000")};
+        color: ${(props) => (props.dark ? "#ffffff" : "#000000")};
         margin-left: 2.5rem;
       `}
     }
@@ -180,7 +180,7 @@ function Header({ dark }) {
     setOpen(true)
   }
 
-  const handleMenuCloseOutside = event => {
+  const handleMenuCloseOutside = (event) => {
     if (node.current.contains(event.target)) {
       return
     }

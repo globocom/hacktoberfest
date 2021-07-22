@@ -52,4 +52,4 @@ or you could just run `make setup-dev` and replace `.env.development` entries wi
 
 This project is licensed under the MIT License - read [LICENSE.md](LICENSE) file for details.
 
-*This article can also be read in [Brazilian Portuguese](README-pt-BR.md).*
+_This article can also be read in [Brazilian Portuguese](README-pt-BR.md)._

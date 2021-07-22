@@ -59,7 +59,8 @@ const EventHeader2 = styled.div`
 `
 
 const CallContainer = styled(Container)`
-  flex-direction: ${props => (props.isCallOnly ? "column-reverse" : "column")};
+  flex-direction: ${(props) =>
+    props.isCallOnly ? "column-reverse" : "column"};
   display: flex;
   justify-content: center;
   align-items: center;
