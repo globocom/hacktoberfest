@@ -56,7 +56,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                 <form onSubmit={formik.handleSubmit}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
-                            <Typography component="h2" color="secondary" variant="h2">Dados pessoais</Typography>
+                            <Typography style={{fontWeight: 600}} component="h2" color="secondary" variant="h2">Dados pessoais</Typography>
                         </Grid>
                         <Grid item xs={12} md={8}>
                             <TextField

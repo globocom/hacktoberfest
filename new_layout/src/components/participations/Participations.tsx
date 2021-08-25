@@ -61,7 +61,7 @@ const ParticipationHistory = (props:ParticipationHistoryProps) => {
             <Grid container>
                 <Grid item xs={12} md={8}>
                     <Spacing smart={{margin: "0px 0px 24px"}}>
-                        <Typography component="h2" color="secondary" variant="h2">Histórico de Participação</Typography>
+                        <Typography component="h2" color="secondary" style={{fontWeight: 600}} variant="h2">Histórico de Participação</Typography>
                     </Spacing>
                 </Grid>
                 <Grid item xs={12} md={12}>

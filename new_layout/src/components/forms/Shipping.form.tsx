@@ -6,7 +6,7 @@ import { Grid, Typography, TextField, InputAdornment, MenuItem} from '@material-
 import Spacing from '@components/spacing'
 import User, { UserProps } from '@services/user'
 import LoadingButton from '@components/loading-button'
-import Hacktoberfest,{ HacktoberfestEditionProps } from '@services/hacktoberfest'
+import Hacktoberfest from '@services/hacktoberfest'
 
 //Icons
 import PersonPinCircle from '@material-ui/icons/PersonPinCircle'
@@ -80,7 +80,7 @@ const ShippingForm = (props: ShippingFormProps) => {
             <form onSubmit={formik.handleSubmit}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <Typography component="h2" color="secondary" variant="h2">Dados para premiação</Typography>
+                        <Typography style={{fontWeight: 600}} component="h2" color="secondary" variant="h3">Dados para premiação</Typography>
                     </Grid>
                     <Grid item xs={12} md={8}>
                         <TextField 

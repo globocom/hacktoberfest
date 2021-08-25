@@ -37,60 +37,40 @@ theme.typography = {
     [theme.breakpoints.up("md")]: {
       fontSize: "5rem",
       lineHeight: "68px",
-    },
-    h2: {
-      fontSize: '1.5rem',
-      lineHeight: '36px',
-    },
-    h3: {
-      fontSize: '1.25rem',
-      lineHeight: '30px',
-      [theme.breakpoints.up('md')]: {
-        lineHeight: '24px'
-      }
-    },
-    subtitle1: {
-      fontSize: '1.125rem',
-      lineHeight: '27px'
-    },
-    subtitle2: {
-      fontSize: '1.25rem',
+    }
+  },
+  h2: {
+    fontSize: '1.5rem',
+    lineHeight: '36px',
+  },
+  h3: {
+    fontSize: '1.25rem',
+    lineHeight: '30px',
+    [theme.breakpoints.up('md')]: {
       lineHeight: '24px'
-    },
-    body1: {
-      fontSize: '1.125rem', //18px
-      lineHeight: '27px',
-    },
-    body2: {
-      fontSize: '1rem', //16px
-      lineHeight: '24px'
-    },
-    caption: {
-      fontSize: '0.75rem',
-      lineHeight: '14px'
-    },
+    }
   },
   subtitle1: {
-    fontSize: "1.125rem",
-    lineHeight: "27px",
+    fontSize: '1.125rem',
+    lineHeight: '27px'
   },
   subtitle2: {
-    fontSize: "1.25rem",
-    lineHeight: "24px",
+    fontSize: '1.25rem',
+    lineHeight: '24px'
   },
   body1: {
-    fontSize: "1.125rem",
-    lineHeight: "27px",
+    fontSize: '1.125rem', //18px
+    lineHeight: '27px',
   },
   body2: {
-    fontSize: "1rem",
-    lineHeight: "24px",
+    fontSize: '1rem', //16px
+    lineHeight: '24px'
   },
   caption: {
-    fontSize: "0.75rem",
-    lineHeight: "14px",
+    fontSize: '0.75rem',
+    lineHeight: '14px'
   },
-  fontFamily: "Roboto",
+  fontFamily: "Roboto"
 }
 
 export default theme
