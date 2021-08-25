@@ -1,12 +1,12 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles'
 
-const theme = createMuiTheme()
+const theme = createTheme()
 
 theme.palette = {
   ...theme.palette,
   primary: {
     main: "#211680",
-    contrastText: "#fff",
+    contrastText: "#DAD6FF",
     light: "#4E3BFB",
     dark: "#090055"
   },
@@ -17,12 +17,12 @@ theme.palette = {
     dark: "#bf497b"
   },
   background: {
-    default: "#E5E5E5",
+    default: "#EAF1FC",
     paper: "#E5E5E5"
   },
   text: {
     primary: "#090055",
-    secondary: "#E85593",
+    secondary: "#090055",
     disabled: "#DEDEDE",
     hint: "#090055"
   },
@@ -59,11 +59,11 @@ theme.typography = {
       lineHeight: '24px'
     },
     body1: {
-      fontSize: '1.125rem',
+      fontSize: '1.125rem', //18px
       lineHeight: '27px',
     },
     body2: {
-      fontSize: '1rem',
+      fontSize: '1rem', //16px
       lineHeight: '24px'
     },
     caption: {

@@ -17,7 +17,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/themes/2021/images`,
+        path: `${__dirname}/src/themes/images`,
       },
     },
     {
@@ -29,7 +29,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/themes/2021/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/themes/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -38,7 +38,8 @@ module.exports = {
           alias: {
               '@themes': path.resolve(__dirname, 'src/themes'),
               '@components': path.resolve(__dirname, 'src/components'),
-              '@definitions': path.resolve(__dirname, 'src/definitions')
+              '@services': path.resolve(__dirname, 'src/services'),
+              '@defs': path.resolve(__dirname, 'src/definitions')
           },
           extensions: [
               "ts",

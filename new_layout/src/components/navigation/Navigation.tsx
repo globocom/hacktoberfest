@@ -35,7 +35,7 @@ const NavigationItems = (props: Props.NavigationItems) => {
 const DeskMenu = () => {
     const classes = useStyles()
     return (
-        <Grid container className={classes.container} direction="row" justify="center" alignItems="center">
+        <Grid container className={classes.container} direction="row" justifyContent="center" alignItems="center">
             <Grid item xs={2} md={2} lg={2}>
                 <Logo/>
             </Grid>

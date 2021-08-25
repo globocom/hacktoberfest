@@ -36,9 +36,9 @@ const makeCss = makeStyles((theme: Theme) => ({
 const FooterItems = (props: FooterItemsProps) => {
     return (
         <React.Fragment>
-            {props.menuItems.map((item: MenuItem) => (
-                <Spacing smart={{margin: "0 0 8px"}}>
-                    <Grid key={item.link} item xs={12} md={2} lg={2}>
+            {props.menuItems.map((item: MenuItem, i: number) => (
+                <Spacing key={i} smart={{margin: "0 0 8px"}}>
+                    <Grid item xs={12} md={2} lg={2}>
                         <Typography variant="body1" component="a" href={item.link}> {item.label} </Typography>
                     </Grid>
                 </Spacing>
@@ -51,7 +51,7 @@ const Footer = (props: FooterProps) => {
     const classes = makeCss()
     return (
         <footer className={classes.root}>
-            <Grid container justify="center" alignItems="center">
+            <Grid container justifyContent="center" alignItems="center">
                 <FooterItems menuItems={MENU_ITEMS}/>
             </Grid>
           </footer>

@@ -1,9 +1,8 @@
 import React from "react"
 import Layout from "@components/layout"
-import SEO from "@components/seo"
 import Spacing from '@components/spacing'
 import {makeStyles, Theme} from '@material-ui/core/styles'
-import { Button, Grid, Typography, Paper, Avatar } from "@material-ui/core"
+import { Button, Grid, Typography, Avatar } from "@material-ui/core"
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -25,13 +24,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: theme.spacing(7),
     height: theme.spacing(7),
   },
+  rounded: {
+    borderRadius: 50,
+    fontWeight: "normal"
+  }
 }))
 
 
 const Rule = () => {
   const classes = useStyles()
   return (
-    <Grid container justify="center" alignItems="center">
+    <Grid container justifyContent="center" alignItems="center">
       <Grid item>
         <Spacing desktop={{margin: "0px 0px 16px"}} smart={{margin: "0px 0px 20px"}}>
           <Avatar className={classes.large} variant="rounded">
@@ -46,7 +49,7 @@ const Rule = () => {
 }
 
 
-const IndexRules = (props: IndexRuleProps) => {
+const IndexRules = () => {
   const classes = useStyles();
   return (
       <Grid container className={classes.info}>
@@ -72,8 +75,7 @@ const IndexRules = (props: IndexRuleProps) => {
 const IndexPage = () => {
   const classes = useStyles();
   return (
-      <Layout>
-        <SEO description="Globo Hacktoberfest" title="Início" />
+      <Layout title="Início - Globo Hacktoberfest">
         <div className={classes.root}>
           <div className={classes.panel}/>
           <Spacing desktop={{margin: "0px 0px 72px"}} smart={{margin: "0px 0px 24px"}}>
@@ -95,7 +97,12 @@ const IndexPage = () => {
                 </Spacing>
                 <Spacing desktop={{margin: "0px 0px 17px"}} smart={{margin: "0px 0px 24px"}}>
                   <Grid item>
-                      <Button color="secondary" variant="contained">Clique para participar agora</Button>
+                      <Button className={classes.rounded} color="secondary" variant="contained">
+                        <div>
+                          <b>Participar</b><br/>
+                          Com a sua conta do github
+                        </div>
+                      </Button>
                   </Grid>
                 </Spacing>
                 <Grid item>
@@ -104,7 +111,7 @@ const IndexPage = () => {
               </Grid>
             </Spacing>
           <Spacing smart={{margin: "0px 0px 64px"}}>
-            <Grid container alignItems="center" justify="center">
+            <Grid container alignItems="center" justifyContent="center">
                     <Spacing desktop={{margin: "0px 0px 8px"}} smart={{margin: "0px 0px 16px"}}>
                       <Grid item xs={12} md={9} lg={9}>
                           <IndexRules/>
@@ -116,7 +123,7 @@ const IndexPage = () => {
               </Grid>
             </Spacing>
           <Spacing smart={{margin: "0px 0px 64px"}}>
-            <Grid container direction="column" justify="center" alignItems="center">
+            <Grid container direction="column" justifyContent="center" alignItems="center">
                 <Grid item xs={12} md={12} lg={12}>
                     <Typography variant="h2" color="secondary">Projetos</Typography>
                 </Grid>
@@ -128,14 +135,6 @@ const IndexPage = () => {
         </div>
       </Layout>
     )
-}
-
-interface IndexRuleProps {
-
-}
-
-interface IndexPageProps {
-
 }
 
 export default IndexPage

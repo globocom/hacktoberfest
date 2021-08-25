@@ -16,7 +16,8 @@
       "paths": {
         "@themes":["src/themes"],
         "@components/*":["src/components/*"],
-        "@definitions":["src/definitions"]
+        "@services/*":["src/services/*"],
+        "@defs": ["src/definitions"]
     }
     },
     "include": ["./src/**/*"]

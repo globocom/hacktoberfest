@@ -1,2 +1,7 @@
 import Header from './Header'
-export default Header
+import HeaderTitle from './HeaderTitle'
+
+export {
+     Header,
+     HeaderTitle
+}
