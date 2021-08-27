@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         minHeight: 260
     },
     colored: {
-        color: theme.palette.primary.contrastText
+        color: theme.palette.primary.contrastText,
     },
     divisor: {
         width: "20%",

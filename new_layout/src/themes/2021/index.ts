@@ -40,15 +40,12 @@ theme.typography = {
     }
   },
   h2: {
-    fontSize: '1.5rem',
+    fontSize: '1.5rem', //24px
     lineHeight: '36px',
   },
   h3: {
-    fontSize: '1.25rem',
-    lineHeight: '30px',
-    [theme.breakpoints.up('md')]: {
-      lineHeight: '24px'
-    }
+    fontSize: '1.25rem', //20px
+    lineHeight: '30px'
   },
   subtitle1: {
     fontSize: '1.125rem',

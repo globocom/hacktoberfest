@@ -13,6 +13,12 @@ export default class UserService {
         return this._userService
     }
 
+    async isLogged(): Promise<boolean> {
+        const isLogged = await this.GetUser();
+        if(isLogged.id) return true
+        return false
+    }
+
     async GetUser(): Promise<UserProps>{
         const res = await doRequest({path: "/user", sendCookies: true, method: "GET"})
         return {

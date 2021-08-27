@@ -1,5 +1,5 @@
 import React from "react"
-import { Grid, Theme } from "@material-ui/core"
+import { Theme } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Hidden from "@material-ui/core/Hidden"
 import Navigation from "@components/navigation"

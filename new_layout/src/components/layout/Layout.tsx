@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Layout = (props: LayoutProps) => {
   const classes = useStyles()
-
   return (
     <div className={classes.root}>
         <SEO description={props.description || "Globo Hacktoberfest"}  title={props.title || "Globo Hacktoberfest"} />

@@ -1,15 +1,15 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Grid, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Props from "./navigation"
 import Logo from "@components/logo"
 import NavigationItem from "./NavigationItem"
+import User from "@services/user"
 
 const MenuItems: Array<Props.NavigationItem> = [
   { label: "Projetos", link: "/projects" },
   { label: "Regras e Princípios", link: "/rulebook" },
   { label: "Participantes", link: "/participants" },
-  { label: "Minha Área", link: "/personalArea" },
 ]
 
 const useStyles = makeStyles(() => ({
@@ -23,12 +23,20 @@ const useStyles = makeStyles(() => ({
 }))
 
 const NavigationItems = (props: Props.NavigationItems) => {
+  const [isLogged, setIsLogged] = useState<boolean>()
+
+  useEffect(() => {
+    const checkIfLogged = async () => setIsLogged(await User.Service.getInstance().isLogged())
+    checkIfLogged()
+  },[])
+
   const classes = useStyles()
   return (
     <ul className={classes.navigation}>
       {props.items.map((def: Props.NavigationItem) => (
         <NavigationItem key={def.label} {...def} />
       ))}
+      {isLogged && <NavigationItem label="Minha Área" link="/personalArea" />}
     </ul>
   )
 }
