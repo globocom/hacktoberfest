@@ -8,10 +8,13 @@ interface NavigationItemProps {
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
-  item: {
-    padding: 15,
-    cursor: "pointer",
-    margin: "0 10px",
+    item: {
+    paddingBottom: 15,
+    [theme.breakpoints.up("md")]: {
+      color: "red",
+      padding: 15,
+      cursor: "pointer"
+    }
   },
 }))
 

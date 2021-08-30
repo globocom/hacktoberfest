@@ -27,6 +27,9 @@ const makeCss = makeStyles((theme: Theme) => ({
     color: theme.palette.primary.contrastText,
     padding: 30,
     textAlign: "center",
+    "& a": {
+      color: theme.palette.primary.contrastText,
+    },
   },
 }))
 

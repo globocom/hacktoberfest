@@ -8,9 +8,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     fontFamily: theme.typography.fontFamily,
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    [theme.breakpoints.down("sm")]: {
-      backgroundColor: "#000",
+    "& a": {
+      color: theme.palette.text.primary,
+      textDecoration: "none",
+      [theme.breakpoints.up("md")]: {
+        color: theme.palette.primary.contrastText,
+      },
     },
   },
   container: {

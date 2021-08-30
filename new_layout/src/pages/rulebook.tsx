@@ -9,13 +9,12 @@ interface RuleProps {
 }
 
 const Rule = (props: RuleProps) => {
-
   return (
     <React.Fragment>
       {props.title && <Spacing smart={{margin: "0px 0px 8px"}}>
-        <Typography variant="h3" component="p" color="primary" style={{fontWeight: 600}}> {props.title} </Typography>
+        <Typography variant="h3" component="p" color="textPrimary" style={{fontWeight: 600}}> {props.title} </Typography>
       </Spacing> }
-      <Typography variant="h3" align="center" component="span" color="primary"> {props.children} </Typography>
+      <Typography variant="h3" align="center" component="span" color="textPrimary"> {props.children} </Typography>
     </React.Fragment>
   )
 }

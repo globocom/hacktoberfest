@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontFamily: theme.typography.fontFamily,
     "& a": {
       textDecoration: "none",
-      color: theme.palette.primary.contrastText,
     },
   },
 }))
