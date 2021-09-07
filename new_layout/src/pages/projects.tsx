@@ -1,5 +1,5 @@
-import React, { Fragment } from "react"
-import { Button, Divider, Grid, Typography } from "@material-ui/core"
+import React from "react"
+import { Button, Grid, Typography } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import Spacing from "@components/spacing"
 import Layout from "@components/layout"
@@ -9,9 +9,23 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
   },
+  projectName: {
+    fontSize: 56,
+    marginRight: 30,
+  },
   rounded: {
     borderRadius: 50,
     fontWeight: "normal",
+  },
+  topDivider: {
+    width: "100%",
+    borderBottom: `1px solid #E0E0E0;`,
+    marginBottom: 32,
+  },
+  bottomDivider: {
+    width: "100%",
+    borderBottom: `1px solid #E0E0E0;`,
+    margin: "32px 0px",
   },
 }))
 
@@ -82,7 +96,7 @@ const ProjectsPage = () => {
       headerTitle="Projetos"
     >
       <SEO description="Globo Hacktoberfest" title="Projetos" />
-      <Spacing smart={{ margin: "64px 0px 24px" }}>
+      <Spacing smart={{ margin: "64px 0px 40px" }}>
         <Typography
           component="p"
           align="center"
@@ -92,25 +106,30 @@ const ProjectsPage = () => {
           Gostaríamos da sua ajuda principalmente nos seguintes projetos:
         </Typography>
       </Spacing>
-      {projects.map((project, index) => {
-        const { name, description, repo, imageUrl } = project
+      <Spacing smart={{ margin: "0px 0px 80px" }}>
+        <Grid container direction="column" alignItems="center">
+          {projects.map((project, index) => {
+            const { name, description, repo, imageUrl } = project
 
-        return (
-          <ProjectCard
-            name={name}
-            description={description}
-            repoUrl={repo}
-            image={imageUrl}
-          />
-        )
-      })}
+            return (
+              <ProjectCard
+                name={name}
+                description={description}
+                repoUrl={repo}
+                image={imageUrl}
+                isFirst={index === 0}
+              />
+            )
+          })}
+        </Grid>
+      </Spacing>
     </Layout>
   )
 }
 
 function ProjectCard(props: ProjectCardProps) {
   const classes = useStyles()
-  const { name, description, repoUrl, image } = props
+  const { name, description, repoUrl, image, isFirst } = props
   const { thumborUrl } = image
 
   function projectAccessOnClick() {
@@ -118,31 +137,46 @@ function ProjectCard(props: ProjectCardProps) {
   }
 
   return (
-    <Fragment>
-      <Typography color="primary" variant="h1">
-        {name}
-      </Typography>
-      <img src={thumborUrl} alt="project image" height={50} />
-      <Typography component="p" color="primary" variant="body1">
-        {description}
-      </Typography>
-      <Button
-        className={classes.rounded}
-        color="secondary"
-        variant="contained"
-        onClick={projectAccessOnClick}
-      >
-        acessar
-      </Button>
-    </Fragment>
+    <Grid item container direction="row" xs={8}>
+      {isFirst && <div className={classes.topDivider} />}
+      <Grid item container direction="column" xs={10}>
+        <Grid item container direction="row" alignItems="center">
+          <Typography color="primary" className={classes.projectName}>
+            {name}
+          </Typography>
+          <img src={thumborUrl} alt="project image" height={50} />
+        </Grid>
+        <Spacing smart={{ margin: "16px 0px 0px" }}>
+          <Typography component="p" color="primary" variant="body1">
+            {description}
+          </Typography>
+        </Spacing>
+      </Grid>
+      <Grid item container xs={2} alignItems="center" justifyContent="flex-end">
+        <Button
+          className={classes.rounded}
+          color="secondary"
+          variant="contained"
+          onClick={projectAccessOnClick}
+        >
+          acessar
+        </Button>
+      </Grid>
+      <div className={classes.bottomDivider} />
+    </Grid>
   )
 }
 
 interface ProjectCardProps {
-  name: String
-  description: String
-  projectUrl: String
-  image: Object
+  name: string
+  description: string
+  repoUrl: string
+  isFirst: boolean
+  image: ProjectImage
+}
+
+interface ProjectImage {
+  thumborUrl: string
 }
 
 export default ProjectsPage
