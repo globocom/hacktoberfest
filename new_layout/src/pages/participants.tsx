@@ -12,8 +12,8 @@ const ParticipantsPage = () => {
       <Grid container direction="column" justifyContent="center" alignItems="flex-start" alignContent="center">
         <Spacing smart={{margin: "64px 0px 24px"}}>
           <Grid item xs={6} md={6}>
-            <List style={{ minWidth: 700 }}>
-              <ListItem alignItems="flex-start">
+            <List style={{ minWidth: 700, backgroundColor: "#fff", borderRadius: 8, border: "1px solid #C8DAF6", padding: 8 }}>
+              <ListItem alignItems="flex-start" style={{ paddingBottom: 2 }}>
                 <ListItemAvatar>
                   <Avatar alt="joserenatosilva" src="https://avatars0.githubusercontent.com/u/11424945?v=4" />
                 </ListItemAvatar>
@@ -34,7 +34,7 @@ const ParticipantsPage = () => {
                   </IconButton>
                 </ListItemSecondaryAction>
               </ListItem>
-              <ListItem alignItems="flex-start">
+              <ListItem alignItems="flex-start" style={{ paddingBottom: 2 }}>
                 <ListItemAvatar>
                   <Avatar alt="joserenatosilva" src="https://avatars0.githubusercontent.com/u/11424945?v=4" />
                 </ListItemAvatar>
