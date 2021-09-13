@@ -1,125 +1,117 @@
 import React, { useState, useEffect } from "react"
 import Layout from "@components/layout"
 import SEO from "@components/seo"
-import { Avatar, Box, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Paper, Tab, Tabs, Typography } from "@material-ui/core"
+import { 
+  Avatar, 
+  Box, 
+  Grid, 
+  IconButton, 
+  List, 
+  ListItem, 
+  ListItemAvatar, 
+  ListItemSecondaryAction, 
+  ListItemText, 
+  Tab, 
+  Tabs, 
+  Typography
+} from "@material-ui/core"
 import Spacing from "@components/spacing"
 import { Image } from '@components/image'
-import { withStyles } from "@material-ui/core/styles"
+import Participants, { ParticipantsProps } from "@services/participants"
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+interface TabPanelProps {
+  children: React.ReactNode,
+  value: number,
+  index: number,
+}
+
+const TabPanel = (props: TabPanelProps) => {
+  const { children, value, index, ...rest } = props;
 
   return (
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`scrollable-auto-tabpanel-${index}`}
-      aria-labelledby={`scrollable-auto-tab-${index}`}
-      {...other}
+      {...rest}
     >
       {value === index && (
-        <p>{children}</p>
+        <React.Fragment>
+          {children}
+        </React.Fragment>
       )}
     </div>
-  );
-}
-
-function a11yProps(index) {
-  return {
-    id: `scrollable-auto-tab-${index}`,
-    'aria-controls': `scrollable-auto-tabpanel-${index}`,
-  };
+  )
 }
 
 const ParticipantsPage = () => {
-  const [value, setValue] = useState(0);
+  const [tabValue, setTabValue] = useState<number>(0)
+  const [participants, setParticipants] = useState<Array<ParticipantsProps>>([])
 
-  const handleChange = (_: any, newValue: number) => {
-    setValue(newValue);
+  useEffect(() => {
+    const fetchParticipants = async () => {
+      const response: Array<ParticipantsProps> = await Participants.Service.getInstance().GetParticipants()
+      setParticipants(response)
+    }
+    fetchParticipants()
+  }, []);
+
+  const handleChange = (_: any, newTabValue: number) => {
+    setTabValue(newTabValue);
   };
   
   return (
     <Layout title="Participantes - Globo Hacktoberfest" description="Participantes - Globo Hacktoberfest" headerTitle="Participantes">
       <SEO description="Globo Hacktoberfest" title="Participantes" />
-      <Grid container direction="column" justifyContent="center" alignItems="flex-start" alignContent="center">
-        <Spacing smart={{margin: "64px 0px 24px"}}>
-          <Grid item xs={6} md={6}>
-          <Box style={{ flexGrow: 1 }}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              indicatorColor="primary"
-              textColor="primary"
-              centered
-              style={{ minWidth: 700 }}
-            >
-              <Tab style={{ minWidth: 68, fontSize: "1rem" }} label="2021"  />
-              <Tab style={{ minWidth: 68, fontSize: "1rem" }} label="2020"  />
-              <Tab style={{ minWidth: 68, fontSize: "1rem" }} label="2019" />
-              <Tab style={{ minWidth: 68, fontSize: "1rem" }} label="2018" />
-            </Tabs>
-            <TabPanel value={value} index={0}>
-              <Box>
-            <List style={{ backgroundColor: "#fff", borderRadius: 8, border: "1px solid #C8DAF6", padding: 8 }}>
-              <ListItem alignItems="flex-start" style={{ paddingBottom: 2 }}>
-                <ListItemAvatar>
-                  <Avatar alt="joserenatosilva" src="https://avatars0.githubusercontent.com/u/11424945?v=4" />
-                </ListItemAvatar>
-                <ListItemText
-                  primary="@joserenatosilva"
-                  secondary={
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      >
-                      15 pull requests • desafio completo
-                    </Typography>
-                  }
-                />
-                <ListItemSecondaryAction>
-                  <IconButton edge="end" aria-label="GitHub">
-                    <Image src="github-logo.svg" />
-                  </IconButton>
-                </ListItemSecondaryAction>
-              </ListItem>
-              <ListItem alignItems="flex-start" style={{ paddingBottom: 2 }}>
-                <ListItemAvatar>
-                  <Avatar alt="joserenatosilva" src="https://avatars0.githubusercontent.com/u/11424945?v=4" />
-                </ListItemAvatar>
-                <ListItemText
-                  primary="@joserenatosilva"
-                  secondary={
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      >
-                      15 pull requests • desafio completo
-                    </Typography>
-                  }
-                />
-                <ListItemSecondaryAction>
-                  <IconButton edge="end" aria-label="GitHub">
-                    <Image src="github-logo.svg" />
-                  </IconButton>
-                </ListItemSecondaryAction>
-              </ListItem>
-            </List>
+      <Grid container justifyContent="center" alignContent="center">
+        <Spacing smart={{ margin: "38px 0px 100px" }}>
+          <Grid item xs={11} md={6} lg={4}>
+            <Box style={{ flexGrow: 1 }}>
+              <Tabs
+                value={tabValue}
+                onChange={handleChange}
+                indicatorColor="primary"
+                textColor="primary"
+                centered
+              >
+                {participants.map(item => (
+                  <Tab style={{ minWidth: 68, fontSize: "1rem" }} label={item.edition}  />
+                ))}
+              </Tabs>
+              {participants.map((item, index) => (
+                <TabPanel value={tabValue} index={index}>
+                  <List style={{ backgroundColor: "#fff", borderRadius: 8, border: "1px solid #C8DAF6", padding: 8 }}>
+                    {item.participants.map(participant => (
+                      <ListItem alignItems="flex-start" style={{ paddingBottom: 2 }}>
+                        <ListItemAvatar>
+                          <Avatar alt={participant.githubUser} src={participant.avatar} />
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={`@${participant.githubUser}`}
+                          secondary={
+                            <Typography
+                              component="span"
+                              variant="body2"
+                              >
+                              {participant.total_pull_requests} pull requests • {participant.approved ? "desafio completo" : "desafio incompleto"} 
+                            </Typography>
+                          }
+                        />
+                        <a href={`https://github.com/${participant.githubUser}`} target="_blank">
+                          <ListItemSecondaryAction>
+                            <IconButton edge="end" aria-label="GitHub">
+                              <Image src="github-logo.svg" />
+                            </IconButton>
+                          </ListItemSecondaryAction>
+                        </a>
+                      </ListItem>
+                    ))}
+                  </List>
+                </TabPanel>
+              ))}
             </Box>
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                  nha
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                  nha
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-                  nha
-            </TabPanel>
-          </Box>
           </Grid>
         </Spacing>
       </Grid>
-      
     </Layout>
   )
 }
