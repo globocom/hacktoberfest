@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "@components/layout"
 import Spacing from '@components/spacing'
+import HeroCall from '@components/hero'
 import {makeStyles, Theme} from '@material-ui/core/styles'
 import { Button, Grid, Typography, Avatar } from "@material-ui/core"
 
@@ -81,39 +82,7 @@ const IndexPage = () => {
   return (
       <Layout title="Início - Globo Hacktoberfest">
         <div className={classes.root}>
-          <div className={classes.panel}/>
-          <Spacing desktop={{margin: "0px 0px 72px"}} smart={{margin: "0px 0px 24px"}}>
-            <Grid direction="column" container alignItems="center" alignContent="center">
-                <Spacing desktop={{margin: "0px 0px 24px"}} smart={{margin: "0px 0px 38px"}}>
-                  <Grid item>
-                      <Typography align="center" variant="h2" > 01 a 31 de Outubro</Typography>  
-                  </Grid>
-                </Spacing>
-                <Spacing desktop={{margin: "0px 0px 16px"}} smart={{margin: "0px 0px 20px"}}>
-                  <Grid item>
-                      <Typography variant="h1" align="center" > Hacktoberfest <br/> Globo 2021</Typography>
-                  </Grid>
-                </Spacing>
-                <Spacing desktop={{margin: "0px 0px 17px"}} smart={{margin: "0px 0px 76px"}}>
-                  <Grid item>
-                        <Typography variant="subtitle2"> Contribua e ganhe uma camiseta exclusiva</Typography>
-                  </Grid>
-                </Spacing>
-                <Spacing desktop={{margin: "0px 0px 17px"}} smart={{margin: "0px 0px 24px"}}>
-                  <Grid item>
-                      <Button className={classes.rounded} color="secondary" variant="contained">
-                        <div>
-                          <b>Participar</b><br/>
-                          Com a sua conta do github
-                        </div>
-                      </Button>
-                  </Grid>
-                </Spacing>
-                <Grid item>
-                      <Typography>Ver Regras</Typography>
-                </Grid>
-              </Grid>
-            </Spacing>
+          <HeroCall/>
           <Spacing smart={{margin: "0px 0px 64px"}}>
             <Grid container alignItems="center" justifyContent="center">
                     <Spacing desktop={{margin: "0px 0px 8px"}} smart={{margin: "0px 0px 16px"}}>
@@ -125,7 +94,7 @@ const IndexPage = () => {
                           <Typography variant="caption" component="p" align="center" color="textPrimary">* a camiseta será entregue exclusivamente em território brasileiro</Typography>
                       </Grid>
               </Grid>
-            </Spacing>
+          </Spacing>
           <Spacing smart={{margin: "0px 0px 64px"}}>
             <Grid container direction="column" justifyContent="center" alignItems="center">
                 <Grid item xs={12} md={12} lg={12}>
