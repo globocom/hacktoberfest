@@ -59,8 +59,12 @@ theme.typography = {
     fontSize: '1.125rem', //18px
     lineHeight: '27px',
   },
+  body2: {
+    fontSize: '1rem', //16px
+    lineHeight: '24px'
+  },
   caption: {
-    fontSize: '0.75rem',
+    fontSize: '0.875rem',
     lineHeight: '14px'
   },
   fontFamily: "Roboto"
