@@ -57,19 +57,16 @@ deploy:	build
 deploy-dev:	build-dev
 	tsuru app-deploy public -a hacktoberfest-dev
 
-## clean docker-compose images
-docker-clean:
-	docker-compose --project-name ${PROJECT_NAME} rm -f
 
-## start development with docker-compose
-docker-start: docker-clean
-	docker-compose --project-name ${PROJECT_NAME} up -d --remove-orphans
+## start development with docker
+docker-start: 
+	docker run --name hacktoberfest -d -p 80:80 hacktoberfest 
 
-## build docker-compose images
-docker-build: docker-clean
-	docker-compose --project-name ${PROJECT_NAME} pull
-	docker-compose --project-name ${PROJECT_NAME} build
+## build docker images
+docker-build:
+	docker build . -t hacktoberfest
 
-## stop docker-compose
-docker-stop: docker-clean
-	docker-compose --project-name ${PROJECT_NAME} stop
+## stop docker
+docker-stop: 
+	docker kill hacktoberfest
+	docker rm hacktoberfest
