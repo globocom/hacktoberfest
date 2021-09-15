@@ -1,5 +1,5 @@
 import doRequest from '../api.service'
-import { ParticipantsProps } from './index'
+import { ParticipantProps } from './index'
 
 export default class ParticipantsService {
 
@@ -13,8 +13,8 @@ export default class ParticipantsService {
         return this._participantsService
     }
 
-    async GetParticipants(): Promise<Array<ParticipantsProps>>{
-        const res = await doRequest({ path: "/status", method: "GET" })
+    async GetParticipants(edition: number): Promise<Array<ParticipantProps>>{
+        const res = await doRequest({ path: `/status?edition=${edition}`, method: "GET" })
         return res.data
     }
 }

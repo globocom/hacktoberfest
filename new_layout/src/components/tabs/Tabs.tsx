@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { 
   Avatar,
   IconButton, 
@@ -12,12 +12,15 @@ import {
   Typography
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
+import { CircularProgress } from "@material-ui/core"
 import { Image } from '@components/image'
-import { ParticipantsProps } from "@services/participants"
+import Participants, { ParticipantProps } from "@services/participants"
 
-interface ParticipantsTabsProps {
-  dataSource: Array<ParticipantsProps>
-}
+const EDITIONS = [
+  2021,
+  2020,
+  2019
+]
 
 const useStyles = makeStyles(() => ({
   tab: {
@@ -32,16 +35,35 @@ const useStyles = makeStyles(() => ({
   },
   listItem: {
     paddingBottom: 2
+  },
+  loading: {
+    textAlign: "center", 
+    marginTop: 10
   }
 }))
 
-const ParticipantsTabs = (props: ParticipantsTabsProps) => {
-  const { dataSource } = props
+const ParticipantsTabs = () => {
   const [tabValue, setTabValue] = useState<number>(0)
+  const [edition, setEdition] = useState<number>(2021)
+  const [participants, setParticipants] = useState<Array<ParticipantProps>>([])
+  const [loading, setLoading] = useState(false)
   const classes = useStyles()
 
+
+  useEffect(() => {
+    const fetchParticipants = async () => {
+      setLoading(true)
+      const response: Array<ParticipantProps> = await Participants.Service.getInstance().GetParticipants(edition)
+      setParticipants(response)
+      setLoading(false)
+    }
+    fetchParticipants()
+  }, [edition]);
+
   const handleChange = (_: any, newTabValue: number) => {
+    const newEditionValue = EDITIONS[newTabValue]
     setTabValue(newTabValue)
+    setEdition(newEditionValue)
   }
   
   return (
@@ -53,38 +75,41 @@ const ParticipantsTabs = (props: ParticipantsTabsProps) => {
         textColor="primary"
         centered
       >
-        {dataSource.map(item => (
-          <Tab className={classes.tab} label={item.edition}  />
+        {EDITIONS.map(edition => (
+          <Tab className={classes.tab} label={edition} />
         ))}
       </Tabs>
-      {dataSource.map((item, index) => (
+      {EDITIONS.map((_, index) => (
         <TabPanel value={tabValue} index={index}>
           <List className={classes.list}>
-            {item.participants.map(participant => (
-              <ListItem alignItems="flex-start" className={classes.listItem}>
-                <ListItemAvatar>
-                  <Avatar alt={participant.githubUser} src={participant.avatar} />
-                </ListItemAvatar>
-                <ListItemText
-                  primary={`@${participant.githubUser}`}
-                  secondary={
-                    <Typography
-                      component="span"
-                      variant="caption"
-                      >
-                      {participant.total_pull_requests} pull requests • {participant.approved ? "desafio completo" : "desafio incompleto"} 
-                    </Typography>
-                  }
-                />
-                <a href={`https://github.com/${participant.githubUser}`} target="_blank">
-                  <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="GitHub">
-                      <Image src="github-logo.svg" />
-                    </IconButton>
-                  </ListItemSecondaryAction>
-                </a>
-              </ListItem>
-            ))}
+            {loading && <div className={classes.loading}><CircularProgress /></div>}
+            {!loading && (
+              participants.map(participant => (
+                <ListItem alignItems="flex-start" className={classes.listItem}>
+                  <ListItemAvatar>
+                    <Avatar alt={participant.githubUser} src={participant.avatar} />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={`@${participant.githubUser}`}
+                    secondary={
+                      <Typography
+                        component="span"
+                        variant="caption"
+                        >
+                        {participant.total_pull_requests} pull requests • {participant.approved ? "desafio completo" : "desafio incompleto"} 
+                      </Typography>
+                    }
+                  />
+                  <a href={`https://github.com/${participant.githubUser}`} target="_blank">
+                    <ListItemSecondaryAction>
+                      <IconButton edge="end" aria-label="GitHub">
+                        <Image src="github-logo.svg" />
+                      </IconButton>
+                    </ListItemSecondaryAction>
+                  </a>
+                </ListItem>
+              )))
+            }
           </List>
         </TabPanel>
       ))}
