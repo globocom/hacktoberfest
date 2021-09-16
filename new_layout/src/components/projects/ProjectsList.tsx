@@ -46,14 +46,14 @@ function ProjectsList() {
   }, [])
 
   return (
-    <Spacing smart={{ margin: "0px 0px 80px" }}>
+    <Spacing smart={{ margin: "0px 0px 40px" }}>
       <Grid container direction="column" alignItems="center">
         <Grid container justifyContent="center" xs={8}>
           <div className={classes.topDivider} />
           {loading ? (
-            <ProjectListLoading />
+            <ProjectsListLoading />
           ) : error ? (
-            <ProjectListError />
+            <ProjectsListError />
           ) : (
             projects.map((project) => {
               return <ProjectCard {...project} />
@@ -65,11 +65,11 @@ function ProjectsList() {
   )
 }
 
-function ProjectListLoading() {
+function ProjectsListLoading() {
   return <CircularProgress />
 }
 
-function ProjectListError() {
+function ProjectsListError() {
   return (
     <Typography component="p" align="center" color="primary" variant="body1">
       Ocorreu um erro ao exibir a lista de projetos. Por favor, tente novamente.
