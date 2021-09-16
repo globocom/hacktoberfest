@@ -14,6 +14,6 @@ export default class ProjectsService {
 
   async GetProjects(): Promise<Array<ProjectProps>> {
     const res = await doRequest({ path: "/projects", method: "GET" })
-    return res.data
+    return res.data?.items
   }
 }
