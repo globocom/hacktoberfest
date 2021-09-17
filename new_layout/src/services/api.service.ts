@@ -1,6 +1,6 @@
 
 
-const API_URL: string = process.env.GATSBY_API_URL || "http://localhost:3000"
+const API_URL: string = process.env.GATSBY_API_URL || "http://localhost:5000"
 
 interface ApiResponse {
     data: any
@@ -31,7 +31,7 @@ const doRequest = async (request: Request) : Promise<ApiResponse> => {
             data: null
         })
     }
-    
+
 }
 
 export default doRequest

@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
         width: 100,
     }
   }))
-  
+
 
 const EditionElement = (props: EditionProps) => {
     const classes = useStyles()
@@ -56,18 +56,19 @@ const EditionElement = (props: EditionProps) => {
 
 const ParticipationHistory = (props:ParticipationHistoryProps) => {
     const { user  } =  props
-    const editions: Array<string> = Object.keys(user.hacktoberfest?.edition || [])
+    const editions: Array<string> = Object.keys(user.hacktoberfest) || []
+
     return (
-            <Grid container>
-                <Grid item xs={12} md={8}>
-                    <Spacing smart={{margin: "0px 0px 24px"}}>
-                        <Typography component="h2" color="secondary" style={{fontWeight: 600}} variant="h2">Histórico de Participação</Typography>
-                    </Spacing>
-                </Grid>
-                <Grid item xs={12} md={12}>
-                    { editions.map((edition: string, index: number) => <EditionElement key={index} edition={edition} participation={user.hacktoberfest?.edition[edition].progress} />)}
-                </Grid>
-            </Grid>
+      <Grid container>
+          <Grid item xs={12} md={8}>
+              <Spacing smart={{margin: "0px 0px 24px"}}>
+                  <Typography component="h2" color="secondary" style={{fontWeight: 600}} variant="h2">Histórico de Participação</Typography>
+              </Spacing>
+          </Grid>
+          <Grid item xs={12} md={12}>
+              { editions.map((edition: string, index: number) => <EditionElement key={index} edition={edition} participation={user.hacktoberfest[edition]} />)}
+          </Grid>
+      </Grid>
     )
 }
 

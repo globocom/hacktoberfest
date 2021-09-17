@@ -30,6 +30,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const initialValues = {
+            name: user.name,
             email: user.email,
             githubUser: user.githubUser,
             githubID: user.githubID,
@@ -38,7 +39,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
     const onSubmit = async (values: any) => {
         try{
             setIsLoading(true)
-            await User.Service.getInstance().UpdateUser(values)
+            await User.Service.getInstance().UpdateUserEmail(values)
             setTimeout(() => {
                 setIsLoading(false)
                 showSnackBar("success", "Dados pessoais atualizado com sucesso !")
@@ -47,7 +48,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
             showSnackBar("error",e.message)
         }
     }
-    
+
     const formik = useFormik({ initialValues, validationSchema, onSubmit });
 
     return (
@@ -62,11 +63,11 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                             <TextField
                                 fullWidth
                                 onChange={formik.handleChange}
-                                value={formik.values.githubUser} 
-                                name="githubUser" 
-                                id="githubUser" 
-                                color="primary" 
-                                variant="outlined" 
+                                value={formik.values.githubUser}
+                                name="githubUser"
+                                id="githubUser"
+                                color="primary"
+                                variant="outlined"
                                 label="Github"
                                 error={formik.touched.githubUser && Boolean(formik.errors.githubUser)}
                                 helperText={formik.touched.githubUser && formik.errors.githubUser}

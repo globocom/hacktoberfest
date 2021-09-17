@@ -29,7 +29,7 @@ const validationSchema = () => Yup.object().shape({
             .max(30, "Nome longo demais")
             .required("Preenchimento do nome é obrigatório"),
     city: Yup.string().required("Preenchimento da cidade é obrigatório"),
-    postal: Yup.string().required("Preenchmento do CEP é obrigatório"),
+    postalCode: Yup.string().required("Preenchmento do CEP é obrigatório"),
     state: Yup.string().required("Preenchimento do Estado é obrigatório"),
     address: Yup.string().required("Preenchimento da Rua é obrigatório")
 })
@@ -52,14 +52,14 @@ const ShippingForm = (props: ShippingFormProps) => {
     const initialValues = {
             name: user.name,
             city: user.city,
-            postal: user.postal,
+            postalCode: user.postalCode,
             state: user.state,
             address: user.address,
             shirtSize: user.shirtSize || "M",
             shirtColor: user.shirtColor || ''
     }
 
-    
+
 
     const onSubmit = async (values: any) => {
         try{
@@ -83,10 +83,10 @@ const ShippingForm = (props: ShippingFormProps) => {
                         <Typography style={{fontWeight: 600}} component="h2" color="secondary" variant="h3">Dados para premiação</Typography>
                     </Grid>
                     <Grid item xs={12} md={8}>
-                        <TextField 
+                        <TextField
                             fullWidth
                             name="name"
-                            variant="outlined" 
+                            variant="outlined"
                             label="Destinatário"
                             onChange={formik.handleChange}
                             value={formik.values.name}
@@ -100,26 +100,26 @@ const ShippingForm = (props: ShippingFormProps) => {
                     </Grid>
 
                     <Grid item xs={12} md={4}>
-                        <TextField 
+                        <TextField
                             fullWidth
-                            name="postal"
+                            name="postalCode"
                             onChange={formik.handleChange}
-                            value={formik.values.postal}
-                            error={formik.touched.postal && Boolean(formik.errors.postal)}
-                            helperText={formik.touched.postal && formik.errors.postal}
-                            variant="outlined" 
+                            value={formik.values.postalCode}
+                            error={formik.touched.postalCode && Boolean(formik.errors.postalCode)}
+                            helperText={formik.touched.postalCode && formik.errors.postalCode}
+                            variant="outlined"
                             label="CEP"/>
                     </Grid>
 
                     <Grid item xs={12} md={8}>
-                        <TextField 
+                        <TextField
                             fullWidth
                             name="city"
                             onChange={formik.handleChange}
                             value={formik.values.city}
                             error={formik.touched.city && Boolean(formik.errors.city)}
                             helperText={formik.touched.city && formik.errors.city}
-                            variant="outlined" 
+                            variant="outlined"
                             label="Cidade" InputProps={{
                             startAdornment: <InputAdornment position="start">
                                 <LocationCityIcon/>
@@ -129,25 +129,25 @@ const ShippingForm = (props: ShippingFormProps) => {
 
                     <Grid item xs={12} md={4}>
                         <TextField
-                            fullWidth 
+                            fullWidth
                             name="state"
                             onChange={formik.handleChange}
                             value={formik.values.state}
                             error={formik.touched.state && Boolean(formik.errors.state)}
                             helperText={formik.touched.state && formik.errors.state}
-                            variant="outlined" 
+                            variant="outlined"
                             label="Estado"/>
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField 
+                        <TextField
                             fullWidth
                             name="address"
                             onChange={formik.handleChange}
                             value={formik.values.address}
                             error={formik.touched.address && Boolean(formik.errors.address)}
                             helperText={formik.touched.address && formik.errors.address}
-                            variant="outlined" 
+                            variant="outlined"
                             label="Endereço Completo" InputProps={{
                             startAdornment: <InputAdornment position="start">
                                 <LocationOnIcon/>
@@ -156,8 +156,8 @@ const ShippingForm = (props: ShippingFormProps) => {
                     </Grid>
 
                     <Grid item xs={12} md={6}>
-                        <TextField 
-                            fullWidth 
+                        <TextField
+                            fullWidth
                             variant="outlined"
                             name="shirtSize"
                             value={formik.values.shirtSize}
@@ -171,18 +171,22 @@ const ShippingForm = (props: ShippingFormProps) => {
                                     </InputAdornment>
                             }}
                             label="Tamanho da Camiseta">
-                                <MenuItem value={"P"}>P</MenuItem>
-                                <MenuItem value={"M"}>M</MenuItem>
-                                <MenuItem value={"G"}>G</MenuItem>
-                                <MenuItem value={"GG"}>GG</MenuItem>
-                                <MenuItem value={"XGG"}>XGG</MenuItem>
+                                <MenuItem value={"BLP"}>BLP</MenuItem>
+                                <MenuItem value={"BLM"}>BLM</MenuItem>
+                                <MenuItem value={"BLG"}>BLG</MenuItem>
+                                <MenuItem value={"BLGG"}>BLGG</MenuItem>
+                                <MenuItem value={"TSP"}>TSP</MenuItem>
+                                <MenuItem value={"TSM"}>TSM</MenuItem>
+                                <MenuItem value={"TSG"}>TSG</MenuItem>
+                                <MenuItem value={"TSGG"}>TSGG</MenuItem>
+                                <MenuItem value={"TSGGG"}>TSGGG</MenuItem>
                         </TextField>
                     </Grid>
 
-                    {colors.length && 
+                    {colors.length &&
                         <Grid item xs={12} md={6}>
-                            <TextField 
-                                fullWidth 
+                            <TextField
+                                fullWidth
                                 variant="outlined"
                                 name="shirtColor"
                                 label="Cor da Camisa"
@@ -201,7 +205,7 @@ const ShippingForm = (props: ShippingFormProps) => {
                                     colors.map((color, index) => (<MenuItem key={index} value={color}>{color}</MenuItem>))
                                 }
                             </TextField>
-                        </Grid> 
+                        </Grid>
                     }
 
                     <Grid item xs={6}>
