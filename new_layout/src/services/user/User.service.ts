@@ -34,7 +34,8 @@ export default class UserService {
             address: res.data?.address,
             shirtSize: res.data?.shirtSize,
             shirtColor: res.data?.shirtColor,
-            hacktoberfest: res.data?.hacktoberfest
+            hacktoberfest: res.data?.hacktoberfest,
+            editions: res.data?.editions
         }
     }
 
@@ -45,7 +46,7 @@ export default class UserService {
 
     async UpdateUserEmail(data: any){
       console.log('Doing Request')
-      await doRequest({path: "/subscribeemail",  sendCookies: true, method: "POST", body: data})
+      await doRequest({path: "/subscribeEmail",  sendCookies: true, method: "POST", body: data})
   }
 
 }

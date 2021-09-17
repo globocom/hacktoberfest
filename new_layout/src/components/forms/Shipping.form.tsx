@@ -4,7 +4,7 @@ import { Grid, Typography, TextField, InputAdornment, MenuItem} from '@material-
 
 //Internal
 import Spacing from '@components/spacing'
-import User, { UserProps } from '@services/user'
+import User, { UserProps, Edition } from '@services/user'
 import LoadingButton from '@components/loading-button'
 import Hacktoberfest from '@services/hacktoberfest'
 
@@ -38,16 +38,22 @@ const validationSchema = () => Yup.object().shape({
 const ShippingForm = (props: ShippingFormProps) => {
     const { user, showSnackBar } = props
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [currentEdition, setCurrentEdition] = useState<number>(0)
+
     const [colors, setColors] = useState<Array<string>>([])
 
     useEffect(() => {
         const fillColors = async () =>  {
             const edition = await Hacktoberfest.Service.getInstance().GetEdition()
-            setColors(edition?.metadata?.shirtColors || [])
+            setColors(edition?.shirtColors || [])
+            setCurrentEdition(edition.edition)
         }
         fillColors()
     }, [])
 
+    const userEdition = user.editions || {}
+
+    console.log("userEdition=", userEdition)
 
     const initialValues = {
             name: user.name,
@@ -55,11 +61,11 @@ const ShippingForm = (props: ShippingFormProps) => {
             postalCode: user.postalCode,
             state: user.state,
             address: user.address,
-            shirtSize: user.shirtSize || "M",
-            shirtColor: user.shirtColor || ''
+            shirtSize: userEdition[currentEdition]?.shirtSize || "",
+            shirtColor: userEdition[currentEdition]?.shirtColor || ''
     }
 
-
+    console.log(initialValues)
 
     const onSubmit = async (values: any) => {
         try{
@@ -70,11 +76,13 @@ const ShippingForm = (props: ShippingFormProps) => {
                 showSnackBar("success", "Dados para premiação atualizado com sucesso !")
             },3000)
         }catch(e){
-            showSnackBar("error",e.message)
+          setIsLoading(false)
+          showSnackBar("error", "Erro ao cadastrar dados de premiação")
         }
     }
 
-    const formik = useFormik({ initialValues, validationSchema, onSubmit });
+    const formik = useFormik({ initialValues, validationSchema, onSubmit, enableReinitialize:true});
+    console.log("formik=", formik)
     return (
         <Spacing desktop={{margin: "40px 0px"}} smart={{margin: "40px 0px"}}>
             <form onSubmit={formik.handleSubmit}>
@@ -183,7 +191,7 @@ const ShippingForm = (props: ShippingFormProps) => {
                         </TextField>
                     </Grid>
 
-                    {colors.length &&
+                    {colors.length > 0 &&
                         <Grid item xs={12} md={6}>
                             <TextField
                                 fullWidth

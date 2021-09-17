@@ -1,13 +1,10 @@
 import Service from "./Hacktoberfest.service";
 
 
-interface EditionMetadata {
-    shirtColors: Array<string>
-}
-
 export interface HacktoberfestEditionProps {
     year: number,
-    metadata: EditionMetadata
+    shirtColors: Array<string>,
+    shirtSizes: Array<string>
 }
 
 export default {

@@ -335,7 +335,6 @@
       "githubUser": "marcuscartagenes",
       "githubID": "120391203",
       "hacktoberfest": {
-        "edition": {
           "2019": {
             "progress": {
               "opened": 2,
@@ -372,11 +371,26 @@
               }
             }
           }
-        }
       },
       "postal": "123456-789",
       "address": "2970 Golf Course Driesaaw",
-      "street": "2970 Golf Course Driv"
+      "street": "2970 Golf Course Driv",
+      "editions": {
+        "2021": {
+        "approved": false,
+        "completed": false,
+        "completed_at": "0001-01-01T00:00:00Z",
+        "totalMergeRequests": 0,
+        "totalMergeRequestsMerged": 0
+        },
+        "2020": {
+          "approved": true,
+          "completed": true,
+          "completed_at": "0001-01-01T00:00:00Z",
+          "totalMergeRequests": 2,
+          "totalMergeRequestsMerged": 2
+        }
+      }
     }
   },
   "status": {

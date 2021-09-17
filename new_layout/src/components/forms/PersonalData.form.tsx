@@ -45,7 +45,8 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                 showSnackBar("success", "Dados pessoais atualizado com sucesso !")
             },3000)
         }catch(e){
-            showSnackBar("error",e.message)
+            setIsLoading(false)
+            showSnackBar("error", "Erro ao cadastrar dados pessoais")
         }
     }
 

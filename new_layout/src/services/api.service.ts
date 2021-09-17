@@ -25,10 +25,11 @@ const doRequest = async (request: Request) : Promise<ApiResponse> => {
             throw new Error(`[API ERROR] Fail to ${request.path}.`)
         }
         const data = await response.json()
+        console.log(data)
         return Promise.resolve({data: data.result})
     }catch(error){
-        return Promise.resolve({
-            data: null
+        return Promise.reject({
+            data: error
         })
     }
 

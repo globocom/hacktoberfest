@@ -13,8 +13,22 @@ export interface Progress {
     achievements: Achievements
 }
 
+export interface Edition {
+  approved: boolean,
+	completed: string,
+	completedat: string,
+	totalMergerequests: number,
+	totalMergerequestsMerged: number,
+	shirtSize: string,
+	shirtColor: string,
+}
+
 interface Hacktoberfest {
   [year: string]: Progress
+}
+
+interface UserEditions {
+  [year: number]: Edition
 }
 
 export interface UserProps {
@@ -30,7 +44,8 @@ export interface UserProps {
     address: string,
     shirtSize: string,
     shirtColor: string,
-    hacktoberfest?: Hacktoberfest
+    hacktoberfest?: Hacktoberfest,
+    editions?: UserEditions
 }
 
 
