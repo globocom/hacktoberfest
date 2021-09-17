@@ -2,8 +2,10 @@
 import React from "react"
 import Spacing from '@components/spacing'
 import {makeStyles, Theme} from '@material-ui/core/styles'
-import { Grid, Hidden, Typography } from "@material-ui/core"
+import { Grid, Hidden, Typography, Button } from "@material-ui/core"
 import { Image } from '@components/image'
+import ArrowDownIcon from '@material-ui/icons/ArrowDownward'
+
 
 
 interface ImageHero {
@@ -22,20 +24,6 @@ interface DraggableContentProps {
   children?: React.ReactNode
 }
 
-const ImagesHeroConfiguration: Array<ImageHero> = [
-    {image: 'spark', format: 'svg', initialPosition: {x: 15, y: 10}},
-    {image: 'note', format: 'svg', initialPosition: {x: 70, y: 10}},
-    {image: 'rocket', format: 'svg',initialPosition: {x: 10, y: 30}},
-    {image: 'major_tom', format: 'svg', initialPosition: {x: 25, y: 60}},
-    {image: 'planet', format: 'svg', initialPosition: {x: 80, y: 30}},
-    {image: 'spark', format: 'svg', initialPosition: {x: 60, y: 30}},
-    {image: 'beer', format: 'svg', initialPosition: {x: 65, y: 40}},
-    {image: 'vinil', format: 'png', initialPosition: {x: 19, y: 10}},
-    {image: '2021', format: 'png', initialPosition: {x: 34, y: 26}},
-    {image: 'grobo', format: 'png', initialPosition: {x: 50, y: 20}},
-]
-
-
 
 const useStyles = makeStyles((theme: Theme) => ({
     heroPanel: {
@@ -51,35 +39,57 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 }))
 
-const DraggableContent = (props: DraggableContentProps) => {    
-    const left = props.image.initialPosition.x + "%"
-    const top = props.image.initialPosition.y + "%"
-    return (
-            <div style={{'position': 'absolute',left,top}}>
-                {props.children}
-            </div>
-    )
-}
-
 
 const SmartView = () => {
 
   return (
-    <Spacing desktop={{margin: "0px 0px 72px"}} smart={{margin: "0px 0px 24px"}}>
-      <Grid container alignItems="center" alignContent="center" justifyContent="center">
-          <Grid item xs={12}>
-              <Typography variant="h2" align="center" component="h2"> 01 a 31 de outubro</Typography>
+    <React.Fragment>
+      <Spacing desktop={{margin: "0px 0px 72px"}} smart={{margin: "0px 0px 24px"}}>
+        <Grid container alignItems="center" alignContent="center" justifyContent="center">
+            <Spacing smart={{margin: "20px 0px 0px"}}>
+              <Grid item xs={12}>
+                  <Typography variant="h2" align="center" component="h2"> 01 a 31 de outubro</Typography>
+              </Grid>
+            </Spacing>
+            <Spacing smart={{margin: "40px 0px 0px"}}>
+              <Grid item xs={12}>
+                  <Image style={{width: "90%", display: "block", margin: "0px auto"}} src={`hero/hero.svg`} />
+              </Grid>
+            </Spacing>
+            <Spacing smart={{margin: "60px 0px 0px"}}>
+              <Grid item xs={8}>
+                <Typography align="center" variant="h3" component="h3">Contribua e ganhe uma camiseta exclusiva</Typography>
+              </Grid>
+            </Spacing>
+            <Spacing smart={{margin: "40px 0px 0px"}}>
+              <Grid item xs={8}>
+                <Button style={{"backgroundColor": "#fff", borderRadius: "64px"}} fullWidth variant="contained">
+                  <pre style={{fontFamily: "inherit"}}>
+                    <b>Participar</b>
+                    <p>com sua conta do github</p>
+                  </pre>
+                </Button>
+              </Grid>
+            </Spacing>
+            <Grid item>
+                <Image src={`hero/beer.svg`} style={{"position": "absolute", left: "-30px", top: "35%", zIndex: "-1"}}/>
+                <Image src={`hero/major_tom.svg`}  style={{"position": "absolute", right:"-33px", width: "33%", top: "67%", zIndex: "-1"}}/>
+            </Grid>
+        </Grid>
+      </Spacing>
+
+      <Spacing smart={{margin: "32px 0px 0px"}}>
+          <Grid container justifyContent="center" alignItems="center">
+            <Grid item>
+                <ArrowDownIcon/>
+            </Grid>
+            <Grid item>
+                <Typography align="center" component="p"> como funciona </Typography>
+            </Grid>
           </Grid>
-          <Grid item>
-            <div>
-            <Image style={{width: "100%"}} src={`hero/vinil.png`} />
-            <div>
-              <Image style={{position: "absolute", left: "0"}} src={`hero/2021.png`} />
-            </div>
-            </div>
-          </Grid>
-      </Grid>
-    </Spacing>
+      </Spacing>
+
+    </React.Fragment>
   )
 }
 

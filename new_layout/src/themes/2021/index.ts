@@ -45,7 +45,8 @@ theme.typography = {
   },
   h3: {
     fontSize: '1.25rem', //20px
-    lineHeight: '30px'
+    lineHeight: '30px',
+    fontWeight: "normal"
   },
   subtitle1: {
     fontSize: '1.125rem',
@@ -67,7 +68,7 @@ theme.typography = {
     fontSize: '0.875rem',
     lineHeight: '14px'
   },
-  fontFamily: "Roboto"
+  fontFamily: "Globotipo Variable"
 }
 
 export default theme

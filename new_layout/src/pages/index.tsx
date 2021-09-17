@@ -1,16 +1,20 @@
-import React from "react"
+import React, {useState} from "react"
 import Layout from "@components/layout"
 import Spacing from '@components/spacing'
 import HeroCall from '@components/hero'
 import {makeStyles, Theme} from '@material-ui/core/styles'
-import { Button, Grid, Typography, Avatar } from "@material-ui/core"
+import { Grid, Typography, Avatar } from "@material-ui/core"
+import "~slick-carousel/slick/slick.css"; 
+import "~slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
   },
   panel: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.background.paper,
     height: "60%",
     width: "100%",
     zIndex: -100,
@@ -77,24 +81,50 @@ const IndexRules = () => {
   )
 }
 
+const HacktoberfestCarousel = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
+  return (
+    <div>
+        <h2> Single Item</h2>
+        <Slider {...settings}>
+          <div>
+            <h3>1</h3>
+          </div>
+          <div>
+            <h3>2</h3>
+          </div>
+          <div>
+            <h3>3</h3>
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
+          <div>
+            <h3>5</h3>
+          </div>
+          <div>
+            <h3>6</h3>
+          </div>
+        </Slider>
+      </div>
+  )
+
+}
+
 const IndexPage = () => {
   const classes = useStyles()
   return (
       <Layout title="Início - Globo Hacktoberfest">
         <div className={classes.root}>
           <HeroCall/>
-          <Spacing smart={{margin: "0px 0px 64px"}}>
-            <Grid container alignItems="center" justifyContent="center">
-                    <Spacing desktop={{margin: "0px 0px 8px"}} smart={{margin: "0px 0px 16px"}}>
-                      <Grid item xs={12} md={9} lg={9}>
-                          <IndexRules/>
-                      </Grid>
-                    </Spacing>
-                      <Grid item xs={12}>
-                          <Typography variant="caption" component="p" align="center" color="textPrimary">* a camiseta será entregue exclusivamente em território brasileiro</Typography>
-                      </Grid>
-              </Grid>
-          </Spacing>
+          <HacktoberfestCarousel/>
           <Spacing smart={{margin: "0px 0px 64px"}}>
             <Grid container direction="column" justifyContent="center" alignItems="center">
                 <Grid item xs={12} md={12} lg={12}>

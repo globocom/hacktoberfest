@@ -14,7 +14,7 @@ export default function TopLayout(props) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
         <link
-          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+          href="https://s3.glbimg.com/v1/AUTH_b922f1376f6c452e9bb337cc7d996a6e/qa/foundation/typefaces/globotipo.css"
           rel="stylesheet"
         />
       </Helmet>
