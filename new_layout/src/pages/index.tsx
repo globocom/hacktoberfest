@@ -3,9 +3,10 @@ import Layout from "@components/layout"
 import Spacing from "@components/spacing"
 import HeroCall from "@components/hero"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Grid, Typography, IconButton } from "@material-ui/core"
+import { Link, Grid, Typography, IconButton } from "@material-ui/core"
 import NavigateNextIcon from "@material-ui/icons/NavigateNext"
 import NavigateBeforesIcon from "@material-ui/icons/NavigateBefore"
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
@@ -83,7 +84,6 @@ const CustomPreviousArrow = (props) => {
 }
 
 const HacktoberfestCarousel = (props) => {
-  const classes = useStyles()
   const { rules } = props
   const settings = {
     dots: true,
@@ -135,11 +135,28 @@ const IndexPage = () => {
               </Typography>
             </Grid>
             <Grid item xs={8} md={6} lg={6}>
-              <Typography align="center" variant="body1" color="textPrimary">
-                Some of the most popular developer tools, frameworks and
-                experiences in the world are built around open communities. Here
-                are a few featured Microsoft projects of note.
-              </Typography>
+              <Spacing smart={{ margin: "24px 0px 40px" }}>
+                <Typography align="center" variant="body1" color="textPrimary">
+                  Conheça alguns dos projetos que farão parte do Hacktoberfest
+                  2021:
+                </Typography>
+              </Spacing>
+              <Link href="/projects">
+                <span
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography variant="body1" color="secondary">
+                    ver todos os projetos
+                  </Typography>
+                  <ArrowForwardIcon
+                    style={{ marginLeft: 10 }}
+                    color="secondary"
+                  />
+                </span>
+              </Link>
             </Grid>
           </Grid>
         </Spacing>
