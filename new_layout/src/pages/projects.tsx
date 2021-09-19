@@ -3,8 +3,7 @@ import { Typography } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import Layout from "@components/layout"
 import SEO from "@components/seo"
-
-import ProjectsList from "../components/projects"
+import ProjectsList from "@components/projects"
 
 const ProjectsPage = () => {
   return (
@@ -18,7 +17,7 @@ const ProjectsPage = () => {
         <Typography
           component="p"
           align="center"
-          color="primary"
+          color="textPrimary"
           variant="body1"
         >
           Gostaríamos da sua ajuda principalmente nos seguintes projetos:

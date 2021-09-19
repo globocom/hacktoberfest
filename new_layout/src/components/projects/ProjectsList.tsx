@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   projectName: {
     fontSize: 56,
     marginRight: 30,
+    lineHeight: 1,
   },
   rounded: {
     borderRadius: 50,
@@ -28,7 +29,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-function ProjectsList() {
+function ProjectsList(props) {
+  const { listLimit = 0 } = props
   const [projects, setProjects] = useState<Array<ProjectProps>>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -39,7 +41,10 @@ function ProjectsList() {
     async function fetchProjects() {
       setLoading(true)
       const response: Array<ProjectProps> = await Projects.Service.getInstance().GetProjects()
-      response ? setProjects(response) : setError(true)
+      if (response) {
+        if (listLimit) response.splice(listLimit)
+        setProjects(response)
+      } else setError(true)
       setLoading(false)
     }
     fetchProjects()
@@ -71,7 +76,7 @@ function ProjectsListLoading() {
 
 function ProjectsListError() {
   return (
-    <Typography component="p" align="center" color="primary" variant="body1">
+    <Typography component="p" align="center" color="textPrimary" variant="body1">
       Ocorreu um erro ao exibir a lista de projetos. Por favor, tente novamente.
     </Typography>
   )
@@ -90,13 +95,13 @@ function ProjectCard(props: ProjectProps) {
     <React.Fragment>
       <Grid item container direction="column" xs={10}>
         <Grid item container direction="row" alignItems="center">
-          <Typography color="primary" className={classes.projectName}>
+          <Typography color="textPrimary" className={classes.projectName}>
             {name}
           </Typography>
           <img src={thumborUrl} alt={imageName} height={40} />
         </Grid>
         <Spacing smart={{ margin: "16px 0px 0px" }}>
-          <Typography component="p" color="primary" variant="body1">
+          <Typography component="p" color="textPrimary" variant="body1">
             {description}
           </Typography>
         </Spacing>
