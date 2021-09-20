@@ -7,22 +7,28 @@ interface Achievements {
     completed: boolean
 }
 
-export interface Participation {
+export interface Progress {
     opened: number,
     merged: number,
     achievements: Achievements
 }
 
-interface Progress{
-    progress: Participation
-}
-
-interface Edition {
-    [year: string]: Progress
+export interface Edition {
+  approved: boolean,
+	completed: string,
+	completedat: string,
+	totalMergerequests: number,
+	totalMergerequestsMerged: number,
+	shirtSize: string,
+	shirtColor: string,
 }
 
 interface Hacktoberfest {
-    edition: Edition
+  [year: string]: Progress
+}
+
+interface UserEditions {
+  [year: number]: Edition
 }
 
 export interface UserProps {
@@ -33,12 +39,13 @@ export interface UserProps {
     githubUser: string,
     githubID: string,
     city: string,
-    postal: string,
+    postalCode: string,
     state: string,
     address: string,
     shirtSize: string,
     shirtColor: string,
-    hacktoberfest?: Hacktoberfest
+    hacktoberfest?: Hacktoberfest,
+    editions?: UserEditions
 }
 
 

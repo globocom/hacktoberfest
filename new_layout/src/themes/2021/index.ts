@@ -64,7 +64,7 @@ theme.typography = {
     lineHeight: '24px'
   },
   caption: {
-    fontSize: '0.75rem',
+    fontSize: '0.875rem',
     lineHeight: '14px'
   },
   fontFamily: "Roboto"

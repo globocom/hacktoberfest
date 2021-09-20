@@ -9,7 +9,7 @@ export default class UserService {
         if(!this._userService){
             this._userService = new UserService()
         }
-        
+
         return this._userService
     }
 
@@ -29,18 +29,24 @@ export default class UserService {
             githubUser: res.data?.githubUser,
             githubID: res.data?.githubID,
             city: res.data?.city,
-            postal: res.data?.postal,
+            postalCode: res.data?.postalCode,
             state: res.data?.state,
             address: res.data?.address,
             shirtSize: res.data?.shirtSize,
             shirtColor: res.data?.shirtColor,
-            hacktoberfest: res.data?.hacktoberfest
+            hacktoberfest: res.data?.hacktoberfest,
+            editions: res.data?.editions
         }
     }
 
     async UpdateUser(data: any){
         console.log('Doing Request')
-        await doRequest({path: "/update/user",  method: "POST", body: data})
+        await doRequest({path: "/subscribe",  sendCookies: true, method: "POST", body: data})
     }
+
+    async UpdateUserEmail(data: any){
+      console.log('Doing Request')
+      await doRequest({path: "/subscribeEmail",  sendCookies: true, method: "POST", body: data})
+  }
 
 }
