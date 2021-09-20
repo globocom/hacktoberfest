@@ -1,12 +1,12 @@
 import React from "react"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Grid, Hidden, Typography, Button } from "@material-ui/core"
+import { Hidden } from "@material-ui/core"
 import { Image } from "@components/image"
-import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
 
-import Carousel from './Carousel'
-import SmartView from './HeroSmart'
+import Carousel from "./Carousel"
+import SmartView from "./HeroSmart"
+import DesktopView from "./HeroDesktop"
 
 interface ImageHero {
   image: string
@@ -33,69 +33,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   terms: {
     width: "100%",
     display: "block",
-  }
+  },
 }))
-
-
-const DesktopView = () => {
-  return (
-    <React.Fragment>
-      <Spacing
-        desktop={{ margin: "0px 0px 72px" }}
-        smart={{ margin: "0px 0px 24px" }}
-      >
-        <Grid
-          container
-          alignItems="center"
-          alignContent="center"
-          justifyContent="center"
-        >
-          <Spacing smart={{ margin: "16px 0px" }}>
-            <Grid item xs={12}>
-              <Typography variant="h2" align="center" component="h2">
-                {" "}
-                01 a 31 de outubro
-              </Typography>
-            </Grid>
-          </Spacing>
-          <Grid item xs={8}>
-            <Typography align="center" variant="h3" component="h3">
-              Contribua e ganhe uma camiseta exclusiva
-            </Typography>
-          </Grid>
-          <Spacing smart={{ margin: "40px 0px 0px" }}>
-            <Grid item xs={8}>
-              <Button
-                style={{ backgroundColor: "#fff", borderRadius: "64px" }}
-                fullWidth
-                variant="contained"
-              >
-                <pre style={{ fontFamily: "inherit" }}>
-                  <b>Participar</b>
-                  com sua conta do github
-                </pre>
-              </Button>
-            </Grid>
-          </Spacing>
-        </Grid>
-      </Spacing>
-
-      <Spacing smart={{ margin: "32px 0px 0px" }}>
-        <Grid container justifyContent="center" alignItems="center">
-          <Grid item>
-            <ArrowDownIcon />
-          </Grid>
-          <Grid item>
-            <Typography align="center" component="p">
-              {" "}
-              como funciona{" "}
-            </Typography>
-          </Grid>
-        </Grid>
-      </Spacing>
-    </React.Fragment>
-  )
-}
 
 const HeroCall = () => {
   const classes = useStyles()
@@ -112,18 +51,16 @@ const HeroCall = () => {
           <DesktopView />
         </Hidden>
         <Hidden mdUp>
-          <SmartView/>
+          <SmartView />
         </Hidden>
       </div>
-      <Spacing smart={{margin: "40px 0px"}}>
-        <Carousel rules={rules} showArrows={true}/>
+      <Spacing smart={{ margin: "40px 0px" }}>
+        <Carousel rules={rules} showArrows={true} />
       </Spacing>
-      <Spacing smart={{margin: "100px auto"}}>
-          <Image className={classes.terms} src="hero/terms_mobile.svg"/>
+      <Spacing smart={{ margin: "100px auto" }}>
+        <Image className={classes.terms} src="hero/terms_mobile.svg" />
       </Spacing>
-
     </div>
-    
   )
 }
 

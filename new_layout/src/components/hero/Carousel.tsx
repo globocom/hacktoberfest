@@ -13,7 +13,7 @@ interface RuleProps {
   index: number
 }
 
-const CustomNextArrow = (props: any) => {
+const CustomNextArrow = () => {
   function nextSlide() {
     try {
       slickCarouselRef.current.slickNext()
@@ -33,7 +33,7 @@ const CustomNextArrow = (props: any) => {
   )
 }
 
-const CustomPreviousArrow = (props: any) => {
+const CustomPreviousArrow = () => {
   function previousSlide() {
     try {
       slickCarouselRef.current.slickPrev()
@@ -70,7 +70,7 @@ let slickCarouselRef
 
 const Carousel = (props: CarouselProps) => {
   slickCarouselRef = useRef(null)
-  const { rules } = props
+  const { rules, showArrows } = props
   const settings = {
     dots: true,
     infinite: true,
@@ -88,7 +88,7 @@ const Carousel = (props: CarouselProps) => {
           justifyContent: "center",
         }}
       >
-        <CustomPreviousArrow />
+        {showArrows && <CustomPreviousArrow />}
         <div style={{ width: "80%" }}>
           <Slider ref={slickCarouselRef} {...settings}>
             {rules.map((rule, index) => (
@@ -96,7 +96,7 @@ const Carousel = (props: CarouselProps) => {
             ))}
           </Slider>
         </div>
-        <CustomNextArrow />
+        {showArrows && <CustomNextArrow />}
       </div>
     </Spacing>
   )

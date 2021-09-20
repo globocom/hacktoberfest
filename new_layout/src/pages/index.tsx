@@ -3,10 +3,9 @@ import Layout from "@components/layout"
 import Spacing from "@components/spacing"
 import HeroCall from "@components/hero"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Link, Grid, Typography, IconButton } from "@material-ui/core"
+import { Link, Grid, Typography } from "@material-ui/core"
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
 import ProjectsList from "@components/projects"
-
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -14,16 +13,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projectsContainer: {
     [theme.breakpoints.up("md")]: {
-      width: '60%',
-      display: 'block',
-      margin: '0px auto'
-    }
-  }
-  
+      width: "60%",
+      display: "block",
+      margin: "0px auto",
+    },
+  },
 }))
-
-
-
 
 const IndexPage = () => {
   const classes = useStyles()
@@ -47,11 +42,17 @@ const IndexPage = () => {
               </Grid>
               <Spacing smart={{ margin: "24px 0px 0px" }}>
                 <Grid item xs={12}>
-                    <Typography align="left" variant="body1" color="textPrimary">
-                      Conheça alguns dos projetos que farão parte do Hacktoberfest
-                      2021:
+                  <Spacing smart={{ margin: "0px 0px 40px" }}>
+                    <Typography
+                      align="left"
+                      variant="body1"
+                      color="textPrimary"
+                    >
+                      Conheça alguns dos projetos que farão parte do
+                      Hacktoberfest 2021:
                     </Typography>
-                    <ProjectsList listLimit={3}/>
+                  </Spacing>
+                  <ProjectsList listLimit={3} />
                 </Grid>
               </Spacing>
               <Grid>
