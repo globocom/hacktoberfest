@@ -23,7 +23,11 @@ const CustomNextArrow = (props: any) => {
   }
 
   return (
-    <IconButton onClick={nextSlide} style={{ backgroundColor: "transparent" }}>
+    <IconButton
+      onClick={nextSlide}
+      style={{ backgroundColor: "transparent" }}
+      color="secondary"
+    >
       <NavigateNextIcon />
     </IconButton>
   )
@@ -42,6 +46,7 @@ const CustomPreviousArrow = (props: any) => {
     <IconButton
       onClick={previousSlide}
       style={{ backgroundColor: "transparent" }}
+      color="secondary"
     >
       <NavigateBeforesIcon />
     </IconButton>
