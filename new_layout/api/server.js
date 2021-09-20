@@ -37,6 +37,11 @@ server.get("/user", (req, res) => {
   res.status(201).json(db.get("user").value())
 })
 
+server.get("/projects", (req, res) => {
+  const db = router.db
+  res.status(201).json(db.get("projects").value())
+})
+
 server.post("/update/user",(req, res, next) => {
   const data = JSON.parse(req.body || {})
   const db = router.db
@@ -50,7 +55,7 @@ server.post("/update/user",(req, res, next) => {
   res.status(201).jsonp(db.get("user").value())
 })
 
-/*server.post("/subscribe", (req, res, next) => {
+server.post("/subscribe", (req, res, next) => {
   const data = JSON.parse(req.body)
   const db = router.db
   const user = db.get("user").cloneDeep().value()
@@ -62,7 +67,7 @@ server.post("/update/user",(req, res, next) => {
 
   db.get("user").assign(user).write()
   res.status(201).jsonp(db.get("user").value())
-})*/
+})
 
 server.use(router)
 server.listen(3000, () => {

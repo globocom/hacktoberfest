@@ -1,14 +1,37 @@
 import React from "react"
 import Spacing from "@components/spacing"
-import { Typography } from "@material-ui/core"
-import Slider from "react-slick"
+import { Typography, IconButton } from "@material-ui/core"
 import { CarouselProps } from './index'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import NavigateNextIcon from "@material-ui/icons/NavigateNext"
+import NavigateBeforesIcon from "@material-ui/icons/NavigateBefore"
+import Slider from "react-slick"
+
 
 interface RuleProps {
   rule: string,
   index: number
+}
+
+const CustomNextArrow = (props: any) => {
+  const { className, style, onClick } = props;
+  
+  return (
+    <div style={{display: "block", color: "red"}} className={className} onClick={onClick}>
+      <NavigateNextIcon/>
+    </div>
+  )
+}
+
+const CustomPreviousArrow = (props: any) => {
+  const { className, style, onClick } = props;
+
+  return (
+    <div style={{ display: "block", color: "red"}} className={className} onClick={onClick}>
+      <NavigateBeforesIcon/>
+    </div>
+  )
 }
 
 const Rule = (props: RuleProps) => (
@@ -18,7 +41,7 @@ const Rule = (props: RuleProps) => (
         {props.index + 1}.<br/>
       </Typography>
     </Spacing>
-    <Typography variant="h2" style={{fontWeight: 'normal'}} color="textPrimary">
+    <Typography variant="h2"  color="textPrimary">
         {props.rule}
     </Typography>
   </React.Fragment>
@@ -32,8 +55,8 @@ const Carousel = (props: CarouselProps) => {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      nextArrow: <React.Fragment/>,
-      prevArrow: <React.Fragment/>,
+      nextArrow: props.showArrows ? <CustomNextArrow/> : <React.Fragment/>,
+      prevArrow: props.showArrows ? <CustomPreviousArrow/> : <React.Fragment/>,
     }
   
     return (

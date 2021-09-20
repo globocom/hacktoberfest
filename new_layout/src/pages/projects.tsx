@@ -1,5 +1,5 @@
 import React from "react"
-import { Typography } from "@material-ui/core"
+import { Grid, Typography } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import Layout from "@components/layout"
 import SEO from "@components/seo"
@@ -23,7 +23,11 @@ const ProjectsPage = () => {
           Gostaríamos da sua ajuda principalmente nos seguintes projetos:
         </Typography>
       </Spacing>
-      <ProjectsList />
+      <Grid container justifyContent="center">
+        <Grid item xs={8}>
+          <ProjectsList/>
+        </Grid>
+      </Grid>
     </Layout>
   )
 }

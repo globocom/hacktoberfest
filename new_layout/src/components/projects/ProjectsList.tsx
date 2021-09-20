@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-function ProjectsList(props) {
+function ProjectsList(props: ProjectListProps) {
   const { listLimit = 0 } = props
   const [projects, setProjects] = useState<Array<ProjectProps>>([])
   const [loading, setLoading] = useState(true)
@@ -40,28 +40,32 @@ function ProjectsList(props) {
   useEffect(() => {
     async function fetchProjects() {
       setLoading(true)
-      const response: Array<ProjectProps> = await Projects.Service.getInstance().GetProjects()
-      if (response) {
-        if (listLimit) response.splice(listLimit)
-        setProjects(response)
-      } else setError(true)
-      setLoading(false)
+      try{
+        const response: Array<ProjectProps> = await Projects.Service.getInstance().GetProjects()
+        if (response) {
+          if (listLimit) response.splice(listLimit)
+          setProjects(response)
+        } else setError(true)
+        setLoading(false)
+      }catch(e){
+        console.error(e.message)
+      }
     }
     fetchProjects()
   }, [])
 
   return (
     <Spacing smart={{ margin: "0px 0px 40px" }}>
-      <Grid container direction="column" alignItems="center">
-        <Grid container justifyContent="center" xs={8}>
+      <Grid container direction="column">
+        <Grid item xs={8} md={12}>
           <div className={classes.topDivider} />
           {loading ? (
             <ProjectsListLoading />
           ) : error ? (
             <ProjectsListError />
           ) : (
-            projects.map((project) => {
-              return <ProjectCard {...project} />
+            projects.map((project, index) => {
+              return <ProjectCard key={index} {...project} />
             })
           )}
         </Grid>
@@ -93,32 +97,40 @@ function ProjectCard(props: ProjectProps) {
 
   return (
     <React.Fragment>
-      <Grid item container direction="column" xs={10}>
-        <Grid item container direction="row" alignItems="center">
-          <Typography color="textPrimary" className={classes.projectName}>
-            {name}
-          </Typography>
-          <img src={thumborUrl} alt={imageName} height={40} />
-        </Grid>
-        <Spacing smart={{ margin: "16px 0px 0px" }}>
-          <Typography component="p" color="textPrimary" variant="body1">
-            {description}
-          </Typography>
-        </Spacing>
-      </Grid>
-      <Grid item container xs={2} alignItems="center" justifyContent="flex-end">
-        <Button
-          className={classes.rounded}
-          color="secondary"
-          variant="contained"
-          onClick={accessProjectRepo}
-        >
-          acessar
-        </Button>
+      <Spacing smart={{margin: "24px 0px"}}>
+              <img src={thumborUrl} alt={imageName} height={40} />
+          </Spacing>
+      <Grid container alignItems="flex-start">
+          <Grid item xs={12} md={9}>
+            <Typography color="textPrimary" className={classes.projectName}>
+              {name}
+            </Typography>
+            <Spacing smart={{ margin: "16px 0px 0px" }}>
+              <Typography component="p" color="textPrimary" variant="body1">
+                {description}
+              </Typography>
+            </Spacing>
+          </Grid>
+          <Spacing smart={{margin: "24px 0px"}}>
+            <Grid item xs={2} md={3}>
+              <Button
+                className={classes.rounded}
+                color="secondary"
+                variant="contained"
+                onClick={accessProjectRepo}
+              >
+                acessar
+              </Button>
+            </Grid>
+          </Spacing>
       </Grid>
       <div className={classes.bottomDivider} />
     </React.Fragment>
   )
+}
+
+interface ProjectListProps {
+  listLimit?: number
 }
 
 export default ProjectsList

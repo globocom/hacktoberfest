@@ -1,6 +1,6 @@
 
 
-const API_URL: string = process.env.GATSBY_API_URL || "http://localhost:5000"
+const API_URL: string = process.env.GATSBY_API_URL || "http://localhost:3000"
 
 interface ApiResponse {
     data: any
@@ -24,12 +24,14 @@ const doRequest = async (request: Request) : Promise<ApiResponse> => {
         if(response.status >= 400){
             throw new Error(`[API ERROR] Fail to ${request.path}.`)
         }
+
         const data = await response.json()
         console.log(data)
         return Promise.resolve({data: data.result})
     }catch(error){
         return Promise.reject({
-            data: error
+            message: `Failed to request -> ${request.path}.`,
+            cause: error
         })
     }
 

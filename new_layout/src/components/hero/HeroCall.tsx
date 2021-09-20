@@ -2,6 +2,7 @@ import React from "react"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Grid, Hidden, Typography, Button } from "@material-ui/core"
+import { Image } from "@components/image"
 import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
 
 import Carousel from './Carousel'
@@ -29,6 +30,10 @@ const useStyles = makeStyles((theme: Theme) => ({
       height: "92vh",
     },
   },
+  terms: {
+    width: "100%",
+    display: "block",
+  }
 }))
 
 
@@ -113,6 +118,10 @@ const HeroCall = () => {
       <Spacing smart={{margin: "40px 0px"}}>
         <Carousel rules={rules} showArrows={true}/>
       </Spacing>
+      <Spacing smart={{margin: "100px auto"}}>
+          <Image className={classes.terms} src="hero/terms_mobile.svg"/>
+      </Spacing>
+
     </div>
     
   )
