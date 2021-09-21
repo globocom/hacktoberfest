@@ -3,10 +3,9 @@ import Layout from "@components/layout"
 import Spacing from "@components/spacing"
 import HeroCall from "@components/hero"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Link, Grid, Typography, IconButton } from "@material-ui/core"
+import { Link, Grid, Typography } from "@material-ui/core"
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
 import ProjectsList from "@components/projects"
-
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -14,16 +13,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projectsContainer: {
     [theme.breakpoints.up("md")]: {
-      width: '60%',
-      display: 'block',
-      margin: '0px auto'
-    }
-  }
-  
+      width: "60%",
+      display: "block",
+      margin: "0px auto",
+    },
+  },
 }))
-
-
-
 
 const IndexPage = () => {
   const classes = useStyles()
@@ -50,7 +45,7 @@ const IndexPage = () => {
                     <Typography align="left" variant="body1" color="textPrimary">
                       Gostaríamos da sua ajuda nos seguintes projetos:
                     </Typography>
-                    <ProjectsList listLimit={3}/>
+                    <ProjectsList listLimit={3} />
                 </Grid>
               </Spacing>
               <Grid>

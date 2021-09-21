@@ -14,9 +14,10 @@ interface RuleProps {
 }
 
 const CustomNextArrow = (props: any) => {
+  const { reference } = props
   function nextSlide() {
     try {
-      slickCarouselRef.current.slickNext()
+      reference.current.slickNext()
     } catch (e) {
       console.warn("Warning", e)
     }
@@ -34,9 +35,10 @@ const CustomNextArrow = (props: any) => {
 }
 
 const CustomPreviousArrow = (props: any) => {
+  const { reference } = props
   function previousSlide() {
     try {
-      slickCarouselRef.current.slickPrev()
+      reference.current.slickPrev()
     } catch (e) {
       console.warn("Warning", e)
     }
@@ -66,11 +68,10 @@ const Rule = (props: RuleProps) => (
   </React.Fragment>
 )
 
-let slickCarouselRef
 
 const Carousel = (props: CarouselProps) => {
-  slickCarouselRef = useRef(null)
-  const { rules } = props
+  const slickCarouselRef = useRef(null)
+  const { rules, showArrows } = props
   const settings = {
     dots: true,
     infinite: true,
@@ -88,15 +89,15 @@ const Carousel = (props: CarouselProps) => {
           justifyContent: "center",
         }}
       >
-        {props.showArrows && <CustomPreviousArrow />}
+        {props.showArrows && <CustomPreviousArrow reference={slickCarouselRef} />}
         <div style={{ width: "80%" }}>
           <Slider ref={slickCarouselRef} {...settings}>
             {rules.map((rule, index) => (
-              <Rule key={index} rule={rule} index={index} />
+              <Rule key={index} rule={rule} index={index} reference={slickCarouselRef} />
             ))}
           </Slider>
         </div>
-        {props.showArrows && <CustomNextArrow />}
+        {showArrows && <CustomNextArrow />}
       </div>
     </Spacing>
   )
