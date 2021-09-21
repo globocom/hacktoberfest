@@ -48,8 +48,7 @@ const IndexPage = () => {
               <Spacing smart={{ margin: "24px 0px 0px" }}>
                 <Grid item xs={12}>
                     <Typography align="left" variant="body1" color="textPrimary">
-                      Conheça alguns dos projetos que farão parte do Hacktoberfest
-                      2021:
+                      Gostaríamos da sua ajuda nos seguintes projetos:
                     </Typography>
                     <ProjectsList listLimit={3}/>
                 </Grid>

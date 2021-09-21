@@ -3,9 +3,28 @@ import Spacing from "@components/spacing"
 import { Grid, Typography, Button } from "@material-ui/core"
 import { Image } from "@components/image"
 import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
+import { makeStyles, Theme } from "@material-ui/core/styles"
+
+
+const useStyles = makeStyles((theme: Theme) => ({
+  button: {
+    backgroundColor: "#fff", 
+    fontFamily: "inherit", 
+    borderRadius: "64px",
+    textTransform: "none",
+    color: theme.palette.text.primary
+  },
+  howWorks: {
+    position: 'absolute',
+    width: "100%",
+    bottom: '30px'
+  }
+
+}))
 
 
 const SmartView = () => {
+    const classes = useStyles()
     return (
       <React.Fragment>
         <Spacing
@@ -44,14 +63,14 @@ const SmartView = () => {
             <Spacing smart={{ margin: "40px 0px 0px" }}>
               <Grid item xs={8}>
                 <Button
-                  style={{ backgroundColor: "#fff", borderRadius: "64px" }}
+                  className={classes.button}
                   fullWidth
                   variant="contained"
                 >
-                  <pre style={{ fontFamily: "inherit" }}>
-                    <b>Participar</b>
-                    <p>com sua conta do github</p>
-                  </pre>
+                  <span>
+                  <b>PARTICIPAR</b><br/>
+                  com sua conta do github
+                  </span>
                 </Button>
               </Grid>
             </Spacing>
@@ -79,18 +98,11 @@ const SmartView = () => {
           </Grid>
         </Spacing>
   
-        <Spacing smart={{ margin: "32px 0px 0px" }}>
-          <Grid container justifyContent="center" alignItems="center">
-            <Grid item>
-              <ArrowDownIcon />
-            </Grid>
-            <Grid item>
-              <Typography align="center" component="p">
-                como funciona
-              </Typography>
-            </Grid>
-          </Grid>
-        </Spacing>
+        <div className={classes.howWorks}>
+            <Typography align="center" component="p">
+              <ArrowDownIcon /> como funciona
+            </Typography>
+        </div>
       </React.Fragment>
     )
   }

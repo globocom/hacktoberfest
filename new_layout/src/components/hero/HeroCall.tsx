@@ -70,10 +70,7 @@ const DesktopView = () => {
                 fullWidth
                 variant="contained"
               >
-                <pre style={{ fontFamily: "inherit" }}>
-                  <b>Participar</b>
-                  com sua conta do github
-                </pre>
+                  <b>Participar</b> com sua conta do github
               </Button>
             </Grid>
           </Spacing>
@@ -116,7 +113,7 @@ const HeroCall = () => {
         </Hidden>
       </div>
       <Spacing smart={{margin: "40px 0px"}}>
-        <Carousel rules={rules} showArrows={true}/>
+        <Carousel rules={rules} showArrows={false}/>
       </Spacing>
       <Spacing smart={{margin: "100px auto"}}>
           <Image className={classes.terms} src="hero/terms_mobile.svg"/>

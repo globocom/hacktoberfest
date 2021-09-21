@@ -23,23 +23,34 @@ const MENU_ITEMS: Array<MenuItem> = [
 
 const makeCss = makeStyles((theme: Theme) => ({
   root: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    padding: 30,
+    color: theme.palette.text.primary,
+    padding: '30px 0px',
+    borderTop: `1px solid ${theme.palette.text.primary}`,
     textAlign: "center",
     "& a": {
-      color: theme.palette.primary.contrastText,
+      color: theme.palette.text.primary,
     },
   },
+  menuItem: {
+    textAlign: "center",
+    [theme.breakpoints.up("md")]: {
+      textAlign: "left"
+    }
+  }
 }))
 
 const FooterItems = (props: FooterItemsProps) => {
+  const classes = makeCss()
     return (
         <React.Fragment>
             {props.menuItems.map((item: MenuItem, i: number) => (
                 <Spacing key={i} smart={{margin: "0 0 8px"}}>
                     <Grid item xs={12} md={2} lg={2}>
-                        <Typography variant="body1" component="a" href={item.link}> {item.label} </Typography>
+                        <Typography className={classes.menuItem} variant="body1" component="p"> 
+                          <a href={item.link}>
+                            {item.label} 
+                          </a>
+                        </Typography>
                     </Grid>
                 </Spacing>
             ))}
@@ -47,14 +58,18 @@ const FooterItems = (props: FooterItemsProps) => {
     )
 }
 
-const Footer = (props: FooterProps) => {
+const Footer = () => {
     const classes = makeCss()
     return (
-        <footer className={classes.root}>
-            <Grid container justifyContent="center" alignItems="center">
-                <FooterItems menuItems={MENU_ITEMS}/>
+          <Grid container justifyContent="center" alignItems="center">
+            <Grid item xs={12} md={11}>
+              <footer className={classes.root}>
+                <Grid container justifyContent="flex-start" alignItems="flex-start">
+                      <FooterItems menuItems={MENU_ITEMS}/>
+                </Grid>
+              </footer>
             </Grid>
-          </footer>
+          </Grid>
     )
 }
 

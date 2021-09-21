@@ -329,68 +329,69 @@
       "email": "meuemail@gmail.c",
       "state": "RJ",
       "city": "Rio de Janeiro",
-      "shirtSize": "M",
-      "shirtColor": "Azul",
+      "shirtSize": "",
+      "shirtColor": "",
       "avatarURL": "https://avatars0.githubusercontent.com/u/1333599?v=4",
       "githubUser": "marcuscartagenes",
       "githubID": "120391203",
       "hacktoberfest": {
-          "2019": {
-            "progress": {
-              "opened": 2,
-              "merged": 2,
-              "achievements": {
-                "opened": true,
-                "merged": true,
-                "firsts": true,
-                "completed": true
-              }
-            }
-          },
-          "2020": {
-            "progress": {
-              "opened": 2,
-              "merged": 2,
-              "achievements": {
-                "opened": true,
-                "merged": true,
-                "firsts": true,
-                "completed": true
-              }
-            }
-          },
-          "2021": {
-            "progress": {
-              "opened": 2,
-              "merged": 2,
-              "achievements": {
-                "opened": true,
-                "merged": true,
-                "firsts": true,
-                "completed": true
-              }
+        "2019": {
+          "progress": {
+            "opened": 2,
+            "merged": 2,
+            "achievements": {
+              "opened": true,
+              "merged": true,
+              "firsts": true,
+              "completed": true
             }
           }
+        },
+        "2020": {
+          "progress": {
+            "opened": 2,
+            "merged": 2,
+            "achievements": {
+              "opened": true,
+              "merged": true,
+              "firsts": true,
+              "completed": true
+            }
+          }
+        },
+        "2021": {
+          "progress": {
+            "opened": 2,
+            "merged": 2,
+            "achievements": {
+              "opened": true,
+              "merged": true,
+              "firsts": true,
+              "completed": true
+            }
+          }
+        }
       },
       "postal": "123456-789",
       "address": "2970 Golf Course Driesaaw",
       "street": "2970 Golf Course Driv",
       "editions": {
-        "2021": {
-        "approved": false,
-        "completed": false,
-        "completed_at": "0001-01-01T00:00:00Z",
-        "totalMergeRequests": 0,
-        "totalMergeRequestsMerged": 0
-        },
         "2020": {
           "approved": true,
           "completed": true,
           "completed_at": "0001-01-01T00:00:00Z",
           "totalMergeRequests": 2,
           "totalMergeRequestsMerged": 2
+        },
+        "2021": {
+          "approved": false,
+          "completed": false,
+          "completed_at": "0001-01-01T00:00:00Z",
+          "totalMergeRequests": 0,
+          "totalMergeRequestsMerged": 0
         }
-      }
+      },
+      "postalCode": "4234234"
     }
   },
   "status": {
@@ -1290,243 +1291,232 @@
     ]
   },
   "projects": {
-      "success":true,
-      "status":200,
-      "type":"ok",
-      "result":{
-         "items":[
-            {
-               "id":"4aaca87f-9174-45fd-8df3-1d893efa61ad",
-               "name":"GoReq",
-               "site":"",
-               "repo":"https://github.com/globocom/goreq",
-               "isHighlighted":true,
-               "imageUrl":{
-                  "name":"0_01616519880585",
-                  "rightsHolder":"Backstage",
-                  "thumborUrl":"https://s2.glbimg.dev.globoi.com/i_PUQ53n3KTz4gVDOrd4sv4bjm8=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/u/H/ZSl586RFSAtz2cD9TanA/lady-night-background-tv.jpg"
-               },
-               "docs":"https://github.com/globocom/goreq/blob/master/README.md",
-               "description":"Simple and sane HTTP request library for Go language.",
-               "stats":{
-                  "repository":{
-                     "object":{
-                        "commit":{
-                           "history":{
-                              "totalCount":238
-                           }
-                        }
-                     },
-                     "issues":{
-                        "totalCount":7
-                     },
-                     "pullRequests":{
-                        "totalCount":1
-                     },
-                     "stars":{
-                        "totalCount":4
-                     }
+    "success": true,
+    "status": 200,
+    "type": "ok",
+    "result": {
+      "items": [
+        {
+          "id": "4aaca87f-9174-45fd-8df3-1d893efa61ad",
+          "name": "GoReq",
+          "site": "",
+          "repo": "https://github.com/globocom/goreq",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "0_01616519880585",
+            "rightsHolder": "Backstage",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/i_PUQ53n3KTz4gVDOrd4sv4bjm8=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/u/H/ZSl586RFSAtz2cD9TanA/lady-night-background-tv.jpg"
+          },
+          "docs": "https://github.com/globocom/goreq/blob/master/README.md",
+          "description": "Simple and sane HTTP request library for Go language.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 238
                   }
-               }
-            },
-            {
-               "id":"07d361d0-c262-493f-9f8b-2dfc97b01766",
-               "name":"Megadraft",
-               "site":"http://megadraft.io/",
-               "repo":"https://github.com/globocom/megadraft",
-               "isHighlighted":true,
-               "imageUrl":{
-                  "name":"0_01616519880585",
-                  "rightsHolder":"Backstage",
-                  "thumborUrl":"https://s2.glbimg.dev.globoi.com/i_PUQ53n3KTz4gVDOrd4sv4bjm8=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/u/H/ZSl586RFSAtz2cD9TanA/lady-night-background-tv.jpg"
-               },
-               "docs":"http://megadraft.io/#/docs/overview",
-               "description":"Megadraft is a Rich Text editor built on top of Facebook's Draft.JS featuring a nice default base of components and extensibility",
-               "stats":{
-                  "repository":{
-                     "object":{
-                        "commit":{
-                           "history":{
-                              "totalCount":594
-                           }
-                        }
-                     },
-                     "issues":{
-                        "totalCount":148
-                     },
-                     "pullRequests":{
-                        "totalCount":202
-                     },
-                     "stars":{
-                        "totalCount":1040
-                     }
-                  }
-               }
-            },
-            {
-               "id":"af0f18af-6636-4f47-a0f9-b62d0f0bd9a8",
-               "name":"huskyCI",
-               "site":"https://huskyci.opensource.globo.com/",
-               "repo":"https://github.com/globocom/huskyCI",
-               "isHighlighted":true,
-               "imageUrl":{
-                  "name":"secDevLabs teste upload",
-                  "rightsHolder":"teste globo",
-                  "thumborUrl":"https://s2.glbimg.dev.globoi.com/5RwLARCdKp91GY3Cs9WqLq0oKSw=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/m/g/3AddXrQ66QD64qMhKhVA/secdevlabs-logo-teste.png"
-               },
-               "docs":"https://huskyci.opensource.globo.com/docs/quickstart/overview",
-               "description":"Performing security tests inside your CI.",
-               "stats":{
-                  "repository":{
-                     "object":{
-                        "commit":{
-                           "history":{
-                              "totalCount":1022
-                           }
-                        }
-                     },
-                     "issues":{
-                        "totalCount":178
-                     },
-                     "pullRequests":{
-                        "totalCount":359
-                     },
-                     "stars":{
-                        "totalCount":442
-                     }
-                  }
-               }
-            },
-            {
-               "id":"2c75492b-4c6c-4b39-9a03-e09f096a109f",
-               "name":"Globo Network API Web UI",
-               "site":"",
-               "repo":"https://github.com/globocom/GloboNetworkAPI-Webui",
-               "isHighlighted":true,
-               "imageUrl":{
-                  "name":"Megadraft",
-                  "rightsHolder":"Globo",
-                  "thumborUrl":"https://s2.glbimg.dev.globoi.com/9ZaRtejoKMkg_EpACOSKi9SavXI=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/V/W/r3RPR8TlaaiwxekZ400w/megadraft.png"
-               },
-               "docs":"https://github.com/globocom/GloboNetworkAPI-WebUI/blob/master/README.md",
-               "description":"This web tool helps network administrator manage and automate networking resources (routers, switches and load balancers) and document logical and physical networking.",
-               "stats":{
-                  "repository":{
-                     "object":{
-                        "commit":{
-                           "history":{
-                              "totalCount":1230
-                           }
-                        }
-                     },
-                     "issues":{
-                        "totalCount":52
-                     },
-                     "pullRequests":{
-                        "totalCount":75
-                     },
-                     "stars":{
-                        "totalCount":16
-                     }
-                  }
-               }
-            },
-            {
-               "id":"68e8adf6-c06a-430a-8a43-fff8c464c25e",
-               "name":"secDevLabs",
-               "site":"",
-               "repo":"https://github.com/globocom/secDevLabs",
-               "isHighlighted":true,
-               "imageUrl":{
-                  "name":"secDevLabs Logo",
-                  "rightsHolder":"Globo.com",
-                  "thumborUrl":"https://s2.glbimg.dev.globoi.com/BIKkMHKILIi3tDHEvQ_TCOb5X9Y=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/E/T/Arpn2rQH6iGyKSAnfdpg/secdevlabs-logo.png"
-               },
-               "docs":"https://github.com/globocom/secDevLabs/blob/master/README.md",
-               "description":"A laboratory for learning secure web and mobile development in a practical manner.",
-               "stats":{
-                  "repository":{
-                     "object":{
-                        "commit":{
-                           "history":{
-                              "totalCount":654
-                           }
-                        }
-                     },
-                     "issues":{
-                        "totalCount":60
-                     },
-                     "pullRequests":{
-                        "totalCount":463
-                     },
-                     "stars":{
-                        "totalCount":610
-                     }
-                  }
-               }
-            },
-            {
-               "id":"136de8e4-352b-4d67-bb3b-ca22ff84db87",
-               "name":"Backstage Functions",
-               "site":"",
-               "repo":"https://github.com/globocom/functions",
-               "isHighlighted":false,
-               "imageUrl":{
-                  
-               },
-               "docs":"https://github.com/globocom/functions/blob/master/README.md",
-               "description":"Backstage Functions is an Open Source Serverless Platform able to store and execute code."
-            },
-            {
-               "id":"ad489e78-0854-49aa-89a1-0fd3851bcf77",
-               "name":"Auror Core",
-               "site":"",
-               "repo":"https://github.com/globocom/auror-core",
-               "isHighlighted":false,
-               "imageUrl":{
-                  
-               },
-               "docs":"https://github.com/globocom/auror-core/blob/master/README.md",
-               "description":"Simple Flow creation for Azkaban"
-            },
-            {
-               "id":"cae5985a-14c8-47bb-b077-ed3b5cd6ae7c",
-               "name":"Azkaban CLI",
-               "site":"",
-               "repo":"https://github.com/globocom/azkaban-cli",
-               "isHighlighted":false,
-               "imageUrl":{
-                  
-               },
-               "docs":"https://github.com/globocom/azkaban-cli/blob/master/README.md",
-               "description":"CLI for Azkaban 3 API access and flow upload."
-            },
-            {
-               "id":"993abbca-c24c-4c10-97e3-cc55088c075a",
-               "name":"Echo Prometheus",
-               "site":"",
-               "repo":"https://github.com/globocom/echo-prometheus",
-               "isHighlighted":false,
-               "imageUrl":{
-                  
-               },
-               "docs":"https://github.com/globocom/echo-prometheus/blob/master/README.md",
-               "description":"Middleware for echo v4 to instrument all handlers as metrics"
-            },
-            {
-               "id":"02b37d0d-0839-4f79-bfd9-e46b1d0341f1",
-               "name":"GHDFS",
-               "site":"",
-               "repo":"https://github.com/globocom/ghdfs/",
-               "isHighlighted":false,
-               "imageUrl":{
-                  
-               },
-               "docs":"https://github.com/globocom/ghdfs/blob/master/README.md",
-               "description":"Works with HDFS for common operations and Scala compatibility."
+                }
+              },
+              "issues": {
+                "totalCount": 7
+              },
+              "pullRequests": {
+                "totalCount": 1
+              },
+              "stars": {
+                "totalCount": 4
+              }
             }
-         ]
-      }
-   
+          }
+        },
+        {
+          "id": "07d361d0-c262-493f-9f8b-2dfc97b01766",
+          "name": "Megadraft",
+          "site": "http://megadraft.io/",
+          "repo": "https://github.com/globocom/megadraft",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "0_01616519880585",
+            "rightsHolder": "Backstage",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/i_PUQ53n3KTz4gVDOrd4sv4bjm8=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/u/H/ZSl586RFSAtz2cD9TanA/lady-night-background-tv.jpg"
+          },
+          "docs": "http://megadraft.io/#/docs/overview",
+          "description": "Megadraft is a Rich Text editor built on top of Facebook's Draft.JS featuring a nice default base of components and extensibility",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 594
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 148
+              },
+              "pullRequests": {
+                "totalCount": 202
+              },
+              "stars": {
+                "totalCount": 1040
+              }
+            }
+          }
+        },
+        {
+          "id": "af0f18af-6636-4f47-a0f9-b62d0f0bd9a8",
+          "name": "huskyCI",
+          "site": "https://huskyci.opensource.globo.com/",
+          "repo": "https://github.com/globocom/huskyCI",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "secDevLabs teste upload",
+            "rightsHolder": "teste globo",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/5RwLARCdKp91GY3Cs9WqLq0oKSw=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/m/g/3AddXrQ66QD64qMhKhVA/secdevlabs-logo-teste.png"
+          },
+          "docs": "https://huskyci.opensource.globo.com/docs/quickstart/overview",
+          "description": "Performing security tests inside your CI.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 1022
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 178
+              },
+              "pullRequests": {
+                "totalCount": 359
+              },
+              "stars": {
+                "totalCount": 442
+              }
+            }
+          }
+        },
+        {
+          "id": "2c75492b-4c6c-4b39-9a03-e09f096a109f",
+          "name": "Globo Network API Web UI",
+          "site": "",
+          "repo": "https://github.com/globocom/GloboNetworkAPI-Webui",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "Megadraft",
+            "rightsHolder": "Globo",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/9ZaRtejoKMkg_EpACOSKi9SavXI=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/V/W/r3RPR8TlaaiwxekZ400w/megadraft.png"
+          },
+          "docs": "https://github.com/globocom/GloboNetworkAPI-WebUI/blob/master/README.md",
+          "description": "This web tool helps network administrator manage and automate networking resources (routers, switches and load balancers) and document logical and physical networking.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 1230
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 52
+              },
+              "pullRequests": {
+                "totalCount": 75
+              },
+              "stars": {
+                "totalCount": 16
+              }
+            }
+          }
+        },
+        {
+          "id": "68e8adf6-c06a-430a-8a43-fff8c464c25e",
+          "name": "secDevLabs",
+          "site": "",
+          "repo": "https://github.com/globocom/secDevLabs",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "secDevLabs Logo",
+            "rightsHolder": "Globo.com",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/BIKkMHKILIi3tDHEvQ_TCOb5X9Y=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/E/T/Arpn2rQH6iGyKSAnfdpg/secdevlabs-logo.png"
+          },
+          "docs": "https://github.com/globocom/secDevLabs/blob/master/README.md",
+          "description": "A laboratory for learning secure web and mobile development in a practical manner.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 654
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 60
+              },
+              "pullRequests": {
+                "totalCount": 463
+              },
+              "stars": {
+                "totalCount": 610
+              }
+            }
+          }
+        },
+        {
+          "id": "136de8e4-352b-4d67-bb3b-ca22ff84db87",
+          "name": "Backstage Functions",
+          "site": "",
+          "repo": "https://github.com/globocom/functions",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/functions/blob/master/README.md",
+          "description": "Backstage Functions is an Open Source Serverless Platform able to store and execute code."
+        },
+        {
+          "id": "ad489e78-0854-49aa-89a1-0fd3851bcf77",
+          "name": "Auror Core",
+          "site": "",
+          "repo": "https://github.com/globocom/auror-core",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/auror-core/blob/master/README.md",
+          "description": "Simple Flow creation for Azkaban"
+        },
+        {
+          "id": "cae5985a-14c8-47bb-b077-ed3b5cd6ae7c",
+          "name": "Azkaban CLI",
+          "site": "",
+          "repo": "https://github.com/globocom/azkaban-cli",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/azkaban-cli/blob/master/README.md",
+          "description": "CLI for Azkaban 3 API access and flow upload."
+        },
+        {
+          "id": "993abbca-c24c-4c10-97e3-cc55088c075a",
+          "name": "Echo Prometheus",
+          "site": "",
+          "repo": "https://github.com/globocom/echo-prometheus",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/echo-prometheus/blob/master/README.md",
+          "description": "Middleware for echo v4 to instrument all handlers as metrics"
+        },
+        {
+          "id": "02b37d0d-0839-4f79-bfd9-e46b1d0341f1",
+          "name": "GHDFS",
+          "site": "",
+          "repo": "https://github.com/globocom/ghdfs/",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/ghdfs/blob/master/README.md",
+          "description": "Works with HDFS for common operations and Scala compatibility."
+        }
+      ]
+    }
   }
 }

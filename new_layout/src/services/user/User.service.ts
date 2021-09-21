@@ -40,12 +40,10 @@ export default class UserService {
     }
 
     async UpdateUser(data: any){
-        console.log('Doing Request')
         await doRequest({path: "/subscribe",  sendCookies: true, method: "POST", body: data})
     }
 
     async UpdateUserEmail(data: any){
-      console.log('Doing Request')
       await doRequest({path: "/subscribeEmail",  sendCookies: true, method: "POST", body: data})
   }
 

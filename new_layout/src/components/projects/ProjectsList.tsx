@@ -35,8 +35,6 @@ function ProjectsList(props: ProjectListProps) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
-  const classes = useStyles()
-
   useEffect(() => {
     async function fetchProjects() {
       setLoading(true)
@@ -57,8 +55,7 @@ function ProjectsList(props: ProjectListProps) {
   return (
     <Spacing smart={{ margin: "0px 0px 40px" }}>
       <Grid container direction="column">
-        <Grid item xs={8} md={12}>
-          <div className={classes.topDivider} />
+        <Grid item xs={12}>
           {loading ? (
             <ProjectsListLoading />
           ) : error ? (
@@ -98,9 +95,9 @@ function ProjectCard(props: ProjectProps) {
   return (
     <React.Fragment>
       <Spacing smart={{margin: "24px 0px"}}>
-              <img src={thumborUrl} alt={imageName} height={40} />
-          </Spacing>
-      <Grid container alignItems="flex-start">
+          <img src={thumborUrl} alt={imageName} height={40} />
+      </Spacing>
+      <Grid container alignItems="center" alignContent="space-between" justifyContent="space-between">
           <Grid item xs={12} md={9}>
             <Typography color="textPrimary" className={classes.projectName}>
               {name}

@@ -88,7 +88,7 @@ const Carousel = (props: CarouselProps) => {
           justifyContent: "center",
         }}
       >
-        <CustomPreviousArrow />
+        {props.showArrows && <CustomPreviousArrow />}
         <div style={{ width: "80%" }}>
           <Slider ref={slickCarouselRef} {...settings}>
             {rules.map((rule, index) => (
@@ -96,7 +96,7 @@ const Carousel = (props: CarouselProps) => {
             ))}
           </Slider>
         </div>
-        <CustomNextArrow />
+        {props.showArrows && <CustomNextArrow />}
       </div>
     </Spacing>
   )

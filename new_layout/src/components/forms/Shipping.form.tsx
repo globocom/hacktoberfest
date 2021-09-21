@@ -53,8 +53,6 @@ const ShippingForm = (props: ShippingFormProps) => {
 
     const userEdition = user.editions || {}
 
-    console.log("userEdition=", userEdition)
-
     const initialValues = {
             name: user.name,
             city: user.city,
@@ -65,7 +63,6 @@ const ShippingForm = (props: ShippingFormProps) => {
             shirtColor: userEdition[currentEdition]?.shirtColor || ''
     }
 
-    console.log(initialValues)
 
     const onSubmit = async (values: any) => {
         try{
@@ -82,7 +79,6 @@ const ShippingForm = (props: ShippingFormProps) => {
     }
 
     const formik = useFormik({ initialValues, validationSchema, onSubmit, enableReinitialize:true});
-    console.log("formik=", formik)
     return (
         <Spacing desktop={{margin: "40px 0px"}} smart={{margin: "40px 0px"}}>
             <form onSubmit={formik.handleSubmit}>
