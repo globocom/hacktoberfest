@@ -17,8 +17,8 @@ export interface Edition {
   approved: boolean,
 	completed: string,
 	completedat: string,
-	totalMergerequests: number,
-	totalMergerequestsMerged: number,
+	totalMergeRequests: number,
+	totalMergeRequestsMerged: number,
 	shirtSize: string,
 	shirtColor: string,
 }

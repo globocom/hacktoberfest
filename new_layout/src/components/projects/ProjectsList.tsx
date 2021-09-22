@@ -17,15 +17,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: 50,
     fontWeight: "normal",
   },
-  topDivider: {
+  divider: {
     width: "100%",
-    borderBottom: `1px solid #E0E0E0;`,
+    borderTop: `1px solid #090055;`,
     marginBottom: 32,
   },
   bottomDivider: {
     width: "100%",
-    borderBottom: `1px solid #E0E0E0;`,
-    margin: "32px 0px",
+    borderTop: `1px solid #E0E0E0;`,
+    padding: "24px 0px",
   },
 }))
 
@@ -94,34 +94,34 @@ function ProjectCard(props: ProjectProps) {
 
   return (
     <React.Fragment>
-      <Spacing smart={{margin: "24px 0px"}}>
-          <img src={thumborUrl} alt={imageName} height={40} />
-      </Spacing>
-      <Grid container alignItems="center" alignContent="space-between" justifyContent="space-between">
-          <Grid item xs={12} md={9}>
-            <Typography color="textPrimary" className={classes.projectName}>
-              {name}
-            </Typography>
-            <Spacing smart={{ margin: "16px 0px 0px" }}>
-              <Typography component="p" color="textPrimary" variant="body1">
-                {description}
+      <div className={classes.divider}>
+        <Spacing smart={{margin: "24px 0px"}}>
+            <img src={thumborUrl} alt={imageName} height={40} />
+        </Spacing>
+        <Grid container alignItems="center" alignContent="space-between" justifyContent="space-between">
+            <Grid item xs={12} md={9}>
+              <Typography color="textPrimary" variant="h1" component="p">
+                {name}
               </Typography>
-            </Spacing>
-          </Grid>
-          <Spacing smart={{margin: "24px 0px"}}>
-            <Grid item xs={2} md={3}>
-              <Button
-                className={classes.rounded}
-                color="secondary"
-                variant="contained"
-                onClick={accessProjectRepo}
-              >
-                acessar
-              </Button>
+              <Spacing smart={{ margin: "16px 0px 0px" }}>
+                <Typography component="p" color="textPrimary" variant="body1">
+                  {description}
+                </Typography>
+              </Spacing>
             </Grid>
-          </Spacing>
-      </Grid>
-      <div className={classes.bottomDivider} />
+              <Grid item xs={2} md={3}>
+                <Button
+                  className={classes.rounded}
+                  color="secondary"
+                  size="large"
+                  variant="contained"
+                  onClick={accessProjectRepo}
+                >
+                  <b>acessar</b>
+                </Button>
+              </Grid>
+        </Grid>
+      </div>
     </React.Fragment>
   )
 }

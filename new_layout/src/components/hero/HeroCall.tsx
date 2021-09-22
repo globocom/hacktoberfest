@@ -1,22 +1,15 @@
 import React from "react"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Hidden } from "@material-ui/core"
+import { Hidden, useMediaQuery } from "@material-ui/core"
 import { Image } from "@components/image"
+
 
 import Carousel from "./Carousel"
 import SmartView from "./HeroSmart"
 import DesktopView from "./HeroDesktop"
+import { UserProps } from "@services/user"
 
-interface ImageHero {
-  image: string
-  format: string
-  repeat?: number
-  initialPosition: {
-    x: number
-    y: number
-  }
-}
 
 const useStyles = makeStyles((theme: Theme) => ({
   heroPanel: {
@@ -36,8 +29,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const HeroCall = () => {
+
+
+const HeroCall = (props: HeroCallProps) => {
   const classes = useStyles()
+  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
+
   const rules = [
     "Contribua com dois PRs em qualquer projeto Open Source da Globo durante o mês de outubro.",
     "Garanta que pelo menos um pull request seja ACEITO.",
@@ -48,20 +45,25 @@ const HeroCall = () => {
     <div>
       <div className={classes.heroPanel} id="hero_panel">
         <Hidden smDown>
-          <DesktopView />
+          <DesktopView user={props.user} />
         </Hidden>
         <Hidden mdUp>
-          <SmartView />
+          <SmartView user={props.user} />
         </Hidden>
       </div>
       <Spacing smart={{margin: "40px 0px"}}>
-        <Carousel rules={rules} showArrows={false}/>
+        <Carousel rules={rules} typeText={isDesktop ? "inline" : "block"}  showArrows={isDesktop ? true : false}/>
       </Spacing>
-      <Spacing smart={{ margin: "100px auto" }}>
-        <Image className={classes.terms} src="hero/terms_mobile.svg" />
+      <Spacing smart={{ margin: "40px auto" }}>
+        <Image className={classes.terms} src={ isDesktop ? "hero/terms.svg" : "hero/terms_mobile.svg"} />
       </Spacing>
     </div>
   )
+}
+
+
+interface HeroCallProps {
+  user?: UserProps
 }
 
 export default HeroCall

@@ -2,3 +2,13 @@
     margin: 0;
     padding: 0;
 }
+
+ul.slick-dots {
+    text-align: left;
+    bottom: -35px;
+    left: -8px;
+}
+
+li.slick-dots button:before {
+    font-size: 12px
+}

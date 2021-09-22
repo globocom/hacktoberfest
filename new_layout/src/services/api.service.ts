@@ -26,10 +26,10 @@ const doRequest = async (request: Request) : Promise<ApiResponse> => {
         }
 
         const data = await response.json()
-        console.log(data)
         return Promise.resolve({data: data.result})
     }catch(error){
         return Promise.reject({
+            data: {},
             message: `Failed to request -> ${request.path}.`,
             cause: error
         })

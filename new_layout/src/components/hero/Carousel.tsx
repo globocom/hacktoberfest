@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 import Spacing from "@components/spacing"
-import { Typography, IconButton } from "@material-ui/core"
+import { Typography, IconButton, Grid, makeStyles } from "@material-ui/core"
 import { CarouselProps } from "./index"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -10,8 +10,16 @@ import Slider from "react-slick"
 
 interface RuleProps {
   rule: string
+  typeText: string
   index: number
 }
+
+const useStyles = makeStyles({
+  inlineText: {
+    fontSize: '3.5rem',
+    lineHeight: '66px'
+  }
+})
 
 const CustomNextArrow = (props: any) => {
   const { reference } = props
@@ -55,17 +63,43 @@ const CustomPreviousArrow = (props: any) => {
   )
 }
 
-const Rule = (props: RuleProps) => (
+const InlineRule = (props: RuleProps) => {
+  const classes = useStyles()
+  return (
+   <Grid container>
+      <Spacing smart={{margin: "0px 0px 0px 50px"}}>
+        <Grid item>
+          <Typography variant="h1" color="textPrimary">
+            {props.index + 1}.<br />
+          </Typography>
+        </Grid>
+      </Spacing>
+      <Spacing smart={{margin: "0px 0px 0px 100px"}}>
+        <Grid item xs={8}>
+          <Typography className={classes.inlineText} style={{fontWeight: "normal"}} color="textPrimary">
+            {props.rule}
+          </Typography>
+        </Grid>
+      </Spacing>
+    </Grid>    
+  )  
+}
+
+const BlockRule = (props: RuleProps) => (
   <React.Fragment>
     <Spacing smart={{ margin: "0px 0px 24px" }}>
       <Typography variant="h1" color="textPrimary">
         {props.index + 1}.<br />
       </Typography>
     </Spacing>
-    <Typography variant="h2" color="textPrimary">
+    <Typography style={{fontWeight: "normal"}} color="textPrimary">
       {props.rule}
     </Typography>
   </React.Fragment>
+)
+
+const Rule = (props: RuleProps) => (
+  props.typeText === "inline" ? <InlineRule {...props}/> : <BlockRule {...props}/>
 )
 
 
@@ -93,11 +127,11 @@ const Carousel = (props: CarouselProps) => {
         <div style={{ width: "80%" }}>
           <Slider ref={slickCarouselRef} {...settings}>
             {rules.map((rule, index) => (
-              <Rule key={index} rule={rule} index={index} reference={slickCarouselRef} />
+              <Rule key={index} typeText={props.typeText} rule={rule} index={index} />
             ))}
           </Slider>
         </div>
-        {showArrows && <CustomNextArrow />}
+        {showArrows && <CustomNextArrow reference={slickCarouselRef} />}
       </div>
     </Spacing>
   )

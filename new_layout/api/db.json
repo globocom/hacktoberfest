@@ -336,7 +336,6 @@
       "githubID": "120391203",
       "hacktoberfest": {
         "2019": {
-          "progress": {
             "opened": 2,
             "merged": 2,
             "achievements": {
@@ -345,10 +344,8 @@
               "firsts": true,
               "completed": true
             }
-          }
         },
         "2020": {
-          "progress": {
             "opened": 2,
             "merged": 2,
             "achievements": {
@@ -357,23 +354,20 @@
               "firsts": true,
               "completed": true
             }
-          }
         },
         "2021": {
-          "progress": {
             "opened": 2,
-            "merged": 2,
+            "merged": 0,
             "achievements": {
               "opened": true,
               "merged": true,
               "firsts": true,
               "completed": true
             }
-          }
         }
       },
       "postal": "123456-789",
-      "address": "2970 Golf Course Driesaaw",
+      "address": "2970 Golf Course Driesa",
       "street": "2970 Golf Course Driv",
       "editions": {
         "2020": {
@@ -387,7 +381,7 @@
           "approved": false,
           "completed": false,
           "completed_at": "0001-01-01T00:00:00Z",
-          "totalMergeRequests": 0,
+          "totalMergeRequests": 5,
           "totalMergeRequestsMerged": 0
         }
       },

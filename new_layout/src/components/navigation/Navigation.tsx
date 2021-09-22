@@ -66,7 +66,7 @@ const NavigationItems = (props: Props.NavigationItems) => {
       {props.items.map((def: Props.NavigationItem) => (
         <NavigationItem key={def.label} {...def} />
       ))}
-      {isLogged && <NavigationItem label="Minha Área" link="/personalArea" />}
+      {isLogged && <NavigationItem label="minha área" link="/personalArea" />}
     </ul>
   )
 }

@@ -6,6 +6,7 @@ import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Link, Grid, Typography } from "@material-ui/core"
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
 import ProjectsList from "@components/projects"
+import User,{UserProps} from '@services/user'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -20,13 +21,21 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const IndexPage = () => {
-  const classes = useStyles()
+const IndexPage = (props: any) => {
+  const [isLoading, setIsloading] = React.useState<boolean>(false)
+  const [user, setUser] = React.useState<UserProps>()
+  
+  React.useEffect(() => {
+    const fetchUser = async () => setUser(await User.Service.getInstance().GetUser())
+    fetchUser()
+  }, [])
 
+  const classes = useStyles()
+  
   return (
     <Layout title="Início - Globo Hacktoberfest">
       <div className={classes.root}>
-        <HeroCall />
+        <HeroCall user={user} />
         <div className={classes.projectsContainer}>
           <Spacing smart={{ margin: "0px 0px 64px", padding: "0px 40px" }}>
             <Grid
@@ -39,12 +48,14 @@ const IndexPage = () => {
                 <Typography variant="h2" color="secondary">
                   Projetos
                 </Typography>
+                <Spacing smart={{margin: "8px 0px 0px"}}>
+                  <Typography align="left" variant="body1" color="textPrimary">
+                        Gostaríamos da sua ajuda principalmente nos seguintes projetos:
+                  </Typography>
+                </Spacing>
               </Grid>
               <Spacing smart={{ margin: "24px 0px 0px" }}>
                 <Grid item xs={12}>
-                    <Typography align="left" variant="body1" color="textPrimary">
-                      Gostaríamos da sua ajuda nos seguintes projetos:
-                    </Typography>
                     <ProjectsList listLimit={3} />
                 </Grid>
               </Spacing>

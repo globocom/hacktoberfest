@@ -52,10 +52,16 @@ const ParticipantsTabs = () => {
 
   useEffect(() => {
     const fetchParticipants = async () => {
-      setLoading(true)
-      const response: Array<ParticipantProps> = await Participants.Service.getInstance().GetParticipants(edition)
-      setParticipants(response)
-      setLoading(false)
+      try{
+        setLoading(true)
+        const response: Array<ParticipantProps> = await Participants.Service.getInstance().GetParticipants(edition)
+        setParticipants(response)
+      }catch(e){
+
+      }finally {
+        setLoading(false)
+      }
+      
     }
     fetchParticipants()
   }, [edition]);
@@ -75,17 +81,17 @@ const ParticipantsTabs = () => {
         textColor="primary"
         centered
       >
-        {EDITIONS.map(edition => (
-          <Tab className={classes.tab} label={edition} />
+        {EDITIONS.map((edition, index) => (
+          <Tab key={index} className={classes.tab} label={edition} />
         ))}
       </Tabs>
       {EDITIONS.map((_, index) => (
-        <TabPanel value={tabValue} index={index}>
+        <TabPanel key={index} value={tabValue} index={index}>
           <List className={classes.list}>
             {loading && <div className={classes.loading}><CircularProgress /></div>}
             {!loading && (
-              participants.map(participant => (
-                <ListItem alignItems="flex-start" className={classes.listItem}>
+              participants.map((participant, index) => (
+                <ListItem key={index} alignItems="flex-start" className={classes.listItem}>
                   <ListItemAvatar>
                     <Avatar alt={participant.githubUser} src={participant.avatar} />
                   </ListItemAvatar>

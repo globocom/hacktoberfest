@@ -4,6 +4,7 @@ import { Grid, Typography, Button } from "@material-ui/core"
 import { Image } from "@components/image"
 import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
 import { makeStyles, Theme } from "@material-ui/core/styles"
+import { UserProps } from "@services/user"
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -17,13 +18,103 @@ const useStyles = makeStyles((theme: Theme) => ({
   howWorks: {
     position: 'absolute',
     width: "100%",
+    fontWeight: 100,
+    display: `inline-flex`,
+    justifyContent: `center`,
     bottom: '30px'
+  },
+  progressionContainer: {
+    width: '80vw',
+    display: 'block',
+    margin: '0px auto 24px auto'
+  },
+  progression: {
+    border: '5px solid #fff',
+    display: 'flex',
+    justifyContent: 'space-between',
+    borderRadius: 50,
+    padding: '10px 30px'
+  },
+  textProgress: {
+    width: '60vw',
+    display: 'block',
+    margin: '0px auto'
   }
-
 }))
 
+const LoggedView = (user: UserProps) => {
+  const classes = useStyles()
+  
+  const opened = user.editions?.[2021]?.totalMergeRequests || 0
+  const merged = user.editions?.[2021]?.totalMergeRequestsMerged || "nenhum"
 
-const SmartView = () => {
+  return (
+    <React.Fragment>
+      <Grid container direction="column" alignContent="center" justifyContent="center">
+        <Spacing smart={{margin: "20px 0px 5px"}}>
+          <Grid item>
+            <Typography align="center" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
+          </Grid>
+        </Spacing>
+        <Spacing smart={{margin: "0px 0px 30px"}}>
+          <Grid item md={5}>
+            <Typography align="center" component="p"> Acompanhe seu progresso: </Typography>
+          </Grid>
+        </Spacing>
+          <div className={classes.progressionContainer}>
+            <div className={classes.progression}>
+              <Image src="hero/PR.svg"/>
+              <Image src="hero/Check.svg"/>
+              <Image src="hero/Shirt.svg"/>
+            </div>
+          </div>
+          <div className={classes.textProgress}>
+            <Typography align="center" component="p"> Você tem <b> {opened} PRs enviados e {merged} aceito(s) </b> </Typography>
+          </div>
+      </Grid>
+    </React.Fragment>
+  )
+}
+
+const UnloggedView = () => {
+  const classes = useStyles()
+  return (
+    <React.Fragment>
+      <Spacing smart={{ margin: "60px 0px 0px" }}>
+          <Grid item xs={8}>
+            <Typography align="center" variant="h3" component="h3">
+              Contribua e ganhe uma camiseta exclusiva
+            </Typography>
+          </Grid>
+        </Spacing>
+        <Spacing smart={{ margin: "40px 0px 0px" }}>
+          <Grid item xs={8}>
+            <Button
+              href="/foo"
+              className={classes.button}
+              fullWidth
+              variant="contained"
+            >
+              <Typography component="p" variant="body2" align="center">
+                <b>PARTICIPAR</b><br/>
+                com sua conta do github
+              </Typography>
+            </Button>
+          </Grid>
+        </Spacing>
+
+        <div className={classes.howWorks}>
+            <ArrowDownIcon /> 
+            <Typography align="center" component="p" >
+              como funciona
+            </Typography>
+        </div>
+    </React.Fragment>
+  )
+}
+
+
+const SmartView = (props: SmartViewProps) => {
     const classes = useStyles()
     return (
       <React.Fragment>
@@ -48,63 +139,28 @@ const SmartView = () => {
             <Spacing smart={{ margin: "40px 0px 0px" }}>
               <Grid item xs={12}>
                 <Image
-                  style={{ width: "90%", display: "block", margin: "0px auto" }}
+                  style={{ width: "80vw", display: "block", margin: "0px auto" }}
                   src={`hero/hero.svg`}
                 />
               </Grid>
             </Spacing>
-            <Spacing smart={{ margin: "60px 0px 0px" }}>
-              <Grid item xs={8}>
-                <Typography align="center" variant="h3" component="h3">
-                  Contribua e ganhe uma camiseta exclusiva
-                </Typography>
-              </Grid>
-            </Spacing>
-            <Spacing smart={{ margin: "40px 0px 0px" }}>
-              <Grid item xs={8}>
-                <Button
-                  className={classes.button}
-                  fullWidth
-                  variant="contained"
-                >
-                  <span>
-                  <b>PARTICIPAR</b><br/>
-                  com sua conta do github
-                  </span>
-                </Button>
-              </Grid>
-            </Spacing>
-            <Grid item>
-              <Image
-                src={`hero/beer.svg`}
-                style={{
-                  position: "absolute",
-                  left: "-30px",
-                  top: "35%",
-                  zIndex: "-1",
-                }}
-              />
-              <Image
-                src={`hero/major_tom.svg`}
-                style={{
-                  position: "absolute",
-                  right: "-33px",
-                  width: "33%",
-                  top: "67%",
-                  zIndex: "-1",
-                }}
-              />
-            </Grid>
+
+            {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
+
+            <div>
+              <Image src={`hero/beer.svg`} style={{ position: "absolute",left: "-30px",width: "33%",top: "35%",zIndex: "-1"}}/>
+              <Image src={`hero/major_tom.svg`} style={{position: "absolute",right: "-33px",width: "33%",top: "67%",zIndex: "-1"}}/>
+            </div>
+
           </Grid>
         </Spacing>
   
-        <div className={classes.howWorks}>
-            <Typography align="center" component="p">
-              <ArrowDownIcon /> como funciona
-            </Typography>
-        </div>
       </React.Fragment>
     )
+  }
+
+  interface SmartViewProps {
+    user?: UserProps
   }
 
   export default SmartView

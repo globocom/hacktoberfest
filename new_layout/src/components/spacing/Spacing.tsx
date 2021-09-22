@@ -25,8 +25,13 @@ const useMargins = makeStyles((theme: Theme) => ({
 
 const SpacingComponent = (props: SpacingProps) => {
   const classes = useMargins(props)
+  let className = classes.spacing
+
+  if(props.children.props.className) {
+    className = className + ' ' + props.children.props.className
+  }
   return React.cloneElement(props.children, {
-    className: `${classes.spacing}`+` ${props.children.props.className}`
+    className
   })
 }
 

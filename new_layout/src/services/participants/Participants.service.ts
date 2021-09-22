@@ -14,7 +14,13 @@ export default class ParticipantsService {
     }
 
     async GetParticipants(edition: number): Promise<Array<ParticipantProps>>{
-        const res = await doRequest({ path: `/status?edition=${edition}`, method: "GET" })
-        return res.data
+        try{
+            const res = await doRequest({ path: `/status?edition=${edition}`, method: "GET" })
+            return res.data
+        }catch(e){
+            console.error("Error while fetch")
+            return []
+        }
+        
     }
 }
