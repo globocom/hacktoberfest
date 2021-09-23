@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Button, Grid, Typography, Slide, Paper } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import Props from "./navigation"
+import {NavigationItemProps, NavigationProps} from "./index"
 import Logo from "@components/logo"
 import NavigationItem from "./NavigationItem"
 import User from "@services/user"
@@ -10,7 +10,11 @@ import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 import Spacing from "@components/spacing"
 
-const MenuItems: Array<Props.NavigationItem> = [
+interface NavigationItemsProps {
+  items: Array<NavigationItemProps>
+}
+
+const MenuItems: Array<NavigationItemProps> = [
   { label: "projetos", link: "/projects" },
   { label: "regras e princípios", link: "/rulebook" },
   { label: "participantes", link: "/participants" }
@@ -52,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const NavigationItems = (props: Props.NavigationItems) => {
+const NavigationItems = (props: NavigationItemsProps) => {
   const [isLogged, setIsLogged] = useState<boolean>()
 
   useEffect(() => {
@@ -63,7 +67,7 @@ const NavigationItems = (props: Props.NavigationItems) => {
   const classes = useStyles()
   return (
     <ul className={classes.navigation}>
-      {props.items.map((def: Props.NavigationItem) => (
+      {props.items.map((def: NavigationItemProps) => (
         <NavigationItem key={def.label} {...def} />
       ))}
       {isLogged && <NavigationItem label="minha área" link="/personalArea" />}
@@ -147,7 +151,7 @@ const SmartMenu = () => {
   )
 }
 
-const Navigation = (props: Props.Navigation) => {
+const Navigation = (props: NavigationProps) => {
   return props.mode === "smart" ? <SmartMenu /> : <DeskMenu />
 }
 

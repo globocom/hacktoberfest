@@ -16,7 +16,7 @@ export default class UserService {
     async isLogged(): Promise<boolean> {
         try{
             const isLogged = await this.GetUser();
-            if(isLogged.id) return true
+            if(isLogged && isLogged.id) return true
             return false
         }catch(e){
             return false
@@ -24,7 +24,7 @@ export default class UserService {
         
     }
 
-    async GetUser(): Promise<UserProps>{
+    async GetUser(): Promise<UserProps | undefined>{
         try{
             const res = await doRequest({path: "/user", sendCookies: true, method: "GET"})
             return {
@@ -44,8 +44,10 @@ export default class UserService {
                 editions: res.data?.editions
             }
         }catch(e){
-            console.error("Eooofsdf")
+            console.error("Error while getting user.")
         }
+
+        return
        
     }
 

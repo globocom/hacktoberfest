@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 }))
 
 const IndexPage = (props: any) => {
-  const [isLoading, setIsloading] = React.useState<boolean>(false)
   const [user, setUser] = React.useState<UserProps>()
   
   React.useEffect(() => {

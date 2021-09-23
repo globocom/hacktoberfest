@@ -95,15 +95,16 @@ const UnloggedView = () => {
         <Spacing smart={{ margin: "50px auto 0px auto" }}>
           <Grid item md={4}>
             <Button
+              href="http://opensource-api-dev.gcloud.dev.globoi.com/login"
               style={{display: "block" }}
               className={classes.button}
               size="large"
               fullWidth
               variant="contained"
             >
-              <p style={{padding: 16}}>
+              <Typography style={{padding: 18}} component="p" variant="body2" align="center">
                   <b>PARTICIPAR</b> com sua conta do github
-              </p>
+              </Typography>
             </Button>
           </Grid>
         </Spacing>
