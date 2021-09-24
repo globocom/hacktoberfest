@@ -127,7 +127,6 @@ const UnloggedView = () => {
 
 
 const SmartView = (props: SmartViewProps) => {
-    const classes = useStyles()
     return (
       <React.Fragment>
         <Spacing
@@ -161,7 +160,7 @@ const SmartView = (props: SmartViewProps) => {
 
             <div>
               <Image src={`hero/beer.svg`} style={{ position: "absolute",left: "-30px",width: "33%",top: "35%",zIndex: "-1"}}/>
-              <Image src={`hero/major_tom.svg`} style={{position: "absolute",right: "-33px",width: "33%",top: "67%",zIndex: "-1"}}/>
+              <Image src={`hero/major_tom.svg`} style={{position: "absolute",right: "-14vw",width: "33%",top: "53%",zIndex: "-1"}}/>
             </div>
 
           </Grid>

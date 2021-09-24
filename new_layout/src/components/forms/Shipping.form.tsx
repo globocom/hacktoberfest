@@ -4,7 +4,7 @@ import { Grid, Typography, TextField, InputAdornment, MenuItem} from '@material-
 
 //Internal
 import Spacing from '@components/spacing'
-import User, { UserProps, Edition } from '@services/user'
+import User, { UserProps } from '@services/user'
 import LoadingButton from '@components/loading-button'
 import Hacktoberfest from '@services/hacktoberfest'
 
@@ -159,7 +159,7 @@ const ShippingForm = (props: ShippingFormProps) => {
                         }}/>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={12}>
                         <TextField
                             fullWidth
                             variant="outlined"
@@ -188,7 +188,7 @@ const ShippingForm = (props: ShippingFormProps) => {
                     </Grid>
 
                     {colors.length > 0 &&
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} md={12}>
                             <TextField
                                 fullWidth
                                 variant="outlined"
@@ -212,7 +212,7 @@ const ShippingForm = (props: ShippingFormProps) => {
                         </Grid>
                     }
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12}>
                         <LoadingButton isLoading={isLoading}>
                             Salvar Alterações
                         </LoadingButton>
