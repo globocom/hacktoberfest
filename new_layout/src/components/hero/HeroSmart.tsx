@@ -90,7 +90,7 @@ const UnloggedView = () => {
         <Spacing smart={{ margin: "40px 0px 0px" }}>
           <Grid item xs={8}>
             <Button
-              href="http://opensource-api-dev.gcloud.dev.globoi.com/login"
+              href="/login"
               className={classes.button}
               fullWidth
               variant="contained"
