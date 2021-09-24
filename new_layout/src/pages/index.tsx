@@ -23,14 +23,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const IndexPage = (props: any) => {
   const [user, setUser] = React.useState<UserProps>()
-  
+
   React.useEffect(() => {
     const fetchUser = async () => setUser(await User.Service.getInstance().GetUser())
     fetchUser()
   }, [])
 
   const classes = useStyles()
-  
+
   return (
     <Layout title="Início - Globo Hacktoberfest">
       <div className={classes.root}>
@@ -59,7 +59,7 @@ const IndexPage = (props: any) => {
                 </Grid>
               </Spacing>
               <Grid>
-                <Link href="/projects">
+                <Link href="/projetos">
                   <span
                     style={{
                       display: "flex",

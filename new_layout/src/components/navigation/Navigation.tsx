@@ -15,7 +15,7 @@ interface NavigationItemsProps {
 }
 
 const MenuItems: Array<NavigationItemProps> = [
-  { label: "projetos", link: "/projects" },
+  { label: "projetos", link: "/projetos" },
   { label: "regras e princípios", link: "/rulebook" },
   { label: "participantes", link: "/participants" }
 ]
@@ -114,12 +114,12 @@ const MenuOpen = (props: MenuOpenProps) => {
                       <Spacing smart={{margin: "0px 0px 24px"}}>
                         <Grid item xs={12}>
                           <Typography variant="h1" color="textPrimary"> Menu </Typography>
-                        </Grid>  
+                        </Grid>
                       </Spacing>
                       <Spacing smart={{margin: "0px 0px 24px"}}>
                         <Grid item xs={12}>
                           <NavigationItems items={MenuItems}/>
-                        </Grid>  
+                        </Grid>
                       </Spacing>
                     </Grid>
                   </Spacing>
