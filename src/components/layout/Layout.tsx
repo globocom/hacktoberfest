@@ -5,6 +5,7 @@ import Footer from "@components/footer"
 import User, {UserProps} from '@services/user'
 import { makeStyles, Theme } from "@material-ui/core"
 import SEO from '@components/seo'
+import UserInfoAlert from "@components/user-info-alert"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -27,6 +28,7 @@ const Layout = (props: LayoutProps) => {
           <main>
             {props.children}
           </main>
+        <UserInfoAlert />
         <Footer/>
     </div>
   )
