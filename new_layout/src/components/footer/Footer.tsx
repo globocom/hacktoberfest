@@ -15,9 +15,9 @@ interface MenuItem {
 }
 
 const MENU_ITEMS: Array<MenuItem> = [
-  { label: "github", link: "/foo" },
-  { label: "open source", link: "https://opensource.globo.com" },
-  { label: "trabalhe conosco", link: "/foo" },
+  { label: "github", link: "https://github.com/globocom/hacktoberfest" },
+  { label: "open source", link: "https://opensource.globo.com/" },
+  { label: "trabalhe conosco", "link: https://www.vempraglobo.com.br/" },
 ]
 
 const makeCss = makeStyles((theme: Theme) => ({
@@ -44,7 +44,7 @@ const FooterItems = (props: FooterItemsProps) => {
     return (
         <React.Fragment>
             <Grid item xs={12} md={2} lg={2}>
-                  <Typography className={classes.menuItem} style={{fontWeight: "bolder"}} variant="body1" component="p"> 
+                  <Typography className={classes.menuItem} style={{fontWeight: "bolder"}} variant="body1" component="p">
                     <a target="_blank" href={"https://globo.com"}>
                       globo.com
                     </a>
@@ -53,9 +53,9 @@ const FooterItems = (props: FooterItemsProps) => {
             {props.menuItems.map((item: MenuItem, i: number) => (
                 <Spacing key={i} smart={{margin: "0 0 8px"}}>
                     <Grid item xs={12} md={2} lg={2}>
-                        <Typography className={classes.menuItem} variant="body1" component="p"> 
+                        <Typography className={classes.menuItem} variant="body1" component="p">
                           <a  target="_blank" href={item.link}>
-                            {item.label} 
+                            {item.label}
                           </a>
                         </Typography>
                     </Grid>
