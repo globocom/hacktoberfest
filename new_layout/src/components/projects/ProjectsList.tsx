@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Button, CircularProgress, Grid, Typography } from "@material-ui/core"
+import { Button, CircularProgress, Grid, Typography, useMediaQuery } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import Spacing from "@components/spacing"
 import Projects, { ProjectProps } from "@services/projects"
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   divider: {
     width: "100%",
     borderTop: `1px solid #090055;`,
-    marginBottom: 32,
+    padding: '32px 0px',
   },
   bottomDivider: {
     width: "100%",
@@ -87,6 +87,7 @@ function ProjectCard(props: ProjectProps) {
   const classes = useStyles()
   const { name, description, repo, imageUrl } = props
   const { name: imageName, thumborUrl } = imageUrl
+  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
 
   function accessProjectRepo() {
     window.open(repo, "_blank", "noopener,noreferrer")
@@ -95,31 +96,33 @@ function ProjectCard(props: ProjectProps) {
   return (
     <React.Fragment>
       <div className={classes.divider}>
-        <Spacing smart={{margin: "24px 0px"}}>
-            <img src={thumborUrl} alt={imageName} height={40} />
-        </Spacing>
+        {!isDesktop && <img src={thumborUrl} alt={imageName} height={40} /> }
+
         <Grid container alignItems="center" alignContent="space-between" justifyContent="space-between">
             <Grid item xs={12} md={9}>
               <Typography color="textPrimary" variant="h1" component="p">
                 {name}
+                {isDesktop && <img src={thumborUrl} alt={imageName} height={40} />}
               </Typography>
-              <Spacing smart={{ margin: "16px 0px 0px" }}>
-                <Typography component="p" color="textPrimary" variant="body1">
-                  {description}
-                </Typography>
-              </Spacing>
             </Grid>
-              <Grid item xs={2} md={2}>
-                <Button
-                  className={classes.rounded}
-                  color="secondary"
-                  size="large"
-                  variant="contained"
-                  onClick={accessProjectRepo}
-                >
-                  <b>acessar</b>
-                </Button>
+            <Spacing smart={{ margin: "16px 0px" }}>
+              <Grid item xs={12} md={8}>
+                    <Typography component="p" color="textPrimary" variant="body1">
+                      {description}
+                    </Typography>
               </Grid>
+            </Spacing>
+            <Grid item xs={2} md={3}>
+              <Button
+                className={classes.rounded}
+                color="secondary"
+                size="large"
+                variant="contained"
+                onClick={accessProjectRepo}
+              >
+                <b>acessar</b>
+              </Button>
+            </Grid>
         </Grid>
       </div>
     </React.Fragment>
