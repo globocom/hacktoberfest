@@ -3,7 +3,6 @@ import { makeStyles, Theme, Typography } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import { Grid } from "@material-ui/core"
 
-interface FooterProps {}
 
 interface FooterItemsProps {
   menuItems: Array<MenuItem>
@@ -17,7 +16,7 @@ interface MenuItem {
 const MENU_ITEMS: Array<MenuItem> = [
   { label: "github", link: "https://github.com/globocom/hacktoberfest" },
   { label: "open source", link: "https://opensource.globo.com/" },
-  { label: "trabalhe conosco", "link: https://www.vempraglobo.com.br/" },
+  { label: "trabalhe conosco", link: "https://www.vempraglobo.com.br/" }
 ]
 
 const makeCss = makeStyles((theme: Theme) => ({
