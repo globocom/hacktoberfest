@@ -9,6 +9,19 @@ ul.slick-dots {
     left: -8px;
 }
 
-li.slick-dots button:before {
-    font-size: 12px
+@media (min-width: 1024px) {
+    
+    ul.slick-dots {  
+        display: flex !important;
+        justify-content: center;
+        margin: 0px auto;
+        bottom: -65px;
+        width: 100%;
+    }
+
+    .slick-dots li button:before {
+        font-size: 12px !important
+    }
+    
+    
 }
