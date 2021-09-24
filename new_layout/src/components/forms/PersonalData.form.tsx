@@ -73,7 +73,8 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                                 error={formik.touched.githubUser && Boolean(formik.errors.githubUser)}
                                 helperText={formik.touched.githubUser && formik.errors.githubUser}
                                 InputProps={{
-                                    startAdornment: <InputAdornment position="start">@</InputAdornment>
+                                    startAdornment: <InputAdornment position="start">@</InputAdornment>,
+                                    readOnly: true
                                 }}
                             />
                         </Grid>
