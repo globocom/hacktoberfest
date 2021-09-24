@@ -1,0 +1,9 @@
+ul.slick-dots {
+    display: "flex";
+    justify-content: "center";
+    bottom: -45px;
+}
+
+.slick-dots li button:before {
+    font-size: 20px !important
+}

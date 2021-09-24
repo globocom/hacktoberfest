@@ -5,6 +5,7 @@ import { Image } from "@components/image"
 import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { UserProps } from "@services/user"
+import './css/desktop.override.css'
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
