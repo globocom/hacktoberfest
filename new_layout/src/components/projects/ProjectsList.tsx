@@ -109,7 +109,7 @@ function ProjectCard(props: ProjectProps) {
                 </Typography>
               </Spacing>
             </Grid>
-              <Grid item xs={2} md={3}>
+              <Grid item xs={2} md={2}>
                 <Button
                   className={classes.rounded}
                   color="secondary"

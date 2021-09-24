@@ -16,8 +16,8 @@ interface NavigationItemsProps {
 
 const MenuItems: Array<NavigationItemProps> = [
   { label: "projetos", link: "/projetos" },
-  { label: "regras e princípios", link: "/rulebook" },
-  { label: "participantes", link: "/participants" }
+  { label: "regras e princípios", link: "/regras" },
+  { label: "participantes", link: "/participantes" }
 ]
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -70,7 +70,7 @@ const NavigationItems = (props: NavigationItemsProps) => {
       {props.items.map((def: NavigationItemProps) => (
         <NavigationItem key={def.label} {...def} />
       ))}
-      {isLogged && <NavigationItem label="minha área" link="/personalArea" />}
+      {isLogged && <NavigationItem label="minha área" link="/minha-area" />}
     </ul>
   )
 }

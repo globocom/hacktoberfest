@@ -334,38 +334,6 @@
       "avatarURL": "https://avatars0.githubusercontent.com/u/1333599?v=4",
       "githubUser": "marcuscartagenes",
       "githubID": "120391203",
-      "hacktoberfest": {
-        "2019": {
-            "opened": 2,
-            "merged": 2,
-            "achievements": {
-              "opened": true,
-              "merged": true,
-              "firsts": true,
-              "completed": true
-            }
-        },
-        "2020": {
-            "opened": 2,
-            "merged": 2,
-            "achievements": {
-              "opened": true,
-              "merged": true,
-              "firsts": true,
-              "completed": true
-            }
-        },
-        "2021": {
-            "opened": 2,
-            "merged": 0,
-            "achievements": {
-              "opened": true,
-              "merged": true,
-              "firsts": true,
-              "completed": true
-            }
-        }
-      },
       "postal": "123456-789",
       "address": "2970 Golf Course Driesa",
       "street": "2970 Golf Course Driv",
@@ -378,8 +346,8 @@
           "totalMergeRequestsMerged": 2
         },
         "2021": {
-          "approved": false,
-          "completed": false,
+          "approved": true,
+          "completed": true,
           "completed_at": "0001-01-01T00:00:00Z",
           "totalMergeRequests": 5,
           "totalMergeRequestsMerged": 0

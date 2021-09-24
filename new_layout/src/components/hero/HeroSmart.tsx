@@ -39,14 +39,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '60vw',
     display: 'block',
     margin: '0px auto'
+  },
+  active: {
+    borderBottom: `4px solid ${theme.palette.secondary.main}`,
+    borderRadius: 7
   }
 }))
 
 const LoggedView = (user: UserProps) => {
   const classes = useStyles()
-  
-  const opened = user.editions?.[2021]?.totalMergeRequests || 0
-  const merged = user.editions?.[2021]?.totalMergeRequestsMerged || "nenhum"
+  const currentEdition = user.editions?.[2021]
+  const opened = currentEdition?.totalMergeRequests || 0
+  const merged = currentEdition?.totalMergeRequestsMerged || "nenhum"
 
   return (
     <React.Fragment>
@@ -63,18 +67,26 @@ const LoggedView = (user: UserProps) => {
         </Spacing>
           <div className={classes.progressionContainer}>
             <div className={classes.progression}>
-              <Image src="hero/PR.svg"/>
-              <Image src="hero/Check.svg"/>
-              <Image src="hero/Shirt.svg"/>
+              <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
+              <Image className={currentEdition?.approved && !currentEdition.completed ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
+              <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> {/** Ativo se completed e aproved for true */}
             </div>
           </div>
           <div className={classes.textProgress}>
-            <Typography align="center" component="p"> Você tem <b> {opened} PRs enviados e {merged} aceito(s) </b> </Typography>
+            {currentEdition?.completed ? <CongratsMessage/> : <ProgressMessage/>}
           </div>
       </Grid>
     </React.Fragment>
   )
 }
+
+const ProgressMessage = () => (
+    <Typography align="center" component="p">  Você tem <b> {0} PRs enviados e {0} aceito(s) </b> </Typography>
+)
+
+const CongratsMessage = () => (
+    <Typography align="center" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no Minha Área. </Typography> 
+)
 
 const UnloggedView = () => {
   const classes = useStyles()

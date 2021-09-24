@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   heroImage: {
     width: "40vw",
     display: "block",
-    margin: "0px 20vw"
+    margin: "0px auto"
   },
   sticker: {
     position: "absolute",
@@ -42,14 +42,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'space-between',
     borderRadius: 50,
     padding: 22
+  },
+  active: {
+    borderBottom: `4px solid ${theme.palette.secondary.main}`,
+    borderRadius: 7
   }
 }))
 
 const LoggedView = (user: UserProps) => {
   const classes = useStyles()
-  
-  const opened = user.editions?.[2021]?.totalMergeRequests || 0
-  const merged = user.editions?.[2021]?.totalMergeRequestsMerged || "nenhum"
+  const currentEdition = user.editions?.[2021]
+  const opened = currentEdition?.totalMergeRequests || 0
+  const merged = currentEdition?.totalMergeRequestsMerged || "nenhum"
 
   return (
     <React.Fragment>
@@ -69,18 +73,30 @@ const LoggedView = (user: UserProps) => {
         </Spacing>
           <div className={classes.progressionContainer}>
             <div className={classes.progression}>
-              <Image src="hero/PR.svg"/>
-              <Image src="hero/Check.svg"/>
-              <Image src="hero/Shirt.svg"/>
+              <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
+              <Image className={currentEdition?.approved && !currentEdition.completed ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
+              <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> {/** Ativo se completed e aproved for true */}
             </div>
           </div>
-        <Grid item xs={12}>
-          <Typography align="center" component="p"> Você tem <b> {opened} PRs enviados e {merged} aceito(s) </b> </Typography>
-        </Grid>
+
+        {currentEdition?.completed ? <CongratsMessage/> : <ProgressMessage/>  }
       </Grid>
     </React.Fragment>
   )
 }
+
+const ProgressMessage = () => (
+  <Grid item xs={12}>
+    <Typography align="center" component="p">  Você tem <b> {0} PRs enviados e {0} aceito(s) </b> </Typography>
+  </Grid>
+)
+
+const CongratsMessage = () => (
+  <Grid item xs={6}>
+    <Typography align="center" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no Minha Área. </Typography> 
+  </Grid>
+)
+
 
 const UnloggedView = () => {
   const classes = useStyles()
@@ -154,12 +170,12 @@ const DesktopView = (props: DesktopViewProps) => {
 
       <div >
         <Image className={classes.sticker} src={`hero/major_tom.svg`} style={{ left: "20vw",top: "50vh", width: "10vw"}}/>
-        <Image className={classes.sticker} src={`hero/beer.svg`} style={{ left: "75vw",top: "60vh", width: "10vw"}}/>
+        <Image className={classes.sticker} src={`hero/beer.svg`} style={{ left: "75vw",top: "55vh", width: "10vw"}}/>
         <Image className={classes.sticker} src={`hero/planet.svg`} style={{ left: "84vw",top: "35vh", width: "16vw"}}/>
         <Image className={classes.sticker} src={`hero/note.svg`} style={{ left: "76vw",top: "5vh", width: "19vw"}}/>
-        <Image className={classes.sticker} src={`hero/spark.svg`} style={{ left: "74vw",top: "40vh", width: "8vw"}}/>
+        <Image className={classes.sticker} src={`hero/spark.svg`} style={{ left: "74vw",top: "35vh", width: "8vw"}}/>
         <Image className={classes.sticker} src={`hero/rocket.svg`} style={{ top: "20vh", width: '22vw'}}/>
-        <Image className={classes.sticker} src={`hero/spark.svg`} style={{ left: "7vw", top: "7vh", width: "8vw"}}/>
+        <Image className={classes.sticker} src={`hero/spark.svg`} style={{ left: "17vw", top: "9vh", width: "8vw"}}/>
       </div>
 
       
