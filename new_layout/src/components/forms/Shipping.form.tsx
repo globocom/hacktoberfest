@@ -175,15 +175,15 @@ const ShippingForm = (props: ShippingFormProps) => {
                                     </InputAdornment>
                             }}
                             label="Tamanho da Camiseta">
-                                <MenuItem value={"BLP"}>BLP</MenuItem>
-                                <MenuItem value={"BLM"}>BLM</MenuItem>
-                                <MenuItem value={"BLG"}>BLG</MenuItem>
-                                <MenuItem value={"BLGG"}>BLGG</MenuItem>
-                                <MenuItem value={"TSP"}>TSP</MenuItem>
-                                <MenuItem value={"TSM"}>TSM</MenuItem>
-                                <MenuItem value={"TSG"}>TSG</MenuItem>
-                                <MenuItem value={"TSGG"}>TSGG</MenuItem>
-                                <MenuItem value={"TSGGG"}>TSGGG</MenuItem>
+                                <MenuItem value={"BLP"}>Baby Look - P</MenuItem>
+                                <MenuItem value={"BLM"}>Baby Look - M</MenuItem>
+                                <MenuItem value={"BLG"}>Baby Look - G</MenuItem>
+                                <MenuItem value={"BLGG"}>Baby Look - GG</MenuItem>
+                                <MenuItem value={"TSP"}>Camiseta - P</MenuItem>
+                                <MenuItem value={"TSM"}>Camiseta - M</MenuItem>
+                                <MenuItem value={"TSG"}>Camiseta - G</MenuItem>
+                                <MenuItem value={"TSGG"}>Camiseta - GG</MenuItem>
+                                <MenuItem value={"TSGGG"}>Camiseta - GGG</MenuItem>
                         </TextField>
                     </Grid>
 

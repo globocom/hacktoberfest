@@ -79,15 +79,15 @@ const LoggedView = (user: UserProps) => {
             </div>
           </div>
 
-        {currentEdition?.completed ? <CongratsMessage/> : <ProgressMessage/>  }
+        {currentEdition?.completed ? <CongratsMessage/> : <ProgressMessage opened={opened} merged={merged}/>  }
       </Grid>
     </React.Fragment>
   )
 }
 
-const ProgressMessage = () => (
+const ProgressMessage = (props: any) => (
   <Grid item xs={12}>
-    <Typography align="center" component="p">  Você tem <b> {0} PRs enviados e {0} aceito(s) </b> </Typography>
+    <Typography align="center" component="p">  Você tem <b> {props.opened} PRs enviados e {props.merged} aceito(s) </b> </Typography>
   </Grid>
 )
 
@@ -152,7 +152,7 @@ const DesktopView = (props: DesktopViewProps) => {
           justifyContent="center"
         >
           <Grid item xs={12}>
-            <Image className={classes.heroImage} src={`hero/hero.svg`} />
+            <Image className={classes.heroImage} src={`hero/hero_desktop.svg`} />
           </Grid>
           <Spacing smart={{ margin: "16px 0px" }}>
             <Grid item xs={12}>
