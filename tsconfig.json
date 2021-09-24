@@ -17,6 +17,7 @@
         "@themes":["src/themes"],
         "@components/*":["src/components/*"],
         "@services/*":["src/services/*"],
+        "@helpers/*":["src/helpers/*"],
         "@defs": ["src/definitions"]
     }
   },
