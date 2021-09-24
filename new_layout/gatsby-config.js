@@ -39,6 +39,7 @@ module.exports = {
               '@themes': path.resolve(__dirname, 'src/themes'),
               '@components': path.resolve(__dirname, 'src/components'),
               '@services': path.resolve(__dirname, 'src/services'),
+              '@helpers': path.resolve(__dirname, 'src/helpers'),
               '@defs': path.resolve(__dirname, 'src/definitions')
           },
           extensions: [
