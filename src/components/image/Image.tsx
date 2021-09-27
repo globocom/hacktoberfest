@@ -32,12 +32,7 @@ const Image = ({ src, ...rest }) => {
 
   if (!match) return null;
 
-  const { node: { childImageSharp, publicURL, extension } = {} } = match;
-
-
-  if (extension === "svg" || !childImageSharp) {
-    return <img src={publicURL} {...rest} />;
-  }
+  const { node: { publicURL } = {} } = match;
 
   return <img src={publicURL}  {...rest} />;
 };
