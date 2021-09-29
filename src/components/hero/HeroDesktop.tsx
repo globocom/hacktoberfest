@@ -142,8 +142,7 @@ const DesktopView = (props: DesktopViewProps) => {
   return (
     <React.Fragment>
       <Spacing
-        desktop={{ margin: "0px 0px 72px" }}
-        smart={{ margin: "0px 0px 24px" }}
+        smart={{ margin: "9vh 0px" }}
       >
         <Grid
           container

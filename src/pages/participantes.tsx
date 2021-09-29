@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Grid, Box } from "@material-ui/core"
 import Layout from "@components/layout"
 import Spacing from "@components/spacing"

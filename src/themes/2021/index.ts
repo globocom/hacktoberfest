@@ -11,7 +11,7 @@ theme.palette = {
     dark: "#090055",
   },
   secondary: {
-    main: "#D74590",
+    main: "#E85593",
     contrastText: "#fff",
     light: "#000",
     dark: "#bf497b",

@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   rounded: {
     borderRadius: 50,
     fontWeight: "normal",
+    boxShadow: "none",
+    textTransform: "lowercase"
   },
   divider: {
     width: "100%",
@@ -97,33 +99,36 @@ function ProjectCard(props: ProjectProps) {
     <React.Fragment>
       <div className={classes.divider}>
         {!isDesktop && <img src={thumborUrl} alt={imageName} height={40} /> }
-
-        <Grid container alignItems="center" alignContent="space-between" justifyContent="space-between">
-            <Grid item xs={12} md={9}>
-              <Typography color="textPrimary" variant="h1" component="p">
-                {name}
-                {isDesktop && <img src={thumborUrl} alt={imageName} height={40} />}
-              </Typography>
-            </Grid>
-            <Spacing smart={{ margin: "16px 0px" }}>
-              <Grid item xs={12} md={8}>
-                    <Typography component="p" color="textPrimary" variant="body1">
-                      {description}
-                    </Typography>
+          <Grid container alignItems="center" alignContent="space-between" justifyContent="space-between">
+              <Grid item xs={12}>
+                <Typography color="textPrimary" variant="h1" component="p">
+                  {name}
+                  {isDesktop && <img src={thumborUrl} alt={imageName} height={40} />}
+                </Typography>
               </Grid>
-            </Spacing>
-            <Grid item xs={2} md={3}>
-              <Button
-                className={classes.rounded}
-                color="secondary"
-                size="large"
-                variant="contained"
-                onClick={accessProjectRepo}
-              >
-                <b>acessar</b>
-              </Button>
-            </Grid>
-        </Grid>
+              <Grid item xs={12}>
+                <Grid container alignItems="center" justifyContent="space-between">
+                  <Spacing smart={{ margin: "16px 0px" }}>
+                    <Grid item xs={12} md={8}>
+                          <Typography component="p" color="textPrimary" variant="body1">
+                            {description}
+                          </Typography>
+                    </Grid>
+                  </Spacing>
+                  <Grid item xs={12} md={2}>
+                    <Button
+                      className={classes.rounded}
+                      color="secondary"
+                      size="large"
+                      variant="contained"
+                      onClick={accessProjectRepo}
+                    >
+                      <b>acessar</b>
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Grid>
+          </Grid>
       </div>
     </React.Fragment>
   )

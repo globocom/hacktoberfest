@@ -116,11 +116,12 @@ const Carousel = (props: CarouselProps) => {
   }
 
   return (
-    <Spacing desktop={{ margin: "40px auto" }} smart={{ margin: "20px auto" }}>
+    <Spacing desktop={{ margin: "110px auto" }} smart={{ margin: "20px auto" }}>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
+          maxWidth: props.showArrows ? 1280 : "initial"
         }}
       >
         {props.showArrows && <CustomPreviousArrow reference={slickCarouselRef} />}

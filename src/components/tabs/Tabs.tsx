@@ -87,10 +87,11 @@ const ParticipantsTabs = () => {
       </Tabs>
       {EDITIONS.map((_, index) => (
         <TabPanel key={index} value={tabValue} index={index}>
+          {loading && <div className={classes.loading}><CircularProgress /></div>}
+          {!loading && participants.length ?
           <List className={classes.list}>
-            {loading && <div className={classes.loading}><CircularProgress /></div>}
             {!loading && (
-              participants.map((participant, index) => (
+             participants.map && participants.map((participant, index) => (
                 <ListItem key={index} alignItems="flex-start" className={classes.listItem}>
                   <ListItemAvatar>
                     <Avatar alt={participant.githubUser} src={participant.avatar} />
@@ -116,7 +117,7 @@ const ParticipantsTabs = () => {
                 </ListItem>
               )))
             }
-          </List>
+          </List> : <React.Fragment/>}
         </TabPanel>
       ))}
     </>
