@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const IndexPage = (props: any) => {
+const IndexPage = () => {
   const [user, setUser] = React.useState<UserProps>()
 
   React.useEffect(() => {
@@ -32,7 +32,9 @@ const IndexPage = (props: any) => {
   const classes = useStyles()
 
   return (
-    <Layout title="Início - Globo Hacktoberfest">
+    <Layout 
+      title="Início - Globo Hacktoberfest"
+    >
       <div className={classes.root}>
         <HeroCall user={user} />
         <div className={classes.projectsContainer}>

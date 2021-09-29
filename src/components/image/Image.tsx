@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
 import PropTypes from "prop-types";
 
 const Image = ({ src, ...rest }) => {
@@ -14,11 +13,6 @@ const Image = ({ src, ...rest }) => {
             relativePath
             extension
             publicURL
-            childImageSharp {
-              fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid
-              }
-            }
           }
         }
       }

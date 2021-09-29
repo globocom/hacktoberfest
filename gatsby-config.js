@@ -3,7 +3,16 @@ module.exports = {
   siteMetadata: {
     title: `Hacktoberfest`,
     description: `Projeto opensource do Hacktoberfest promovido pela Globo.com`,
+    url: "https://hacktoberfest.globo.com",
     author: `@globocom`,
+    images: {
+      opengraph: {
+        type: "image/png",
+        url: "images/share-image.png",
+        width: 1200,
+        height: 630
+      }
+    }
   },
   plugins: [
     `gatsby-plugin-top-layout`,

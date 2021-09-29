@@ -49,7 +49,7 @@ const UserInfoAlert = () => {
   }
 
   return (
-    !hideSnackbar && (
+    !hideSnackbar ? (
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open
@@ -64,7 +64,7 @@ const UserInfoAlert = () => {
           }
         />
       </Snackbar>
-    )
+    ) : <React.Fragment/>
   )
 
 }

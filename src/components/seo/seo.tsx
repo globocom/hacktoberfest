@@ -22,16 +22,24 @@ const Seo = (props: SeoProps) => {
             title
             description
             author
+            url
+            images {
+              opengraph {
+                type
+                url
+                width
+                height
+              }
+            }
           }
         }
       }
     `
   )
-  const metaDescription: string =
-    props.description || site.siteMetadata.description
+  const metaDescription: string = props.description || site.siteMetadata.description
   const defaultTitle: string = site.siteMetadata?.title
   const titleTemplate: string = defaultTitle ? `%s | ${defaultTitle}` : `%s`
-
+  const { images: { opengraph: metaImg } } = site.siteMetadata
   return (
     <Helmet
       htmlAttributes={{
@@ -53,6 +61,22 @@ const Seo = (props: SeoProps) => {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `${site.siteMetadata?.url}/${metaImg.url}`
+        },
+        {
+          property: `og:image:type`,
+          content: metaImg.type
+        },
+        {
+          property: `og:image:width`,
+          content: metaImg.width
+        },
+        {
+          property: `og:image:height`,
+          content: metaImg.height
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -72,6 +96,10 @@ const Seo = (props: SeoProps) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: `${site.siteMetadata?.url}/${metaImg.url}`,
+        }
       ]}
     />
   )
