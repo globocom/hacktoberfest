@@ -9,7 +9,8 @@ import {
   ListItemText, 
   Tab, 
   Tabs, 
-  Typography
+  Typography,
+  Box
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { CircularProgress } from "@material-ui/core"
@@ -31,7 +32,13 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#fff",
     borderRadius: 8,
     border: "1px solid #C8DAF6",
-    padding: 8
+    padding: 8,
+    "&.empty": {
+      textAlign: "center",
+      minHeight: 360,
+      alignItems: "center",
+      justifyContent: "center",
+    }
   },
   listItem: {
     paddingBottom: 2
@@ -88,7 +95,8 @@ const ParticipantsTabs = () => {
       {EDITIONS.map((_, index) => (
         <TabPanel key={index} value={tabValue} index={index}>
           {loading && <div className={classes.loading}><CircularProgress /></div>}
-          {!loading && participants.length ?
+          {!loading && (
+            participants.length ? (
           <List className={classes.list}>
             {!loading && (
              participants.map && participants.map((participant, index) => (
@@ -117,7 +125,7 @@ const ParticipantsTabs = () => {
                 </ListItem>
               )))
             }
-          </List> : <React.Fragment/>}
+          </List>) : <EmptyList className={classes.list} />)}
         </TabPanel>
       ))}
     </>
@@ -147,5 +155,21 @@ const TabPanel = (props: TabPanelProps) => {
     </div>
   )
 }
+
+interface EmptyListProps {
+  className: string
+}
+
+const EmptyList = ({ className }: EmptyListProps) => (
+  <Box display="flex" className={`${className} empty`}>
+    <Box component="div">
+      <Image src="hero/note.svg" />
+      <Typography variant="h3">
+        Nenhum participante fez pull requests ainda!<br/>
+        Seja o primeiro!
+      </Typography>
+    </Box>
+  </Box>
+)
 
 export default ParticipantsTabs
