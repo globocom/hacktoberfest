@@ -46,7 +46,7 @@ const EditionElement = (props: EditionProps) => {
                         </Grid>
                     </Grid>
                 </Spacing>
-                <Typography component="p" variant="body2">{props.participation?.opened} Prs Reallizados, {props.participation?.merged} PRs Aprovados</Typography>
+                <Typography component="p" variant="body2">{props.participation?.opened} PRs Realizados, {props.participation?.merged} PRs Aprovados</Typography>
             </Grid>
         </Grid>
     )
