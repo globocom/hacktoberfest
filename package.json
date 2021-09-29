@@ -2,7 +2,7 @@
   "name": "globo-hacktoberfest",
   "private": true,
   "description": "Projeto opensource do Hacktoberfest promovido pela Globo.com",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Opensource Globo.com",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
