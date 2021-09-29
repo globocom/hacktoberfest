@@ -17,7 +17,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: 50,
     fontWeight: "normal",
     boxShadow: "none",
-    textTransform: "lowercase"
+    textTransform: "lowercase",
+    [theme.breakpoints.up('md')]: {
+        display: "block",
+        float: "right"
+    }
   },
   divider: {
     width: "100%",
