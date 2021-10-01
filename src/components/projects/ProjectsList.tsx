@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Button, CircularProgress, Grid, Typography, useMediaQuery } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import Spacing from "@components/spacing"
+import RepoLanguage from "@components/repo-language"
 import Projects, { ProjectProps } from "@services/projects"
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -91,7 +92,7 @@ function ProjectsListError() {
 
 function ProjectCard(props: ProjectProps) {
   const classes = useStyles()
-  const { name, description, repo, imageUrl } = props
+  const { name, description, repo, imageUrl, language} = props
   const { name: imageName, thumborUrl } = imageUrl
   const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
 
@@ -117,6 +118,11 @@ function ProjectCard(props: ProjectProps) {
                           <Typography component="p" color="textPrimary" variant="body1">
                             {description}
                           </Typography>
+                          <Spacing smart={{ margin: "16px 0px 0px" }}>
+                            <Grid>
+                              <RepoLanguage language={language} />
+                            </Grid>
+                          </Spacing>
                     </Grid>
                   </Spacing>
                   <Grid item xs={12} md={2}>
