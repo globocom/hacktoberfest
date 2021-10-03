@@ -126,6 +126,7 @@ function ProjectCard(props: ProjectProps) {
                       size="large"
                       variant="contained"
                       onClick={accessProjectRepo}
+                      onAuxClick={accessProjectRepo}
                     >
                       <b>acessar</b>
                     </Button>
