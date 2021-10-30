@@ -21,7 +21,7 @@ const validationSchema = () => Yup.object().shape({
             .string()
             .email("E-mail inválido")
             .required("Preenchimento do email obrigatório"),
-    githubUser: Yup.string().required("Preenchimento do github user"),
+    githubUser: Yup.string().required("Preenchimento do usuário Github obrigatório"),
 })
 
 
