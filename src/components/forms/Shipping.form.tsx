@@ -29,7 +29,7 @@ const validationSchema = () => Yup.object().shape({
             .max(30, "Nome longo demais")
             .required("Preenchimento do nome é obrigatório"),
     city: Yup.string().required("Preenchimento da cidade é obrigatório"),
-    postalCode: Yup.string().required("Preenchmento do CEP é obrigatório"),
+    postalCode: Yup.string().required("Preenchimento do CEP é obrigatório"),
     state: Yup.string().required("Preenchimento do Estado é obrigatório"),
     address: Yup.string().required("Preenchimento da Rua é obrigatório")
 })
