@@ -204,7 +204,6 @@ const ShippingForm = (props: ShippingFormProps) => {
                                             <ColorizeIcon/>
                                         </InputAdornment>
                                 }}>
-                                <MenuItem disabled value={''}/>
                                 {
                                     colors.map((color, index) => (<MenuItem key={index} value={color}>{color}</MenuItem>))
                                 }
