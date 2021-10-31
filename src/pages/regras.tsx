@@ -21,9 +21,9 @@ const Rule = (props: RuleProps) => {
 
 const RuleBookPage = () => {
   return (
-    <Layout 
-      title="Regras e Princípios - Globo Hacktoberfest" 
-      description="Regras e Princípos - Globo Hacktoberfest" 
+    <Layout
+      title="Regras e Princípios - Globo Hacktoberfest"
+      description="Regras e Princípos - Globo Hacktoberfest"
       headerTitle="Regras e Princípios">
       <Spacing smart={{padding: "0px 40px"}}>
         <Grid container direction="column" justifyContent="center" alignItems="flex-start" alignContent="center">
@@ -34,20 +34,20 @@ const RuleBookPage = () => {
           </Spacing>
           <Spacing smart={{margin: "0px 0px 40px"}}>
             <Grid item  md={6}>
-              <Rule title="Todos são bem-vindos"> 
+              <Rule title="Todos são bem-vindos">
                 Os participantes do Hacktoberfest representaram 151 países e reuniu milhares de habilidades únicas. Damos as boas-vindas a todos que já fazem parte da comunidade de software de código aberto e todos que estão interessados em mergulhar nesse universo.
               </Rule>
             </Grid>
           </Spacing>
           <Spacing smart={{margin: "0px 0px 40px"}}>
             <Grid item md={6}>
-              <Rule title="A quantidade é divertida, a qualidade é a chave."> 
+              <Rule title="A quantidade é divertida, a qualidade é a chave.">
                 Participar do Hacktoberfest leva ao crescimento pessoal, oportunidades profissionais e construção de comunidade. No entanto, tudo começa com contribuições significativas para o software de código aberto.
               </Rule>
             </Grid>
           </Spacing>
           <Grid item md={6}>
-            <Rule title="Ação de curto prazo, impacto de longo prazo."> 
+            <Rule title="Ação de curto prazo, impacto de longo prazo.">
               Na comunidade de software de código aberto, estamos nos apoiando nos ombros daqueles que vieram antes de nós. Sua participação tem um efeito duradouro nas pessoas e na tecnologia, muito depois de outubro. Esta é uma viagem, não uma corrida.
             </Rule>
           </Grid>
@@ -58,7 +58,7 @@ const RuleBookPage = () => {
           </Spacing>
           <Spacing smart={{margin: "0px 0px 16px"}}>
             <Grid item md={6}>
-              <Rule> Para obter uma camisa, você deve ter dois pull requests (PRs) enviados e pelo menos um aprovado entre 1 e 31 de outubro. </Rule>
+              <Rule> Para obter uma camiseta, você deve ter dois pull requests (PRs) enviados e pelo menos um aprovado entre 1 e 31 de outubro. </Rule>
             </Grid>
           </Spacing>
           <Spacing smart={{margin: "0px 0px 16px"}}>
