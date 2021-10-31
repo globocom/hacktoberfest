@@ -193,7 +193,7 @@ const ShippingForm = (props: ShippingFormProps) => {
                                 fullWidth
                                 variant="outlined"
                                 name="shirtColor"
-                                label="Cor da Camisa"
+                                label="Cor da Camiseta"
                                 value={formik.values.shirtColor}
                                 onChange={formik.handleChange("shirtColor")}
                                 error={formik.touched.shirtColor && Boolean(formik.errors.shirtColor)}
