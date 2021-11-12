@@ -58,7 +58,7 @@ const RuleBookPage = () => {
           </Spacing>
           <Spacing smart={{margin: "0px 0px 16px"}}>
             <Grid item md={6}>
-              <Rule> Para obter uma camiseta, você deve ter dois pull requests (PRs) enviados e pelo menos um aprovado entre 1 e 31 de outubro. </Rule>
+              <Rule> Para obter uma camiseta, você deve ter dois pull requests (PRs) enviados entre 1 e 31 de Outubro e pelo menos um deles aprovado.</Rule>
             </Grid>
           </Spacing>
           <Spacing smart={{margin: "0px 0px 16px"}}>
