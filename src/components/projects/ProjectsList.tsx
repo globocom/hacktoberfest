@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Button, CircularProgress, Grid, Typography, useMediaQuery } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import Spacing from "@components/spacing"
-import RepoLanguage from "@components/repo-language"
+import RepoLanguages from "@components/repo-languages"
 import Projects, { ProjectProps } from "@services/projects"
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -92,7 +92,7 @@ function ProjectsListError() {
 
 function ProjectCard(props: ProjectProps) {
   const classes = useStyles()
-  const { name, description, repo, imageUrl, language} = props
+  const { name, description, repo, imageUrl, languages } = props
   const { name: imageName, thumborUrl } = imageUrl
   const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
 
@@ -120,7 +120,7 @@ function ProjectCard(props: ProjectProps) {
                           </Typography>
                           <Spacing smart={{ margin: "16px 0px 0px" }}>
                             <Grid>
-                              <RepoLanguage language={language} />
+                              <RepoLanguages languages={languages} />
                             </Grid>
                           </Spacing>
                     </Grid>

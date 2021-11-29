@@ -413,7 +413,27 @@
           },
           "docs":"https://github.com/globocom/secDevLabs/blob/master/README.md",
           "description":"A laboratory for learning secure web and mobile development in a practical manner.",
-          "language": "PHP",
+          "languages": [
+            "PHP",
+            "JavaScript",
+            "CSS",
+            "HTML",
+            "SCSS",
+            "Less",
+            "Go",
+            "Shell",
+            "Dart",
+            "Python",
+            "Makefile",
+            "TypeScript",
+            "Java",
+            "Ruby",
+            "Dockerfile",
+            "Swift",
+            "Kotlin",
+            "Hack",
+            "Objective-C"
+          ],
           "stats":{
              "repository":{
                 "object":{
@@ -442,11 +462,10 @@
           "repo":"https://github.com/globocom/goreq",
           "isHighlighted":false,
           "imageUrl":{
-             
           },
           "docs":"https://github.com/globocom/goreq/blob/master/README.md",
           "description":"Simple and sane HTTP request library for Go language.",
-          "language": "Go"
+          "languages": ["Go", "Makefile"]
        },
        {
           "id":"0269cf4b-1587-404d-9bd2-c669faa05237",
@@ -461,7 +480,7 @@
           },
           "docs":"https://docs.tsuru.io/stable/",
           "description":"Open source, extensible and Docker-based Platform as a Service (PaaS).",
-          "language": "Go",
+          "languages": ["Go"],
           "stats":{
              "repository":{
                 "object":{
@@ -496,7 +515,7 @@
           },
           "docs":"https://clappr.github.io/",
           "description":"An extensible media player for the web.",
-          "language": "HTML",
+          "languages": ["HTML"],
           "stats":{
              "repository":{
                 "object":{
@@ -531,7 +550,7 @@
           },
           "docs":"https://thumbor.readthedocs.io/en/latest/index.html",
           "description":"Thumbor is an open-source photo thumbnail service by globo.com.",
-          "language": "Python",
+          "languages": ["Python"],
           "stats":{
              "repository":{
                 "object":{
@@ -566,7 +585,7 @@
           },
           "docs":"https://github.com/globocom/secDevLabs/blob/master/README.md",
           "description":"A laboratory for learning secure web and mobile development in a practical manner.",
-          "language": "PHP",
+          "languages": ["PHP"],
           "stats":{
              "repository":{
                 "object":{
@@ -601,7 +620,7 @@
           },
           "docs":"https://huskyci.opensource.globo.com/docs/quickstart/overview",
           "description":"Performing security tests inside your CI.",
-          "language": "Go",
+          "languages": ["Go"],
           "stats":{
              "repository":{
                 "object":{
@@ -636,7 +655,7 @@
           },
           "docs":"http://megadraft.io/#/docs/overview",
           "description":"Megadraft is a Rich Text editor built on top of Facebook's Draft.JS featuring a nice default base of components and extensibility",
-          "language": "JavaScript",
+          "languages": ["JavaScript"],
           "stats":{
              "repository":{
                 "object":{
@@ -671,7 +690,7 @@
           },
           "docs":"https://github.com/globocom/GloboNetworkAPI-WebUI/blob/master/README.md",
           "description":"This web tool helps network administrator manage and automate networking resources (routers, switches and load balancers) and document logical and physical networking.",
-          "language": "Python",
+          "languages": ["Python"],
           "stats":{
              "repository":{
                 "object":{
@@ -700,11 +719,11 @@
           "repo":"https://github.com/globocom/functions",
           "isHighlighted":false,
           "imageUrl":{
-             
+
           },
           "docs":"https://github.com/globocom/functions/blob/master/README.md",
           "description":"Backstage Functions is an Open Source Serverless Platform able to store and execute code.",
-          "language": "JavaScript"
+          "languages": ["JavaScript"]
          }
        ]
        }

@@ -9,7 +9,7 @@ export interface ProjectProps {
   imageUrl: ProjectImage
   docs: string
   description: string
-  language: string
+  languages: string[]
   stats: ProjectStats
 }
 
