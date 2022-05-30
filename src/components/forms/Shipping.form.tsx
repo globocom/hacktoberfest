@@ -13,7 +13,6 @@ import PersonPinCircle from '@material-ui/icons/PersonPinCircle'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
 import FormatSizeIcon from '@material-ui/icons/FormatSize'
-import ColorizeIcon from '@material-ui/icons/Colorize'
 //End-Icons
 
 
@@ -40,12 +39,9 @@ const ShippingForm = (props: ShippingFormProps) => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [currentEdition, setCurrentEdition] = useState<number>(0)
 
-    const [colors, setColors] = useState<Array<string>>([])
-
     useEffect(() => {
         const fillColors = async () =>  {
             const edition = await Hacktoberfest.Service.getInstance().GetEdition()
-            setColors(edition?.shirtColors || [])
             setCurrentEdition(edition.edition)
         }
         fillColors()
@@ -60,7 +56,7 @@ const ShippingForm = (props: ShippingFormProps) => {
             state: user.state,
             address: user.address,
             shirtSize: userEdition[currentEdition]?.shirtSize || "",
-            shirtColor: userEdition[currentEdition]?.shirtColor || ''
+            shirtColor: "Preto"
     }
 
 
@@ -186,30 +182,6 @@ const ShippingForm = (props: ShippingFormProps) => {
                                 <MenuItem value={"TSGGG"}>Camiseta - GGG</MenuItem>
                         </TextField>
                     </Grid>
-
-                    {colors.length > 0 &&
-                        <Grid item xs={12} md={12}>
-                            <TextField
-                                fullWidth
-                                variant="outlined"
-                                name="shirtColor"
-                                label="Cor da Camiseta"
-                                value={formik.values.shirtColor}
-                                onChange={formik.handleChange("shirtColor")}
-                                error={formik.touched.shirtColor && Boolean(formik.errors.shirtColor)}
-                                helperText={formik.touched.shirtColor && formik.errors.shirtColor}
-                                select
-                                InputProps={{
-                                    startAdornment: <InputAdornment position="start">
-                                            <ColorizeIcon/>
-                                        </InputAdornment>
-                                }}>
-                                {
-                                    colors.map((color, index) => (<MenuItem key={index} value={color}>{color}</MenuItem>))
-                                }
-                            </TextField>
-                        </Grid>
-                    }
 
                     <Grid item xs={12}>
                         <LoadingButton isLoading={isLoading}>
