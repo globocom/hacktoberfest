@@ -11,8 +11,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     left: '50%',
     fontFamily: theme.typography.fontFamily,
     transform: 'translate(-50%, -50%)',
-    width: "25%",
+    width: "80%",
     boxShadow: '4px 4px 4px black',
+    [theme.breakpoints.up("md")]: {
+      width: "25%",
+    }
   }
 }))
 
