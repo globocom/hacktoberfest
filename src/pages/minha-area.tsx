@@ -8,6 +8,7 @@ import { PersonalDataForm, ShippingForm } from '@components/forms'
 import User, { UserProps } from '@services/user'
 import { Snackbar } from '@material-ui/core'
 import MuiAlert, { AlertProps, Color } from '@material-ui/lab/Alert'
+import { ParticipationHistory } from '@components/participations'
 
 
 interface HacktoberFestAlertProps extends AlertProps {
@@ -49,7 +50,10 @@ const PersonalAreaPage = () => {
                     { loaded && user?.id &&
                         <React.Fragment>
                             <Grid item xs={8} lg={4}>
-                                <PersonalDataForm showSnackBar={showSnackBar} user={user}/>
+                                <PersonalDataForm user={user}/>
+                            </Grid>
+                            <Grid item xs={8} lg={4}>
+                                <ParticipationHistory user={user}/>
                             </Grid>
                             <Grid item xs={8} lg={4}>
                                 <ShippingForm showSnackBar={showSnackBar} user={user}/>

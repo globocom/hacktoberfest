@@ -52,7 +52,7 @@ function ProjectsList(props: ProjectListProps) {
           setProjects(response)
         } else setError(true)
         setLoading(false)
-      }catch(e){
+      }catch(e: any){
         console.error(e.message)
       }
     }

@@ -1,418 +1,417 @@
 {
-  "edition":{
-     "success":true,
-     "status":200,
-     "type":"ok",
-     "result":{
-        "edition":2020,
-        "metadata":{
-           "shirtColors":[
-              "Azul",
-              "Verde",
-              "Preto"
-           ]
-        },
-        "id":"872485b5-ff40-4448-9658-be866a387080",
-        "projects":[
-           {
-              "name":"Tsuru",
-              "website":"https://tsuru.io",
-              "repositoryUrl":"https://github.com/tsuru/tsuru",
-              "featured":true,
-              "imageUrl":"https://opensource.globo.com/static/tsuru-fdf5f936a5e54ffce0ab468ee776797a.svg",
-              "documentationUrl":"https://docs.tsuru.io/stable/",
-              "description":"Open source, extensible and Docker-based Platform as a Service (PaaS).",
-              "stats":{
-                 "repository":{
-                    "object":{
-                       "commit":{
-                          "history":{
-                             "totalCount":15010
-                          }
-                       }
-                    },
-                    "issues":{
-                       "totalCount":1491
-                    },
-                    "pullRequests":{
-                       "totalCount":950
-                    },
-                    "stars":{
-                       "totalCount":3405
-                    }
-                 }
-              }
-           },
-           {
-              "name":"Thumbor",
-              "website":"http://thumbor.org/",
-              "repositoryUrl":"https://github.com/thumbor/thumbor",
-              "featured":true,
-              "imageUrl":"https://opensource.globo.com/static/thumbor-32811b5c29202699eab45a3c8b459b80.svg",
-              "documentationUrl":"https://thumbor.readthedocs.io/en/latest/index.html",
-              "description":"Thumbor is an open-source photo thumbnail service by globo.com.",
-              "stats":{
-                 "repository":{
-                    "object":{
-                       "commit":{
-                          "history":{
-                             "totalCount":2202
-                          }
-                       }
-                    },
-                    "issues":{
-                       "totalCount":825
-                    },
-                    "pullRequests":{
-                       "totalCount":493
-                    },
-                    "stars":{
-                       "totalCount":7989
-                    }
-                 }
-              }
-           },
-           {
-              "name":"Clappr",
-              "website":"http://clappr.io/",
-              "repositoryUrl":"https://github.com/clappr/clappr",
-              "featured":true,
-              "imageUrl":"https://opensource.globo.com/static/clappr-d30b8ccac20aa7f41c8642fcf6031e2e.svg",
-              "documentationUrl":"https://clappr.github.io/",
-              "description":"An extensible media player for the web.",
-              "stats":{
-                 "repository":{
-                    "object":{
-                       "commit":{
-                          "history":{
-                             "totalCount":4185
-                          }
-                       }
-                    },
-                    "issues":{
-                       "totalCount":1364
-                    },
-                    "pullRequests":{
-                       "totalCount":601
-                    },
-                    "stars":{
-                       "totalCount":5084
-                    }
-                 }
-              }
-           },
-           {
-              "name":"huskyCI",
-              "website":"https://huskyci.opensource.globo.com/",
-              "repositoryUrl":"https://github.com/globocom/huskyCI",
-              "featured":true,
-              "imageUrl":"https://opensource.globo.com/static/huskici-79ad4c8ec6669c1469abb7d059e3786a.svg",
-              "documentationUrl":"https://huskyci.opensource.globo.com/docs/quickstart/overview",
-              "description":"Performing security tests inside your CI.",
-              "stats":{
-                 "repository":{
-                    "object":{
-                       "commit":{
-                          "history":{
-                             "totalCount":1006
-                          }
-                       }
-                    },
-                    "issues":{
-                       "totalCount":169
-                    },
-                    "pullRequests":{
-                       "totalCount":350
-                    },
-                    "stars":{
-                       "totalCount":352
-                    }
-                 }
-              }
-           },
-           {
-              "name":"Megadraft",
-              "website":"http://megadraft.io/",
-              "repositoryUrl":"https://github.com/globocom/megadraft",
-              "featured":true,
-              "imageUrl":"https://opensource.globo.com/static/megadraft-f0be51efa0afd965dc252addc1cd46ff.svg",
-              "documentationUrl":"http://megadraft.io/#/docs/overview",
-              "description":"Megadraft is a Rich Text editor built on top of Facebook's Draft.JS featuring a nice default base of components and extensibility.",
-              "stats":{
-                 "repository":{
-                    "object":{
-                       "commit":{
-                          "history":{
-                             "totalCount":579
-                          }
-                       }
-                    },
-                    "issues":{
-                       "totalCount":144
-                    },
-                    "pullRequests":{
-                       "totalCount":184
-                    },
-                    "stars":{
-                       "totalCount":949
-                    }
-                 }
-              }
-           },
-           {
-              "name":"Fastlane Queue",
-              "website":"",
-              "repositoryUrl":"https://github.com/fastlane-queue",
-              "featured":false,
-              "documentationUrl":"https://fastlane.readthedocs.io/",
-              "description":"More seriously, though, fastlane allows you to easily implement new workers in the form of containers."
-           },
-           {
-              "name":"secDevLabs",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/secDevLabs",
-              "featured":true,
-              "imageUrl":"https://raw.githubusercontent.com/globocom/secDevLabs/master/images/secDevLabs-logo.png",
-              "documentationUrl":"https://github.com/globocom/secDevLabs/blob/master/README.md",
-              "description":"A laboratory for learning secure web and mobile development in a practical manner.",
-              "stats":{
-                 "repository":{
-                    "object":{
-                       "commit":{
-                          "history":{
-                             "totalCount":645
-                          }
-                       }
-                    },
-                    "issues":{
-                       "totalCount":58
-                    },
-                    "pullRequests":{
-                       "totalCount":383
-                    },
-                    "stars":{
-                       "totalCount":509
-                    }
-                 }
-              }
-           },
-           {
-              "name":"Pretty Log",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/prettylog",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/prettylog/blob/master/README.md",
-              "description":"Ferramenta para exibição de logs estruturados em JSON em formato compatível com seres humanos."
-           },
-           {
-              "name":"GSH",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/gsh",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/gsh/blob/master/README.md",
-              "description":"GSH is an OpenID Connect-compatible authentication system for systems using OpenSSH servers consisting of an out-of-box binary set."
-           },
-           {
-              "name":"Globo Network API",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/GloboNetworkAPI",
-              "featured":false,
-              "documentationUrl":"https://globonetworkapi.readthedocs.io/en/latest/",
-              "description":"Globo NetworkAPI is a REST API that manages IP networking resources."
-           },
-           {
-              "name":"huskyCI Dashboard",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/huskyCI-dashboard",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/huskyCI-dashboard/blob/master/README.md",
-              "description":"This project provides a front-end for every huskyCI user to check the stats of the analyses done."
-           },
-           {
-              "name":"SLO Generator",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/slo-generator",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/slo-generator/blob/master/README.md",
-              "description":"Easily setup a service level objective using prometheus, based on lessons from the SRE workbook."
-           },
-           {
-              "name":"M3U8",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/m3u8",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/m3u8/blob/master/README.rst",
-              "description":"Python m3u8 parser."
-           },
-           {
-              "name":"Gedis",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/gedis/",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/gedis/blob/master/README.md",
-              "description":"Resilient Jedis adapter for Scala made with love by Globo.com"
-           },
-           {
-              "name":"GCloud Utils",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/gcloud-utils",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/gcloud-utils/blob/master/README.md",
-              "description":"Global package for Cloud Management"
-           },
-           {
-              "name":"GHDFS",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/ghdfs/",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/ghdfs/blob/master/README.md",
-              "description":"Works with HDFS for common operations and Scala compatibility."
-           },
-           {
-              "name":"Echo Prometheus",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/echo-prometheus",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/echo-prometheus/blob/master/README.md",
-              "description":"Middleware for echo v4 to instrument all handlers as metrics"
-           },
-           {
-              "name":"Azkaban CLI",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/azkaban-cli",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/azkaban-cli/blob/master/README.md",
-              "description":"CLI for Azkaban 3 API access and flow upload."
-           },
-           {
-              "name":"Auror Core",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/auror-core",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/auror-core/blob/master/README.md",
-              "description":"Simple Flow creation for Azkaban"
-           },
-           {
-              "name":"Backstage Functions",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/functions",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/functions/blob/master/README.md",
-              "description":"Backstage Functions is an Open Source Serverless Platform able to store and execute code."
-           },
-           {
-              "name":"Globo Network API Web UI",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/GloboNetworkAPI-Webui",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/GloboNetworkAPI-WebUI/blob/master/README.md",
-              "description":"This web tool helps network administrator manage and automate networking resources (routers, switches and load balancers) and document logical and physical networking."
-           },
-           {
-              "name":"GoReq",
-              "website":"",
-              "repositoryUrl":"https://github.com/globocom/goreq",
-              "featured":false,
-              "documentationUrl":"https://github.com/globocom/goreq/blob/master/README.md",
-              "description":"Simple and sane HTTP request library for Go language."
-           }
+  "edition": {
+    "success": true,
+    "status": 200,
+    "type": "ok",
+    "result": {
+      "edition": 2020,
+      "metadata": {
+        "shirtColors": [
+          "Azul",
+          "Verde",
+          "Preto"
         ]
-     }
-  },
-  "user":{
-     "success":true,
-     "status":200,
-     "type":"ok",
-     "result":{
-        "id":"my-id",
-        "name":"Arturito",
-        "email":"meuemail@gmail.c",
-        "state":"RJ",
-        "city":"Rio de Janeiro",
-        "shirtSize":"",
-        "shirtColor":"",
-        "avatarURL":"https://avatars0.githubusercontent.com/u/1333599?v=4",
-        "githubUser":"marcuscartagenes",
-        "githubID":"120391203",
-        "hacktoberfest":{
-           "2019":{
-              "opened":2,
-              "merged":2,
-              "achievements":{
-                 "opened":true,
-                 "merged":true,
-                 "firsts":true,
-                 "completed":true
+      },
+      "id": "872485b5-ff40-4448-9658-be866a387080",
+      "projects": [
+        {
+          "name": "Tsuru",
+          "website": "https://tsuru.io",
+          "repositoryUrl": "https://github.com/tsuru/tsuru",
+          "featured": true,
+          "imageUrl": "https://opensource.globo.com/static/tsuru-fdf5f936a5e54ffce0ab468ee776797a.svg",
+          "documentationUrl": "https://docs.tsuru.io/stable/",
+          "description": "Open source, extensible and Docker-based Platform as a Service (PaaS).",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 15010
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 1491
+              },
+              "pullRequests": {
+                "totalCount": 950
+              },
+              "stars": {
+                "totalCount": 3405
               }
-           },
-           "2020":{
-              "opened":2,
-              "merged":2,
-              "achievements":{
-                 "opened":true,
-                 "merged":true,
-                 "firsts":true,
-                 "completed":true
-              }
-           },
-           "2021":{
-              "opened":2,
-              "merged":0,
-              "achievements":{
-                 "opened":true,
-                 "merged":true,
-                 "firsts":true,
-                 "completed":true
-              }
-           }
+            }
+          }
         },
-        "postal":"123456-789",
-        "address":"2970 Golf Course Driesa",
-        "street":"2970 Golf Course Driv",
-        "editions":{
-           "2020":{
-              "approved":true,
-              "completed":true,
-              "completed_at":"0001-01-01T00:00:00Z",
-              "totalMergeRequests":2,
-              "totalMergeRequestsMerged":2
-           },
-           "2021":{
-              "approved":false,
-              "completed":false,
-              "completed_at":"0001-01-01T00:00:00Z",
-              "totalMergeRequests":5,
-              "totalMergeRequestsMerged":0
-           }
+        {
+          "name": "Thumbor",
+          "website": "http://thumbor.org/",
+          "repositoryUrl": "https://github.com/thumbor/thumbor",
+          "featured": true,
+          "imageUrl": "https://opensource.globo.com/static/thumbor-32811b5c29202699eab45a3c8b459b80.svg",
+          "documentationUrl": "https://thumbor.readthedocs.io/en/latest/index.html",
+          "description": "Thumbor is an open-source photo thumbnail service by globo.com.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 2202
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 825
+              },
+              "pullRequests": {
+                "totalCount": 493
+              },
+              "stars": {
+                "totalCount": 7989
+              }
+            }
+          }
         },
-        "postalCode":"4234234"
-     }
+        {
+          "name": "Clappr",
+          "website": "http://clappr.io/",
+          "repositoryUrl": "https://github.com/clappr/clappr",
+          "featured": true,
+          "imageUrl": "https://opensource.globo.com/static/clappr-d30b8ccac20aa7f41c8642fcf6031e2e.svg",
+          "documentationUrl": "https://clappr.github.io/",
+          "description": "An extensible media player for the web.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 4185
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 1364
+              },
+              "pullRequests": {
+                "totalCount": 601
+              },
+              "stars": {
+                "totalCount": 5084
+              }
+            }
+          }
+        },
+        {
+          "name": "huskyCI",
+          "website": "https://huskyci.opensource.globo.com/",
+          "repositoryUrl": "https://github.com/globocom/huskyCI",
+          "featured": true,
+          "imageUrl": "https://opensource.globo.com/static/huskici-79ad4c8ec6669c1469abb7d059e3786a.svg",
+          "documentationUrl": "https://huskyci.opensource.globo.com/docs/quickstart/overview",
+          "description": "Performing security tests inside your CI.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 1006
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 169
+              },
+              "pullRequests": {
+                "totalCount": 350
+              },
+              "stars": {
+                "totalCount": 352
+              }
+            }
+          }
+        },
+        {
+          "name": "Megadraft",
+          "website": "http://megadraft.io/",
+          "repositoryUrl": "https://github.com/globocom/megadraft",
+          "featured": true,
+          "imageUrl": "https://opensource.globo.com/static/megadraft-f0be51efa0afd965dc252addc1cd46ff.svg",
+          "documentationUrl": "http://megadraft.io/#/docs/overview",
+          "description": "Megadraft is a Rich Text editor built on top of Facebook's Draft.JS featuring a nice default base of components and extensibility.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 579
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 144
+              },
+              "pullRequests": {
+                "totalCount": 184
+              },
+              "stars": {
+                "totalCount": 949
+              }
+            }
+          }
+        },
+        {
+          "name": "Fastlane Queue",
+          "website": "",
+          "repositoryUrl": "https://github.com/fastlane-queue",
+          "featured": false,
+          "documentationUrl": "https://fastlane.readthedocs.io/",
+          "description": "More seriously, though, fastlane allows you to easily implement new workers in the form of containers."
+        },
+        {
+          "name": "secDevLabs",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/secDevLabs",
+          "featured": true,
+          "imageUrl": "https://raw.githubusercontent.com/globocom/secDevLabs/master/images/secDevLabs-logo.png",
+          "documentationUrl": "https://github.com/globocom/secDevLabs/blob/master/README.md",
+          "description": "A laboratory for learning secure web and mobile development in a practical manner.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 645
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 58
+              },
+              "pullRequests": {
+                "totalCount": 383
+              },
+              "stars": {
+                "totalCount": 509
+              }
+            }
+          }
+        },
+        {
+          "name": "Pretty Log",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/prettylog",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/prettylog/blob/master/README.md",
+          "description": "Ferramenta para exibição de logs estruturados em JSON em formato compatível com seres humanos."
+        },
+        {
+          "name": "GSH",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/gsh",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/gsh/blob/master/README.md",
+          "description": "GSH is an OpenID Connect-compatible authentication system for systems using OpenSSH servers consisting of an out-of-box binary set."
+        },
+        {
+          "name": "Globo Network API",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/GloboNetworkAPI",
+          "featured": false,
+          "documentationUrl": "https://globonetworkapi.readthedocs.io/en/latest/",
+          "description": "Globo NetworkAPI is a REST API that manages IP networking resources."
+        },
+        {
+          "name": "huskyCI Dashboard",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/huskyCI-dashboard",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/huskyCI-dashboard/blob/master/README.md",
+          "description": "This project provides a front-end for every huskyCI user to check the stats of the analyses done."
+        },
+        {
+          "name": "SLO Generator",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/slo-generator",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/slo-generator/blob/master/README.md",
+          "description": "Easily setup a service level objective using prometheus, based on lessons from the SRE workbook."
+        },
+        {
+          "name": "M3U8",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/m3u8",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/m3u8/blob/master/README.rst",
+          "description": "Python m3u8 parser."
+        },
+        {
+          "name": "Gedis",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/gedis/",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/gedis/blob/master/README.md",
+          "description": "Resilient Jedis adapter for Scala made with love by Globo.com"
+        },
+        {
+          "name": "GCloud Utils",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/gcloud-utils",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/gcloud-utils/blob/master/README.md",
+          "description": "Global package for Cloud Management"
+        },
+        {
+          "name": "GHDFS",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/ghdfs/",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/ghdfs/blob/master/README.md",
+          "description": "Works with HDFS for common operations and Scala compatibility."
+        },
+        {
+          "name": "Echo Prometheus",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/echo-prometheus",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/echo-prometheus/blob/master/README.md",
+          "description": "Middleware for echo v4 to instrument all handlers as metrics"
+        },
+        {
+          "name": "Azkaban CLI",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/azkaban-cli",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/azkaban-cli/blob/master/README.md",
+          "description": "CLI for Azkaban 3 API access and flow upload."
+        },
+        {
+          "name": "Auror Core",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/auror-core",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/auror-core/blob/master/README.md",
+          "description": "Simple Flow creation for Azkaban"
+        },
+        {
+          "name": "Backstage Functions",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/functions",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/functions/blob/master/README.md",
+          "description": "Backstage Functions is an Open Source Serverless Platform able to store and execute code."
+        },
+        {
+          "name": "Globo Network API Web UI",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/GloboNetworkAPI-Webui",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/GloboNetworkAPI-WebUI/blob/master/README.md",
+          "description": "This web tool helps network administrator manage and automate networking resources (routers, switches and load balancers) and document logical and physical networking."
+        },
+        {
+          "name": "GoReq",
+          "website": "",
+          "repositoryUrl": "https://github.com/globocom/goreq",
+          "featured": false,
+          "documentationUrl": "https://github.com/globocom/goreq/blob/master/README.md",
+          "description": "Simple and sane HTTP request library for Go language."
+        }
+      ]
+    }
   },
-  "status":{
-     "success":true,
-     "status":200,
-     "type":"ok",
-     "result": []
+  "user": {
+    "success": true,
+    "status": 200,
+    "type": "ok",
+    "result": {
+      "id": "my-id",
+      "name": "Arturito",
+      "state": "RJ",
+      "city": "Rio de Janeiro",
+      "shirtSize": "BLG",
+      "shirtColor": "",
+      "avatarURL": "https://avatars0.githubusercontent.com/u/1333599?v=4",
+      "githubUser": "marcuscartagenes",
+      "githubID": "120391203",
+      "hacktoberfest": {
+        "2019": {
+          "opened": 2,
+          "merged": 2,
+          "achievements": {
+            "opened": true,
+            "merged": true,
+            "firsts": true,
+            "completed": true
+          }
+        },
+        "2020": {
+          "opened": 2,
+          "merged": 2,
+          "achievements": {
+            "opened": true,
+            "merged": true,
+            "firsts": true,
+            "completed": true
+          }
+        },
+        "2021": {
+          "opened": 2,
+          "merged": 0,
+          "achievements": {
+            "opened": true,
+            "merged": true,
+            "firsts": true,
+            "completed": true
+          }
+        }
+      },
+      "postal": "123456-789",
+      "address": "2970 Golf Course Driesa",
+      "street": "2970 Golf Course Driv",
+      "editions": {
+        "2020": {
+          "approved": true,
+          "completed": true,
+          "completed_at": "0001-01-01T00:00:00Z",
+          "totalMergeRequests": 2,
+          "totalMergeRequestsMerged": 2
+        },
+        "2021": {
+          "approved": false,
+          "completed": false,
+          "completed_at": "0001-01-01T00:00:00Z",
+          "totalMergeRequests": 5,
+          "totalMergeRequestsMerged": 0
+        }
+      },
+      "postalCode": "4234234"
+    }
   },
-  "projects":{
-     "success":true,
-     "status":200,
-     "type":"ok",
-     "result":{
+  "status": {
+    "success": true,
+    "status": 200,
+    "type": "ok",
+    "result": []
+  },
+  "projects": {
+    "success": true,
+    "status": 200,
+    "type": "ok",
+    "result": {
       "items": [
         {
-          "id":"e53fde0c-1fe0-4a1b-978c-264654011f34",
-          "name":"secDevLabs",
-          "site":"",
-          "repo":"https://github.com/globocom/secDevLabs",
-          "isHighlighted":true,
-          "imageUrl":{
-             "name":"secDevLabs",
-             "rightsHolder":"Globo",
-             "thumborUrl":"https://s2.glbimg.dev.globoi.com/Vra9BZiRgcKnpi30wWjpAI62vIk=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/7/k/ztHr8XTqSx0kYryhYAiA/secdevlabs.png"
+          "id": "e53fde0c-1fe0-4a1b-978c-264654011f34",
+          "name": "secDevLabs",
+          "site": "",
+          "repo": "https://github.com/globocom/secDevLabs",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "secDevLabs",
+            "rightsHolder": "Globo",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/Vra9BZiRgcKnpi30wWjpAI62vIk=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/7/k/ztHr8XTqSx0kYryhYAiA/secdevlabs.png"
           },
-          "docs":"https://github.com/globocom/secDevLabs/blob/master/README.md",
-          "description":"A laboratory for learning secure web and mobile development in a practical manner.",
+          "docs": "https://github.com/globocom/secDevLabs/blob/master/README.md",
+          "description": "A laboratory for learning secure web and mobile development in a practical manner.",
           "languages": [
             "PHP",
             "JavaScript",
@@ -434,298 +433,314 @@
             "Hack",
             "Objective-C"
           ],
-          "stats":{
-             "repository":{
-                "object":{
-                   "commit":{
-                      "history":{
-                         "totalCount":654
-                      }
-                   }
-                },
-                "issues":{
-                   "totalCount":60
-                },
-                "pullRequests":{
-                   "totalCount":463
-                },
-                "stars":{
-                   "totalCount":613
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 654
+                  }
                 }
-             }
+              },
+              "issues": {
+                "totalCount": 60
+              },
+              "pullRequests": {
+                "totalCount": 463
+              },
+              "stars": {
+                "totalCount": 613
+              }
+            }
           }
-       },
-       {
-          "id":"4aaca87f-9174-45fd-8df3-1d893efa61ad",
-          "name":"GoReq",
-          "site":"",
-          "repo":"https://github.com/globocom/goreq",
-          "isHighlighted":false,
-          "imageUrl":{
+        },
+        {
+          "id": "4aaca87f-9174-45fd-8df3-1d893efa61ad",
+          "name": "GoReq",
+          "site": "",
+          "repo": "https://github.com/globocom/goreq",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/goreq/blob/master/README.md",
+          "description": "Simple and sane HTTP request library for Go language.",
+          "languages": [
+            "Go",
+            "Makefile"
+          ]
+        },
+        {
+          "id": "0269cf4b-1587-404d-9bd2-c669faa05237",
+          "name": "Tsuru",
+          "site": "https://tsuru.io",
+          "repo": "https://github.com/tsuru/tsuru",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "Tsuru",
+            "rightsHolder": "Globo",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/uhw2HEAU3DBw7f_zzOjLaQW3jek=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/5/V/pTRvffRAWnNZr8eANoiw/tsuru.png"
           },
-          "docs":"https://github.com/globocom/goreq/blob/master/README.md",
-          "description":"Simple and sane HTTP request library for Go language.",
-          "languages": ["Go", "Makefile"]
-       },
-       {
-          "id":"0269cf4b-1587-404d-9bd2-c669faa05237",
-          "name":"Tsuru",
-          "site":"https://tsuru.io",
-          "repo":"https://github.com/tsuru/tsuru",
-          "isHighlighted":true,
-          "imageUrl":{
-             "name":"Tsuru",
-             "rightsHolder":"Globo",
-             "thumborUrl":"https://s2.glbimg.dev.globoi.com/uhw2HEAU3DBw7f_zzOjLaQW3jek=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/5/V/pTRvffRAWnNZr8eANoiw/tsuru.png"
-          },
-          "docs":"https://docs.tsuru.io/stable/",
-          "description":"Open source, extensible and Docker-based Platform as a Service (PaaS).",
-          "languages": ["Go"],
-          "stats":{
-             "repository":{
-                "object":{
-                   "commit":{
-                      "history":{
-                         "totalCount":0
-                      }
-                   }
-                },
-                "issues":{
-                   "totalCount":1496
-                },
-                "pullRequests":{
-                   "totalCount":1010
-                },
-                "stars":{
-                   "totalCount":3683
+          "docs": "https://docs.tsuru.io/stable/",
+          "description": "Open source, extensible and Docker-based Platform as a Service (PaaS).",
+          "languages": [
+            "Go"
+          ],
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 0
+                  }
                 }
-             }
+              },
+              "issues": {
+                "totalCount": 1496
+              },
+              "pullRequests": {
+                "totalCount": 1010
+              },
+              "stars": {
+                "totalCount": 3683
+              }
+            }
           }
-       },
-       {
-          "id":"5f93dfee-046b-484a-a2e7-e578d050a5b8",
-          "name":"Clappr",
-          "site":"http://clappr.io/",
-          "repo":"https://github.com/clappr/clappr",
-          "isHighlighted":true,
-          "imageUrl":{
-             "name":"clappr",
-             "rightsHolder":"Globo",
-             "thumborUrl":"https://s2.glbimg.dev.globoi.com/A02pAODBii_AV19qdi5csE7nMJQ=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/I/U/asaCYtSduYQq39UXgK9A/clappr.png"
+        },
+        {
+          "id": "5f93dfee-046b-484a-a2e7-e578d050a5b8",
+          "name": "Clappr",
+          "site": "http://clappr.io/",
+          "repo": "https://github.com/clappr/clappr",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "clappr",
+            "rightsHolder": "Globo",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/A02pAODBii_AV19qdi5csE7nMJQ=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/I/U/asaCYtSduYQq39UXgK9A/clappr.png"
           },
-          "docs":"https://clappr.github.io/",
-          "description":"An extensible media player for the web.",
-          "languages": ["HTML"],
-          "stats":{
-             "repository":{
-                "object":{
-                   "commit":{
-                      "history":{
-                         "totalCount":4210
-                      }
-                   }
-                },
-                "issues":{
-                   "totalCount":1420
-                },
-                "pullRequests":{
-                   "totalCount":610
-                },
-                "stars":{
-                   "totalCount":5371
+          "docs": "https://clappr.github.io/",
+          "description": "An extensible media player for the web.",
+          "languages": [
+            "HTML"
+          ],
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 4210
+                  }
                 }
-             }
+              },
+              "issues": {
+                "totalCount": 1420
+              },
+              "pullRequests": {
+                "totalCount": 610
+              },
+              "stars": {
+                "totalCount": 5371
+              }
+            }
           }
-       },
-       {
-          "id":"095945aa-1903-4292-b604-9002225fa7f7",
-          "name":"Thumbor",
-          "site":"http://thumbor.org/",
-          "repo":"https://github.com/thumbor/thumbor",
-          "isHighlighted":true,
-          "imageUrl":{
-             "name":"Thumbor",
-             "rightsHolder":"Globo",
-             "thumborUrl":"https://s2.glbimg.dev.globoi.com/Ez3OgJIclJxNqcI7cWmKP0PyVKs=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/U/c/eBXyBcTxeftA59vu6WFw/thumbor.png"
+        },
+        {
+          "id": "095945aa-1903-4292-b604-9002225fa7f7",
+          "name": "Thumbor",
+          "site": "http://thumbor.org/",
+          "repo": "https://github.com/thumbor/thumbor",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "Thumbor",
+            "rightsHolder": "Globo",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/Ez3OgJIclJxNqcI7cWmKP0PyVKs=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/U/c/eBXyBcTxeftA59vu6WFw/thumbor.png"
           },
-          "docs":"https://thumbor.readthedocs.io/en/latest/index.html",
-          "description":"Thumbor is an open-source photo thumbnail service by globo.com.",
-          "languages": ["Python"],
-          "stats":{
-             "repository":{
-                "object":{
-                   "commit":{
-                      "history":{
-                         "totalCount":2222
-                      }
-                   }
-                },
-                "issues":{
-                   "totalCount":851
-                },
-                "pullRequests":{
-                   "totalCount":513
-                },
-                "stars":{
-                   "totalCount":8568
+          "docs": "https://thumbor.readthedocs.io/en/latest/index.html",
+          "description": "Thumbor is an open-source photo thumbnail service by globo.com.",
+          "languages": [
+            "Python"
+          ],
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 2222
+                  }
                 }
-             }
+              },
+              "issues": {
+                "totalCount": 851
+              },
+              "pullRequests": {
+                "totalCount": 513
+              },
+              "stars": {
+                "totalCount": 8568
+              }
+            }
           }
-       },
-       {
-          "id":"68e8adf6-c06a-430a-8a43-fff8c464c25e",
-          "name":"secDevLabs",
-          "site":"",
-          "repo":"https://github.com/globocom/secDevLabs",
-          "isHighlighted":true,
-          "imageUrl":{
-             "name":"secDevLabs",
-             "rightsHolder":"Globo",
-             "thumborUrl":"https://s2.glbimg.dev.globoi.com/Vra9BZiRgcKnpi30wWjpAI62vIk=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/7/k/ztHr8XTqSx0kYryhYAiA/secdevlabs.png"
+        },
+        {
+          "id": "68e8adf6-c06a-430a-8a43-fff8c464c25e",
+          "name": "secDevLabs",
+          "site": "",
+          "repo": "https://github.com/globocom/secDevLabs",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "secDevLabs",
+            "rightsHolder": "Globo",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/Vra9BZiRgcKnpi30wWjpAI62vIk=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/7/k/ztHr8XTqSx0kYryhYAiA/secdevlabs.png"
           },
-          "docs":"https://github.com/globocom/secDevLabs/blob/master/README.md",
-          "description":"A laboratory for learning secure web and mobile development in a practical manner.",
-          "languages": ["PHP"],
-          "stats":{
-             "repository":{
-                "object":{
-                   "commit":{
-                      "history":{
-                         "totalCount":654
-                      }
-                   }
-                },
-                "issues":{
-                   "totalCount":60
-                },
-                "pullRequests":{
-                   "totalCount":463
-                },
-                "stars":{
-                   "totalCount":613
+          "docs": "https://github.com/globocom/secDevLabs/blob/master/README.md",
+          "description": "A laboratory for learning secure web and mobile development in a practical manner.",
+          "languages": [
+            "PHP"
+          ],
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 654
+                  }
                 }
-             }
+              },
+              "issues": {
+                "totalCount": 60
+              },
+              "pullRequests": {
+                "totalCount": 463
+              },
+              "stars": {
+                "totalCount": 613
+              }
+            }
           }
-       },
-       {
-          "id":"af0f18af-6636-4f47-a0f9-b62d0f0bd9a8",
-          "name":"huskyCI",
-          "site":"https://huskyci.opensource.globo.com/",
-          "repo":"https://github.com/globocom/huskyCI",
-          "isHighlighted":true,
-          "imageUrl":{
-             "name":"HuskyCI",
-             "rightsHolder":"Globo",
-             "thumborUrl":"https://s2.glbimg.dev.globoi.com/g4iwdUYVeV3FZ0_LrZ6yyCtJ_Dw=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/M/4/oAC6HhRoKdgsaPBaopMA/huskyci.png"
+        },
+        {
+          "id": "af0f18af-6636-4f47-a0f9-b62d0f0bd9a8",
+          "name": "huskyCI",
+          "site": "https://huskyci.opensource.globo.com/",
+          "repo": "https://github.com/globocom/huskyCI",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "HuskyCI",
+            "rightsHolder": "Globo",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/g4iwdUYVeV3FZ0_LrZ6yyCtJ_Dw=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/M/4/oAC6HhRoKdgsaPBaopMA/huskyci.png"
           },
-          "docs":"https://huskyci.opensource.globo.com/docs/quickstart/overview",
-          "description":"Performing security tests inside your CI.",
-          "languages": ["Go"],
-          "stats":{
-             "repository":{
-                "object":{
-                   "commit":{
-                      "history":{
-                         "totalCount":1022
-                      }
-                   }
-                },
-                "issues":{
-                   "totalCount":178
-                },
-                "pullRequests":{
-                   "totalCount":359
-                },
-                "stars":{
-                   "totalCount":444
+          "docs": "https://huskyci.opensource.globo.com/docs/quickstart/overview",
+          "description": "Performing security tests inside your CI.",
+          "languages": [
+            "Go"
+          ],
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 1022
+                  }
                 }
-             }
+              },
+              "issues": {
+                "totalCount": 178
+              },
+              "pullRequests": {
+                "totalCount": 359
+              },
+              "stars": {
+                "totalCount": 444
+              }
+            }
           }
-       },
-       {
-          "id":"07d361d0-c262-493f-9f8b-2dfc97b01766",
-          "name":"Megadraft",
-          "site":"http://megadraft.io/",
-          "repo":"https://github.com/globocom/megadraft",
-          "isHighlighted":true,
-          "imageUrl":{
-             "name":"Megadraft",
-             "rightsHolder":"Globo",
-             "thumborUrl":"https://s2.glbimg.dev.globoi.com/jySPjrKHenlsqIFSO04Uypfxf1A=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/h/k/DETqbNQwmjnLn8vIGIug/megadraft.png"
+        },
+        {
+          "id": "07d361d0-c262-493f-9f8b-2dfc97b01766",
+          "name": "Megadraft",
+          "site": "http://megadraft.io/",
+          "repo": "https://github.com/globocom/megadraft",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "Megadraft",
+            "rightsHolder": "Globo",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/jySPjrKHenlsqIFSO04Uypfxf1A=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/h/k/DETqbNQwmjnLn8vIGIug/megadraft.png"
           },
-          "docs":"http://megadraft.io/#/docs/overview",
-          "description":"Megadraft is a Rich Text editor built on top of Facebook's Draft.JS featuring a nice default base of components and extensibility",
-          "languages": ["JavaScript"],
-          "stats":{
-             "repository":{
-                "object":{
-                   "commit":{
-                      "history":{
-                         "totalCount":594
-                      }
-                   }
-                },
-                "issues":{
-                   "totalCount":148
-                },
-                "pullRequests":{
-                   "totalCount":203
-                },
-                "stars":{
-                   "totalCount":1040
+          "docs": "http://megadraft.io/#/docs/overview",
+          "description": "Megadraft is a Rich Text editor built on top of Facebook's Draft.JS featuring a nice default base of components and extensibility",
+          "languages": [
+            "JavaScript"
+          ],
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 594
+                  }
                 }
-             }
+              },
+              "issues": {
+                "totalCount": 148
+              },
+              "pullRequests": {
+                "totalCount": 203
+              },
+              "stars": {
+                "totalCount": 1040
+              }
+            }
           }
-       },
-       {
-          "id":"2c75492b-4c6c-4b39-9a03-e09f096a109f",
-          "name":"Globo Network API Web UI",
-          "site":"",
-          "repo":"https://github.com/globocom/GloboNetworkAPI-Webui",
-          "isHighlighted":true,
-          "imageUrl":{
-             "name":"Megadraft",
-             "rightsHolder":"Globo",
-             "thumborUrl":"https://s2.glbimg.dev.globoi.com/9ZaRtejoKMkg_EpACOSKi9SavXI=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/V/W/r3RPR8TlaaiwxekZ400w/megadraft.png"
+        },
+        {
+          "id": "2c75492b-4c6c-4b39-9a03-e09f096a109f",
+          "name": "Globo Network API Web UI",
+          "site": "",
+          "repo": "https://github.com/globocom/GloboNetworkAPI-Webui",
+          "isHighlighted": true,
+          "imageUrl": {
+            "name": "Megadraft",
+            "rightsHolder": "Globo",
+            "thumborUrl": "https://s2.glbimg.dev.globoi.com/9ZaRtejoKMkg_EpACOSKi9SavXI=/600x0/filters:quality(70)/i.s3.glbimg.dev.globoi.com/v1/AUTH_c0aabc33d97445a38d3aec7bea276fb8/internal_photos/bs/2021/V/W/r3RPR8TlaaiwxekZ400w/megadraft.png"
           },
-          "docs":"https://github.com/globocom/GloboNetworkAPI-WebUI/blob/master/README.md",
-          "description":"This web tool helps network administrator manage and automate networking resources (routers, switches and load balancers) and document logical and physical networking.",
-          "languages": ["Python"],
-          "stats":{
-             "repository":{
-                "object":{
-                   "commit":{
-                      "history":{
-                         "totalCount":1230
-                      }
-                   }
-                },
-                "issues":{
-                   "totalCount":52
-                },
-                "pullRequests":{
-                   "totalCount":75
-                },
-                "stars":{
-                   "totalCount":16
+          "docs": "https://github.com/globocom/GloboNetworkAPI-WebUI/blob/master/README.md",
+          "description": "This web tool helps network administrator manage and automate networking resources (routers, switches and load balancers) and document logical and physical networking.",
+          "languages": [
+            "Python"
+          ],
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 1230
+                  }
                 }
-             }
+              },
+              "issues": {
+                "totalCount": 52
+              },
+              "pullRequests": {
+                "totalCount": 75
+              },
+              "stars": {
+                "totalCount": 16
+              }
+            }
           }
-       },
-       {
-          "id":"136de8e4-352b-4d67-bb3b-ca22ff84db87",
-          "name":"Backstage Functions",
-          "site":"",
-          "repo":"https://github.com/globocom/functions",
-          "isHighlighted":false,
-          "imageUrl":{
-
-          },
-          "docs":"https://github.com/globocom/functions/blob/master/README.md",
-          "description":"Backstage Functions is an Open Source Serverless Platform able to store and execute code.",
-          "languages": ["JavaScript"]
-         }
-       ]
-       }
+        },
+        {
+          "id": "136de8e4-352b-4d67-bb3b-ca22ff84db87",
+          "name": "Backstage Functions",
+          "site": "",
+          "repo": "https://github.com/globocom/functions",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/functions/blob/master/README.md",
+          "description": "Backstage Functions is an Open Source Serverless Platform able to store and execute code.",
+          "languages": [
+            "JavaScript"
+          ]
+        }
+      ]
+    }
   }
 }

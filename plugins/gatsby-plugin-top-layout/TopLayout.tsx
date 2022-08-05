@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { CurrentTheme } from "../../src/themes"
+import SnackbarContextProvider from '../../src/components/snackbar/HacktoberfestSnackbar'
 
 export default function TopLayout(props) {
   return (
@@ -20,7 +21,9 @@ export default function TopLayout(props) {
       </Helmet>
       <ThemeProvider theme={CurrentTheme}>
         <CssBaseline />
-        {props.children}
+        <SnackbarContextProvider>
+          {props.children}
+        </SnackbarContextProvider>
       </ThemeProvider>
     </React.Fragment>
   )

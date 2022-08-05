@@ -1,12 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Grid, Typography, TextField, InputAdornment, Button } from '@material-ui/core'
-import { ParticipationHistory } from '@components/participations'
 
 
 //Internal
 import User, { UserProps } from '@services/user'
 import Spacing from '@components/spacing'
 import LoadingButton from '@components/loading-button'
+import {SnackbarContext} from '@components/snackbar/HacktoberfestSnackbar'
 
 //Icons
 import EmailIcon from '@material-ui/icons/Email'
@@ -26,8 +26,9 @@ const validationSchema = () => Yup.object().shape({
 
 
 const PersonalDataForm = (props:PersonalDataFormProps) => {
-    const { user , showSnackBar } =  props
+    const { user, onSuccess, showOnlyEmailField = false } =  props
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const snackbarContext = useContext(SnackbarContext)
 
     const initialValues = {
             name: user.name,
@@ -42,11 +43,12 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
             await User.Service.getInstance().UpdateUserEmail(values)
             setTimeout(() => {
                 setIsLoading(false)
-                showSnackBar("success", "Dados pessoais atualizado com sucesso !")
+                snackbarContext.showSnackBar("success", "Dados pessoais atualizado com sucesso !")
+                onSuccess && onSuccess()
             },3000)
         }catch(e){
             setIsLoading(false)
-            showSnackBar("error", "Erro ao cadastrar dados pessoais")
+            snackbarContext.showSnackBar("error", "Erro ao cadastrar dados pessoais")
         }
     }
 
@@ -57,39 +59,42 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
             <Spacing desktop={{margin: "40px 0px"}} smart={{margin: "40px 0px"}}>
                 <form onSubmit={formik.handleSubmit}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <Typography style={{fontWeight: 600}} component="h2" color="secondary" variant="h2">Dados pessoais</Typography>
-                        </Grid>
-                        <Grid item xs={12} md={8}>
-                            <TextField
-                                fullWidth
-                                onChange={formik.handleChange}
-                                value={formik.values.githubUser}
-                                name="githubUser"
-                                id="githubUser"
-                                color="primary"
-                                variant="outlined"
-                                label="Github"
-                                error={formik.touched.githubUser && Boolean(formik.errors.githubUser)}
-                                helperText={formik.touched.githubUser && formik.errors.githubUser}
-                                InputProps={{
-                                    startAdornment: <InputAdornment position="start">@</InputAdornment>,
-                                    readOnly: true
-                                }}
-                            />
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <TextField
-                                color="primary"
-                                value={formik.values.githubID}
-                                fullWidth
-                                variant="outlined"
-                                label="ID Github"
-                                InputProps={{
-                                    readOnly: true
-                                }}
-                            />
-                        </Grid>
+                        {!showOnlyEmailField && <>
+                            <Grid item xs={12}>
+                                <Typography style={{fontWeight: 600}} component="h2" color="secondary" variant="h2">Dados pessoais</Typography>
+                            </Grid>
+                            <Grid item xs={12} md={8}>
+                                <TextField
+                                    fullWidth
+                                    onChange={formik.handleChange}
+                                    value={formik.values.githubUser}
+                                    name="githubUser"
+                                    id="githubUser"
+                                    color="primary"
+                                    variant="outlined"
+                                    label="Github"
+                                    error={formik.touched.githubUser && Boolean(formik.errors.githubUser)}
+                                    helperText={formik.touched.githubUser && formik.errors.githubUser}
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position="start">@</InputAdornment>,
+                                        readOnly: true
+                                    }}
+                                />
+                            </Grid>
+                            <Grid item xs={12} md={4}>
+                                <TextField
+                                    color="primary"
+                                    value={formik.values.githubID}
+                                    fullWidth
+                                    variant="outlined"
+                                    label="ID Github"
+                                    InputProps={{
+                                        readOnly: true
+                                    }}
+                                />
+                            </Grid>
+                        </>
+                        }
                         <Grid item xs={12}>
                             <TextField
                                 onChange={formik.handleChange}
@@ -114,8 +119,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                         </Grid>
                     </Grid>
                 </form>
-        </Spacing>
-            <ParticipationHistory user={user}/>
+            </Spacing>
         </React.Fragment>
     )
 }
@@ -125,7 +129,8 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
 
 interface PersonalDataFormProps {
     user: UserProps,
-    showSnackBar: Function
+    showOnlyEmailField?: boolean,
+    onSuccess?: Function
 }
 
 

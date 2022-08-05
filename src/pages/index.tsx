@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "@components/layout"
+import EmailPopin from '@components/email-popin'
 import Spacing from "@components/spacing"
 import HeroCall from "@components/hero"
 import { makeStyles, Theme } from "@material-ui/core/styles"
@@ -36,6 +37,7 @@ const IndexPage = () => {
       title="Início - Globo Hacktoberfest"
     >
       <div className={classes.root}>
+        {(user && !user?.email) && <EmailPopin user={user}/>}
         <HeroCall user={user} />
         <div className={classes.projectsContainer}>
           <Spacing smart={{ margin: "0px 0px 64px", padding: "0px 40px" }}>

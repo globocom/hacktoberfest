@@ -46,8 +46,8 @@ const RepoLanguages = (props: RepoLanguagesProps) => {
   const classes = useStyles()
   return (
     <ul className={classes.languageList}>
-      {props.languages.map((language) => (
-        <li className={classes.languageListItem}>
+      {props.languages.map((language, i) => (
+        <li key={i} className={classes.languageListItem}>
           <span className={classes.repoLanguageWrapper}>
             <CircleLanguage language={language} />
             <Typography component="span" color="textPrimary" variant="body1">

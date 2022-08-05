@@ -34,7 +34,7 @@ const Layout = (props: LayoutProps) => {
 }
 
 interface LayoutProps {
-  children: React.ReactElement
+  children: React.ReactNode
   headerTitle?: string,
   title: string,
   description?: string

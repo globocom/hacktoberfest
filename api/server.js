@@ -69,6 +69,21 @@ server.post("/subscribe", (req, res, next) => {
   res.status(201).jsonp(db.get("user").value())
 })
 
+server.post("/subscribeEmail", (req, res, next) => {
+  const data = JSON.parse(req.body)
+  const db = router.db
+  const user = db.get("user").cloneDeep().value()
+
+  user.result = {
+    ...user.result,
+    ...data,
+  }
+
+  db.get("user").assign(user).write()
+  res.status(201).jsonp(db.get("user").value())
+})
+
+
 server.use(router)
 server.listen(3000, () => {
   console.log("Demo api server is running...")

@@ -28,7 +28,7 @@ const PersonalAreaPage = () => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const user: UserProps = await User.Service.getInstance().GetUser()
+            const user: UserProps | undefined = await User.Service.getInstance().GetUser()
             setUser(user)
             setIsLoaded(true)
         }
