@@ -8,11 +8,11 @@ import { UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
-    backgroundColor: "#fff", 
-    fontFamily: "inherit", 
-    borderRadius: "64px",
+    backgroundColor: "#fff",
+    fontFamily: "inherit",
+    borderRadius: "8px",
     textTransform: "none",
-    color: theme.palette.text.primary
+    color: theme.palette.text.secondary
   },
   howWorks: {
     position: 'absolute',
@@ -93,7 +93,7 @@ const ProgressMessage = (props: any) => (
 
 const CongratsMessage = () => (
   <Grid item xs={6}>
-    <Typography align="center" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no Minha Área. </Typography> 
+    <Typography align="center" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no Minha Área. </Typography>
   </Grid>
 )
 
@@ -105,7 +105,7 @@ const UnloggedView = () => {
       <Grid container>
         <Grid item xs={12}>
           <Typography align="center" variant="h3" component="h3">
-            Contribua e ganhe uma camiseta exclusiva
+            contribua e ganhe uma camiseta exclusiva
           </Typography>
         </Grid>
         <Spacing smart={{ margin: "50px auto 0px auto" }}>
@@ -119,14 +119,14 @@ const UnloggedView = () => {
               variant="contained"
             >
               <Typography style={{padding: 18}} component="p" variant="body2" align="center">
-                  <b>PARTICIPAR</b> com sua conta do github
+                  <b>participe</b> com sua conta do github
               </Typography>
             </Button>
           </Grid>
         </Spacing>
       </Grid>
       <div className={classes.howWorks}>
-            <ArrowDownIcon /> 
+            <ArrowDownIcon />
             <Typography align="center" component="p" >
               como funciona
             </Typography>
@@ -177,7 +177,7 @@ const DesktopView = (props: DesktopViewProps) => {
         <Image className={classes.sticker} src={`hero/spark.svg`} style={{ left: "17vw", top: "9vh", width: "8vw"}}/>
       </div>
 
-      
+
     </React.Fragment>
   )
 }
