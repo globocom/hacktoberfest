@@ -33,7 +33,7 @@ const IndexPage = () => {
   const classes = useStyles()
 
   return (
-    <Layout 
+    <Layout
       title="Início - Globo Hacktoberfest"
     >
       <div className={classes.root}>
@@ -53,7 +53,7 @@ const IndexPage = () => {
                 </Typography>
                 <Spacing smart={{margin: "8px 0px 0px"}}>
                   <Typography align="left" variant="body1" color="textPrimary">
-                        Gostaríamos da sua ajuda principalmente nos seguintes projetos:
+                      Gostaríamos da sua ajuda principalmente nos seguintes projetos:
                   </Typography>
                 </Spacing>
               </Grid>

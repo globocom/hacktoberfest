@@ -7,12 +7,37 @@ import { makeStyles, Theme } from "@material-ui/core/styles"
 import { UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
+  title: {
+    // fontSize: '96px',
+    // lineHeight: '96px',
+    // color: 'black',
+    // fontFeatureSettings: `'pnum' on, 'lnum' on`,
+    // '-webkit-text-stroke': '1px white',
+    // textShadow: ` 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff`,
+    width: '80%',
+    height: '180px'
+  },
   button: {
+    width: "100%",
     backgroundColor: "#fff",
     fontFamily: "inherit",
     borderRadius: "8px",
     textTransform: "none",
     color: theme.palette.text.secondary
+  },
+  headerContainer: {
+    marginTop: `80px`
+  },
+  buttonContainer: {
+    margin: '16px 80px'
+  },
+  saveTheDate:{
+    fontSize: '64px',
+    lineHeight: '64px',
+    fontWeight: 'lighter',
+    fontFeatureSettings: `'pnum' on, 'lnum' on, 'ss03' on`,
+    letterSpacing: '-2px',
+    marginTop: '10px'
   },
   howWorks: {
     position: 'absolute',
@@ -75,7 +100,7 @@ const LoggedView = (user: UserProps) => {
             <div className={classes.progression}>
               <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
               <Image className={currentEdition?.approved && !currentEdition.completed ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
-              <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> {/** Ativo se completed e aproved for true */}
+              <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> * Ativo se completed e aproved for true
             </div>
           </div>
 
@@ -102,14 +127,18 @@ const UnloggedView = () => {
   const classes = useStyles()
   return (
     <React.Fragment>
-      <Grid container>
+      <Grid
+        container
+        alignItems="center"
+        alignContent="center"
+        justifyContent="center"
+      >
         <Grid item xs={12}>
           <Typography align="center" variant="h3" component="h3">
             contribua e ganhe uma camiseta exclusiva
           </Typography>
         </Grid>
-        <Spacing smart={{ margin: "50px auto 0px auto" }}>
-          <Grid item md={4}>
+          <Grid item md={12} className={classes.buttonContainer}>
             <Button
               href="/login"
               style={{display: "block" }}
@@ -123,7 +152,6 @@ const UnloggedView = () => {
               </Typography>
             </Button>
           </Grid>
-        </Spacing>
       </Grid>
       <div className={classes.howWorks}>
             <ArrowDownIcon />
@@ -141,40 +169,39 @@ const DesktopView = (props: DesktopViewProps) => {
   const classes = useStyles()
   return (
     <React.Fragment>
-      <Spacing
-        smart={{ margin: "9vh 0px" }}
+      <Grid
+        container spacing={2}
+        className={classes.headerContainer}
       >
+      <Grid item xs={7}>
+
+          <Grid item xs={12}>
+            <Image className={classes.heroImage} src={`2022/logo.png`} />
+
+            <Typography variant="h2" align="center" component="h2" className={classes.saveTheDate}>
+              {" "}
+              01.10.2022 - 31.10.2022
+            </Typography>
+          </Grid>
+        </Grid>
         <Grid
+          xs={5}
           container
           alignItems="center"
           alignContent="center"
           justifyContent="center"
         >
-          <Grid item xs={12}>
-            <Image className={classes.heroImage} src={`hero/hero_desktop.svg`} />
-          </Grid>
-          <Spacing smart={{ margin: "16px 0px" }}>
-            <Grid item xs={12}>
-              <Typography variant="h2" align="center" component="h2">
-                {" "}
-                01 a 31 de outubro
-              </Typography>
-            </Grid>
-          </Spacing>
-          <Grid item xs={12}>
-            {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
-          </Grid>
+          {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
         </Grid>
-      </Spacing>
-
-      <div >
-        <Image className={classes.sticker} src={`hero/major_tom.svg`} style={{ left: "20vw",top: "50vh", width: "10vw"}}/>
+      </Grid>
+      <div>
+        {/* <Image className={classes.sticker} src={`hero/major_tom.svg`} style={{ left: "20vw",top: "50vh", width: "10vw"}}/>
         <Image className={classes.sticker} src={`hero/beer.svg`} style={{ left: "75vw",top: "55vh", width: "10vw"}}/>
         <Image className={classes.sticker} src={`hero/planet.svg`} style={{ left: "84vw",top: "35vh", width: "16vw"}}/>
         <Image className={classes.sticker} src={`hero/note.svg`} style={{ left: "76vw",top: "5vh", width: "19vw"}}/>
         <Image className={classes.sticker} src={`hero/spark.svg`} style={{ left: "74vw",top: "35vh", width: "8vw"}}/>
         <Image className={classes.sticker} src={`hero/rocket.svg`} style={{ top: "20vh", width: '22vw'}}/>
-        <Image className={classes.sticker} src={`hero/spark.svg`} style={{ left: "17vw", top: "9vh", width: "8vw"}}/>
+        <Image className={classes.sticker} src={`hero/spark.svg`} style={{ left: "17vw", top: "9vh", width: "8vw"}}/> */}
       </div>
 
 
