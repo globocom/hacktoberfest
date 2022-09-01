@@ -9,20 +9,23 @@ interface NavigationItemProps {
 
 const useStyles = makeStyles((theme: Theme) => ({
     item: {
-    paddingBottom: 15,
+    marginBottom: 48,
     [theme.breakpoints.up("md")]: {
       color: "red",
       padding: 15,
       cursor: "pointer"
     }
   },
+  typographyFontSize: {
+    fontSize:"2.5rem",
+  }
 }))
 
 const MenuItem = (props: NavigationItemProps) => {
   const classes = useStyles()
   return (
     <li className={classes.item}>
-      <Typography component="a" variant="body1" href={props.link}>
+      <Typography className={classes.typographyFontSize} component="a" variant="body1" href={props.link}>
         {" "}
         {props.label}{" "}
       </Typography>
