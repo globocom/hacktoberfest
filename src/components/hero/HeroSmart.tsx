@@ -6,14 +6,15 @@ import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { UserProps } from "@services/user"
 
-
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
-    backgroundColor: "#fff", 
-    fontFamily: "inherit", 
-    borderRadius: "64px",
+    width: "100%",
+    backgroundColor: "#fff",
+    fontFamily: "inherit",
+    borderRadius: "8px",
     textTransform: "none",
-    color: theme.palette.text.primary
+    padding: '24px',
+    color: theme.palette.text.secondary
   },
   howWorks: {
     position: 'absolute',
@@ -67,7 +68,7 @@ const LoggedView = (user: UserProps) => {
         </Spacing>
           <div className={classes.progressionContainer}>
             <div className={classes.progression}>
-              <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
+              <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> * Ativo se Approved e Completed for false
               <Image className={currentEdition?.approved && !currentEdition.completed ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
               <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> {/** Ativo se completed e aproved for true */}
             </div>
@@ -85,38 +86,35 @@ const ProgressMessage = (props: any) => (
 )
 
 const CongratsMessage = () => (
-    <Typography align="center" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no Minha Área. </Typography> 
+    <Typography align="center" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no Minha Área. </Typography>
 )
 
 const UnloggedView = () => {
   const classes = useStyles()
   return (
     <React.Fragment>
-      <Spacing smart={{ margin: "60px 0px 0px" }}>
-          <Grid item xs={8}>
-            <Typography align="center" variant="h3" component="h3">
-              Contribua e ganhe uma camiseta exclusiva
-            </Typography>
-          </Grid>
-        </Spacing>
-        <Spacing smart={{ margin: "40px 0px 0px" }}>
-          <Grid item xs={8}>
-            <Button
-              href="/login"
-              className={classes.button}
-              fullWidth
-              variant="contained"
-            >
-              <Typography component="p" variant="body2" align="center">
-                <b>PARTICIPAR</b><br/>
-                com sua conta do github
+          <Grid container className="containerUserViewSmart">
+            <Grid item xs={12}>
+              <Typography align="center" variant="h3" component="h3" style={{fontSize: '16px', fontWeight: 700 }}>
+                contribua e ganhe uma camiseta exclusiva
               </Typography>
-            </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                href="/login"
+                className={classes.button}
+                fullWidth
+                variant="contained"
+              >
+                <Typography component="p" variant="body2" align="center" style={{fontSize: '16px' }}>
+                  <b>participar</b> com sua conta do github
+                </Typography>
+              </Button>
+            </Grid>
           </Grid>
-        </Spacing>
 
         <div className={classes.howWorks}>
-            <ArrowDownIcon /> 
+            <ArrowDownIcon />
             <Typography align="center" component="p" >
               como funciona
             </Typography>
@@ -129,43 +127,29 @@ const UnloggedView = () => {
 const SmartView = (props: SmartViewProps) => {
     return (
       <React.Fragment>
-        <Spacing
-          desktop={{ margin: "0px 0px 72px" }}
-          smart={{ margin: "0px 0px 24px" }}
-        >
           <Grid
             container
             alignItems="center"
             alignContent="center"
             justifyContent="center"
+            className="headerContainer"
           >
-            <Spacing smart={{ margin: "20px 0px 0px" }}>
               <Grid item xs={12}>
-                <Typography variant="h2" align="center" component="h2">
-                  {" "}
-                  01 a 31 de outubro
-                </Typography>
+
               </Grid>
-            </Spacing>
-            <Spacing smart={{ margin: "40px 0px 0px" }}>
               <Grid item xs={12}>
-                <Image
-                  style={{ width: "80vw", display: "block", margin: "0px auto" }}
-                  src={`hero/hero_mobile.svg`}
-                />
+                  <Image
+                    className="logoEdition"
+                    src={`2022/logo_smart.png`}
+                  />
+                  <Typography variant="h2" align="left" component="h2" className="titleDate">
+                    01.10.2022 - 31.10.2022
+                  </Typography>
               </Grid>
-            </Spacing>
 
             {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
-
-            <div>
-              <Image src={`hero/beer.svg`} style={{ position: "absolute",left: "-30px",width: "33%",top: "35%",zIndex: "-1"}}/>
-              <Image src={`hero/major_tom.svg`} style={{position: "absolute",right: "-14vw",width: "33%",top: "53%",zIndex: "-1"}}/>
-            </div>
-
           </Grid>
-        </Spacing>
-  
+
       </React.Fragment>
     )
   }

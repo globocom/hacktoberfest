@@ -75,7 +75,7 @@ const NavigationItems = (props: NavigationItemsProps) => {
   )
 }
 
-const HomeCall = () => <Typography variant="subtitle1" component="a"> <b> globo.com </b> opensource </Typography>
+const HomeCall = () => <Typography variant="subtitle1" align="right" component="a"> <b> globo.com </b> opensource </Typography>
 
 const DeskMenu = () => {
     const classes = useStyles()

@@ -1,0 +1,85 @@
+.headerContainer {
+  margin: 60px;
+  margin-top: 200px;
+}
+
+.logoEdition{
+  width: 40vw;
+  display: block;
+  margin: 0px auto;
+}
+
+.titleDate{
+  font-size: 60px;
+  line-height: 64px;
+  font-weight: lighter;
+  font-feature-settings: 'pnum' on, 'lnum' on, 'ss03' on;
+  letter-spacing: -2px;
+  width: 40vw;
+  margin: .9rem auto 0px auto;
+}
+
+.ruleCard{
+  border: 2px solid white;
+  border-radius: 20px;
+  color: white;
+  height: 120px;
+  width: 80%;
+  /* max-width: 80%; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+
+}
+
+
+/* md screens */
+@media(min-width: 960px) and (max-width: 1278px){
+  .headerContainer {
+    margin: 30px;
+    margin-top: 160px;
+  }
+
+  .logoEdition{
+    width: 60vw;
+    margin: 0px 65px;
+  }
+
+  .titleDate{
+    font-size: 70px;
+    width: 100%;
+    margin: 20px 60px;
+  }
+
+  .userLoginContainer{
+    margin-top: 40px;
+  }
+}
+
+
+/* sm and xs screens */
+@media(max-width: 959px){
+  .headerContainer {
+    margin: 0;
+    margin-top: 100px;
+  }
+
+  .logoEdition{
+    width: 92vw;
+  }
+
+  .titleDate{
+    font-size: 43px;
+    width: 100%;
+    text-align: center;
+    margin: 0px 0px;
+    font-weight: 200;
+    font-feature-settings: 'pnum' on, 'lnum' on, 'ss03' on;
+  }
+
+  .containerUserViewSmart{
+    margin: 35px 15px;
+  }
+}

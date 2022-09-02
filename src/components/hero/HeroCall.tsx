@@ -52,7 +52,7 @@ const HeroCall = (props: HeroCallProps) => {
         </Hidden>
       </div>
       <Spacing smart={{margin: "40px 0px"}}>
-        <Carousel rules={rules} typeText={isDesktop ? "inline" : "block"}  showArrows={isDesktop ? true : false}/>
+        <Carousel rules={rules} />
       </Spacing>
       <Spacing smart={{ margin: "40px auto" }}>
         <Image className={classes.terms} src={ isDesktop ? "hero/terms.svg" : "hero/terms_mobile.svg"} />

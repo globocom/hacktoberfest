@@ -8,12 +8,6 @@ import { UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
-    // fontSize: '96px',
-    // lineHeight: '96px',
-    // color: 'black',
-    // fontFeatureSettings: `'pnum' on, 'lnum' on`,
-    // '-webkit-text-stroke': '1px white',
-    // textShadow: ` 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff`,
     width: '80%',
     height: '180px'
   },
@@ -25,19 +19,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     textTransform: "none",
     color: theme.palette.text.secondary
   },
-  headerContainer: {
-    marginTop: `80px`
-  },
   buttonContainer: {
     margin: '16px 80px'
-  },
-  saveTheDate:{
-    fontSize: '64px',
-    lineHeight: '64px',
-    fontWeight: 'lighter',
-    fontFeatureSettings: `'pnum' on, 'lnum' on, 'ss03' on`,
-    letterSpacing: '-2px',
-    marginTop: '10px'
   },
   howWorks: {
     position: 'absolute',
@@ -46,11 +29,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: `inline-flex`,
     justifyContent: `center`,
     bottom: '45px'
-  },
-  heroImage: {
-    width: "40vw",
-    display: "block",
-    margin: "0px auto"
   },
   sticker: {
     position: "absolute",
@@ -122,7 +100,6 @@ const CongratsMessage = () => (
   </Grid>
 )
 
-
 const UnloggedView = () => {
   const classes = useStyles()
   return (
@@ -163,48 +140,33 @@ const UnloggedView = () => {
   )
 }
 
-
-
 const DesktopView = (props: DesktopViewProps) => {
   const classes = useStyles()
   return (
     <React.Fragment>
       <Grid
         container spacing={2}
-        className={classes.headerContainer}
+        className="headerContainer"
       >
-      <Grid item xs={7}>
-
-          <Grid item xs={12}>
-            <Image className={classes.heroImage} src={`2022/logo.png`} />
-
-            <Typography variant="h2" align="center" component="h2" className={classes.saveTheDate}>
-              {" "}
+        <Grid item lg={6}>
+          <Grid item lg={12}>
+            <Image className="logoEdition" src={`2022/logo.png`} />
+            <Typography variant="h2" align="left" component="h2" className="titleDate">
               01.10.2022 - 31.10.2022
             </Typography>
           </Grid>
         </Grid>
         <Grid
-          xs={5}
+          lg={5}
           container
           alignItems="center"
           alignContent="center"
           justifyContent="center"
+          className="userLoginContainer"
         >
           {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
         </Grid>
       </Grid>
-      <div>
-        {/* <Image className={classes.sticker} src={`hero/major_tom.svg`} style={{ left: "20vw",top: "50vh", width: "10vw"}}/>
-        <Image className={classes.sticker} src={`hero/beer.svg`} style={{ left: "75vw",top: "55vh", width: "10vw"}}/>
-        <Image className={classes.sticker} src={`hero/planet.svg`} style={{ left: "84vw",top: "35vh", width: "16vw"}}/>
-        <Image className={classes.sticker} src={`hero/note.svg`} style={{ left: "76vw",top: "5vh", width: "19vw"}}/>
-        <Image className={classes.sticker} src={`hero/spark.svg`} style={{ left: "74vw",top: "35vh", width: "8vw"}}/>
-        <Image className={classes.sticker} src={`hero/rocket.svg`} style={{ top: "20vh", width: '22vw'}}/>
-        <Image className={classes.sticker} src={`hero/spark.svg`} style={{ left: "17vw", top: "9vh", width: "8vw"}}/> */}
-      </div>
-
-
     </React.Fragment>
   )
 }
