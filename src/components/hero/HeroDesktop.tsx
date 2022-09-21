@@ -46,6 +46,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: 50,
     padding: 22
   },
+  logoEdition: {
+    width: '60vw',
+    margin: '0px 65px',
+    display: 'block'
+  },
   active: {
     borderBottom: `4px solid ${theme.palette.secondary.main}`,
     borderRadius: 7
@@ -146,12 +151,11 @@ const DesktopView = (props: DesktopViewProps) => {
     <React.Fragment>
       <Grid
         container spacing={2}
-        className="headerContainer"
       >
         <Grid item lg={6}>
           <Grid item lg={12}>
-            <Image className="logoEdition" src={`2022/logo.png`} />
-            <Typography variant="h2" align="left" component="h2" className="titleDate">
+            <Image className={classes.logoEdition} src={`2022/logo.png`} />
+            <Typography variant="h1" align="left" component="h2" className="titleDate">
               01.10.2022 - 31.10.2022
             </Typography>
           </Grid>

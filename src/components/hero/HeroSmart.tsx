@@ -1,14 +1,12 @@
 import React from "react"
 import Spacing from "@components/spacing"
-import { Grid, Typography, Button } from "@material-ui/core"
+import { Grid, Typography, Button, Hidden } from "@material-ui/core"
 import { Image } from "@components/image"
-import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
-    width: "100%",
     backgroundColor: "#fff",
     fontFamily: "inherit",
     borderRadius: "8px",
@@ -40,6 +38,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '60vw',
     display: 'block',
     margin: '0px auto'
+  },
+  logoEdition: {
+    width: '92vw',
+    display: 'block',
+    margin: "0px auto",
+  },
+  titleData:{
+    fontSize: '8.8vw',
+    width: '100%',
+    textAlign: 'center',
+    margin: 0,
+    fontWeight: 200,
   },
   active: {
     borderBottom: `4px solid ${theme.palette.secondary.main}`,
@@ -93,17 +103,19 @@ const UnloggedView = () => {
   const classes = useStyles()
   return (
     <React.Fragment>
-          <Grid container className="containerUserViewSmart">
-            <Grid item xs={12}>
-              <Typography align="center" variant="h3" component="h3" style={{fontSize: '16px', fontWeight: 700 }}>
-                contribua e ganhe uma camiseta exclusiva
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
+          <Grid container justifyContent="center" alignContent="center" className="containerUserViewSmart">
+            <Spacing smart={{margin: "0px 0px 16px 0px;"}}>
+              <Grid item xs={12}>
+                <Typography align="center" variant="h3" component="h3" style={{fontSize: '0.75rem', fontWeight: 700 }}>
+                  contribua e ganhe uma camiseta exclusiva
+                </Typography>
+              </Grid>
+            </Spacing>
+            <Grid item xs={11}>
               <Button
                 href="/login"
-                className={classes.button}
                 fullWidth
+                className={classes.button}
                 variant="contained"
               >
                 <Typography component="p" variant="body2" align="center" style={{fontSize: '16px' }}>
@@ -112,44 +124,40 @@ const UnloggedView = () => {
               </Button>
             </Grid>
           </Grid>
-
-        <div className={classes.howWorks}>
-            <ArrowDownIcon />
-            <Typography align="center" component="p" >
-              como funciona
-            </Typography>
-        </div>
     </React.Fragment>
   )
 }
 
 
 const SmartView = (props: SmartViewProps) => {
+   const classes = useStyles()
     return (
       <React.Fragment>
-          <Grid
-            container
-            alignItems="center"
-            alignContent="center"
-            justifyContent="center"
-            className="headerContainer"
-          >
-              <Grid item xs={12}>
+            <Grid
+              container
+              alignItems="center"
+              alignContent="center"
+              justifyContent="center"
+            >
+                <Grid item xs={12}></Grid>
+                <Spacing smart={{margin: "0px 0px 16px 0px;"}}>
+                  <Grid item xs={12}>
+                      <Hidden smUp>
+                        <Image className={classes.logoEdition} src={`2022/logo_smart.png`}/>
+                      </Hidden>
 
-              </Grid>
-              <Grid item xs={12}>
-                  <Image
-                    className="logoEdition"
-                    src={`2022/logo_smart.png`}
-                  />
-                  <Typography variant="h2" align="left" component="h2" className="titleDate">
-                    01.10.2022 - 31.10.2022
-                  </Typography>
-              </Grid>
+                      <Hidden only={"xs"}>
+                        <Image className={classes.logoEdition} src={`2022/logo.png`}/>
+                      </Hidden>
 
-            {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
-          </Grid>
+                      <Typography variant="h1" align="left" component="h2" className={classes.titleData}>
+                        01.10.2022 - 31.10.2022
+                      </Typography>
+                  </Grid>
+                </Spacing>
 
+              {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
+            </Grid>
       </React.Fragment>
     )
   }

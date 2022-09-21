@@ -43,14 +43,16 @@ const HeroCall = (props: HeroCallProps) => {
 
   return (
     <div>
-      <div className={classes.heroPanel} id="hero_panel">
-        <Hidden smDown>
-          <DesktopView user={props.user} />
-        </Hidden>
-        <Hidden mdUp>
-          <SmartView user={props.user} />
-        </Hidden>
-      </div>
+      <Spacing desktop={{margin: "200px 60px"}} smart={{margin: "100px 0px 0px 0px"}}>
+        <div className={classes.heroPanel} id="hero_panel">
+              <Hidden smDown>
+                <DesktopView user={props.user} />
+              </Hidden>
+              <Hidden mdUp>
+                <SmartView user={props.user} />
+              </Hidden>
+        </div>
+      </Spacing>
       <Spacing smart={{margin: "40px 0px"}}>
         <Carousel rules={rules} />
       </Spacing>

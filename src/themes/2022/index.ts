@@ -1,7 +1,5 @@
 import { createTheme } from '@material-ui/core/styles'
 
-import './styles.css'
-
 const theme = createTheme()
 
 theme.palette = {
@@ -34,8 +32,10 @@ theme.palette = {
 theme.typography = {
   ...theme.typography,
   h1: {
-    fontSize: "3rem",
-    lineHeight: "48px"
+    fontSize: "3.75rem",
+    lineHeight: "64px",
+    fontWeight: "lighter",
+    letterSpacing: '-2px',
   },
   h2: {
     fontSize: '1.5rem', //24px
