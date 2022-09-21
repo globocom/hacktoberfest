@@ -1,5 +1,4 @@
 import React from "react"
-import { Typography } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 
 interface NavigationItemProps {
@@ -9,7 +8,7 @@ interface NavigationItemProps {
 
 const useStyles = makeStyles((theme: Theme) => ({
     item: {
-    marginBottom: 48,
+    marginBottom: 28,
     [theme.breakpoints.up("md")]: {
       color: "red",
       padding: 15,
@@ -17,7 +16,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
   },
   typographyFontSize: {
-    fontSize:"2.5rem",
+    fontSize:"1.5rem",
+    fontWeight: 'bold',
+    [theme.breakpoints.up("md")]: {
+      fontSize:"1rem",
+      fontWeight: 'normal',
+      }
   }
 }))
 
@@ -25,10 +29,9 @@ const MenuItem = (props: NavigationItemProps) => {
   const classes = useStyles()
   return (
     <li className={classes.item}>
-      <Typography className={classes.typographyFontSize} component="a" variant="body1" href={props.link}>
+      <a className={classes.typographyFontSize} href={props.link}> 
         {" "}
-        {props.label}{" "}
-      </Typography>
+        {props.label}{" "}</a>
     </li>
   )
 }

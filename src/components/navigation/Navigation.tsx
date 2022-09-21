@@ -27,7 +27,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   navigation: {
     listStyle: "none",
+    marginTop: "5rem",
     [theme.breakpoints.up("md")]: {
+      marginTop: "1.5rem",
       display: "inline-flex",
       listStyle: "none"
     },
@@ -116,16 +118,14 @@ const MenuOpen = (props: MenuOpenProps) => {
                   <Spacing smart={{padding: "40px"}}>
                     <Grid className={classes.smartMenuContainerGrid}>
                       <Spacing smart={{margin: "0px 0px 45px"}}>
-                        <Grid item xs={1}>
+                        
                           <div onClick={() => props.closeMenu()}>
                               <CloseIcon/>
                           </div>
-                        </Grid>
+                    
                       </Spacing>
-                      <Spacing smart={{margin: "216px 0px 24px"}}>
-                        <Grid item xs={12} style={{display: "flex", alignItems: "start"}}>
+                      <Spacing smart={{margin: "0px 0px 0px"}}>
                           <NavigationItems items={MenuItems}/>
-                        </Grid>
                       </Spacing>
                     </Grid>
                   </Spacing>
