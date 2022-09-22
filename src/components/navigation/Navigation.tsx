@@ -27,10 +27,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   navigation: {
     listStyle: "none",
+    marginTop: "5rem",
     [theme.breakpoints.up("md")]: {
+      marginTop: "1.5rem",
       display: "inline-flex",
       listStyle: "none"
-    }
+    },
+    textAlign: "right"
   },
   smartMenu: {
     position: 'fixed',
@@ -43,16 +46,26 @@ const useStyles = makeStyles((theme: Theme) => ({
     zIndex: 999
   },
   smartMenuContainer: {
-    width: "60%",
-    marginLeft: "40%",
+    width: "90%",
+    marginLeft: "10%",
     height: "100%",
     backgroundColor: theme.palette.background.default,
+    display: "flex",
     zIndex: 1,
+  },
+  smartMenuContainerGrid: { 
+    display: "flex", 
+    flex: 1, 
+    height:"100%", 
+    flexDirection: "column", 
+    justifyContent: "start", 
+    alignItems: "flex-end",
   },
   smartHomeCall: {
     position: 'absolute',
-    bottom: "5%",
-    left: "45%",
+    top: "90%",
+    marginRight: 40,
+    right: 0,
   }
 }))
 
@@ -102,24 +115,17 @@ const MenuOpen = (props: MenuOpenProps) => {
     <div className={classes.smartMenu}>
           <Slide direction="left" in={true} mountOnEnter unmountOnExit>
               <Paper className={classes.smartMenuContainer}>
-                  <Spacing smart={{padding: "25px"}}>
-                    <Grid container alignContent="center" justifyContent="center" alignItems="center">
+                  <Spacing smart={{padding: "40px"}}>
+                    <Grid className={classes.smartMenuContainerGrid}>
                       <Spacing smart={{margin: "0px 0px 45px"}}>
-                        <Grid item xs={12}>
+                        
                           <div onClick={() => props.closeMenu()}>
                               <CloseIcon/>
                           </div>
-                        </Grid>
+                    
                       </Spacing>
-                      <Spacing smart={{margin: "0px 0px 24px"}}>
-                        <Grid item xs={12}>
-                          <Typography variant="h1" color="textPrimary"> Menu </Typography>
-                        </Grid>
-                      </Spacing>
-                      <Spacing smart={{margin: "0px 0px 24px"}}>
-                        <Grid item xs={12}>
+                      <Spacing smart={{margin: "0px 0px 0px"}}>
                           <NavigationItems items={MenuItems}/>
-                        </Grid>
                       </Spacing>
                     </Grid>
                   </Spacing>
