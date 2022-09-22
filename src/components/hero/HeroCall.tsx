@@ -15,13 +15,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   heroPanel: {
     position: "relative",
     overflow: "hidden",
-    backgroundColor: theme.palette.primary.main,
-    height: "93.3vh",
     width: "100%",
-    zIndex: 1,
-    [theme.breakpoints.up("md")]: {
-      height: "92vh",
-    },
+    zIndex: 1
   },
   terms: {
     width: "100%",
@@ -43,18 +38,15 @@ const HeroCall = (props: HeroCallProps) => {
 
   return (
     <div>
-      <Spacing desktop={{margin: "200px 60px"}} smart={{margin: "100px 0px 0px 0px"}}>
+      <Spacing desktop={{margin: "200px 0px 0px 0px"}} smart={{margin: "100px 0px 0px 0px"}}>
         <div className={classes.heroPanel} id="hero_panel">
-              <Hidden smDown>
+              <Hidden mdDown>
                 <DesktopView user={props.user} />
               </Hidden>
-              <Hidden mdUp>
+              <Hidden lgUp>
                 <SmartView user={props.user} />
               </Hidden>
         </div>
-      </Spacing>
-      <Spacing smart={{margin: "40px 0px"}}>
-        <Carousel rules={rules} />
       </Spacing>
       <Spacing smart={{ margin: "40px auto" }}>
         <Image className={classes.terms} src={ isDesktop ? "hero/terms.svg" : "hero/terms_mobile.svg"} />

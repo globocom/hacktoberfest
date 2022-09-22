@@ -28,10 +28,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: '0px auto 24px auto'
   },
   progression: {
-    border: '5px solid #fff',
+    border: '2px solid #fff',
     display: 'flex',
     justifyContent: 'space-between',
-    borderRadius: 50,
+    borderRadius: 8,
     padding: '10px 30px'
   },
   textProgress: {
@@ -43,6 +43,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '92vw',
     display: 'block',
     margin: "0px auto",
+    [theme.breakpoints.between("md", "lg")]: {
+      margin: "0px 40px",
+      width: '40vw'
+    }
   },
   titleData:{
     fontSize: '8.8vw',
@@ -50,10 +54,19 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: 'center',
     margin: 0,
     fontWeight: 200,
+    [theme.breakpoints.between("sm", "md")]: {
+      textAlign: 'left',
+      fontSize: '7vw',
+      margin: "12px 0px 0px 32px",
+    },
+    [theme.breakpoints.between("md", "lg")]: {
+      textAlign: 'left',
+      fontSize: '3.25vw',
+      margin: "12px 0px 0px 32px",
+    }
   },
   active: {
-    borderBottom: `4px solid ${theme.palette.secondary.main}`,
-    borderRadius: 7
+    borderBottom: `2px solid ${theme.palette.secondary.main}`,
   }
 }))
 
@@ -78,7 +91,7 @@ const LoggedView = (user: UserProps) => {
         </Spacing>
           <div className={classes.progressionContainer}>
             <div className={classes.progression}>
-              <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> * Ativo se Approved e Completed for false
+              <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> {/* Ativo se Approved e Completed for false*/}
               <Image className={currentEdition?.approved && !currentEdition.completed ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
               <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> {/** Ativo se completed e aproved for true */}
             </div>
@@ -118,9 +131,10 @@ const UnloggedView = () => {
                 className={classes.button}
                 variant="contained"
               >
-                <Typography component="p" variant="body2" align="center" style={{fontSize: '16px' }}>
+                <Typography component="p" variant="body2" align="center" style={{fontSize: '16px'}}>
                   <b>participar</b> com sua conta do github
                 </Typography>
+
               </Button>
             </Grid>
           </Grid>
@@ -142,10 +156,11 @@ const SmartView = (props: SmartViewProps) => {
                 <Grid item xs={12}></Grid>
                 <Spacing smart={{margin: "0px 0px 16px 0px;"}}>
                   <Grid item xs={12}>
+                     {/* under 768px */}
                       <Hidden smUp>
                         <Image className={classes.logoEdition} src={`2022/logo_smart.png`}/>
                       </Hidden>
-
+                      {/* under 1024px */}
                       <Hidden only={"xs"}>
                         <Image className={classes.logoEdition} src={`2022/logo.png`}/>
                       </Hidden>

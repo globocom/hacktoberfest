@@ -1,10 +1,10 @@
-import React from "react"
+import React, {useState} from "react"
 import Spacing from "@components/spacing"
 import { Grid, Typography, Button } from "@material-ui/core"
 import { Image } from "@components/image"
 import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { UserProps } from "@services/user"
+import { Edition, UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
@@ -40,69 +40,97 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: '0px auto 24px auto'
   },
   progression: {
-    border: '5px solid #fff',
+    border: '2px solid #fff',
     display: 'flex',
     justifyContent: 'space-between',
-    borderRadius: 50,
+    borderRadius: 8,
     padding: 22
   },
   logoEdition: {
-    width: '60vw',
-    margin: '0px 65px',
+    width: '40vw',
     display: 'block'
+    
   },
   active: {
-    borderBottom: `4px solid ${theme.palette.secondary.main}`,
-    borderRadius: 7
+    borderBottom: `2px solid ${theme.palette.secondary.main}`,
   }
 }))
+
+
+const getEditionState = (currentEdition: Edition | undefined): number => {
+  if(!currentEdition?.approved && !currentEdition?.completed){
+    //Approved e Completed  false
+    return 0;
+  }else if(currentEdition?.approved && !currentEdition.completed){
+    //Approved true e completed false
+    return 1;
+  }
+
+  return 2;
+}
 
 const LoggedView = (user: UserProps) => {
   const classes = useStyles()
   const currentEdition = user.editions?.[2021]
   const opened = currentEdition?.totalMergeRequests || 0
   const merged = currentEdition?.totalMergeRequestsMerged || "nenhum"
+  const state = getEditionState(currentEdition);
+  let TextComponent;
+  
+  switch(state){
+    case 0:
+      TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
+      break;
+    case 1:
+      TextComponent = () => <ConfirmMessage/>
+      break;
+    case 2:
+      TextComponent = () => <CongratsMessage/>
+      break;
+    default:
+      TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
+      break;
+  } 
 
   return (
     <React.Fragment>
-      <Grid container direction="column" alignContent="center" justifyContent="center">
+      <Grid container direction="column" justifyContent="flex-end" alignItems="flex-end">
         <Spacing smart={{margin: "0px 0px 5px"}}>
           <Grid item>
-            <Typography align="center" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
+            <Typography align="right" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
+            <TextComponent/>
           </Grid>
         </Spacing>
-        <Grid item md={5}>
-          <Typography align="center" component="p"> Você está participando do Hacktoberfest 2021.<br/> </Typography>
-        </Grid>
-        <Spacing smart={{margin: "0px 0px 30px"}}>
-          <Grid item md={5}>
-            <Typography align="center" component="p"> Acompanhe seu progresso: </Typography>
-          </Grid>
-        </Spacing>
+        <Grid item>
           <div className={classes.progressionContainer}>
             <div className={classes.progression}>
-              <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
-              <Image className={currentEdition?.approved && !currentEdition.completed ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
-              <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> * Ativo se completed e aproved for true
+              <Image className={state == 0 ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
+              <Image className={state == 1 ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
+              <Image className={state == 2 ? classes.active : '' } src="hero/Shirt.svg"/> {/* Ativo se completed e aproved for true*/}
             </div>
           </div>
-
-        {currentEdition?.completed ? <CongratsMessage/> : <ProgressMessage opened={opened} merged={merged}/>  }
+        </Grid>
       </Grid>
     </React.Fragment>
   )
 }
 
 const ProgressMessage = (props: any) => (
-  <Grid item xs={12}>
-    <Typography align="center" component="p">  Você tem <b> {props.opened} PRs enviados e {props.merged} aceito(s) </b> </Typography>
-  </Grid>
+    <div style={{maxWidth: 400}}>
+      <Typography align="right" component="p">  Você tem <b> {props.opened} pull requests enviados</b> e <b>{props.merged} aceito(s) </b> </Typography>
+    </div>
+)
+
+const ConfirmMessage = () => (
+  <div style={{maxWidth: 430}}>
+    <Typography align="right" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
+  </div>
 )
 
 const CongratsMessage = () => (
-  <Grid item xs={6}>
-    <Typography align="center" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no Minha Área. </Typography>
-  </Grid>
+  <div style={{maxWidth: 430}}>
+    <Typography align="right" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar</b> </Typography>
+  </div>
 )
 
 const UnloggedView = () => {
@@ -135,12 +163,6 @@ const UnloggedView = () => {
             </Button>
           </Grid>
       </Grid>
-      <div className={classes.howWorks}>
-            <ArrowDownIcon />
-            <Typography align="center" component="p" >
-              como funciona
-            </Typography>
-      </div>
     </React.Fragment>
   )
 }
@@ -150,12 +172,13 @@ const DesktopView = (props: DesktopViewProps) => {
   return (
     <React.Fragment>
       <Grid
+        justifyContent="center"
         container spacing={2}
       >
         <Grid item lg={6}>
           <Grid item lg={12}>
             <Image className={classes.logoEdition} src={`2022/logo.png`} />
-            <Typography variant="h1" align="left" component="h2" className="titleDate">
+            <Typography variant="h1" align="left" style={{fontSize: "3.15vw"}} component="h2">
               01.10.2022 - 31.10.2022
             </Typography>
           </Grid>
