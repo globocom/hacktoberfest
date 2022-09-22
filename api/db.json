@@ -379,7 +379,7 @@
         },
         "2021": {
           "approved": true,
-          "completed": false,
+          "completed": true,
           "completed_at": "0001-01-01T00:00:00Z",
           "totalMergeRequests": 5,
           "totalMergeRequestsMerged": 2
