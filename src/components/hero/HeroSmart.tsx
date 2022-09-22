@@ -44,6 +44,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   active: {
     borderBottom: `4px solid ${theme.palette.secondary.main}`,
     borderRadius: 7
+  },
+  titleDate: {
+    lineHeight: "4rem",
+    fontWeight: "lighter",
+    fontSize: "4rem",
+    fontFeatureSettings: "'pnum' on, 'lnum' on, 'ss03' on",
+    paddingLeft: "2rem"
   }
 }))
 
@@ -112,19 +119,13 @@ const UnloggedView = () => {
               </Button>
             </Grid>
           </Grid>
-
-        <div className={classes.howWorks}>
-            <ArrowDownIcon />
-            <Typography align="center" component="p" >
-              como funciona
-            </Typography>
-        </div>
     </React.Fragment>
   )
 }
 
 
 const SmartView = (props: SmartViewProps) => {
+  const classes = useStyles();
     return (
       <React.Fragment>
           <Grid
@@ -142,7 +143,7 @@ const SmartView = (props: SmartViewProps) => {
                     className="logoEdition"
                     src={`2022/logo_smart.png`}
                   />
-                  <Typography variant="h2" align="left" component="h2" className="titleDate">
+                  <Typography variant="h2" align="left" component="h2" className={classes.titleDate}>
                     01.10.2022 - 31.10.2022
                   </Typography>
               </Grid>

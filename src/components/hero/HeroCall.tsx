@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.main,
     height: "93.3vh",
     width: "100%",
+    marginTop: "15%",
     zIndex: 1,
     [theme.breakpoints.up("md")]: {
       height: "92vh",
@@ -53,9 +54,6 @@ const HeroCall = (props: HeroCallProps) => {
       </div>
       <Spacing smart={{margin: "40px 0px"}}>
         <Carousel rules={rules} />
-      </Spacing>
-      <Spacing smart={{ margin: "40px auto" }}>
-        <Image className={classes.terms} src={ isDesktop ? "hero/terms.svg" : "hero/terms_mobile.svg"} />
       </Spacing>
     </div>
   )

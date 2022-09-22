@@ -70,7 +70,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                                     value={formik.values.githubUser}
                                     name="githubUser"
                                     id="githubUser"
-                                    color="primary"
+                                    color="secondary"
                                     variant="outlined"
                                     label="Github"
                                     error={formik.touched.githubUser && Boolean(formik.errors.githubUser)}
@@ -83,7 +83,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                             </Grid>
                             <Grid item xs={12} md={4}>
                                 <TextField
-                                    color="primary"
+                                    color="secondary"
                                     value={formik.values.githubID}
                                     fullWidth
                                     variant="outlined"
@@ -101,6 +101,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                                 name="email"
                                 value={formik.values.email}
                                 fullWidth
+                                color="warning"
                                 variant="outlined"
                                 error={formik.touched.email && Boolean(formik.errors.email)}
                                 helperText={formik.touched.email && formik.errors.email}

@@ -49,6 +49,16 @@ const useStyles = makeStyles((theme: Theme) => ({
   active: {
     borderBottom: `4px solid ${theme.palette.secondary.main}`,
     borderRadius: 7
+  },
+  headerContainer: {
+    marginTop: "20%"
+  },
+  titleDate: {
+    lineHeight: "4rem",
+    fontWeight: "lighter",
+    fontSize: "4rem",
+    fontFeatureSettings: "'pnum' on, 'lnum' on, 'ss03' on",
+    paddingLeft: "5rem"
   }
 }))
 
@@ -61,24 +71,24 @@ const LoggedView = (user: UserProps) => {
   return (
     <React.Fragment>
       <Grid container direction="column" alignContent="center" justifyContent="center">
-        <Spacing smart={{margin: "0px 0px 5px"}}>
+        {/* <Spacing smart={{margin: "0px 0px 5px"}}> */}
           <Grid item>
             <Typography align="center" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
           </Grid>
-        </Spacing>
-        <Grid item md={5}>
+        {/* </Spacing> */}
+        <Grid item >
           <Typography align="center" component="p"> Você está participando do Hacktoberfest 2021.<br/> </Typography>
         </Grid>
-        <Spacing smart={{margin: "0px 0px 30px"}}>
-          <Grid item md={5}>
+        {/* <Spacing smart={{margin: "0px 0px 30px"}}> */}
+          <Grid item >
             <Typography align="center" component="p"> Acompanhe seu progresso: </Typography>
           </Grid>
-        </Spacing>
+        {/* </Spacing> */}
           <div className={classes.progressionContainer}>
             <div className={classes.progression}>
               <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
               <Image className={currentEdition?.approved && !currentEdition.completed ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
-              <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> * Ativo se completed e aproved for true
+              <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> {/** Ativo se completed e aproved for true */}
             </div>
           </div>
 
@@ -130,12 +140,6 @@ const UnloggedView = () => {
             </Button>
           </Grid>
       </Grid>
-      <div className={classes.howWorks}>
-            <ArrowDownIcon />
-            <Typography align="center" component="p" >
-              como funciona
-            </Typography>
-      </div>
     </React.Fragment>
   )
 }
@@ -151,7 +155,7 @@ const DesktopView = (props: DesktopViewProps) => {
         <Grid item lg={6}>
           <Grid item lg={12}>
             <Image className="logoEdition" src={`2022/logo.png`} />
-            <Typography variant="h2" align="left" component="h2" className="titleDate">
+            <Typography variant="h3" align="left" component="h3" className={classes.titleDate}>
               01.10.2022 - 31.10.2022
             </Typography>
           </Grid>
