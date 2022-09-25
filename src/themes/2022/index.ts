@@ -41,8 +41,8 @@ theme.typography = {
     lineHeight: '36px'
   },
   h3: {
-    fontSize: '1.25rem', //20px
-    lineHeight: '30px',
+    fontSize: '1.5rem', //24px
+    lineHeight: '32px',
     fontWeight: "normal"
   },
   h5:{
