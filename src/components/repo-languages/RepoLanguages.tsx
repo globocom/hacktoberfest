@@ -4,9 +4,8 @@ import { makeStyles, Typography } from "@material-ui/core"
 
 const useStyles = makeStyles({
   repoLanguageColor: {
-    width: 12,
-    height: 12,
-    borderRadius: "50%",
+    padding: '0px 15px',
+    borderRadius: 12,
     marginRight: ".3rem",
   },
 
@@ -15,11 +14,11 @@ const useStyles = makeStyles({
     alignItems: "center",
   },
   languageList: {
-    display: "inline-flex",
+    display: "flex",
     flexWrap: "wrap",
+    justifyContent: "flex-end"
   },
   languageListItem: {
-    paddingRight: 16,
     listStyleType: "none",
   },
 })
@@ -35,10 +34,12 @@ interface CircleLanguageProps {
 const CircleLanguage = (props: CircleLanguageProps) => {
   const classes = useStyles()
   return (
-    <span
+    <div
       className={classes.repoLanguageColor}
       style={{ backgroundColor: colorLanguage[`${props.language}`] }}
-    ></span>
+    >
+      {props.language}
+    </div>
   )
 }
 
@@ -48,12 +49,7 @@ const RepoLanguages = (props: RepoLanguagesProps) => {
     <ul className={classes.languageList}>
       {props.languages.map((language, i) => (
         <li key={i} className={classes.languageListItem}>
-          <span className={classes.repoLanguageWrapper}>
             <CircleLanguage language={language} />
-            <Typography component="span" color="textPrimary" variant="body1">
-              {language}
-            </Typography>
-          </span>
         </li>
       ))}
     </ul>

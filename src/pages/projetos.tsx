@@ -4,6 +4,7 @@ import Spacing from "@components/spacing"
 import { makeStyles } from "@material-ui/core/styles"
 import Layout from "@components/layout"
 import ProjectsList from "@components/projects"
+import { HeaderTitle } from "@components/header"
 
 const useStyles = makeStyles({
   topDivider: {
@@ -22,23 +23,25 @@ const ProjectsPage = () => {
       headerTitle="Projetos"
     >
       <React.Fragment>
-        <Spacing smart={{ margin: "64px 0px 40px" }}>
-          <Typography
-            component="p"
-            align="center"
-            color="textPrimary"
-            variant="body1"
-          >
-            Gostaríamos da sua ajuda principalmente nos seguintes projetos:
-          </Typography>
-        </Spacing>
-        <div className={classes.topDivider} />
         <Grid container justifyContent="center">
-          <Spacing smart={{ padding: "0px 40px" }}>
             <Grid item xs={12} md={8}>
+              <Spacing desktop={{margin: "5vh 0px 40px 0px"}} smart={{ margin: "64px 12px 0px 12px" }}>
+                <div>
+                  <HeaderTitle title={"Projetos"}/>
+                </div>
+              </Spacing>
+              <Spacing desktop={{margin: "0px 0px 10vh 0px"}} smart={{ margin: "24px 12px 40px 12px" }}>
+                <Typography
+                  component="p"
+                  align="left"
+                  color="textPrimary"
+                  variant="body1"
+                >
+                  Todos os nossos projetos Open Source em um só lugar. Incentivamos sua contribuição no projeto que mais lhe agradar.
+                </Typography>
+              </Spacing>
               <ProjectsList/>
             </Grid>
-          </Spacing>
         </Grid>
       </React.Fragment>
     </Layout>

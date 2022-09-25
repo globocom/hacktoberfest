@@ -7,7 +7,6 @@ import Navigation from "@components/navigation"
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     fontFamily: theme.typography.fontFamily,
-    backgroundColor: theme.palette.primary.main,
     "& a": {
       color: theme.palette.text.primary,
       textDecoration: "none",

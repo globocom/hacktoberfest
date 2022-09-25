@@ -1,7 +1,7 @@
 import React from "react"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Hidden, useMediaQuery } from "@material-ui/core"
+import { Hidden, useMediaQuery, Grid } from "@material-ui/core"
 import { Image } from "@components/image"
 
 
@@ -13,10 +13,14 @@ import { UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
   heroPanel: {
+    height: '75vh',
     position: "relative",
     overflow: "hidden",
     width: "100%",
-    zIndex: 1
+    zIndex: 1,
+    [theme.breakpoints.up("lg")]: {
+      height: '80vh',
+    }
   },
   terms: {
     width: "100%",
@@ -38,15 +42,17 @@ const HeroCall = (props: HeroCallProps) => {
 
   return (
     <div>
-      <Spacing desktop={{margin: "200px 0px 0px 0px"}} smart={{margin: "100px 0px 0px 0px"}}>
-        <div className={classes.heroPanel} id="hero_panel">
-              <Hidden mdDown>
-                <DesktopView user={props.user} />
-              </Hidden>
-              <Hidden lgUp>
-                <SmartView user={props.user} />
-              </Hidden>
-        </div>
+      <Spacing desktop={{margin: "0px"}} smart={{margin: "8vh 0px 0px 0px"}}>
+        <Grid container alignItems="flex-end" className={classes.heroPanel} id="hero_panel">
+          <Grid item xs={12}>
+                <Hidden mdDown>
+                  <DesktopView user={props.user} />
+                </Hidden>
+                <Hidden lgUp>
+                  <SmartView user={props.user} />
+                </Hidden>
+          </Grid>
+        </Grid>
       </Spacing>
       <Spacing smart={{ margin: "40px auto" }}>
         <Image className={classes.terms} src={ isDesktop ? "hero/terms.svg" : "hero/terms_mobile.svg"} />

@@ -3,7 +3,7 @@ import Spacing from "@components/spacing"
 import { Grid, Typography, Button, Hidden } from "@material-ui/core"
 import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { UserProps } from "@services/user"
+import { Edition, UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -23,9 +23,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     bottom: '30px'
   },
   progressionContainer: {
-    width: '80vw',
+    width: '79vw',
     display: 'block',
-    margin: '0px auto 24px auto'
+    margin: '0px auto 0px  auto',
+    [theme.breakpoints.between("sm", "md")]: {
+      width: '91vw',
+    }
   },
   progression: {
     border: '2px solid #fff',
@@ -40,28 +43,32 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: '0px auto'
   },
   logoEdition: {
-    width: '92vw',
+    width: '83vw',
     display: 'block',
     margin: "0px auto",
-    [theme.breakpoints.between("md", "lg")]: {
+    [theme.breakpoints.between("sm", "md")]: {
       margin: "0px 40px",
-      width: '40vw'
+      width: '89vw'
+    }
+  },
+  loggedViewContainer: {
+    marginTop: 40,
+    marginBottom: 10,
+    alignItems: 'center',
+    [theme.breakpoints.between("sm", "md")]: {
+      alignItems: 'flex-start',
+      marginLeft: '4.5vw',
     }
   },
   titleData:{
-    fontSize: '8.8vw',
+    fontSize: '8.5vw',
     width: '100%',
     textAlign: 'center',
     margin: 0,
     fontWeight: 200,
     [theme.breakpoints.between("sm", "md")]: {
       textAlign: 'left',
-      fontSize: '7vw',
-      margin: "12px 0px 0px 32px",
-    },
-    [theme.breakpoints.between("md", "lg")]: {
-      textAlign: 'left',
-      fontSize: '3.25vw',
+      fontSize: '6.8vw',
       margin: "12px 0px 0px 32px",
     }
   },
@@ -70,46 +77,77 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
+const getEditionState = (currentEdition: Edition | undefined): number => {
+  if(!currentEdition?.approved && !currentEdition?.completed){
+    //Approved e Completed  false
+    return 0;
+  }else if(currentEdition?.approved && !currentEdition.completed){
+    //Approved true e completed false
+    return 1;
+  }
+
+  return 2;
+}
+
 const LoggedView = (user: UserProps) => {
   const classes = useStyles()
   const currentEdition = user.editions?.[2021]
   const opened = currentEdition?.totalMergeRequests || 0
   const merged = currentEdition?.totalMergeRequestsMerged || "nenhum"
+  const state = getEditionState(currentEdition);
+  let TextComponent;
+
+  switch(state){
+    case 0:
+      TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
+      break;
+    case 1:
+      TextComponent = () => <ConfirmMessage/>
+      break;
+    case 2:
+      TextComponent = () => <CongratsMessage/>
+      break;
+    default:
+      TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
+      break;
+  } 
 
   return (
     <React.Fragment>
-      <Grid container direction="column" alignContent="center" justifyContent="center">
-        <Spacing smart={{margin: "20px 0px 5px"}}>
-          <Grid item>
-            <Typography align="center" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
+      <Grid container className={classes.loggedViewContainer} direction="column" justifyContent="flex-start" alignItems="flex-start">
+        <Spacing smart={{margin: "0px 0px 5px"}}>
+          <Grid item xs={12}>
+            <Typography align="left" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
+            <TextComponent/>
           </Grid>
         </Spacing>
-        <Spacing smart={{margin: "0px 0px 30px"}}>
-          <Grid item md={5}>
-            <Typography align="center" component="p"> Acompanhe seu progresso: </Typography>
-          </Grid>
-        </Spacing>
-          <div className={classes.progressionContainer}>
-            <div className={classes.progression}>
-              <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> {/* Ativo se Approved e Completed for false*/}
-              <Image className={currentEdition?.approved && !currentEdition.completed ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
-              <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> {/** Ativo se completed e aproved for true */}
-            </div>
-          </div>
-          <div className={classes.textProgress}>
-            {currentEdition?.completed ? <CongratsMessage/> : <ProgressMessage opened={opened} merged={merged}/>}
-          </div>
       </Grid>
+      <div className={classes.progressionContainer}>
+        <div className={classes.progression}>
+          <Image className={state == 0 ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
+          <Image className={state == 1 ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
+          <Image className={state == 2 ? classes.active : '' } src="hero/Shirt.svg"/> {/* Ativo se completed e aproved for true*/}
+        </div>
+      </div>
     </React.Fragment>
   )
 }
 
 const ProgressMessage = (props: any) => (
-    <Typography align="center" component="p">  Você tem <b> {props.opened} PRs enviados e {props.merged} aceito(s) </b> </Typography>
+    <Typography align="left" variant="h5" component="h5">  Você tem <b> {props.opened} PRs enviados e {props.merged} aceito(s) </b> </Typography>
 )
 
+const ConfirmMessage = () => (
+  <div style={{maxWidth: '79vw'}}>
+    <Typography align="left" variant="h5" component="h5">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
+  </div>
+)
+
+
 const CongratsMessage = () => (
-    <Typography align="center" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no Minha Área. </Typography>
+  <div style={{maxWidth: '79vw'}}>
+    <Typography align="left" variant="h5" component="h5">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar!</b> </Typography>
+  </div>
 )
 
 const UnloggedView = () => {

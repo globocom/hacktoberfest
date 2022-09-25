@@ -34,8 +34,7 @@ theme.typography = {
   h1: {
     fontSize: "3.75rem",
     lineHeight: "64px",
-    fontWeight: "lighter",
-    letterSpacing: '-2px',
+    fontWeight: "bolder",
   },
   h2: {
     fontSize: '1.5rem', //24px
@@ -44,6 +43,11 @@ theme.typography = {
   h3: {
     fontSize: '1.25rem', //20px
     lineHeight: '30px',
+    fontWeight: "normal"
+  },
+  h5:{
+    fontSize: '0.825rem', //12px
+    lineHeight: '16px',
     fontWeight: "normal"
   },
   subtitle1: {

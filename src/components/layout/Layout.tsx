@@ -24,7 +24,7 @@ const Layout = (props: LayoutProps) => {
     <div className={classes.root}>
         <SEO description={props.description || "Globo Hacktoberfest"}  title={props.title || "Globo Hacktoberfest"} />
         <Header />
-        {props.headerTitle && <HeaderTitle title={props.headerTitle}/> }
+        {/*{props.headerTitle && <HeaderTitle title={props.headerTitle}/> }*/}
           <main>
             {props.children}
           </main>

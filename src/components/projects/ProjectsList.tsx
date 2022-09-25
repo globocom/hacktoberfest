@@ -1,27 +1,24 @@
 import React, { useEffect, useState } from "react"
 import {
-  Button,
   CircularProgress,
-  Grid,
   Typography,
-  useMediaQuery,
 } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import Spacing from "@components/spacing"
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import RepoLanguages from "@components/repo-languages"
 import Projects, { ProjectProps } from "@services/projects"
+import Masonry from 'react-masonry-css'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
   },
   projectName: {
-    fontSize: 56,
-    marginRight: 30,
-    lineHeight: 1,
+    fontSize: '2rem',
+    lineHeight: '48px',
   },
   rounded: {
-    borderRadius: 50,
+    borderRadius: 24,
     fontWeight: "normal",
     boxShadow: "none",
     textTransform: "lowercase",
@@ -30,30 +27,37 @@ const useStyles = makeStyles((theme: Theme) => ({
       float: "right",
     },
   },
-  divider: {
-    width: "100%",
-    borderTop: `1px solid #090055;`,
-    padding: "32px 0px",
-  },
-  bottomDivider: {
-    width: "100%",
-    borderTop: `1px solid #E0E0E0;`,
-    padding: "24px 0px",
-  },
   projectCard: {
     border: "2px solid #FFFFFF",
     boxShadow: "0px 0px 4px #FFFFFF, 0px 4px 4px rgba(0, 0, 0, 0.25)",
     backdropFilter: "blur(16px)",
     borderRadius: "24px",
-    padding: "20px",
+    margin: 12,
+    padding: 24
   },
+  masonryGrid: {
+    display: "flex",
+  },
+  masonryGridCol: {
+      backgroundClip: "padding-box",
+      width: "100% !important"
+  }
 }))
 
-function ProjectsList(props: ProjectListProps) {
+const ProjectsList = (props: ProjectListProps) => {
+  const classes = useStyles();
   const { listLimit = 0 } = props
   const [projects, setProjects] = useState<Array<ProjectProps>>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+
+  const breakpointColumnsObj = {
+    default: 3,
+    1100: 3,
+    700: 2,
+    500: 1
+  };
+  
 
   useEffect(() => {
     async function fetchProjects() {
@@ -73,21 +77,24 @@ function ProjectsList(props: ProjectListProps) {
   }, [])
 
   return (
-    <Spacing smart={{ margin: "0px 0px 40px" }}>
-      <Grid container direction="row">
-        <Grid container spacing={8}>
-          {loading ? (
+    <>
+       {loading ? (
             <ProjectsListLoading />
           ) : error ? (
             <ProjectsListError />
           ) : (
-            projects.map((project, index) => {
-              return <ProjectCard key={index} {...project} />
-            })
+            <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className={classes.masonryGrid}
+            columnClassName={classes.masonryGridCol}>
+               {projects.map((project, index) => {
+                  return <ProjectCard key={index} {...project} />
+                })
+              }
+          </Masonry>
           )}
-        </Grid>
-      </Grid>
-    </Spacing>
+    </>
+
   )
 }
 
@@ -110,60 +117,26 @@ function ProjectsListError() {
 
 function ProjectCard(props: ProjectProps) {
   const classes = useStyles()
-  const { name, description, repo, imageUrl, languages } = props
-  const { name: imageName, thumborUrl } = imageUrl
-  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"))
-
+  const { name, description, repo, imageUrl, languages } = props;
   function accessProjectRepo() {
     window.open(repo, "_blank", "noopener,noreferrer")
   }
 
   return (
     <React.Fragment>
-      {!isDesktop && <img src={thumborUrl} alt={imageName} height={40} />}
-      <Grid
-        item
-        className={classes.projectCard}
-        alignItems="center"
-        alignContent="space-between"
-        justifyContent="space-between"
-        xs={4}
-      >
-        <Grid item xs={12}>
-          <Typography color="textPrimary" variant="h1" component="p">
-            {name}
-            {isDesktop && <img src={thumborUrl} alt={imageName} height={40} />}
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Grid container alignItems="center" justifyContent="space-between">
-            <Spacing smart={{ margin: "16px 0px" }}>
-              <Grid item xs={12} md={8}>
-                <Typography component="p" color="textPrimary" variant="body1">
-                  {description}
-                </Typography>
-                <Spacing smart={{ margin: "16px 0px 0px" }}>
-                  <Grid>
-                    <RepoLanguages languages={languages} />
-                  </Grid>
-                </Spacing>
-              </Grid>
-            </Spacing>
-            <Grid item xs={12} md={2}>
-              <Button
-                className={classes.rounded}
-                color="secondary"
-                size="large"
-                variant="contained"
-                onClick={accessProjectRepo}
-                onAuxClick={accessProjectRepo}
-              >
-                <b>acessar</b>
-              </Button>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
+      <div className={classes.projectCard}>
+          <RepoLanguages languages={[languages[0]]} />
+          <div>
+            <Typography className={classes.projectName} component="p">{name}</Typography>
+          </div>
+          <div style={{marginTop: 16}}>
+            <Typography component="p">{description}</Typography>
+          </div>
+          <div style={{marginTop: 40, display: "flex", justifyContent: "flex-start", cursor: "pointer"}} onClick={() => accessProjectRepo()}>
+            <Typography style={{marginRight: 10}} component="p" variant="body1">acessar {name}</Typography>
+            <ArrowRightAltIcon/>
+          </div>
+      </div>
     </React.Fragment>
   )
 }
