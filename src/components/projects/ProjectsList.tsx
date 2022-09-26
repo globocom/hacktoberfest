@@ -8,6 +8,7 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import RepoLanguages from "@components/repo-languages"
 import Projects, { ProjectProps } from "@services/projects"
 import Masonry from 'react-masonry-css'
+import _ from 'lodash'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -117,15 +118,15 @@ function ProjectsListError() {
 
 function ProjectCard(props: ProjectProps) {
   const classes = useStyles()
-  const { name, description, repo, imageUrl, languages } = props;
+  const { name, description, repo, imageUrl, stats = {} } = props;
   function accessProjectRepo() {
     window.open(repo, "_blank", "noopener,noreferrer")
   }
-
+  const items:string[] = _.get(stats, 'repository.repoLanguages.items', []);
   return (
     <React.Fragment>
       <div className={classes.projectCard}>
-          <RepoLanguages languages={[languages[0]]} />
+          {items.length > 0 && <RepoLanguages languages={items} /> }
           <div>
             <Typography className={classes.projectName} component="p">{name}</Typography>
           </div>

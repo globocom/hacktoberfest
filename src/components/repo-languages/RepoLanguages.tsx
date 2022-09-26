@@ -6,6 +6,7 @@ const useStyles = makeStyles({
   repoLanguageColor: {
     padding: '0px 15px',
     borderRadius: 12,
+    margin: 4,
     marginRight: ".3rem",
   },
 
@@ -36,9 +37,9 @@ const CircleLanguage = (props: CircleLanguageProps) => {
   return (
     <div
       className={classes.repoLanguageColor}
-      style={{ backgroundColor: colorLanguage[`${props.language}`] }}
+      style={{ backgroundColor: colorLanguage[`${props.language.name}`] }}
     >
-      {props.language}
+      {props.language.name}
     </div>
   )
 }

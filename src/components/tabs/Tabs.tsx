@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const ParticipantsTabs = () => {
   const [tabValue, setTabValue] = useState<number>(0)
-  const [edition, setEdition] = useState<number>(2021)
+  const [edition, setEdition] = useState<number>(2022)
   const [participants, setParticipants] = useState<Array<ParticipantProps>>([])
   const [loading, setLoading] = useState(false)
   const classes = useStyles()
