@@ -12,36 +12,51 @@ import {
   Typography,
   Box
 } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, Theme } from "@material-ui/core/styles"
 import { CircularProgress } from "@material-ui/core"
 import { Image } from '@components/image'
 import Participants, { ParticipantProps } from "@services/participants"
 
 const EDITIONS = [
+  2022,
   2021,
   2020,
   2019
 ]
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
   tab: {
     minWidth: 68,
     fontSize: "1rem",
   },
   list: {
-    backgroundColor: "#fff",
     borderRadius: 8,
-    border: "1px solid #C8DAF6",
-    padding: 8,
     "&.empty": {
-      textAlign: "center",
-      minHeight: 360,
-      alignItems: "center",
+      border: "1px solid white",
+      marginTop: 48,
       justifyContent: "center",
+      textAlign: "center",
+      padding: "48px 80px",
     }
   },
   listItem: {
-    paddingBottom: 2
+    padding: 24,
+    borderRadius: 8,
+    margin: "24px 0",
+    border: "1px solid white",
+    backgroundColor: "#0d0d0d",
+    [theme.breakpoints.up("lg")]: {
+      margin: "32px 0",
+    },
+  },
+  complete: {
+    color: "#33DD99"
+  },
+  incomplete:{
+    color: "#ff0000"
+  },
+  gutterRemove:{
+    padding: "0 0 16px 0"
   },
   loading: {
     textAlign: "center", 
@@ -84,9 +99,8 @@ const ParticipantsTabs = () => {
       <Tabs
         value={tabValue}
         onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
-        centered
+        indicatorColor="secondary"
+        textColor="inherit"
       >
         {EDITIONS.map((edition, index) => (
           <Tab key={index} className={classes.tab} label={edition} />
@@ -100,20 +114,13 @@ const ParticipantsTabs = () => {
           <List className={classes.list}>
             {!loading && (
              participants.map && participants.map((participant, index) => (
-                <ListItem key={index} alignItems="flex-start" className={classes.listItem}>
+              <div className={classes.listItem}>
+                <ListItem key={index} className={classes.gutterRemove} alignItems="center">
                   <ListItemAvatar>
                     <Avatar alt={participant.githubUser} src={participant.avatar} />
                   </ListItemAvatar>
                   <ListItemText
                     primary={`@${participant.githubUser}`}
-                    secondary={
-                      <Typography
-                        component="span"
-                        variant="caption"
-                        >
-                        {participant.total_pull_requests} pull requests • {participant.approved ? "desafio completo" : "desafio incompleto"} 
-                      </Typography>
-                    }
                   />
                   <a href={`https://github.com/${participant.githubUser}`} target="_blank">
                     <ListItemSecondaryAction>
@@ -123,6 +130,10 @@ const ParticipantsTabs = () => {
                     </ListItemSecondaryAction>
                   </a>
                 </ListItem>
+                <Typography component="span" variant="caption"> {participant.total_pull_requests} pull requests </Typography>
+                <Typography component="span" variant="caption" className={participant.approved ? classes.complete : classes.incomplete}> • </Typography> 
+                <Typography component="span" variant="caption"> {participant.approved ? "desafio completo" : "desafio incompleto"}  </Typography>
+               </div>
               )))
             }
           </List>) : <EmptyList className={classes.list} />)}
@@ -163,10 +174,8 @@ interface EmptyListProps {
 const EmptyList = ({ className }: EmptyListProps) => (
   <Box display="flex" className={`${className} empty`}>
     <Box component="div">
-      <Image src="hero/note.svg" />
       <Typography variant="h3">
-        Nenhum participante fez pull requests ainda!<br/>
-        Seja o primeiro!
+        Nenhum participante fez pull requests ainda. Seja o primeiro!
       </Typography>
     </Box>
   </Box>

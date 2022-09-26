@@ -392,7 +392,99 @@
     "success": true,
     "status": 200,
     "type": "ok",
-    "result": []
+    "result": [
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": false
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": false
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": false
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": false
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      }
+    ]
   },
   "projects": {
     "success": true,

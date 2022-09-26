@@ -8,6 +8,7 @@ import UserInfoAlert from "@components/user-info-alert"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
+    minHeight: "100vh",
     background: "linear-gradient(180deg, rgba(0,0,0,1) 37%, rgba(0,78,130,1) 63%, rgba(53,146,214,1) 80%, rgba(255,255,255,1) 100%);",
     backgroundAttachment: 'fixed',
     fontFamily: theme.typography.fontFamily,

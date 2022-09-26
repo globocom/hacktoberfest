@@ -1,7 +1,8 @@
 const path = require("path")
 const jsonServer = require("json-server")
 const bodyParser = require("body-parser")
-const cors = require("cors")
+const cors = require("cors");
+const { ok } = require("assert");
 
 const whitelist = [
   'http://localhost',
@@ -35,6 +36,12 @@ server.get("/edition", (req, res) => {
 server.get("/user", (req, res) => {
   const db = router.db
   res.status(201).json(db.get("user").value())
+})
+
+server.get("/status", (req, res) => {
+  const db = router.db
+  const items = [];
+  res.status(201).json(db.get('status').value())
 })
 
 server.get("/projects", (req, res) => {

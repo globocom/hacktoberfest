@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     colored: {
         color: theme.palette.primary.contrastText,
+        fontSize: '2.25rem',
+        [theme.breakpoints.up("lg")]: {
+            fontSize: '3.25rem',
+        }
     },
     divisor: {
         width: "20%",

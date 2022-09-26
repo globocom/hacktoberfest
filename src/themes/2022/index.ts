@@ -21,7 +21,7 @@ theme.palette = {
     paper: "#FFFFFF"
   },
   text: {
-    primary: "#FFF",
+    primary: "#fff",
     secondary: "#000",
     disabled: "#FFFFFFA3",
     hint: "#FFF",
