@@ -15,6 +15,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     "& a": {
       textDecoration: "none",
     },
+    padding: 16,
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      padding: 24,
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      padding: 40,
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      padding: 80,
+    },
   },
 }))
 

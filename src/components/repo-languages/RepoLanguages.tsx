@@ -6,8 +6,7 @@ const useStyles = makeStyles({
   repoLanguageColor: {
     padding: '0px 15px',
     borderRadius: 12,
-    margin: 4,
-    marginRight: ".3rem",
+    marginBottom: 40,
   },
 
   repoLanguageWrapper: {
@@ -17,7 +16,7 @@ const useStyles = makeStyles({
   languageList: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "flex-end"
+    justifyContent: "flex-start"
   },
   languageListItem: {
     listStyleType: "none",

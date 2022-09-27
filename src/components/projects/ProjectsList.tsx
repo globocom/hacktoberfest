@@ -4,7 +4,7 @@ import {
   Typography,
 } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
 import RepoLanguages from "@components/repo-languages"
 import Projects, { ProjectProps } from "@services/projects"
 import Masonry from 'react-masonry-css'
@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projectName: {
     fontSize: '2rem',
+    fontWeight: 600,
     lineHeight: '48px',
   },
   rounded: {
@@ -30,18 +31,24 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projectCard: {
     border: "2px solid #FFFFFF",
-    boxShadow: "0px 0px 4px #FFFFFF, 0px 4px 4px rgba(0, 0, 0, 0.25)",
+    boxShadow: "0px 0px 4px #FFFFFF, 0px 4px 4px rgba(255, 255, 255, 0.25)",
     backdropFilter: "blur(16px)",
     borderRadius: "24px",
-    margin: 12,
-    padding: 24
+    marginBottom: 24,
+    padding: 24,
   },
   masonryGrid: {
     display: "flex",
   },
   masonryGridCol: {
       backgroundClip: "padding-box",
-      width: "100% !important"
+      width: "100% !important",
+      '&:not(:last-child)':{
+        marginRight: 24
+      }
+  },
+  projectDescription: {
+    lineHeight: '24px'
   }
 }))
 
@@ -54,9 +61,9 @@ const ProjectsList = (props: ProjectListProps) => {
 
   const breakpointColumnsObj = {
     default: 3,
-    1100: 3,
-    700: 2,
-    500: 1
+    1024: 2,
+    768: 1,
+    320: 1
   };
   
 
@@ -126,16 +133,16 @@ function ProjectCard(props: ProjectProps) {
   return (
     <React.Fragment>
       <div className={classes.projectCard}>
-          {items.length > 0 && <RepoLanguages languages={items} /> }
+          {items.length > 0 && <RepoLanguages languages={[items[0]]} /> }
           <div>
             <Typography className={classes.projectName} component="p">{name}</Typography>
           </div>
           <div style={{marginTop: 16}}>
-            <Typography component="p">{description}</Typography>
+            <Typography component="p" className={classes.projectDescription}>{description}</Typography>
           </div>
           <div style={{marginTop: 40, display: "flex", justifyContent: "flex-start", cursor: "pointer"}} onClick={() => accessProjectRepo()}>
-            <Typography style={{marginRight: 10}} component="p" variant="body1">acessar {name}</Typography>
-            <ArrowRightAltIcon/>
+            <Typography style={{marginRight: 10, fontWeight: 600}} component="p" variant="body1">acessar {name}</Typography>
+            <ArrowForwardIcon color="secondary"/>
           </div>
       </div>
     </React.Fragment>

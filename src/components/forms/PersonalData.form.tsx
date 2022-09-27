@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import { Grid, Typography, TextField, InputAdornment, Button } from '@material-ui/core'
+import { Grid, Typography, TextField, InputAdornment, makeStyles, Theme } from '@material-ui/core'
 
 
 //Internal
@@ -25,8 +25,24 @@ const validationSchema = () => Yup.object().shape({
     githubUser: Yup.string().required("Preenchimento do usuário Github obrigatório"),
 })
 
+const useStyles = makeStyles((theme: Theme) => ({
+    fontCall: {
+      fontSize: "2.25rem",
+      [theme.breakpoints.up("lg")]: {
+          fontSize: "3.5rem",
+      }
+    },
+    subFontCall: {
+        fontSize: "1.125rem",
+        [theme.breakpoints.up("lg")]: {
+            fontSize: "1.5rem",
+        }
+    }
+}))
+
 
 const PersonalDataForm = (props:PersonalDataFormProps) => {
+    const classes = useStyles();
     const { user, onSuccess, showOnlyEmailField = false } =  props
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const snackbarContext = useContext(SnackbarContext)
@@ -61,9 +77,16 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                 <form onSubmit={formik.handleSubmit}>
                     <Grid container spacing={2}>
                         {!showOnlyEmailField && <>
-                            <Grid item xs={12}>
-                                <Typography style={{fontWeight: 600}} component="h2" color="secondary" variant="h2">Dados pessoais</Typography>
-                            </Grid>
+                            <Spacing smart={{margin: "0px 0px 16px 0px"}}>
+                                <Grid item xs={12}>
+                                    <Typography className={classes.fontCall} component="h2" color="secondary" variant="h2">Dados pessoais</Typography>
+                                </Grid>
+                            </Spacing>
+                            <Spacing smart={{margin: "0px 0px 34px 0px"}}>
+                                <Grid item xs={12}>
+                                    <Typography component="h3" color="secondary" variant="h3">Preencha o seu e-mail para podermos enviar atualizações sobre o evento.</Typography>
+                                </Grid>
+                            </Spacing>
                             <Grid item xs={12} md={8}>
                                 <HacktoberfestTextInput
                                     fullWidth
@@ -113,7 +136,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={12} lg={5}>
+                        <Grid item xs={12} lg={3}>
                             <LoadingButton fullWidth isLoading={isLoading}>
                                 Salvar Alterações
                             </LoadingButton>

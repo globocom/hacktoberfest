@@ -1,8 +1,7 @@
-import React, {useState} from "react"
+import React from "react"
 import Spacing from "@components/spacing"
 import { Grid, Typography, Button } from "@material-ui/core"
 import { Image } from "@components/image"
-import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Edition, UserProps } from "@services/user"
 
@@ -20,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.text.secondary
   },
   buttonContainer: {
-    margin: '16px 80px'
+    marginTop: '16px'
   },
   howWorks: {
     position: 'absolute',
@@ -35,9 +34,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     zIndex: 1
   },
   progressionContainer: {
-    width: '25vw',
-    display: 'block',
-    margin: '0px auto 24px auto'
+    width: '38vw',
+    maxWidth: 430
   },
   progression: {
     border: '2px solid #fff',
@@ -47,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: 22
   },
   logoEdition: {
-    width: '40vw',
+    width: '80%',
     display: 'block'
     
   },
@@ -157,8 +155,8 @@ const UnloggedView = () => {
               fullWidth
               variant="contained"
             >
-              <Typography style={{padding: 18}} component="p" variant="body2" align="center">
-                  <b>participe</b> com sua conta do github
+              <Typography style={{padding: 18, color: "#000"}} component="p" variant="body2" align="center">
+                  <b>participar</b> com sua conta do github
               </Typography>
             </Button>
           </Grid>
@@ -170,31 +168,20 @@ const UnloggedView = () => {
 const DesktopView = (props: DesktopViewProps) => {
   const classes = useStyles()
   return (
-    <React.Fragment>
       <Grid
-        justifyContent="center"
-        container spacing={2}
-      >
-        <Grid item lg={6}>
-          <Grid item lg={12}>
-            <Image className={classes.logoEdition} src={`2022/logo.png`} />
-            <Typography variant="h1" align="left" style={{fontSize: "3.15vw"}} component="h2">
-              01.10.2022 - 31.10.2022
-            </Typography>
-          </Grid>
-        </Grid>
-        <Grid
-          lg={5}
-          container
-          alignItems="center"
-          alignContent="center"
-          justifyContent="center"
-          className="userLoginContainer"
+        container
+        alignItems="center"
         >
+        <Grid item sm={7}>
+            <Image className={classes.logoEdition} src={`2022/logo.png`} />
+            <Typography variant="h1" align="left" style={{fontSize: "2.9vw"}} component="h2">
+              01.10.2022 — 31.10.2022
+            </Typography>
+        </Grid>
+        <Grid item sm={5} className="userLoginContainer">
           {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
         </Grid>
       </Grid>
-    </React.Fragment>
   )
 }
 

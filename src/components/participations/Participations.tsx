@@ -7,8 +7,8 @@ import { UserProps, Participation } from '@services/user'
 import Spacing from '@components/spacing'
 import { makeStyles, Theme } from '@material-ui/core/styles'
 import EmojiEventIcon from '@material-ui/icons/EmojiEvents'
-import { Image } from '@components/image'
-import LoadingButton from '@components/loading-button'
+
+
 
 
 
@@ -80,7 +80,7 @@ const ParticipationHistory = (props:ParticipationHistoryProps) => {
         <>
         <Grid container>
             <Grid item xs={12}>
-                <Typography>Histórico de Participação</Typography>
+                <Typography style={{fontWeight: 600}} component="h2" color="secondary" variant="h2">Histórico de Participação</Typography>
             </Grid>
         </Grid>
         <Grid container justifyContent='space-between'>

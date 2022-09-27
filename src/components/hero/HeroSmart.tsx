@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     bottom: '30px'
   },
   progressionContainer: {
-    width: '79vw',
+    width: '190%',
     display: 'block',
     margin: '0px auto 0px  auto',
     [theme.breakpoints.between("sm", "md")]: {
@@ -40,36 +40,30 @@ const useStyles = makeStyles((theme: Theme) => ({
   textProgress: {
     width: '60vw',
     display: 'block',
-    margin: '0px auto'
+    margin: '0px auto',
+    [theme.breakpoints.between("sm", "md")]: {
+      
+    }
   },
   logoEdition: {
-    width: '83vw',
+    width: '100%',
     display: 'block',
-    margin: "0px auto",
     [theme.breakpoints.between("sm", "md")]: {
-      margin: "0px 40px",
-      width: '89vw'
+      width: '75%'
     }
   },
   loggedViewContainer: {
     marginTop: 40,
     marginBottom: 10,
-    alignItems: 'center',
-    [theme.breakpoints.between("sm", "md")]: {
-      alignItems: 'flex-start',
-      marginLeft: '4.5vw',
-    }
+    alignItems: 'flex-start',
   },
   titleData:{
-    fontSize: '8.5vw',
+    fontSize: '7.5vw',
     width: '100%',
-    textAlign: 'center',
     margin: 0,
     fontWeight: 200,
     [theme.breakpoints.between("sm", "md")]: {
-      textAlign: 'left',
-      fontSize: '6.8vw',
-      margin: "12px 0px 0px 32px",
+      fontSize: '5.95vw',
     }
   },
   active: {
@@ -138,14 +132,14 @@ const ProgressMessage = (props: any) => (
 )
 
 const ConfirmMessage = () => (
-  <div style={{maxWidth: '79vw'}}>
+  <div style={{minWidth: '100%'}}>
     <Typography align="left" variant="h5" component="h5">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
   </div>
 )
 
 
 const CongratsMessage = () => (
-  <div style={{maxWidth: '79vw'}}>
+  <div style={{minWidth: '100%'}}>
     <Typography align="left" variant="h5" component="h5">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar!</b> </Typography>
   </div>
 )
@@ -162,14 +156,14 @@ const UnloggedView = () => {
                 </Typography>
               </Grid>
             </Spacing>
-            <Grid item xs={11}>
+            <Grid item xs={12}>
               <Button
                 href="/login"
                 fullWidth
                 className={classes.button}
                 variant="contained"
               >
-                <Typography component="p" variant="body2" align="center" style={{fontSize: '16px'}}>
+                <Typography component="p" variant="body2" align="center" style={{fontSize: '16px', color: "#000"}}>
                   <b>participar</b> com sua conta do github
                 </Typography>
 
@@ -194,17 +188,9 @@ const SmartView = (props: SmartViewProps) => {
                 <Grid item xs={12}></Grid>
                 <Spacing smart={{margin: "0px 0px 16px 0px;"}}>
                   <Grid item xs={12}>
-                     {/* under 768px */}
-                      <Hidden smUp>
-                        <Image className={classes.logoEdition} src={`2022/logo_smart.png`}/>
-                      </Hidden>
-                      {/* under 1024px */}
-                      <Hidden only={"xs"}>
-                        <Image className={classes.logoEdition} src={`2022/logo.png`}/>
-                      </Hidden>
-
+                      <Image className={classes.logoEdition} src={`2022/logo_smart.png`}/>
                       <Typography variant="h1" align="left" component="h2" className={classes.titleData}>
-                        01.10.2022 - 31.10.2022
+                        01.10.2022 — 31.10.2022
                       </Typography>
                   </Grid>
                 </Spacing>

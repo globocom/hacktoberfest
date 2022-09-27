@@ -11,6 +11,10 @@ const useStyles = makeStyles({
     width: "100%",
     borderBottom: `1px solid #E0E0E0;`,
     marginBottom: 32,
+  },
+  description: {
+    fontSize: '1.5rem',
+    lineHeight: '32px',
   }
 })
 
@@ -27,11 +31,12 @@ const ProjectsPage = () => {
             <Grid item xs={12} md={10}>
               <Spacing desktop={{margin: "5vh 0px 40px 0px"}} smart={{ margin: "64px 12px 0px 12px" }}>
                 <div>
-                  <HeaderTitle title={"Projetos"}/>
+                  <HeaderTitle title={"Principais Projetos"}/>
                 </div>
               </Spacing>
               <Spacing desktop={{margin: "0px 0px 10vh 0px"}} smart={{ margin: "24px 12px 40px 12px" }}>
                 <Typography
+                  className={classes.description}
                   component="p"
                   align="left"
                   color="textPrimary"

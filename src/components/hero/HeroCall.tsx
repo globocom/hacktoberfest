@@ -32,7 +32,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const HeroCall = (props: HeroCallProps) => {
   const classes = useStyles()
-  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
+  const isDesktop = useMediaQuery((theme: Theme) => {
+    return theme.breakpoints.up(theme.breakpoints.values.lg)
+  });
 
   const rules = [
     "Contribua com dois PRs em qualquer projeto Open Source da Globo durante o mês de outubro.",
@@ -45,12 +47,7 @@ const HeroCall = (props: HeroCallProps) => {
       <Spacing desktop={{margin: "0px"}} smart={{margin: "8vh 0px 0px 0px"}}>
         <Grid container alignItems="flex-end" className={classes.heroPanel} id="hero_panel">
           <Grid item xs={12}>
-                <Hidden mdDown>
-                  <DesktopView user={props.user} />
-                </Hidden>
-                <Hidden lgUp>
-                  <SmartView user={props.user} />
-                </Hidden>
+                {isDesktop ? <DesktopView user={props.user} /> : <SmartView user={props.user} />}
           </Grid>
         </Grid>
       </Spacing>

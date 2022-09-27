@@ -1,5 +1,5 @@
 import React from "react"
-import { Theme } from "@material-ui/core"
+import { Theme, useMediaQuery } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Hidden from "@material-ui/core/Hidden"
 import Navigation from "@components/navigation"
@@ -27,14 +27,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Header = () => {
   const classes = useStyles()
+  const isDesktop = useMediaQuery((theme: Theme) => {
+    return theme.breakpoints.up(theme.breakpoints.values.lg)
+  });
   return (
     <header className={classes.root}>
-      <Hidden smDown>
-        <Navigation mode="desk" />
-      </Hidden>
-      <Hidden mdUp>
-        <Navigation mode="smart" />
-      </Hidden>
+      {isDesktop ? <Navigation mode="desk" /> : <Navigation mode="smart" />}
     </header>
   )
 }

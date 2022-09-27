@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Grid, Typography, InputAdornment, MenuItem, TextField} from '@material-ui/core'
+import { Grid, Typography, InputAdornment, MenuItem, makeStyles, Theme} from '@material-ui/core'
 
 //Internal
 import Spacing from '@components/spacing'
@@ -35,7 +35,25 @@ const validationSchema = () => Yup.object().shape({
     address: Yup.string().required("Preenchimento da Rua é obrigatório")
 })
 
+
+const useStyles = makeStyles((theme: Theme) => ({
+    fontCall: {
+      fontSize: "2.25rem",
+      [theme.breakpoints.up("lg")]: {
+          fontSize: "3.5rem",
+      }
+    },
+    subFontCall: {
+        fontSize: "1.125rem",
+        [theme.breakpoints.up("lg")]: {
+            fontSize: "1.5rem",
+        }
+    }
+}))
+
+  
 const ShippingForm = (props: ShippingFormProps) => {
+    const classes = useStyles();
     const { user, showSnackBar } = props
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [currentEdition, setCurrentEdition] = useState<number>(0)
@@ -46,7 +64,7 @@ const ShippingForm = (props: ShippingFormProps) => {
         const fillColors = async () =>  {
             const edition = await Hacktoberfest.Service.getInstance().GetEdition()
             setColors(edition?.shirtColors || [])
-            setCurrentEdition(edition.edition)
+            setCurrentEdition(edition?.year)
         }
         fillColors()
     }, [])
@@ -83,9 +101,16 @@ const ShippingForm = (props: ShippingFormProps) => {
         <Spacing desktop={{margin: "40px 0px"}} smart={{margin: "40px 0px"}}>
             <form onSubmit={formik.handleSubmit}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        <Typography style={{fontWeight: 600}} component="h2" color="secondary" variant="h3">Dados para premiação</Typography>
-                    </Grid>
+                    <Spacing smart={{margin: "0px 0px 16px 0px"}}>
+                        <Grid item xs={12}>
+                            <Typography className={classes.fontCall} component="h2" color="secondary" variant="h2">Dados para premiação</Typography>
+                        </Grid>
+                    </Spacing>
+                    <Spacing smart={{margin: "0px 0px 34px 0px"}}>
+                        <Grid item xs={12}>
+                            <Typography component="h3" color="secondary" variant="h3">Preencha com o endereço onde será entregue a camiseta.</Typography>
+                        </Grid>
+                    </Spacing>
                     <Grid item xs={12} md={8}>
                         <HacktoberfestTextInput
                             fullWidth
@@ -182,15 +207,15 @@ const ShippingForm = (props: ShippingFormProps) => {
                                     </InputAdornment>
                             }}
                             label="Tamanho da Camiseta">
-                                <MenuItem value={"BLP"}>Baby Look - P</MenuItem>
-                                <MenuItem value={"BLM"}>Baby Look - M</MenuItem>
-                                <MenuItem value={"BLG"}>Baby Look - G</MenuItem>
-                                <MenuItem value={"BLGG"}>Baby Look - GG</MenuItem>
-                                <MenuItem value={"TSP"}>Camiseta - P</MenuItem>
-                                <MenuItem value={"TSM"}>Camiseta - M</MenuItem>
-                                <MenuItem value={"TSG"}>Camiseta - G</MenuItem>
-                                <MenuItem value={"TSGG"}>Camiseta - GG</MenuItem>
-                                <MenuItem value={"TSGGG"}>Camiseta - GGG</MenuItem>
+                                <MenuItem style={{color: "#000"}} value={"BLP"}>Baby Look - P</MenuItem>
+                                <MenuItem style={{color: "#000"}} value={"BLM"}>Baby Look - M</MenuItem>
+                                <MenuItem style={{color: "#000"}} value={"BLG"}>Baby Look - G</MenuItem>
+                                <MenuItem style={{color: "#000"}} value={"BLGG"}>Baby Look - GG</MenuItem>
+                                <MenuItem style={{color: "#000"}} value={"TSP"}>Camiseta - P</MenuItem>
+                                <MenuItem style={{color: "#000"}} value={"TSM"}>Camiseta - M</MenuItem>
+                                <MenuItem style={{color: "#000"}} value={"TSG"}>Camiseta - G</MenuItem>
+                                <MenuItem style={{color: "#000"}} value={"TSGG"}>Camiseta - GG</MenuItem>
+                                <MenuItem style={{color: "#000"}} value={"TSGGG"}>Camiseta - GGG</MenuItem>
                         </HacktoberfestTextInput>
                     </Grid>
 
@@ -219,7 +244,7 @@ const ShippingForm = (props: ShippingFormProps) => {
                         </Grid>
                     }
 
-                    <Grid item xs={12}>
+                    <Grid item xs={12} lg={3}>
                         <LoadingButton isLoading={isLoading}>
                             Salvar Alterações
                         </LoadingButton>

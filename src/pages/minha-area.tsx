@@ -8,7 +8,6 @@ import { PersonalDataForm, ShippingForm } from '@components/forms'
 import User, { UserProps } from '@services/user'
 import { Snackbar } from '@material-ui/core'
 import MuiAlert, { AlertProps, Color } from '@material-ui/lab/Alert'
-import LoadingButton from '@components/loading-button'
 import { ParticipationHistory } from '@components/participations'
 
 

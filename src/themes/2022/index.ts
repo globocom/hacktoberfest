@@ -6,9 +6,9 @@ theme.palette = {
   ...theme.palette,
   primary: {
     main: "#000",
-    contrastText: "#FFF",
+    contrastText: "#fff",
     light: "#4E3BFB",
-    dark: "#090055",
+    dark: "#bababa",
   },
   secondary: {
     main: "#fff",
@@ -27,6 +27,18 @@ theme.palette = {
     hint: "#FFF",
   },
   type: "light",
+}
+
+theme.breakpoints = {
+  ...theme.breakpoints,
+  values: {
+    ...theme.breakpoints.values,
+    xs: 320,
+    sm: 375,
+    md: 768,
+    lg: 1024,
+    xl: 1980
+  }
 }
 
 theme.typography = {

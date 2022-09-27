@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     colored: {
         color: theme.palette.primary.contrastText,
+        lineHeight: '48px',
         fontSize: '2.25rem',
         [theme.breakpoints.up("lg")]: {
             fontSize: '3.25rem',
