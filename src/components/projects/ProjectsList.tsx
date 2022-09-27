@@ -60,7 +60,8 @@ const ProjectsList = (props: ProjectListProps) => {
   const [error, setError] = useState(false)
 
   const breakpointColumnsObj = {
-    default: 3,
+    default: 4,
+    1620: 3,
     1024: 2,
     768: 1,
     320: 1

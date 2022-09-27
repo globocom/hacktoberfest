@@ -83,7 +83,7 @@ const NavigationItems = (props: NavigationItemsProps) => {
   return (
     <ul className={classes.navigation}>
       {isDesktop && 
-      <li style={{paddingTop: 15}}>
+      <li style={{paddingTop: 15, marginRight: 40}}>
         <Logo/>
       </li>
       }

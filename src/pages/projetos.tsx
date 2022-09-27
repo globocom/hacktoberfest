@@ -28,10 +28,10 @@ const ProjectsPage = () => {
     >
       <React.Fragment>
         <Grid container justifyContent="center">
-            <Grid item xs={12} md={10}>
+            <Grid item xs={12}>
               <Spacing desktop={{margin: "5vh 0px 40px 0px"}} smart={{ margin: "64px 12px 0px 12px" }}>
                 <div>
-                  <HeaderTitle title={"Principais Projetos"}/>
+                  <HeaderTitle title={"Projetos"}/>
                 </div>
               </Spacing>
               <Spacing desktop={{margin: "0px 0px 10vh 0px"}} smart={{ margin: "24px 12px 40px 12px" }}>
