@@ -22,7 +22,7 @@ theme.palette = {
   },
   text: {
     primary: "#fff",
-    secondary: "#000",
+    secondary: "#fff",
     disabled: "#FFFFFFA3",
     hint: "#FFF",
   },

@@ -7,6 +7,7 @@ import User, { UserProps } from '@services/user'
 import Spacing from '@components/spacing'
 import LoadingButton from '@components/loading-button'
 import {SnackbarContext} from '@components/snackbar/HacktoberfestSnackbar'
+import { HacktoberfestTextInput } from '@components/text-input'
 
 //Icons
 import EmailIcon from '@material-ui/icons/Email'
@@ -64,7 +65,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                                 <Typography style={{fontWeight: 600}} component="h2" color="secondary" variant="h2">Dados pessoais</Typography>
                             </Grid>
                             <Grid item xs={12} md={8}>
-                                <TextField
+                                <HacktoberfestTextInput
                                     fullWidth
                                     onChange={formik.handleChange}
                                     value={formik.values.githubUser}
@@ -82,7 +83,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                                 />
                             </Grid>
                             <Grid item xs={12} md={4}>
-                                <TextField
+                                <HacktoberfestTextInput
                                     color="primary"
                                     value={formik.values.githubID}
                                     fullWidth
@@ -96,7 +97,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                         </>
                         }
                         <Grid item xs={12}>
-                            <TextField
+                            <HacktoberfestTextInput
                                 onChange={formik.handleChange}
                                 name="email"
                                 value={formik.values.email}
@@ -112,8 +113,8 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={6}>
-                            <LoadingButton isLoading={isLoading}>
+                        <Grid item xs={12} lg={5}>
+                            <LoadingButton fullWidth isLoading={isLoading}>
                                 Salvar Alterações
                             </LoadingButton>
                         </Grid>

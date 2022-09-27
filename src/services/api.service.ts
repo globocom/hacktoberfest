@@ -1,4 +1,4 @@
-const API_URL: string = process.env.GATSBY_API_URL || ""
+const API_URL: string = process.env.GATSBY_API_URL || "http://localhost:3000"
 
 interface ApiResponse {
   data: any
