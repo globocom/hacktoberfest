@@ -61,7 +61,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: '7.5vw',
     width: '100%',
     margin: 0,
-    fontWeight: 200,
+    fontWeight: 100,
+    marginTop: '1.2vw',
     [theme.breakpoints.between("sm", "md")]: {
       fontSize: '5.95vw',
     }
@@ -128,19 +129,19 @@ const LoggedView = (user: UserProps) => {
 }
 
 const ProgressMessage = (props: any) => (
-    <Typography align="left" variant="h5" component="h5">  Você tem <b> {props.opened} PRs enviados e {props.merged} aceito(s) </b> </Typography>
+    <Typography align="left" variant="body1" component="h5">  Você tem <b> {props.opened} PRs enviados e {props.merged} aceito(s) </b> </Typography>
 )
 
 const ConfirmMessage = () => (
   <div style={{minWidth: '100%'}}>
-    <Typography align="left" variant="h5" component="h5">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
+    <Typography align="left" variant="body1" component="h5">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
   </div>
 )
 
 
 const CongratsMessage = () => (
   <div style={{minWidth: '100%'}}>
-    <Typography align="left" variant="h5" component="h5">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar!</b> </Typography>
+    <Typography align="left" variant="body1" component="h5" >  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar!</b> </Typography>
   </div>
 )
 
@@ -151,7 +152,7 @@ const UnloggedView = () => {
           <Grid container justifyContent="center" alignContent="center" className="containerUserViewSmart">
             <Spacing smart={{margin: "0px 0px 16px 0px;"}}>
               <Grid item xs={12}>
-                <Typography align="center" variant="h3" component="h3" style={{fontSize: '0.75rem', fontWeight: 700 }}>
+                <Typography align="center" variant="h3" component="h3" style={{fontSize: '1rem', fontWeight: 700 }}>
                   contribua e ganhe uma camiseta exclusiva
                 </Typography>
               </Grid>
@@ -186,7 +187,7 @@ const SmartView = (props: SmartViewProps) => {
               justifyContent="center"
             >
                 <Grid item xs={12}></Grid>
-                <Spacing smart={{margin: "0px 0px 16px 0px;"}}>
+                <Spacing smart={{margin: "0px 0px 80px 0px;"}}>
                   <Grid item xs={12}>
                       <Image className={classes.logoEdition} src={`2022/logo_smart.png`}/>
                       <Typography variant="h1" align="left" component="h2" className={classes.titleData}>

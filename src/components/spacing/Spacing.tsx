@@ -16,7 +16,7 @@ const useMargins = makeStyles((theme: Theme) => ({
   spacing: (props: SpacingProps) => ({
     margin: props.smart.margin,
     padding: props.smart.padding,
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       margin: props.desktop?.margin,
       padding: props.desktop?.padding,
     },

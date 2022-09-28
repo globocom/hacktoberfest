@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import {
   CircularProgress,
   Typography,
+  Grid
 } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     backdropFilter: "blur(16px)",
     borderRadius: "24px",
     marginBottom: 24,
-    padding: 24,
+    padding: 24
   },
   masonryGrid: {
     display: "flex",
@@ -47,14 +48,19 @@ const useStyles = makeStyles((theme: Theme) => ({
         marginRight: 24
       }
   },
+  homeCard: {
+    marginRight: 12,
+    height: "95%",
+    width: "95%"
+  },
   projectDescription: {
     lineHeight: '24px'
-  }
+  },
 }))
 
 const ProjectsList = (props: ProjectListProps) => {
   const classes = useStyles();
-  const { listLimit = 0 } = props
+  const { listLimit = 0, useMansonry = true } = props
   const [projects, setProjects] = useState<Array<ProjectProps>>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -87,23 +93,32 @@ const ProjectsList = (props: ProjectListProps) => {
 
   return (
     <>
-       {loading ? (
-            <ProjectsListLoading />
-          ) : error ? (
-            <ProjectsListError />
-          ) : (
-            <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className={classes.masonryGrid}
-            columnClassName={classes.masonryGridCol}>
-               {projects.map((project, index) => {
-                  return <ProjectCard key={index} {...project} />
-                })
-              }
-          </Masonry>
-          )}
-    </>
+      {loading && ( <ProjectsListLoading /> ) }
+      {(!loading && error) && ( <ProjectsListError /> ) }
 
+      {(!loading && !error && !useMansonry && 
+        <Grid container> 
+          {projects.map((project, index) => {
+                return <Grid item xs={12} md={4} lg={4} xl={2} > 
+                  <ProjectCard key={index} {...project} isHome={true} />
+                </Grid>
+          })}
+        </Grid>
+      )}
+
+      
+      {(!loading && !error && useMansonry && <Masonry
+              breakpointCols={breakpointColumnsObj}
+              className={classes.masonryGrid}
+              columnClassName={classes.masonryGridCol}>
+                  {projects.map((project, index) => {
+                    return <ProjectCard key={index} {...project} />
+                  })
+                }
+            </Masonry>
+      )}
+
+    </>
   )
 }
 
@@ -126,14 +141,14 @@ function ProjectsListError() {
 
 function ProjectCard(props: ProjectProps) {
   const classes = useStyles()
-  const { name, description, repo, imageUrl, stats = {} } = props;
+  const { name, description, repo, imageUrl, stats = {}, isHome } = props;
   function accessProjectRepo() {
     window.open(repo, "_blank", "noopener,noreferrer")
   }
   const items:string[] = _.get(stats, 'repository.repoLanguages.items', []);
   return (
     <React.Fragment>
-      <div className={classes.projectCard}>
+      <Grid container direction="column" justifyContent="space-between" className={ isHome ? [classes.projectCard, classes.homeCard].join(" ") : classes.projectCard}>
           {items.length > 0 && <RepoLanguages languages={[items[0]]} /> }
           <div>
             <Typography className={classes.projectName} component="p">{name}</Typography>
@@ -145,13 +160,14 @@ function ProjectCard(props: ProjectProps) {
             <Typography style={{marginRight: 10, fontWeight: 600}} component="p" variant="body1">acessar {name}</Typography>
             <ArrowForwardIcon color="secondary"/>
           </div>
-      </div>
+      </Grid>
     </React.Fragment>
   )
 }
 
 interface ProjectListProps {
   listLimit?: number
+  useMansonry?: boolean
 }
 
 export default ProjectsList

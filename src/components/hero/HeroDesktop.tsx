@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     zIndex: 1
   },
   progressionContainer: {
-    width: '38vw',
+    width: '30vw',
     maxWidth: 430
   },
   progression: {
@@ -51,6 +51,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   active: {
     borderBottom: `2px solid ${theme.palette.secondary.main}`,
+  },
+  buttonText: {
+    padding: 16,
+    color: "#000",
+    fontSize: '1rem',
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      fontSize: '1.125rem',
+    }
+  },
+  contributeText:{
+    fontSize: '1rem',
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      fontSize: '1.125rem',
+    }
   }
 }))
 
@@ -142,7 +156,7 @@ const UnloggedView = () => {
         justifyContent="center"
       >
         <Grid item xs={12}>
-          <Typography align="center" variant="h3" component="h3">
+          <Typography align="center" className={classes.contributeText} variant="h3" component="h3">
             contribua e ganhe uma camiseta exclusiva
           </Typography>
         </Grid>
@@ -155,7 +169,7 @@ const UnloggedView = () => {
               fullWidth
               variant="contained"
             >
-              <Typography style={{padding: 18, color: "#000"}} component="p" variant="body2" align="center">
+              <Typography className={classes.buttonText} component="p" variant="body2" align="center">
                   <b>participar</b> com sua conta do github
               </Typography>
             </Button>
@@ -170,15 +184,15 @@ const DesktopView = (props: DesktopViewProps) => {
   return (
       <Grid
         container
-        alignItems="center"
+        alignItems="flex-end"
         >
-        <Grid item sm={7}>
+        <Grid item sm={8}>
             <Image className={classes.logoEdition} src={`2022/logo.png`} />
-            <Typography variant="h1" align="left" style={{fontSize: "2.9vw"}} component="h2">
+            <Typography variant="h1" align="left" style={{fontSize: "3.48vw", fontWeight: 100, height: '54px', marginTop: '1.2vw'}} component="h2">
               01.10.2022 — 31.10.2022
             </Typography>
         </Grid>
-        <Grid item sm={5} className="userLoginContainer">
+        <Grid item sm={4} className="userLoginContainer">
           {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
         </Grid>
       </Grid>

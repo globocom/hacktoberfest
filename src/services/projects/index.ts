@@ -13,6 +13,7 @@ export interface ProjectProps {
   docs: string
   description: string
   stats: ProjectStats
+  isHome?:boolean
 }
 
 interface ProjectImage {

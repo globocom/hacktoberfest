@@ -12,13 +12,18 @@ theme.palette = {
   },
   secondary: {
     main: "#fff",
-    contrastText: "#fff",
+    contrastText: "#000",
     light: "#000",
-    dark: "#bf497b",
+    dark: "#878787",
   },
   background: {
     default: "#000000",
     paper: "#FFFFFF"
+  },
+  action:{
+    ...theme.palette.action,
+    disabledBackground: "#7d7d7d",
+    disabled: "#b8b8b8"
   },
   text: {
     primary: "#fff",

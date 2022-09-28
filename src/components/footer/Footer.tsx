@@ -45,7 +45,7 @@ const FooterItems = (props: FooterItemsProps) => {
             <Grid item xs={12} md={2} lg={2}>
                   <Typography className={classes.menuItem} style={{fontWeight: "bolder"}} variant="body1" component="p">
                     <a target="_blank" href={"https://globo.com"}>
-                      globo.com
+                      globo.com Opensource
                     </a>
                   </Typography>
             </Grid>
@@ -68,7 +68,7 @@ const Footer = () => {
     const classes = makeCss()
     return (
           <Grid container justifyContent="center" alignItems="center">
-            <Grid item xs={12} md={11}>
+            <Grid item xs={12}>
               <footer className={classes.root}>
                 <Grid container justifyContent="flex-start" alignItems="flex-start">
                       <FooterItems menuItems={MENU_ITEMS}/>

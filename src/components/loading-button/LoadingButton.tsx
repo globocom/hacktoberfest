@@ -11,7 +11,7 @@ interface LoadingButtonProps {
 const LoadingButton = (props: LoadingButtonProps) => {
 
     return (
-        <Button fullWidth disabled={props.isLoading} type="submit" variant="contained" color="primary" size="large">
+        <Button style={{textTransform: "lowercase", fontWeight: 600}} fullWidth disabled={props.isLoading} type="submit" variant="contained" color="secondary" size="large">
             {props.isLoading ? "Processando..." : props.children}
             {props.isLoading && <CircularProgress size="1.1rem" color="inherit"/> }
         </Button>

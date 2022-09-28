@@ -46,10 +46,9 @@ const RuleBookPage = () => {
       title="Regras e Princípios - Globo Hacktoberfest"
       description="Regras e Princípos - Globo Hacktoberfest"
       headerTitle="Regras e Princípios">
-      <Spacing smart={{padding: "0px 8vw"}}>
-        <Grid container direction="column" justifyContent="center" alignItems="flex-start" alignContent="center">
+        <Grid container direction="column" justifyContent="center" alignItems="flex-start">
           <Spacing smart={{margin: "5vh 0 10vh 0"}}>
-            <Grid item xs={12}>
+            <Grid item xs={12} lg={6}>
               <Typography className={classes.fontSection} variant="h2" component="h2" color="secondary"> Princípios </Typography>
             </Grid>
           </Spacing>
@@ -103,7 +102,6 @@ const RuleBookPage = () => {
             </Grid>
           </Spacing>
         </Grid>
-      </Spacing>
     </Layout>
   )
 }

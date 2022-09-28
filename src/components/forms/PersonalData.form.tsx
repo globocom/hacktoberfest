@@ -73,7 +73,7 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
 
     return (
         <React.Fragment>
-            <Spacing desktop={{margin: "40px 0px"}} smart={{margin: "40px 0px"}}>
+            <Spacing desktop={{margin: "160px 0px 0px 0px"}} smart={{margin: "40px 0px"}}>
                 <form onSubmit={formik.handleSubmit}>
                     <Grid container spacing={2}>
                         {!showOnlyEmailField && <>
@@ -136,11 +136,13 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={12} lg={3}>
-                            <LoadingButton fullWidth isLoading={isLoading}>
-                                Salvar Alterações
-                            </LoadingButton>
-                        </Grid>
+                        <Spacing smart={{margin: "0 0 80px 0"}} desktop={{margin: "0 0 160px 0"}}>
+                            <Grid item xs={12} lg={3}>
+                                <LoadingButton fullWidth isLoading={isLoading}>
+                                    Salvar Alterações
+                                </LoadingButton>
+                            </Grid>
+                        </Spacing>
                     </Grid>
                 </form>
             </Spacing>

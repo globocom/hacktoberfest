@@ -50,7 +50,7 @@ const PersonalAreaPage = () => {
                 <Grid container alignItems="flex-start" alignContent="center" direction="column">
                     { loaded && user?.id &&
                         <React.Fragment>
-                            <Grid item xs={11} lg={10}>
+                            <Grid style={{maxWidth: 944}} item xs={12} lg={6}>
                                 <PersonalDataForm user={user}/>
                                 <ParticipationHistory user={user}/>
                                 <ShippingForm showSnackBar={showSnackBar} user={user}/>

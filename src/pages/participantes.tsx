@@ -20,7 +20,7 @@ const ParticipantsPage = () => {
     <Layout title="Participantes - Globo Hacktoberfest" description="Participantes - Globo Hacktoberfest" headerTitle="Participantes">
       <Grid container justifyContent="center" alignContent="center">
         <Spacing smart={{ margin: "38px 0px 100px" }}>
-          <Grid item xs={10}>
+          <Grid item xs={12}>
               <Spacing desktop={{margin: "5vh 0px 40px 0px"}} smart={{ margin: "64px 12px 0px 12px" }}>
                 <div>
                   <HeaderTitle title={"Participantes"}/>
