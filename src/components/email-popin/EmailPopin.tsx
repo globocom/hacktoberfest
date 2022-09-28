@@ -6,15 +6,15 @@ import Spacing from "@components/spacing"
 const useStyles = makeStyles((theme: Theme) => ({
   modal: {
     position: 'absolute' as 'absolute',
-    backgroundColor: theme.palette.background.paper,
+    background: "#1f1e1e",
     top: '50%',
     left: '50%',
     fontFamily: theme.typography.fontFamily,
     transform: 'translate(-50%, -50%)',
     width: "80%",
     boxShadow: '4px 4px 4px black',
-    [theme.breakpoints.up("md")]: {
-      width: "25%",
+    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
+      width: "55%",
     }
   }
 }))
@@ -41,12 +41,16 @@ const EmailPopin = (props:any) => {
             <Box className={classes.modal}>
                 <Spacing smart={{padding: "20px"}}>
                     <div>
-                        <Typography id="transition-modal-title" variant="h2" component="h3" color="secondary">
+                        <Typography id="transition-modal-title" variant="h2" component="h3">
                             Email para contato
                         </Typography>
-                        <Typography variant="body2" component="span">
-                            Precisamos do seu e-mail para enviarmos atualizações sobre o evento e entrarmos em contato caso seja necessário confirmar algum dado para premiação.
-                        </Typography>
+                        <Spacing smart={{margin: "40px 0px"}}>
+                          <div>
+                            <Typography variant="body2" component="span">
+                                Precisamos do seu e-mail para enviarmos atualizações sobre o evento e entrarmos em contato caso seja necessário confirmar algum dado para premiação.
+                            </Typography>
+                          </div>
+                        </Spacing>
                         <PersonalDataForm showOnlyEmailField onSuccess={handleClose} user={props.user}/>
                     </div>
                 </Spacing>

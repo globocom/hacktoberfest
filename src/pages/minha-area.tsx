@@ -4,6 +4,7 @@ import { Grid } from '@material-ui/core'
 
 //Internal Components
 import Layout from '@components/layout'
+import Spacing from '@components/spacing'
 import { PersonalDataForm, ShippingForm } from '@components/forms'
 import User, { UserProps } from '@services/user'
 import { Snackbar } from '@material-ui/core'
@@ -51,7 +52,11 @@ const PersonalAreaPage = () => {
                     { loaded && user?.id &&
                         <React.Fragment>
                             <Grid style={{maxWidth: 944}} item xs={12} lg={6}>
-                                <PersonalDataForm user={user}/>
+                                <Spacing desktop={{margin: "160px 0px"}} smart={{margin: "40px 0px 80px 0px"}}>
+                                    <div>
+                                        <PersonalDataForm user={user}/>
+                                    </div>
+                                </Spacing>
                                 <ParticipationHistory user={user}/>
                                 <ShippingForm showSnackBar={showSnackBar} user={user}/>
                             </Grid>

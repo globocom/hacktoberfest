@@ -101,7 +101,7 @@ const ProjectsList = (props: ProjectListProps) => {
       {(!loading && !error && !useMansonry && 
         <Grid container> 
           {projects.map((project, index) => {
-                return <Grid item xs={12} md={4} lg={4} xl={2} > 
+                return <Grid key={index} item xs={12} md={4} lg={4} xl={2} > 
                   <ProjectCard key={index} {...project} isHome={true} />
                 </Grid>
           })}

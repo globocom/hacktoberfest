@@ -51,7 +51,7 @@ const FooterDesktop = (props: FooterItemsProps) => {
                       </Typography>
                     </Grid>
                     {props.menuItems.map((item: MenuItem, i: number) => (
-                          <Grid item md={3}>
+                          <Grid key={i} item md={3}>
                               <Typography className={classes.menuItem} variant="body1" component="p">
                                 <a  target="_blank" href={item.link}>
                                   {item.label}

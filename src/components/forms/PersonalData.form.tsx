@@ -73,79 +73,77 @@ const PersonalDataForm = (props:PersonalDataFormProps) => {
 
     return (
         <React.Fragment>
-            <Spacing desktop={{margin: "160px 0px 0px 0px"}} smart={{margin: "40px 0px"}}>
                 <form onSubmit={formik.handleSubmit}>
-                    <Grid container spacing={2}>
-                        {!showOnlyEmailField && <>
-                            <Spacing smart={{margin: "0px 0px 16px 0px"}}>
-                                <Grid item xs={12}>
-                                    <Typography className={classes.fontCall} component="h2" color="secondary" variant="h2">Dados pessoais</Typography>
+                    <Spacing smart={{margin: "0 0 40px 0"}}>
+                        <Grid container spacing={2}>
+                            {!showOnlyEmailField && <>
+                                <Spacing smart={{margin: "0px 0px 16px 0px"}}>
+                                    <Grid item xs={12}>
+                                        <Typography className={classes.fontCall} component="h2" color="secondary" variant="h2">Dados pessoais</Typography>
+                                    </Grid>
+                                </Spacing>
+                                <Spacing smart={{margin: "0px 0px 34px 0px"}}>
+                                    <Grid item xs={12}>
+                                        <Typography component="h3" color="secondary" variant="h3">Preencha o seu e-mail para podermos enviar atualizações sobre o evento.</Typography>
+                                    </Grid>
+                                </Spacing>
+                                <Grid item xs={12} md={8}>
+                                    <HacktoberfestTextInput
+                                        fullWidth
+                                        onChange={formik.handleChange}
+                                        value={formik.values.githubUser}
+                                        name="githubUser"
+                                        id="githubUser"
+                                        color="primary"
+                                        variant="outlined"
+                                        label="Github"
+                                        error={formik.touched.githubUser && Boolean(formik.errors.githubUser)}
+                                        helperText={formik.touched.githubUser && formik.errors.githubUser}
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start">@</InputAdornment>,
+                                            readOnly: true
+                                        }}
+                                    />
                                 </Grid>
-                            </Spacing>
-                            <Spacing smart={{margin: "0px 0px 34px 0px"}}>
-                                <Grid item xs={12}>
-                                    <Typography component="h3" color="secondary" variant="h3">Preencha o seu e-mail para podermos enviar atualizações sobre o evento.</Typography>
+                                <Grid item xs={12} md={4}>
+                                    <HacktoberfestTextInput
+                                        color="primary"
+                                        value={formik.values.githubID}
+                                        fullWidth
+                                        variant="outlined"
+                                        label="ID Github"
+                                        InputProps={{
+                                            readOnly: true
+                                        }}
+                                    />
                                 </Grid>
-                            </Spacing>
-                            <Grid item xs={12} md={8}>
+                            </>
+                            }
+                            <Grid item xs={12}>
                                 <HacktoberfestTextInput
-                                    fullWidth
                                     onChange={formik.handleChange}
-                                    value={formik.values.githubUser}
-                                    name="githubUser"
-                                    id="githubUser"
-                                    color="primary"
-                                    variant="outlined"
-                                    label="Github"
-                                    error={formik.touched.githubUser && Boolean(formik.errors.githubUser)}
-                                    helperText={formik.touched.githubUser && formik.errors.githubUser}
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position="start">@</InputAdornment>,
-                                        readOnly: true
-                                    }}
-                                />
-                            </Grid>
-                            <Grid item xs={12} md={4}>
-                                <HacktoberfestTextInput
-                                    color="primary"
-                                    value={formik.values.githubID}
+                                    name="email"
+                                    value={formik.values.email}
                                     fullWidth
                                     variant="outlined"
-                                    label="ID Github"
+                                    error={formik.touched.email && Boolean(formik.errors.email)}
+                                    helperText={formik.touched.email && formik.errors.email}
+                                    label="Email"
                                     InputProps={{
-                                        readOnly: true
+                                    startAdornment: <InputAdornment position="start">
+                                            <EmailIcon/>
+                                        </InputAdornment>
                                     }}
                                 />
                             </Grid>
-                        </>
-                        }
-                        <Grid item xs={12}>
-                            <HacktoberfestTextInput
-                                onChange={formik.handleChange}
-                                name="email"
-                                value={formik.values.email}
-                                fullWidth
-                                variant="outlined"
-                                error={formik.touched.email && Boolean(formik.errors.email)}
-                                helperText={formik.touched.email && formik.errors.email}
-                                label="Email"
-                                InputProps={{
-                                startAdornment: <InputAdornment position="start">
-                                        <EmailIcon/>
-                                    </InputAdornment>
-                                }}
-                            />
                         </Grid>
-                        <Spacing smart={{margin: "0 0 80px 0"}} desktop={{margin: "0 0 160px 0"}}>
-                            <Grid item xs={12} lg={3}>
-                                <LoadingButton fullWidth isLoading={isLoading}>
-                                    Salvar Alterações
-                                </LoadingButton>
-                            </Grid>
-                        </Spacing>
+                    </Spacing>
+                    <Grid item xs={12} lg={3}>
+                        <LoadingButton fullWidth isLoading={isLoading}>
+                            Salvar Alterações
+                        </LoadingButton>
                     </Grid>
                 </form>
-            </Spacing>
         </React.Fragment>
     )
 }
