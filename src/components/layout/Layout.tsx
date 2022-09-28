@@ -2,6 +2,7 @@ import * as React from "react"
 import './reset.css'
 import {Header, HeaderTitle} from "@components/header"
 import Footer from "@components/footer"
+import Slide from '@material-ui/core/Slide'
 import { makeStyles, Theme } from "@material-ui/core"
 import SEO from '@components/seo'
 import UserInfoAlert from "@components/user-info-alert"
@@ -35,10 +36,11 @@ const Layout = (props: LayoutProps) => {
     <div className={classes.root}>
         <SEO description={props.description || "Globo Hacktoberfest"}  title={props.title || "Globo Hacktoberfest"} />
         <Header />
-        {/*{props.headerTitle && <HeaderTitle title={props.headerTitle}/> }*/}
-          <main>
-            {props.children}
-          </main>
+          <Slide direction="up" timeout={1500} in={true} mountOnEnter unmountOnExit>
+            <main>
+              {props.children}
+            </main>
+          </Slide>
         <UserInfoAlert />
         <Footer/>
     </div>
