@@ -5,10 +5,11 @@ import { Image } from "@components/image"
 const useStyles = makeStyles(() => ({
   logo: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
   },
 }))
+
 
 const Logo = () => {
   const classes = useStyles()

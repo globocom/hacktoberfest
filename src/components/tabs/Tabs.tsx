@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: 8,
     "&.empty": {
       border: "1px solid white",
-      marginTop: 48,
+      margin: "48px 0px",
       justifyContent: "center",
       textAlign: "center",
       padding: "48px 80px",

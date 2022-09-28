@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme: Theme) => ({
         },
         [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
             maxWidth: '32%',
-            margin: 0
         }
         
     },
