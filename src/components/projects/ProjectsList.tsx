@@ -49,9 +49,11 @@ const useStyles = makeStyles((theme: Theme) => ({
       }
   },
   homeCard: {
-    marginRight: 12,
-    height: "95%",
-    width: "95%"
+    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
+      marginRight: 12,
+      height: "95%",
+      width: "95%"
+    }
   },
   projectDescription: {
     lineHeight: '24px'
