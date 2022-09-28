@@ -186,15 +186,13 @@ const SmartView = (props: SmartViewProps) => {
               alignContent="center"
               justifyContent="center"
             >
-                <Grid item xs={12}></Grid>
-                <Spacing smart={{margin: "0px 0px 80px 0px;"}}>
                   <Grid item xs={12}>
                       <Image className={classes.logoEdition} src={`2022/logo_smart.png`}/>
                       <Typography variant="h1" align="left" component="h2" className={classes.titleData}>
                         01.10.2022 — 31.10.2022
                       </Typography>
                   </Grid>
-                </Spacing>
+                
 
               {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
             </Grid>
