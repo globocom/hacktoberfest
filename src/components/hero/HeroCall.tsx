@@ -1,7 +1,7 @@
 import React from "react"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Hidden, useMediaQuery, Grid } from "@material-ui/core"
+import { Hidden, useMediaQuery, Grid, Box, Typography } from "@material-ui/core"
 import { Image } from "@components/image"
 
 
@@ -26,6 +26,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     display: "block",
   },
+  boxContainer: {
+    fontSize: "1.5em",
+    fontWeight: 300,
+    height: '20vh',
+    margin: '.4em .5em',
+    border: '1.5px solid #fff',
+    padding: '2em 1em',
+    display: 'flex',
+    alignItems: 'center',
+    borderRadius: '.9em',
+    lineHeight: '1.3em'
+  }
 }))
 
 
@@ -37,9 +49,9 @@ const HeroCall = (props: HeroCallProps) => {
   });
 
   const rules = [
-    "Contribua com dois PRs em qualquer projeto Open Source da Globo durante o mês de outubro.",
-    "Garanta que pelo menos um pull request seja ACEITO.",
-    "Os 100 primeiros inscritos que completarem os requisitos mínimos ganharão uma camiseta.*",
+    <Typography>Contribua com <b>dois Pull Requests</b> em qualquer projeto Open Source da Globo <b>durante o mês de outubro</b>.</Typography>,
+    <Typography>Garanta que pelo menos <b>um pull request</b> seja <b>ACEITO</b>.</Typography>,
+    <Typography>Os 100 primeiros inscritos que completarem os requisitos mínimos <b>ganharão uma camiseta</b>.*</Typography>,
   ]
 
   return (
@@ -51,8 +63,18 @@ const HeroCall = (props: HeroCallProps) => {
           </Grid>
         </Grid>
       </Spacing>
-      <Spacing smart={{ margin: "40px auto" }}>
-        <Image className={classes.terms} src={ isDesktop ? "hero/terms.svg" : "hero/terms_mobile.svg"} />
+      <Spacing smart={{ margin: "90px auto" }} desktop={{ margin: "30vh auto" }}>
+        <Grid container>
+          {
+            rules.map(rule =>
+              <Grid lg={4} xs={12}>
+                  <Typography variant="h1" align="left" className={classes.boxContainer} component="h5">
+                    {rule}
+                  </Typography>
+              </Grid>
+            )
+          }
+        </Grid>
       </Spacing>
     </div>
   )
