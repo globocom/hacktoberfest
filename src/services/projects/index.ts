@@ -1,5 +1,8 @@
 import Service from "./Projects.service"
 
+export interface Languages {
+  items: string[]
+}
 export interface ProjectProps {
   id: string
   name: string
@@ -9,8 +12,8 @@ export interface ProjectProps {
   imageUrl: ProjectImage
   docs: string
   description: string
-  languages: string[]
   stats: ProjectStats
+  isHome?:boolean
 }
 
 interface ProjectImage {
@@ -27,6 +30,7 @@ interface ProjectRepository {
   issues: { totalCount: number }
   pullRequests: { totalCount: number }
   stars: { totalCount: number }
+  repoLanguages: Languages
 }
 
 export default {

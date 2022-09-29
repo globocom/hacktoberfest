@@ -12,6 +12,7 @@
           "Preto"
         ]
       },
+      "editionLogo": "https://s3.glbimg.com/v1/AUTH_8b507d480c314f97a3b4b28346d025f5/hacktoberfest/Topo.png",
       "id": "872485b5-ff40-4448-9658-be866a387080",
       "projects": [
         {
@@ -328,12 +329,11 @@
       "name": "Arturito",
       "state": "RJ",
       "city": "Rio de Janeiro",
-      "shirtSize": "BLG",
+      "shirtSize": "",
       "shirtColor": "",
       "avatarURL": "https://avatars0.githubusercontent.com/u/1333599?v=4",
       "githubUser": "marcuscartagenes",
       "githubID": "120391203",
-      "email": "mvcartagenes@gmail.com",
       "hacktoberfest": {
         "2019": {
           "opened": 2,
@@ -379,20 +379,113 @@
         },
         "2021": {
           "approved": true,
-          "completed": false,
+          "completed": true,
           "completed_at": "0001-01-01T00:00:00Z",
           "totalMergeRequests": 5,
           "totalMergeRequestsMerged": 2
         }
       },
-      "postalCode": "4234234"
+      "postalCode": "4234234",
+      "email": "feras_cart@hotmail.com"
     }
   },
   "status": {
     "success": true,
     "status": 200,
     "type": "ok",
-    "result": []
+    "result": [
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": false
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": false
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": false
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": false
+      },
+      {
+        "githubID": "6109737",
+        "githubUser": "wmarquardt",
+        "avatar": "https://avatars1.githubusercontent.com/u/6109737?v=4",
+        "total_pull_requests": 8,
+        "approved": true
+      }
+    ]
   },
   "projects": {
     "success": true,
@@ -413,44 +506,42 @@
           },
           "docs": "https://github.com/globocom/secDevLabs/blob/master/README.md",
           "description": "A laboratory for learning secure web and mobile development in a practical manner.",
-          "languages": [
-            "PHP",
-            "JavaScript",
-            "CSS",
-            "HTML",
-            "SCSS",
-            "Less",
-            "Go",
-            "Shell",
-            "Dart",
-            "Python",
-            "Makefile",
-            "TypeScript",
-            "Java",
-            "Ruby",
-            "Dockerfile",
-            "Swift",
-            "Kotlin",
-            "Hack",
-            "Objective-C"
-          ],
           "stats": {
             "repository": {
               "object": {
                 "commit": {
                   "history": {
-                    "totalCount": 654
+                    "totalCount": 693
                   }
                 }
               },
               "issues": {
-                "totalCount": 60
+                "totalCount": 66
               },
               "pullRequests": {
-                "totalCount": 463
+                "totalCount": 517
               },
               "stars": {
-                "totalCount": 613
+                "totalCount": 712
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "Makefile"
+                  },
+                  {
+                    "name": "PHP"
+                  },
+                  {
+                    "name": "CSS"
+                  },
+                  {
+                    "name": "HTML"
+                  },
+                  {
+                    "name": "JavaScript"
+                  }
+                ]
               }
             }
           }
@@ -463,11 +554,7 @@
           "isHighlighted": false,
           "imageUrl": {},
           "docs": "https://github.com/globocom/goreq/blob/master/README.md",
-          "description": "Simple and sane HTTP request library for Go language.",
-          "languages": [
-            "Go",
-            "Makefile"
-          ]
+          "description": "Simple and sane HTTP request library for Go language."
         },
         {
           "id": "0269cf4b-1587-404d-9bd2-c669faa05237",
@@ -482,9 +569,6 @@
           },
           "docs": "https://docs.tsuru.io/stable/",
           "description": "Open source, extensible and Docker-based Platform as a Service (PaaS).",
-          "languages": [
-            "Go"
-          ],
           "stats": {
             "repository": {
               "object": {
@@ -495,13 +579,32 @@
                 }
               },
               "issues": {
-                "totalCount": 1496
+                "totalCount": 1504
               },
               "pullRequests": {
-                "totalCount": 1010
+                "totalCount": 1062
               },
               "stars": {
-                "totalCount": 3683
+                "totalCount": 4108
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "Go"
+                  },
+                  {
+                    "name": "Shell"
+                  },
+                  {
+                    "name": "Makefile"
+                  },
+                  {
+                    "name": "Ruby"
+                  },
+                  {
+                    "name": "Dockerfile"
+                  }
+                ]
               }
             }
           }
@@ -519,26 +622,39 @@
           },
           "docs": "https://clappr.github.io/",
           "description": "An extensible media player for the web.",
-          "languages": [
-            "HTML"
-          ],
           "stats": {
             "repository": {
               "object": {
                 "commit": {
                   "history": {
-                    "totalCount": 4210
+                    "totalCount": 4206
                   }
                 }
               },
               "issues": {
-                "totalCount": 1420
+                "totalCount": 1451
               },
               "pullRequests": {
-                "totalCount": 610
+                "totalCount": 619
               },
               "stars": {
-                "totalCount": 5371
+                "totalCount": 5925
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "JavaScript"
+                  },
+                  {
+                    "name": "CSS"
+                  },
+                  {
+                    "name": "HTML"
+                  },
+                  {
+                    "name": "Shell"
+                  }
+                ]
               }
             }
           }
@@ -556,26 +672,42 @@
           },
           "docs": "https://thumbor.readthedocs.io/en/latest/index.html",
           "description": "Thumbor is an open-source photo thumbnail service by globo.com.",
-          "languages": [
-            "Python"
-          ],
           "stats": {
             "repository": {
               "object": {
                 "commit": {
                   "history": {
-                    "totalCount": 2222
+                    "totalCount": 2336
                   }
                 }
               },
               "issues": {
-                "totalCount": 851
+                "totalCount": 902
               },
               "pullRequests": {
-                "totalCount": 513
+                "totalCount": 580
               },
               "stars": {
-                "totalCount": 8568
+                "totalCount": 9139
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "Python"
+                  },
+                  {
+                    "name": "C"
+                  },
+                  {
+                    "name": "Makefile"
+                  },
+                  {
+                    "name": "Shell"
+                  },
+                  {
+                    "name": "JavaScript"
+                  }
+                ]
               }
             }
           }
@@ -593,26 +725,42 @@
           },
           "docs": "https://github.com/globocom/secDevLabs/blob/master/README.md",
           "description": "A laboratory for learning secure web and mobile development in a practical manner.",
-          "languages": [
-            "PHP"
-          ],
           "stats": {
             "repository": {
               "object": {
                 "commit": {
                   "history": {
-                    "totalCount": 654
+                    "totalCount": 693
                   }
                 }
               },
               "issues": {
-                "totalCount": 60
+                "totalCount": 66
               },
               "pullRequests": {
-                "totalCount": 463
+                "totalCount": 517
               },
               "stars": {
-                "totalCount": 613
+                "totalCount": 712
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "Makefile"
+                  },
+                  {
+                    "name": "PHP"
+                  },
+                  {
+                    "name": "CSS"
+                  },
+                  {
+                    "name": "HTML"
+                  },
+                  {
+                    "name": "JavaScript"
+                  }
+                ]
               }
             }
           }
@@ -630,26 +778,39 @@
           },
           "docs": "https://huskyci.opensource.globo.com/docs/quickstart/overview",
           "description": "Performing security tests inside your CI.",
-          "languages": [
-            "Go"
-          ],
           "stats": {
             "repository": {
               "object": {
                 "commit": {
                   "history": {
-                    "totalCount": 1022
+                    "totalCount": 1024
                   }
                 }
               },
               "issues": {
-                "totalCount": 178
+                "totalCount": 179
               },
               "pullRequests": {
-                "totalCount": 359
+                "totalCount": 366
               },
               "stars": {
-                "totalCount": 444
+                "totalCount": 501
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "Go"
+                  },
+                  {
+                    "name": "Dockerfile"
+                  },
+                  {
+                    "name": "Makefile"
+                  },
+                  {
+                    "name": "Shell"
+                  }
+                ]
               }
             }
           }
@@ -667,26 +828,42 @@
           },
           "docs": "http://megadraft.io/#/docs/overview",
           "description": "Megadraft is a Rich Text editor built on top of Facebook's Draft.JS featuring a nice default base of components and extensibility",
-          "languages": [
-            "JavaScript"
-          ],
           "stats": {
             "repository": {
               "object": {
                 "commit": {
                   "history": {
-                    "totalCount": 594
+                    "totalCount": 612
                   }
                 }
               },
               "issues": {
-                "totalCount": 148
+                "totalCount": 154
               },
               "pullRequests": {
-                "totalCount": 203
+                "totalCount": 230
               },
               "stars": {
-                "totalCount": 1040
+                "totalCount": 1118
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "Makefile"
+                  },
+                  {
+                    "name": "JavaScript"
+                  },
+                  {
+                    "name": "HTML"
+                  },
+                  {
+                    "name": "Shell"
+                  },
+                  {
+                    "name": "SCSS"
+                  }
+                ]
               }
             }
           }
@@ -704,15 +881,12 @@
           },
           "docs": "https://github.com/globocom/GloboNetworkAPI-WebUI/blob/master/README.md",
           "description": "This web tool helps network administrator manage and automate networking resources (routers, switches and load balancers) and document logical and physical networking.",
-          "languages": [
-            "Python"
-          ],
           "stats": {
             "repository": {
               "object": {
                 "commit": {
                   "history": {
-                    "totalCount": 1230
+                    "totalCount": 1237
                   }
                 }
               },
@@ -720,10 +894,29 @@
                 "totalCount": 52
               },
               "pullRequests": {
-                "totalCount": 75
+                "totalCount": 79
               },
               "stars": {
-                "totalCount": 16
+                "totalCount": 18
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "Python"
+                  },
+                  {
+                    "name": "CSS"
+                  },
+                  {
+                    "name": "JavaScript"
+                  },
+                  {
+                    "name": "HTML"
+                  },
+                  {
+                    "name": "Makefile"
+                  }
+                ]
               }
             }
           }
@@ -736,10 +929,487 @@
           "isHighlighted": false,
           "imageUrl": {},
           "docs": "https://github.com/globocom/functions/blob/master/README.md",
-          "description": "Backstage Functions is an Open Source Serverless Platform able to store and execute code.",
-          "languages": [
-            "JavaScript"
-          ]
+          "description": "Backstage Functions is an Open Source Serverless Platform able to store and execute code."
+        },
+        {
+          "id": "ad489e78-0854-49aa-89a1-0fd3851bcf77",
+          "name": "Auror Core",
+          "site": "",
+          "repo": "https://github.com/globocom/auror-core",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/auror-core/blob/master/README.md",
+          "description": "Simple Flow creation for Azkaban"
+        },
+        {
+          "id": "cae5985a-14c8-47bb-b077-ed3b5cd6ae7c",
+          "name": "Azkaban CLI",
+          "site": "",
+          "repo": "https://github.com/globocom/azkaban-cli",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/azkaban-cli/blob/master/README.md",
+          "description": "CLI for Azkaban 3 API access and flow upload."
+        },
+        {
+          "id": "993abbca-c24c-4c10-97e3-cc55088c075a",
+          "name": "Echo Prometheus",
+          "site": "",
+          "repo": "https://github.com/globocom/echo-prometheus",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/echo-prometheus/blob/master/README.md",
+          "description": "Middleware for echo v4 to instrument all handlers as metrics"
+        },
+        {
+          "id": "02b37d0d-0839-4f79-bfd9-e46b1d0341f1",
+          "name": "GHDFS",
+          "site": "",
+          "repo": "https://github.com/globocom/ghdfs/",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/ghdfs/blob/master/README.md",
+          "description": "Works with HDFS for common operations and Scala compatibility."
+        },
+        {
+          "id": "26c26725-2925-4ccb-a839-596982425676",
+          "name": "GCloud Utils",
+          "site": "",
+          "repo": "https://github.com/globocom/gcloud-utils",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/gcloud-utils/blob/master/README.md",
+          "description": "Global package for Cloud Management"
+        },
+        {
+          "id": "36af0dfb-26a5-47e5-8b6f-ede37f699658",
+          "name": "Gedis",
+          "site": "",
+          "repo": "https://github.com/globocom/gedis/",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/gedis/blob/master/README.md",
+          "description": "Resilient Jedis adapter for Scala made with love by Globo.com"
+        },
+        {
+          "id": "f3df7224-1f92-47cd-a0b7-a62e16f11ef3",
+          "name": "M3U8",
+          "site": "",
+          "repo": "https://github.com/globocom/m3u8",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/m3u8/blob/master/README.rst",
+          "description": "Python m3u8 parser."
+        },
+        {
+          "id": "4a4cc834-6a3c-4897-9317-3625c1e6c689",
+          "name": "SLO Generator",
+          "site": "",
+          "repo": "https://github.com/globocom/slo-generator",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/slo-generator/blob/master/README.md",
+          "description": "Easily setup a service level objective using prometheus, based on lessons from the SRE workbook."
+        },
+        {
+          "id": "cfa8b949-e682-40c5-a477-93a123618998",
+          "name": "huskyCI Dashboard",
+          "site": "",
+          "repo": "https://github.com/globocom/huskyCI-dashboard",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/huskyCI-dashboard/blob/master/README.md",
+          "description": "This project provides a front-end for every huskyCI user to check the stats of the analyses done."
+        },
+        {
+          "id": "1c0a5b56-9e79-4e3e-84f1-be30aa522903",
+          "name": "Globo Network API",
+          "site": "",
+          "repo": "https://github.com/globocom/GloboNetworkAPI",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://globonetworkapi.readthedocs.io/en/latest/",
+          "description": "Globo NetworkAPI is a REST API that manages IP networking resources."
+        },
+        {
+          "id": "c9df0166-4a2e-42fd-9c9a-be9b32cc92b5",
+          "name": "GSH",
+          "site": "",
+          "repo": "https://github.com/globocom/gsh",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/gsh/blob/master/README.md",
+          "description": "GSH is an OpenID Connect-compatible authentication system for systems using OpenSSH servers consisting of an out-of-box binary set."
+        },
+        {
+          "id": "6621e98c-3ef1-44f6-a1c4-8026eb66a530",
+          "name": "Pretty Log",
+          "site": "",
+          "repo": "https://github.com/globocom/prettylog",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/prettylog/blob/master/README.md",
+          "description": "Ferramenta para exibi��o de logs estruturados em JSON em formato compat�vel com seres humanos."
+        },
+        {
+          "id": "22bcad12-c518-4505-a739-a780547e0799",
+          "name": "Fastlane Queue",
+          "site": "",
+          "repo": "https://github.com/fastlane-queue",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://fastlane.readthedocs.io/",
+          "description": "More seriously, though, fastlane allows you to easily implement new workers in the form of containers."
+        },
+        {
+          "id": "d0829f96-1472-4a03-984d-1d6fc6a025eb",
+          "name": "GoReq",
+          "site": "",
+          "repo": "https://github.com/globocom/goreq",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/goreq/blob/master/README.md",
+          "description": "Simple and sane HTTP request library for Go language."
+        },
+        {
+          "id": "ab13abee-1cbb-4682-b224-c66c7f21e369",
+          "name": "Globo Network API Web UI",
+          "site": "",
+          "repo": "https://github.com/globocom/GloboNetworkAPI-Webui",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/GloboNetworkAPI-WebUI/blob/master/README.md",
+          "description": "This web tool helps network administrator manage and automate networking resources (routers, switches and load balancers) and document logical and physical networking."
+        },
+        {
+          "id": "a0107f32-afa2-4bc8-8154-4a1e62b97ddd",
+          "name": "Backstage Functions",
+          "site": "",
+          "repo": "https://github.com/globocom/functions",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/functions/blob/master/README.md",
+          "description": "Backstage Functions is an Open Source Serverless Platform able to store and execute code."
+        },
+        {
+          "id": "5d7baa05-2ea3-4561-b741-67df027b722b",
+          "name": "Auror Core",
+          "site": "",
+          "repo": "https://github.com/globocom/auror-core",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/auror-core/blob/master/README.md",
+          "description": "Simple Flow creation for Azkaban"
+        },
+        {
+          "id": "37e9bfa4-db85-4a84-a534-3d23d1c82143",
+          "name": "Azkaban CLI",
+          "site": "",
+          "repo": "https://github.com/globocom/azkaban-cli",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/azkaban-cli/blob/master/README.md",
+          "description": "CLI for Azkaban 3 API access and flow upload."
+        },
+        {
+          "id": "15cc3b17-8c82-4bf1-ae03-cf30ecb88537",
+          "name": "Echo Prometheus",
+          "site": "",
+          "repo": "https://github.com/globocom/echo-prometheus",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/echo-prometheus/blob/master/README.md",
+          "description": "Middleware for echo v4 to instrument all handlers as metrics"
+        },
+        {
+          "id": "62739ded-3159-48b8-83d9-fba29d849ae7",
+          "name": "GHDFS",
+          "site": "",
+          "repo": "https://github.com/globocom/ghdfs/",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/ghdfs/blob/master/README.md",
+          "description": "Works with HDFS for common operations and Scala compatibility."
+        },
+        {
+          "id": "c065275d-b9da-472d-a1e3-9b1d5c8fe50c",
+          "name": "GCloud Utils",
+          "site": "",
+          "repo": "https://github.com/globocom/gcloud-utils",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/gcloud-utils/blob/master/README.md",
+          "description": "Global package for Cloud Management"
+        },
+        {
+          "id": "7f53f3b4-a8b3-4a92-b148-511df6478f6d",
+          "name": "Gedis",
+          "site": "",
+          "repo": "https://github.com/globocom/gedis/",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/gedis/blob/master/README.md",
+          "description": "Resilient Jedis adapter for Scala made with love by Globo.com"
+        },
+        {
+          "id": "9a2c67ac-11cf-4644-830d-9af93e22bdf9",
+          "name": "M3U8",
+          "site": "",
+          "repo": "https://github.com/globocom/m3u8",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/m3u8/blob/master/README.rst",
+          "description": "Python m3u8 parser."
+        },
+        {
+          "id": "ec8ee846-0b8c-4408-b1ea-c6d970997ede",
+          "name": "SLO Generator",
+          "site": "",
+          "repo": "https://github.com/globocom/slo-generator",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/slo-generator/blob/master/README.md",
+          "description": "Easily setup a service level objective using prometheus, based on lessons from the SRE workbook."
+        },
+        {
+          "id": "b5d9c1f9-d304-4230-8a3f-c8e24b79430c",
+          "name": "huskyCI Dashboard",
+          "site": "",
+          "repo": "https://github.com/globocom/huskyCI-dashboard",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/huskyCI-dashboard/blob/master/README.md",
+          "description": "This project provides a front-end for every huskyCI user to check the stats of the analyses done."
+        },
+        {
+          "id": "512788f2-fd2f-4a56-b24e-de33d0d3d03d",
+          "name": "Globo Network API",
+          "site": "",
+          "repo": "https://github.com/globocom/GloboNetworkAPI",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://globonetworkapi.readthedocs.io/en/latest/",
+          "description": "Globo NetworkAPI is a REST API that manages IP networking resources."
+        },
+        {
+          "id": "1b0803c3-a959-42c0-9e4d-8b04748fb355",
+          "name": "GSH",
+          "site": "",
+          "repo": "https://github.com/globocom/gsh",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/gsh/blob/master/README.md",
+          "description": "GSH is an OpenID Connect-compatible authentication system for systems using OpenSSH servers consisting of an out-of-box binary set."
+        },
+        {
+          "id": "a8070677-1b3e-4288-8a76-0646df835ae8",
+          "name": "Pretty Log",
+          "site": "",
+          "repo": "https://github.com/globocom/prettylog",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://github.com/globocom/prettylog/blob/master/README.md",
+          "description": "Ferramenta para exibi��o de logs estruturados em JSON em formato compat�vel com seres humanos."
+        },
+        {
+          "id": "e6abfe1d-d8ba-460c-bebb-b4210cb68ba4",
+          "name": "Fastlane Queue",
+          "site": "",
+          "repo": "https://github.com/fastlane-queue",
+          "isHighlighted": false,
+          "imageUrl": {},
+          "docs": "https://fastlane.readthedocs.io/",
+          "description": "More seriously, though, fastlane allows you to easily implement new workers in the form of containers."
+        },
+        {
+          "id": "0788ab74-21d1-435f-9f05-b8ab1021ef93",
+          "name": "huskyCI",
+          "site": "",
+          "repo": "https://github.com/globocom/huskyCI",
+          "isHighlighted": true,
+          "imageUrl": {},
+          "docs": "https://huskyci.opensource.globo.com/docs/quickstart/overview",
+          "description": "Performing security tests inside your CI.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 1024
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 179
+              },
+              "pullRequests": {
+                "totalCount": 366
+              },
+              "stars": {
+                "totalCount": 501
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "Go"
+                  },
+                  {
+                    "name": "Dockerfile"
+                  },
+                  {
+                    "name": "Makefile"
+                  },
+                  {
+                    "name": "Shell"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "67646c54-3735-4bc8-8977-5130448457e8",
+          "name": "Clappr",
+          "site": "",
+          "repo": "https://github.com/clappr/clappr",
+          "isHighlighted": true,
+          "imageUrl": {},
+          "docs": "https://clappr.github.io/",
+          "description": "An extensible media player for the web.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 4206
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 1451
+              },
+              "pullRequests": {
+                "totalCount": 619
+              },
+              "stars": {
+                "totalCount": 5925
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "JavaScript"
+                  },
+                  {
+                    "name": "CSS"
+                  },
+                  {
+                    "name": "HTML"
+                  },
+                  {
+                    "name": "Shell"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "015e04ed-ad11-414d-9401-043951b8f0ff",
+          "name": "Thumbor",
+          "site": "",
+          "repo": "https://github.com/thumbor/thumbor",
+          "isHighlighted": true,
+          "imageUrl": {},
+          "docs": "https://thumbor.readthedocs.io/en/latest/index.html",
+          "description": "Thumbor is an open-source photo thumbnail service by globo.com.",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 2336
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 902
+              },
+              "pullRequests": {
+                "totalCount": 580
+              },
+              "stars": {
+                "totalCount": 9139
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "Python"
+                  },
+                  {
+                    "name": "C"
+                  },
+                  {
+                    "name": "Makefile"
+                  },
+                  {
+                    "name": "Shell"
+                  },
+                  {
+                    "name": "JavaScript"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "4e5f74d1-1205-4460-a88d-4556598e73e5",
+          "name": "Tsuru",
+          "site": "",
+          "repo": "https://github.com/tsuru/tsuru",
+          "isHighlighted": true,
+          "imageUrl": {},
+          "docs": "https://docs.tsuru.io/stable/",
+          "description": "Open source, extensible and Docker-based Platform as a Service (PaaS).",
+          "stats": {
+            "repository": {
+              "object": {
+                "commit": {
+                  "history": {
+                    "totalCount": 0
+                  }
+                }
+              },
+              "issues": {
+                "totalCount": 1504
+              },
+              "pullRequests": {
+                "totalCount": 1062
+              },
+              "stars": {
+                "totalCount": 4108
+              },
+              "repoLanguages": {
+                "items": [
+                  {
+                    "name": "Go"
+                  },
+                  {
+                    "name": "Shell"
+                  },
+                  {
+                    "name": "Makefile"
+                  },
+                  {
+                    "name": "Ruby"
+                  },
+                  {
+                    "name": "Dockerfile"
+                  }
+                ]
+              }
+            }
+          }
         }
       ]
     }

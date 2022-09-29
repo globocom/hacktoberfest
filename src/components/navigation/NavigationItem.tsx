@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up("md")]: {
       color: "red",
       padding: 15,
+      margin: 0,
       cursor: "pointer"
     }
   },

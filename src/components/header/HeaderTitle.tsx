@@ -7,11 +7,15 @@ const useStyles = makeStyles((theme: Theme) => ({
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        backgroundColor: theme.palette.primary.main,
         minHeight: 260
     },
     colored: {
         color: theme.palette.primary.contrastText,
+        lineHeight: '48px',
+        fontSize: '2.25rem',
+        [theme.breakpoints.up("lg")]: {
+            fontSize: '3.25rem',
+        }
     },
     divisor: {
         width: "20%",
@@ -24,11 +28,10 @@ const HeaderTitle = (props: HeaderTitleProps) => {
     const classes = useStyles()
 
     return (
-        <div className={classes.root}>
-            <Typography variant="h1" align="center" className={classes.colored}>
+        <div>
+            <Typography variant="h1" align="left" className={classes.colored}>
                 {props.title}
             </Typography>
-            <div className={classes.divisor}> </div>
         </div>
     )
 

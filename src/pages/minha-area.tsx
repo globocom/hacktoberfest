@@ -4,11 +4,13 @@ import { Grid } from '@material-ui/core'
 
 //Internal Components
 import Layout from '@components/layout'
+import Spacing from '@components/spacing'
 import { PersonalDataForm, ShippingForm } from '@components/forms'
 import User, { UserProps } from '@services/user'
 import { Snackbar } from '@material-ui/core'
 import MuiAlert, { AlertProps, Color } from '@material-ui/lab/Alert'
 import { ParticipationHistory } from '@components/participations'
+
 
 
 interface HacktoberFestAlertProps extends AlertProps {
@@ -49,13 +51,13 @@ const PersonalAreaPage = () => {
                 <Grid container alignItems="flex-start" alignContent="center" direction="column">
                     { loaded && user?.id &&
                         <React.Fragment>
-                            <Grid item xs={8} lg={4}>
-                                <PersonalDataForm user={user}/>
-                            </Grid>
-                            <Grid item xs={8} lg={4}>
+                            <Grid style={{maxWidth: 944}} item xs={12} lg={6}>
+                                <Spacing desktop={{margin: "160px 0px"}} smart={{margin: "40px 0px 80px 0px"}}>
+                                    <div>
+                                        <PersonalDataForm user={user}/>
+                                    </div>
+                                </Spacing>
                                 <ParticipationHistory user={user}/>
-                            </Grid>
-                            <Grid item xs={8} lg={4}>
                                 <ShippingForm showSnackBar={showSnackBar} user={user}/>
                             </Grid>
                         </React.Fragment>

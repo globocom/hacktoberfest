@@ -13,11 +13,8 @@ const COOKIE_NAME = "ACCEPT_GLOBO_HACKTOBERFEST_LGPD"
 const useStyles = makeStyles((theme: Theme) => ({
   snackbar: {
     backgroundColor: "#fff", 
-    color: theme.palette.text.primary,
+    color: '#000',
     borderRadius: 8,
-    "& a": {
-      color: theme.palette.primary.main
-    }
   },
   button: {
     backgroundColor: theme.palette.primary.main,
