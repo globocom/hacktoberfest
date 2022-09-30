@@ -238,7 +238,7 @@ const ShippingForm = (props: ShippingFormProps) => {
                                         </InputAdornment>
                                 }}>
                                 {
-                                    colors.map((color, index) => (<MenuItem key={index} value={color}>{color}</MenuItem>))
+                                    colors.map((color, index) => (<MenuItem key={index} style={{color: "#000"}} value={color}>{color}</MenuItem>))
                                 }
                             </HacktoberfestTextInput>
                         </Grid>

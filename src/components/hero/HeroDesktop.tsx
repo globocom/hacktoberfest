@@ -190,7 +190,7 @@ const DesktopView = (props: DesktopViewProps) => {
         >
         <Grid item sm={8}>
             <Image className={classes.logoEdition} src={`2022/logo.png`} />
-            <Typography variant="h1" align="left" style={{fontSize: "3.48vw", fontWeight: 100, height: '54px', marginTop: '1.2vw'}} component="h2">
+            <Typography variant="h1" align="left" style={{fontSize: "3.48vw", fontWeight: 100, marginTop: '1.2vw'}} component="h2">
               01.10.2022 — 31.10.2022
             </Typography>
         </Grid>

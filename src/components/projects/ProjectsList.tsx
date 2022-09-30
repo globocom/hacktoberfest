@@ -60,6 +60,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
+const excludedLanguages = [
+  "makefile",
+  "css",
+  "shell",
+  "html",
+  "dockerfile"
+]
+
 const ProjectsList = (props: ProjectListProps) => {
   const classes = useStyles();
   const { listLimit = 0, useMansonry = true } = props
@@ -148,10 +156,11 @@ function ProjectCard(props: ProjectProps) {
     window.open(repo, "_blank", "noopener,noreferrer")
   }
   const items:string[] = _.get(stats, 'repository.repoLanguages.items', []);
+  const filtered = items.filter(item => item.name && !excludedLanguages.includes(item?.name.toLowerCase()));
   return (
     <React.Fragment>
       <Grid container direction="column" justifyContent="space-between" className={ isHome ? [classes.projectCard, classes.homeCard].join(" ") : classes.projectCard}>
-          {items.length > 0 && <RepoLanguages languages={[items[0]]} /> }
+          {items.length > 0 && <RepoLanguages languages={[filtered[0]]} /> }
           <div>
             <Typography className={classes.projectName} component="p">{name}</Typography>
           </div>
