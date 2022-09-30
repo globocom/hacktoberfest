@@ -46,7 +46,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   logoEdition: {
     width: '80%',
-    display: 'block'
+    display: 'block',
+    webkitTransform:"translate3d(0,0,0)",
+    WebkitBackfaceVisibility: 'hidden',
     
   },
   active: {

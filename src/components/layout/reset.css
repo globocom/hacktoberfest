@@ -3,6 +3,20 @@
     padding: 0;
 }
 
+body {
+    background: linear-gradient(180deg, rgba(0,0,0,1) 32%, rgba(0,78,130,1) 41%, rgba(53,146,214,1) 46%, rgba(255,255,255,1) 51%);
+    animation: gradient-effect 5s ease;
+    background-attachment: fixed;
+    background-size: 200% 200%;
+	height: 100vh;
+}
+
+@keyframes gradient-effect{
+    0%{background-position:50% 0%}
+    50%{background-position:50% 6%}
+    100%{background-position:50% 0%}
+}
+
 ul.slick-dots {
     text-align: left;
     bottom: -35px;
