@@ -1,26 +1,10 @@
 import React from "react"
-import { makeStyles, Typography, Modal, Fade, Theme, Box, Backdrop } from "@material-ui/core"
+import { Typography, Modal, Fade, Box, Backdrop } from "@material-ui/core"
 import {PersonalDataForm} from '@components/forms'
 import Spacing from "@components/spacing"
+import { useStyles } from "./EmailPopin.style";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  modal: {
-    position: 'absolute' as 'absolute',
-    backgroundColor: theme.palette.background.paper,
-    top: '50%',
-    left: '50%',
-    fontFamily: theme.typography.fontFamily,
-    transform: 'translate(-50%, -50%)',
-    width: "80%",
-    boxShadow: '4px 4px 4px black',
-    [theme.breakpoints.up("md")]: {
-      width: "25%",
-    }
-  }
-}))
-
-
-const EmailPopin = (props:any) => {
+const EmailPopin = (props: any) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleClose = () => setOpen(false);

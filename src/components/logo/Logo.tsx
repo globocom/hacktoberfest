@@ -1,14 +1,6 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
 import { Image } from '@components/image'
-
-const useStyles = makeStyles(() => ({
-  logo: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-}))
+import { useStyles } from "./Logo.style";
 
 const Logo = () => {
   const classes = useStyles()

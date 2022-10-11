@@ -3,31 +3,12 @@ import {
   Snackbar, 
   SnackbarContent, 
   Button, 
-  makeStyles, 
-  Theme 
 } from "@material-ui/core"
 import { setCookie, getCookie } from "@helpers/cookiesHelper"
+import { useStyles } from "./UserInfoAlert.style";
+
 
 const COOKIE_NAME = "ACCEPT_GLOBO_HACKTOBERFEST_LGPD"
-
-const useStyles = makeStyles((theme: Theme) => ({
-  snackbar: {
-    backgroundColor: "#fff", 
-    color: theme.palette.text.primary,
-    borderRadius: 8,
-    "& a": {
-      color: theme.palette.primary.main
-    }
-  },
-  button: {
-    backgroundColor: theme.palette.primary.main,
-    color: "#fff",
-    borderRadius: 8,
-    "&:hover": {
-      backgroundColor: theme.palette.primary.dark,
-    }
-  }
-}))
 
 const snackbarMessage: string = 
   "Nós usamos as informações do seu cadastro para fins de \

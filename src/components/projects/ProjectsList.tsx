@@ -1,40 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { Button, CircularProgress, Grid, Typography, useMediaQuery } from "@material-ui/core"
-import { makeStyles, Theme } from "@material-ui/core/styles"
+import { Theme } from "@material-ui/core/styles"
 import Spacing from "@components/spacing"
 import RepoLanguages from "@components/repo-languages"
 import Projects, { ProjectProps } from "@services/projects"
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    color: theme.palette.primary.contrastText,
-  },
-  projectName: {
-    fontSize: 56,
-    marginRight: 30,
-    lineHeight: 1,
-  },
-  rounded: {
-    borderRadius: 50,
-    fontWeight: "normal",
-    boxShadow: "none",
-    textTransform: "lowercase",
-    [theme.breakpoints.up('md')]: {
-        display: "block",
-        float: "right"
-    }
-  },
-  divider: {
-    width: "100%",
-    borderTop: `1px solid #090055;`,
-    padding: '32px 0px',
-  },
-  bottomDivider: {
-    width: "100%",
-    borderTop: `1px solid #E0E0E0;`,
-    padding: "24px 0px",
-  },
-}))
+import { useStyles } from "./ProjectsList.style";
 
 function ProjectsList(props: ProjectListProps) {
   const { listLimit = 0 } = props

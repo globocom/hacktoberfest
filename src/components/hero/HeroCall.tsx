@@ -1,6 +1,6 @@
 import React from "react"
 import Spacing from "@components/spacing"
-import { makeStyles, Theme } from "@material-ui/core/styles"
+import { Theme } from "@material-ui/core/styles"
 import { Hidden, useMediaQuery } from "@material-ui/core"
 import { Image } from "@components/image"
 
@@ -9,27 +9,7 @@ import Carousel from "./Carousel"
 import SmartView from "./HeroSmart"
 import DesktopView from "./HeroDesktop"
 import { UserProps } from "@services/user"
-
-
-const useStyles = makeStyles((theme: Theme) => ({
-  heroPanel: {
-    position: "relative",
-    overflow: "hidden",
-    backgroundColor: theme.palette.primary.main,
-    height: "93.3vh",
-    width: "100%",
-    zIndex: 1,
-    [theme.breakpoints.up("md")]: {
-      height: "92vh",
-    },
-  },
-  terms: {
-    width: "100%",
-    display: "block",
-  },
-}))
-
-
+import { useStyles } from "./Hero.style";
 
 const HeroCall = (props: HeroCallProps) => {
   const classes = useStyles()
