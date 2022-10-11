@@ -1,28 +1,7 @@
 import React from "react"
 import { colorLanguage } from "./color-language"
-import { makeStyles, Typography } from "@material-ui/core"
-
-const useStyles = makeStyles({
-  repoLanguageColor: {
-    width: 12,
-    height: 12,
-    borderRadius: "50%",
-    marginRight: ".3rem",
-  },
-
-  repoLanguageWrapper: {
-    display: "flex",
-    alignItems: "center",
-  },
-  languageList: {
-    display: "inline-flex",
-    flexWrap: "wrap",
-  },
-  languageListItem: {
-    paddingRight: 16,
-    listStyleType: "none",
-  },
-})
+import { Typography } from "@material-ui/core"
+import { useStyles } from "./RepoLanguages.style";
 
 interface RepoLanguagesProps {
   languages: string[]

@@ -2,19 +2,9 @@ import * as React from "react"
 import './reset.css'
 import {Header, HeaderTitle} from "@components/header"
 import Footer from "@components/footer"
-import { makeStyles, Theme } from "@material-ui/core"
 import SEO from '@components/seo'
 import UserInfoAlert from "@components/user-info-alert"
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.default,
-    fontFamily: theme.typography.fontFamily,
-    "& a": {
-      textDecoration: "none",
-    },
-  },
-}))
+import { useStyles } from "./Layout.style";
 
 const Layout = (props: LayoutProps) => {
   const classes = useStyles()

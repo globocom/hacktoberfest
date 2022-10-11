@@ -3,51 +3,8 @@ import Spacing from "@components/spacing"
 import { Grid, Typography, Button } from "@material-ui/core"
 import { Image } from "@components/image"
 import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
-import { makeStyles, Theme } from "@material-ui/core/styles"
 import { UserProps } from "@services/user"
-
-const useStyles = makeStyles((theme: Theme) => ({
-  button: {
-    backgroundColor: "#fff", 
-    fontFamily: "inherit", 
-    borderRadius: "64px",
-    textTransform: "none",
-    color: theme.palette.text.primary
-  },
-  howWorks: {
-    position: 'absolute',
-    width: "100%",
-    fontWeight: 100,
-    display: `inline-flex`,
-    justifyContent: `center`,
-    bottom: '45px'
-  },
-  heroImage: {
-    width: "40vw",
-    display: "block",
-    margin: "0px auto"
-  },
-  sticker: {
-    position: "absolute",
-    zIndex: 1
-  },
-  progressionContainer: {
-    width: '25vw',
-    display: 'block',
-    margin: '0px auto 24px auto'
-  },
-  progression: {
-    border: '5px solid #fff',
-    display: 'flex',
-    justifyContent: 'space-between',
-    borderRadius: 50,
-    padding: 22
-  },
-  active: {
-    borderBottom: `4px solid ${theme.palette.secondary.main}`,
-    borderRadius: 7
-  }
-}))
+import { useStyles } from "./Hero.style";
 
 const LoggedView = (user: UserProps) => {
   const classes = useStyles()

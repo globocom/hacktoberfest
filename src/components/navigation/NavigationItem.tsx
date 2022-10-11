@@ -1,22 +1,10 @@
 import React from "react"
 import { Typography } from "@material-ui/core"
-import { makeStyles, Theme } from "@material-ui/core/styles"
-
+import { useStyles } from "./Navigation.style";
 interface NavigationItemProps {
   label: string
   link: string
 }
-
-const useStyles = makeStyles((theme: Theme) => ({
-    item: {
-    paddingBottom: 15,
-    [theme.breakpoints.up("md")]: {
-      color: "red",
-      padding: 15,
-      cursor: "pointer"
-    }
-  },
-}))
 
 const MenuItem = (props: NavigationItemProps) => {
   const classes = useStyles()

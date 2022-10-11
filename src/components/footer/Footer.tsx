@@ -2,7 +2,7 @@ import React from "react"
 import { makeStyles, Theme, Typography } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import { Grid } from "@material-ui/core"
-
+import { useStyles } from "./Footer.style";
 
 interface FooterItemsProps {
   menuItems: Array<MenuItem>
@@ -19,27 +19,8 @@ const MENU_ITEMS: Array<MenuItem> = [
   { label: "trabalhe conosco", link: "https://www.vempraglobo.com.br/" }
 ]
 
-const makeCss = makeStyles((theme: Theme) => ({
-  root: {
-    color: theme.palette.text.primary,
-    padding: '30px 0px',
-    borderTop: `1px solid ${theme.palette.text.primary}`,
-    textAlign: "center",
-    "& a": {
-      color: theme.palette.text.primary,
-    },
-  },
-  menuItem: {
-    textAlign: "center",
-    [theme.breakpoints.up("md")]: {
-      textAlign: "left"
-    }
-  },
-
-}))
-
 const FooterItems = (props: FooterItemsProps) => {
-  const classes = makeCss()
+  const classes = useStyles()
     return (
         <React.Fragment>
             <Grid item xs={12} md={2} lg={2}>
@@ -65,7 +46,7 @@ const FooterItems = (props: FooterItemsProps) => {
 }
 
 const Footer = () => {
-    const classes = makeCss()
+    const classes = useStyles()
     return (
           <Grid container justifyContent="center" alignItems="center">
             <Grid item xs={12} md={11}>

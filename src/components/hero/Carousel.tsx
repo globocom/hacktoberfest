@@ -1,25 +1,19 @@
 import React, { useRef } from "react"
 import Spacing from "@components/spacing"
-import { Typography, IconButton, Grid, makeStyles } from "@material-ui/core"
+import { Typography, IconButton, Grid } from "@material-ui/core"
 import { CarouselProps } from "./index"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import NavigateNextIcon from "@material-ui/icons/NavigateNext"
 import NavigateBeforesIcon from "@material-ui/icons/NavigateBefore"
 import Slider from "react-slick"
+import { useStyles } from "./Hero.style";
 
 interface RuleProps {
   rule: string
   typeText: string
   index: number
 }
-
-const useStyles = makeStyles({
-  inlineText: {
-    fontSize: '3.5rem',
-    lineHeight: '66px'
-  }
-})
 
 const CustomNextArrow = (props: any) => {
   const { reference } = props

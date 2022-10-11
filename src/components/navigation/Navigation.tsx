@@ -5,6 +5,8 @@ import {NavigationItemProps, NavigationProps} from "./index"
 import Logo from "@components/logo"
 import NavigationItem from "./NavigationItem"
 import User from "@services/user"
+import { useStyles } from "./Navigation.style";
+
 
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
@@ -19,42 +21,6 @@ const MenuItems: Array<NavigationItemProps> = [
   { label: "regras e princípios", link: "/regras" },
   { label: "participantes", link: "/participantes" }
 ]
-
-const useStyles = makeStyles((theme: Theme) => ({
-  container: {
-    padding: 15,
-    backgroundColor: theme.palette.primary.main
-  },
-  navigation: {
-    listStyle: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "inline-flex",
-      listStyle: "none"
-    }
-  },
-  smartMenu: {
-    position: 'fixed',
-    width: "100%",
-    height: "100%",
-    top:0,
-    left: 0,
-    backgroundColor: 'rgba(0,0,0,.5)',
-    overflow: 'hidden',
-    zIndex: 999
-  },
-  smartMenuContainer: {
-    width: "60%",
-    marginLeft: "40%",
-    height: "100%",
-    backgroundColor: theme.palette.background.default,
-    zIndex: 1,
-  },
-  smartHomeCall: {
-    position: 'absolute',
-    bottom: "5%",
-    left: "45%",
-  }
-}))
 
 const NavigationItems = (props: NavigationItemsProps) => {
   const [isLogged, setIsLogged] = useState<boolean>()

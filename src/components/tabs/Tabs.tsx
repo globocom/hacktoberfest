@@ -12,42 +12,16 @@ import {
   Typography,
   Box
 } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
 import { CircularProgress } from "@material-ui/core"
 import { Image } from '@components/image'
 import Participants, { ParticipantProps } from "@services/participants"
+import { useStyles } from "./Tabs.style";
 
 const EDITIONS = [
   2021,
   2020,
   2019
 ]
-
-const useStyles = makeStyles(() => ({
-  tab: {
-    minWidth: 68,
-    fontSize: "1rem",
-  },
-  list: {
-    backgroundColor: "#fff",
-    borderRadius: 8,
-    border: "1px solid #C8DAF6",
-    padding: 8,
-    "&.empty": {
-      textAlign: "center",
-      minHeight: 360,
-      alignItems: "center",
-      justifyContent: "center",
-    }
-  },
-  listItem: {
-    paddingBottom: 2
-  },
-  loading: {
-    textAlign: "center", 
-    marginTop: 10
-  }
-}))
 
 const ParticipantsTabs = () => {
   const [tabValue, setTabValue] = useState<number>(0)

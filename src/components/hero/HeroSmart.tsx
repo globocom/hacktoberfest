@@ -3,48 +3,8 @@ import Spacing from "@components/spacing"
 import { Grid, Typography, Button } from "@material-ui/core"
 import { Image } from "@components/image"
 import ArrowDownIcon from "@material-ui/icons/ArrowDownward"
-import { makeStyles, Theme } from "@material-ui/core/styles"
 import { UserProps } from "@services/user"
-
-
-const useStyles = makeStyles((theme: Theme) => ({
-  button: {
-    backgroundColor: "#fff", 
-    fontFamily: "inherit", 
-    borderRadius: "64px",
-    textTransform: "none",
-    color: theme.palette.text.primary
-  },
-  howWorks: {
-    position: 'absolute',
-    width: "100%",
-    fontWeight: 100,
-    display: `inline-flex`,
-    justifyContent: `center`,
-    bottom: '30px'
-  },
-  progressionContainer: {
-    width: '80vw',
-    display: 'block',
-    margin: '0px auto 24px auto'
-  },
-  progression: {
-    border: '5px solid #fff',
-    display: 'flex',
-    justifyContent: 'space-between',
-    borderRadius: 50,
-    padding: '10px 30px'
-  },
-  textProgress: {
-    width: '60vw',
-    display: 'block',
-    margin: '0px auto'
-  },
-  active: {
-    borderBottom: `4px solid ${theme.palette.secondary.main}`,
-    borderRadius: 7
-  }
-}))
+import { useStyles } from "./Hero.style";
 
 const LoggedView = (user: UserProps) => {
   const classes = useStyles()
@@ -65,8 +25,8 @@ const LoggedView = (user: UserProps) => {
             <Typography align="center" component="p"> Acompanhe seu progresso: </Typography>
           </Grid>
         </Spacing>
-          <div className={classes.progressionContainer}>
-            <div className={classes.progression}>
+          <div className={classes.progressionContainerHeroSmart}>
+            <div className={classes.progressionHeroSmart}>
               <Image className={!currentEdition?.approved && !currentEdition?.completed ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
               <Image className={currentEdition?.approved && !currentEdition.completed ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
               <Image className={currentEdition?.approved && currentEdition.completed ? classes.active : '' } src="hero/Shirt.svg"/> {/** Ativo se completed e aproved for true */}
@@ -115,7 +75,7 @@ const UnloggedView = () => {
           </Grid>
         </Spacing>
 
-        <div className={classes.howWorks}>
+        <div className={classes.howWorksHeroSmart}>
             <ArrowDownIcon /> 
             <Typography align="center" component="p" >
               como funciona

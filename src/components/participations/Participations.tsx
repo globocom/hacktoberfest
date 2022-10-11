@@ -5,24 +5,9 @@ import { Grid, Typography } from '@material-ui/core'
 //Internal
 import { UserProps, Participation } from '@services/user'
 import Spacing from '@components/spacing'
-import { makeStyles } from '@material-ui/core/styles'
 import EmojiEventIcon from '@material-ui/icons/EmojiEvents'
 import { Image } from '@components/image'
-
-
-const useStyles = makeStyles(() => ({
-    root: {
-        marginBottom: '15px',
-        backgroundColor: 'rgba(33, 22, 128, 0.04)'
-    },
-    pictureContainer: {
-        textAlign: "center",
-    },
-    trophy: {
-        width: 100,
-    }
-  }))
-
+import { useStyles } from "./Participations.style";
 
 const EditionElement = (props: EditionProps) => {
     const classes = useStyles()
