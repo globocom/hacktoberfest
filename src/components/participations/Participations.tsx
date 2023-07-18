@@ -3,7 +3,7 @@ import { Grid, Typography } from '@material-ui/core'
 
 
 //Internal
-import { UserProps, Participation } from '@services/user'
+import { UserProps, Edition } from '@services/user'
 import Spacing from '@components/spacing'
 import { makeStyles, Theme } from '@material-ui/core/styles'
 import EmojiEventIcon from '@material-ui/icons/EmojiEvents'
@@ -77,8 +77,8 @@ const EditionElement = (props: EditionProps) => {
                             <EmojiEventIcon/>
                         </Grid>
                     </Grid>
-                    <Typography component="p" variant="body2"><b>{props.participation?.opened || 0}</b> PRs Realizados </Typography>
-                    <Typography component="p" variant="body2"><b>{props.participation?.merged || 0}</b> PRs Aprovados</Typography>
+                    <Typography component="p" variant="body2"><b>{props.editionData?.totalMergeRequests || 0}</b> PRs Realizados </Typography>
+                    <Typography component="p" variant="body2"><b>{props.editionData?.totalMergeRequestsMerged || 0}</b> PRs Aprovados</Typography>
                 </div>
             </Spacing>
         </div>
@@ -90,7 +90,7 @@ const EditionElement = (props: EditionProps) => {
 const ParticipationHistory = (props:ParticipationHistoryProps) => {
     const { user  } =  props
     const classes = useStyles()
-    const editions: Array<string> = Object.keys(user.hacktoberfest || {}) || []
+    const editions: Array<string> = Object.keys(user.editions || {}) || []
 
     return (
         <>
@@ -108,7 +108,7 @@ const ParticipationHistory = (props:ParticipationHistoryProps) => {
         </Grid>
         <Spacing smart={{margin: "0px 0px 80px 0px"}} desktop={{margin: "0px 0px 160px 0px"}}>
             <Grid container justifyContent='space-between'>
-                { editions.map((edition: string, index: number) => <Grid xs={12} md={4} item className={classes.root}> <EditionElement edition={edition}/> </Grid>)}
+                { editions.map((edition: string, index: number) => <Grid xs={12} md={4} item className={classes.root}> <EditionElement edition={edition} editionData={props.user.editions[edition]}/> </Grid>)}
             </Grid>
         </Spacing>
         </>
@@ -118,7 +118,7 @@ const ParticipationHistory = (props:ParticipationHistoryProps) => {
 
 interface EditionProps {
     edition: string,
-    participation?: Participation
+    editionData?: Edition
 }
 
 

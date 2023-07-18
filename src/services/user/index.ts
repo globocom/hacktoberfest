@@ -27,9 +27,6 @@ interface Hacktoberfest {
   [year: string]: Progress
 }
 
-interface UserEditions {
-  [year: number]: Edition
-}
 
 export interface UserProps {
     id: string,
@@ -45,7 +42,7 @@ export interface UserProps {
     shirtSize: string,
     shirtColor: string,
     hacktoberfest?: Hacktoberfest,
-    editions?: UserEditions
+    editions?: Edition
 }
 
 

@@ -85,7 +85,7 @@ const getEditionState = (currentEdition: Edition | undefined): number => {
 
 const LoggedView = (user: UserProps) => {
   const classes = useStyles()
-  const currentEdition = user.editions?.[2021]
+  const currentEdition = user.editions?.[Math.max(...Object.keys(user.editions))];
   const opened = currentEdition?.totalMergeRequests || 0
   const merged = currentEdition?.totalMergeRequestsMerged || "nenhum"
   const state = getEditionState(currentEdition);
