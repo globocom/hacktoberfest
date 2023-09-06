@@ -1,6 +1,7 @@
 import React from "react"
 import { makeStyles, Theme, Typography, useMediaQuery } from "@material-ui/core"
 import Spacing from "@components/spacing"
+import { Image } from "@components/image"
 import { Grid } from "@material-ui/core"
 import Logo from "@components/logo"
 
@@ -41,9 +42,19 @@ const FooterDesktop = (props: FooterItemsProps) => {
     return (
         <React.Fragment>
             <Grid container justifyContent="space-between" alignItems="center">
-              <Grid item md={10}>
                   <Grid container alignItems="center">
-                    <Grid item md={3}>
+                    <Image src="2023/footer.svg"/>
+                  </Grid>
+              <Grid item md={10}>
+
+                  <Grid container alignItems="center">
+                    <Grid item md={2}>
+                      <Image src="2023/globo.svg"/>
+                    </Grid>
+                    <Grid item md={2}>
+                      <Image src="2023/logo.png" with="278" height="90" />
+                    </Grid>
+                    <Grid item md={2}>
                       <Typography className={classes.menuItem} style={{fontWeight: "bolder"}} variant="body1" component="p">
                         <a target="_blank" href={"https://globo.com"}>
                           globo.com <span style={{fontWeight: 400}}>Opensource</span>
@@ -51,7 +62,7 @@ const FooterDesktop = (props: FooterItemsProps) => {
                       </Typography>
                     </Grid>
                     {props.menuItems.map((item: MenuItem, i: number) => (
-                          <Grid key={i} item md={3}>
+                          <Grid key={i} item md={2}>
                               <Typography className={classes.menuItem} variant="body1" component="p">
                                 <a  target="_blank" href={item.link}>
                                   {item.label}
@@ -64,7 +75,7 @@ const FooterDesktop = (props: FooterItemsProps) => {
               <Grid item md={2}>
                 <Logo/>
               </Grid>
-              
+
             </Grid>
         </React.Fragment>
     )
@@ -89,7 +100,7 @@ const FooterSmart = (props: FooterItemsProps) => {
               ))}
               </div>
             </Spacing>
-            
+
             <Grid container justifyContent="space-between" alignItems="center">
               <Grid item xs={10}>
                     <Typography className={classes.menuItem} style={{fontWeight: "bolder"}} variant="body1" component="p">
