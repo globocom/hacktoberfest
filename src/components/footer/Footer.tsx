@@ -4,6 +4,7 @@ import Spacing from "@components/spacing"
 import { Image } from "@components/image"
 import { Grid } from "@material-ui/core"
 import Logo from "@components/logo"
+import ScrollTop from "@components/scroll-top"
 
 
 interface FooterItemsProps {
@@ -34,49 +35,50 @@ const makeCss = makeStyles((theme: Theme) => ({
   menuItem: {
     textAlign: "left",
   },
-
+  footer: {
+    backgroundColor: theme.palette.primary.dark,
+  },
+  footerImage: {
+    width: "100%",
+  },
 }))
 
 const FooterDesktop = (props: FooterItemsProps) => {
   const classes = makeCss()
     return (
         <React.Fragment>
-            <Grid container justifyContent="space-between" alignItems="center">
-                  <Grid container alignItems="center">
-                    <Image src="2023/footer.svg"/>
-                  </Grid>
-              <Grid item md={10}>
+              <Grid container justifyContent="space-between" alignItems="center">
 
-                  <Grid container alignItems="center">
-                    <Grid item md={2}>
-                      <Image src="2023/globo.svg"/>
+                <Grid item md={10}>
+                    <Grid container alignItems="center" justifyContent="center">
+                      <Grid item md={2}>
+                        <Image src="2023/globo.svg"/>
+                      </Grid>
+                      <Grid item md={2}>
+                        <Image src="2023/logo.png" with="278" height="90" />
+                      </Grid>
+                      <Grid item md={2}>
+                        <Typography className={classes.menuItem} style={{fontWeight: "bolder"}} variant="body1" component="p">
+                          <a target="_blank" href={"https://globo.com"}>
+                            globo.com <span style={{fontWeight: 400}}>Opensource</span>
+                          </a>
+                        </Typography>
+                      </Grid>
+                      {props.menuItems.map((item: MenuItem, i: number) => (
+                            <Grid key={i} item md={2}>
+                                <Typography className={classes.menuItem} variant="body1" component="p">
+                                  <a  target="_blank" href={item.link}>
+                                    {item.label}
+                                  </a>
+                                </Typography>
+                            </Grid>
+                      ))}
                     </Grid>
-                    <Grid item md={2}>
-                      <Image src="2023/logo.png" with="278" height="90" />
-                    </Grid>
-                    <Grid item md={2}>
-                      <Typography className={classes.menuItem} style={{fontWeight: "bolder"}} variant="body1" component="p">
-                        <a target="_blank" href={"https://globo.com"}>
-                          globo.com <span style={{fontWeight: 400}}>Opensource</span>
-                        </a>
-                      </Typography>
-                    </Grid>
-                    {props.menuItems.map((item: MenuItem, i: number) => (
-                          <Grid key={i} item md={2}>
-                              <Typography className={classes.menuItem} variant="body1" component="p">
-                                <a  target="_blank" href={item.link}>
-                                  {item.label}
-                                </a>
-                              </Typography>
-                          </Grid>
-                    ))}
-                  </Grid>
+                </Grid>
+                <Grid item md={2}>
+                  <ScrollTop/>
+                </Grid>
               </Grid>
-              <Grid item md={2}>
-                <Logo/>
-              </Grid>
-
-            </Grid>
         </React.Fragment>
     )
 }
@@ -119,10 +121,13 @@ const Footer = () => {
     const classes = makeCss()
     const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up(theme.breakpoints.values.lg));
     return (
-          <Grid container justifyContent="center" alignItems="center">
+          <Grid container justifyContent="center" alignItems="center" className={classes.footer}>
             <Grid item xs={12}>
               <footer className={classes.root}>
                 <Grid container justifyContent="flex-start" alignItems="flex-start">
+                    <div className={classes.footerImage}>
+                      <Image src="2023/footer.svg" className={classes.footerImage} />
+                    </div>
                       {isDesktop ? <FooterDesktop menuItems={MENU_ITEMS}/> : <FooterSmart menuItems={MENU_ITEMS}/> }
                 </Grid>
               </footer>

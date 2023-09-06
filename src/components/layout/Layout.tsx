@@ -10,11 +10,12 @@ import UserInfoAlert from "@components/user-info-alert"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    minHeight: "100vh",
     fontFamily: theme.typography.fontFamily,
     "& a": {
       textDecoration: "none",
-    },
+    }
+  },
+  body: {
     padding: 16,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       padding: 24,
@@ -26,8 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       padding: 80,
     },
     animation: `$gradient-effect 15s ease infinite`,
-  },
-
+  }
 }))
 
 const Layout = (props: LayoutProps) => {
@@ -35,19 +35,21 @@ const Layout = (props: LayoutProps) => {
 
   return (
     <div className={classes.root}>
+      <div className={classes.body}>
         <SEO description={props.description || "Globo Hacktoberfest"}  title={props.title || "Globo Hacktoberfest"} />
         <Header />
           <Slide direction="up" timeout={3000} in={true} mountOnEnter unmountOnExit>
             <div>
               <Fade in={true} timeout={3000}>
                 <main>
-                  {props.children} 
+                  {props.children}
                 </main>
               </Fade>
             </div>
           </Slide>
         <UserInfoAlert />
-        <Footer/>
+      </div>
+      <Footer />
     </div>
   )
 }
