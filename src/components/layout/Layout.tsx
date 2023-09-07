@@ -16,19 +16,22 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
   },
   body: {
-    padding: 16,
+    padding: 0,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
-      padding: 24,
+      padding: 0,
     },
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      padding: 40,
+      padding: 0,
     },
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
-      padding: 80,
+      padding: 0,
     },
     animation: `$gradient-effect 15s ease infinite`,
   }
 }))
+
+
+// TODO: Deixei o padding em 0 aqui pra gnt conseguir trocar as cores de background sem fazer gambiarra
 
 const Layout = (props: LayoutProps) => {
   const classes = useStyles()

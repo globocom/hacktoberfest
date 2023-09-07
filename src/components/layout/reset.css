@@ -4,10 +4,6 @@
 }
 
 body {
-    background: #7F00FA;
-    animation: gradient-effect 5s ease;
-    background-attachment: fixed;
-    background-size: 200% 200%;
 	height: 100vh;
 }
 

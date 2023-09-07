@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'block',
     margin: '0px auto',
     [theme.breakpoints.between("sm", "md")]: {
-      
+
     }
   },
   logoEdition: {
@@ -105,7 +105,7 @@ const LoggedView = (user: UserProps) => {
     default:
       TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
       break;
-  } 
+  }
 
   return (
     <React.Fragment>
@@ -189,10 +189,10 @@ const SmartView = (props: SmartViewProps) => {
                   <Grid item xs={12}>
                       <Image className={classes.logoEdition} src={`2022/logo_smart.png`}/>
                       <Typography variant="h1" align="left" component="h2" className={classes.titleData}>
-                        01.10.2022 — 31.10.2022
+                        01.10.2023 — 31.10.2023
                       </Typography>
                   </Grid>
-                
+
 
               {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
             </Grid>

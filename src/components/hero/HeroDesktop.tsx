@@ -4,6 +4,8 @@ import { Grid, Typography, Button } from "@material-ui/core"
 import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Edition, UserProps } from "@services/user"
+import Lottie from 'react-lottie';
+import animationData from '../../themes/images/2023/drone.json';
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
@@ -12,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   button: {
     width: "100%",
-    backgroundColor: "#fff",
+    backgroundColor: theme.palette.secondary.main,
     fontFamily: "inherit",
     borderRadius: "8px",
     textTransform: "none",
@@ -49,7 +51,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'block',
     webkitTransform:"translate3d(0,0,0)",
     WebkitBackfaceVisibility: 'hidden',
-    
+  },
+  logoGlobo: {
+    width: '50%',
+    display: 'block',
+    webkitTransform:"translate3d(0,0,0)",
+    WebkitBackfaceVisibility: 'hidden',
+    marginBottom: '10%',
   },
   active: {
     borderBottom: `2px solid ${theme.palette.secondary.main}`,
@@ -67,6 +75,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       fontSize: '1.125rem',
     }
+  },
+  drone: {
+    display: 'flex',
+    height: '100%',
   }
 }))
 
@@ -90,7 +102,7 @@ const LoggedView = (user: UserProps) => {
   const merged = currentEdition?.totalMergeRequestsMerged || "nenhum"
   const state = getEditionState(currentEdition);
   let TextComponent;
-  
+
   switch(state){
     case 0:
       TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
@@ -104,7 +116,7 @@ const LoggedView = (user: UserProps) => {
     default:
       TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
       break;
-  } 
+  }
 
   return (
     <React.Fragment>
@@ -158,9 +170,6 @@ const UnloggedView = () => {
         justifyContent="center"
       >
         <Grid item xs={12}>
-          <Typography align="center" className={classes.contributeText} variant="h3" component="h3">
-            contribua e ganhe uma camiseta exclusiva
-          </Typography>
         </Grid>
           <Grid item md={12} className={classes.buttonContainer}>
             <Button
@@ -183,21 +192,45 @@ const UnloggedView = () => {
 
 const DesktopView = (props: DesktopViewProps) => {
   const classes = useStyles()
+
+  const defaultOptions = {
+      loop: true,
+      autoplay: true,
+      animationData: animationData,
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice"
+      }
+    };
+
   return (
-      <Grid
-        container
-        alignItems="flex-end"
-        >
-        <Grid item sm={8}>
-            <Image className={classes.logoEdition} src={`2022/logo.png`} />
-            <Typography variant="h1" align="left" style={{fontSize: "3.48vw", fontWeight: 100, marginTop: '1.2vw'}} component="h2">
-              01.10.2022 — 31.10.2022
-            </Typography>
+        <Grid
+          container
+          alignItems="center"
+          >
+          <Grid item sm={4}>
+              <Image className={classes.logoGlobo} src={`2023/globo.svg`}/>
+              <Image className={classes.logoEdition} src={`2023/logo.png`} />
+              <Typography variant="h1" align="left" style={{fontSize: "2.5vw", fontWeight: 100, marginTop: '1.2vw'}} component="h2">
+                01.10.2023 — 31.10.2023
+              </Typography>
+              <Typography align="left">
+              O Hacktober está aberto a todos os que desejam trilhar o caminho da colaboração e deixar sua marca nos projetos open source.
+              </Typography>
+            {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
+          </Grid>
+          <Grid item sm={4}>
+          <div>
+              <Image src={`2023/character.svg`} />
+          </div>
+          </Grid>
+          <Grid item sm={4}>
+              <Lottie
+                options={defaultOptions}
+                height={300}
+                width={350}
+              />
+          </Grid>
         </Grid>
-        <Grid item sm={4} className="userLoginContainer">
-          {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
-        </Grid>
-      </Grid>
   )
 }
 
