@@ -52,12 +52,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     zIndex: 1,
   },
-  smartMenuContainerGrid: { 
-    display: "flex", 
-    flex: 1, 
-    height:"100%", 
-    flexDirection: "column", 
-    justifyContent: "start", 
+  smartMenuContainerGrid: {
+    display: "flex",
+    flex: 1,
+    height:"100%",
+    flexDirection: "column",
+    justifyContent: "start",
     alignItems: "flex-end",
   },
   smartHomeCall: {
@@ -82,8 +82,8 @@ const NavigationItems = (props: NavigationItemsProps) => {
   const classes = useStyles()
   return (
     <ul className={classes.navigation}>
-      {isDesktop && 
-      <li style={{paddingTop: 15, marginRight: 40}}>
+      {isDesktop &&
+      <li style={{marginLeft: 20}}>
         <Logo/>
       </li>
       }
@@ -122,11 +122,11 @@ const MenuOpen = (props: MenuOpenProps) => {
                   <Spacing smart={{padding: "40px"}}>
                     <Grid className={classes.smartMenuContainerGrid}>
                       <Spacing smart={{margin: "0px 0px 45px"}}>
-                        
+
                           <div onClick={() => props.closeMenu()}>
                               <CloseIcon/>
                           </div>
-                    
+
                       </Spacing>
                       <Spacing smart={{margin: "0px 0px 0px"}}>
                           <NavigationItems items={MenuItems}/>

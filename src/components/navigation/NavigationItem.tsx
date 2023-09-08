@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: 28,
     [theme.breakpoints.up("md")]: {
       color: "red",
-      padding: 15,
+      padding: 25,
       margin: 0,
       cursor: "pointer"
     }
@@ -30,7 +30,7 @@ const MenuItem = (props: NavigationItemProps) => {
   const classes = useStyles()
   return (
     <li className={classes.item}>
-      <a className={classes.typographyFontSize} href={props.link}> 
+      <a className={classes.typographyFontSize} href={props.link}>
         {" "}
         {props.label}{" "}</a>
     </li>

@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   projectFont: {
     fontSize: '2.25rem',
     lineHeight: '48px',
+    color: theme.palette.primary.dark,
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       fontSize: '3rem',
       lineHeight: '56px',
@@ -26,9 +27,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       fontSize: '3.5rem',
       lineHeight: '64px',
-    }
+    },
+    marginLeft: "30px",
   },
   projectCallDescription: {
+    color: theme.palette.primary.dark,
     fontSize: '1.5rem',
     lineHeight: '32px',
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
@@ -37,11 +40,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
   },
   separator: {
-    position: 'absolute',
     width: '100%',
   },
   secondaryPage: {
-    backgroundColor: '#AAAAAA',
+    backgroundColor: '#FFF',
+    marginTop: "-10px",
+  },
+  projects: {
+    paddingLeft: "150px",
+    paddingRight: "150px",
+  },
+  projectTitle: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start"
   }
 }))
 
@@ -68,28 +80,45 @@ const IndexPage = () => {
 
 
         <div className={classes.secondaryPage}>
+        <Grid
+          container
+          direction="column"
+          justifyContent="flex-start"
+          alignItems="center"
+          className={classes.projects}
+        >
           <Rules />
-          <span>Tem que dar um jeito de tirar esse buraco daqui</span>
-          <br />
-          <span>aqui tinha que deixar a parte inteira branca, da pra mexer por esse secondaryPage</span>
-
-          <Spacing smart={{ margin: "0px 0px 64px" }}>
+          <Spacing smart={{ margin: "0px 0px 64px" }} desktop={{ margin: "30px 0px" }}>
             <Grid
               container
               direction="column"
               justifyContent="flex-start"
               alignItems="flex-start"
             >
-              <Grid item xs={12}>
-                <Typography className={classes.projectFont} variant="h2" color="secondary">
-                  Principais Projetos
-              </Typography>
+              <Grid item>
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Grid item className={classes.projectTitle} >
+                    <Image src={`2023/body-raio.svg`} />
+                    <Typography className={classes.projectFont} variant="h2">
+                      Principais Projetos
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Image src={`2023/eye.svg`} />
+                  </Grid>
+                </Grid>
                 <Spacing smart={{ margin: "8px 0px 0px" }}>
                   <Typography className={classes.projectCallDescription} align="left" variant="body1" color="textPrimary">
                     Gostaríamos da sua ajuda principalmente nos seguintes projetos
                 </Typography>
                 </Spacing>
-              </Grid>
+
+
               <Spacing smart={{ margin: "24px 0px 0px" }}>
                 <Grid item xs={12}>
                   <ProjectsList listLimit={6} useMansonry={false} />
@@ -113,8 +142,10 @@ const IndexPage = () => {
                   </span>
                 </Link>
               </Grid>
+              </Grid>
             </Grid>
           </Spacing>
+        </Grid>
         </div>
       </div>
     </Layout >

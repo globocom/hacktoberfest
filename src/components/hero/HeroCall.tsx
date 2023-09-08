@@ -34,7 +34,7 @@ const HeroCall = (props: HeroCallProps) => {
   });
 
   return (
-    <Spacing desktop={{ margin: "0px" }} smart={{ margin: "8vh 0px 0px 0px" }}>
+    <Spacing desktop={{ padding: "0px 100px 0px 100px"}} smart={{ margin: "8vh 0px 0px 0px" }}>
       <Grid container alignItems="flex-end" className={classes.heroPanel} id="hero_panel">
         <Grid item xs={12}>
           {isDesktop ? <DesktopView user={props.user} /> : <SmartView user={props.user} />}

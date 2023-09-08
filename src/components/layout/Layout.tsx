@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontFamily: theme.typography.fontFamily,
     "& a": {
       textDecoration: "none",
-    }
+    },
   },
   body: {
     padding: 0,
@@ -30,15 +30,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-
-// TODO: Deixei o padding em 0 aqui pra gnt conseguir trocar as cores de background sem fazer gambiarra
-
 const Layout = (props: LayoutProps) => {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
-      <div className={classes.body}>
+      <div >
         <SEO description={props.description || "Globo Hacktoberfest"}  title={props.title || "Globo Hacktoberfest"} />
         <Header />
           <Slide direction="up" timeout={3000} in={true} mountOnEnter unmountOnExit>

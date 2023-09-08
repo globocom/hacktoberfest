@@ -24,6 +24,7 @@ const MENU_ITEMS: Array<MenuItem> = [
 
 const makeCss = makeStyles((theme: Theme) => ({
   root: {
+    backgroundColor: "#FFF",
     color: theme.palette.text.primary,
     paddingTop: '32px',
     textAlign: "center",
@@ -49,17 +50,14 @@ const FooterDesktop = (props: FooterItemsProps) => {
   const classes = makeCss()
   return (
     <React.Fragment>
-      <Grid container justifyContent="space-between" alignItems="center">
-
-        <Grid item md={10}>
-          <Grid container alignItems="center" justifyContent="center">
-            <Grid item md={2}>
+      <Grid container justifyContent="space-around" alignItems="center">
+            <Grid item>
               <Image src="2023/globo.svg" />
             </Grid>
-            <Grid item md={2}>
+            <Grid item >
               <Image src="2023/logo.png" with="278" height="90" />
             </Grid>
-            <Grid item md={2}>
+            <Grid item>
               <Typography className={classes.menuItem} style={{ fontWeight: "bolder" }} variant="body1" component="p">
                 <a target="_blank" href={"https://globo.com"}>
                   globo.com <span style={{ fontWeight: 400 }}>Opensource</span>
@@ -67,7 +65,7 @@ const FooterDesktop = (props: FooterItemsProps) => {
               </Typography>
             </Grid>
             {props.menuItems.map((item: MenuItem, i: number) => (
-              <Grid key={i} item md={2}>
+              <Grid key={i} item>
                 <Typography className={classes.menuItem} variant="body1" component="p">
                   <a target="_blank" href={item.link}>
                     {item.label}
@@ -75,11 +73,9 @@ const FooterDesktop = (props: FooterItemsProps) => {
                 </Typography>
               </Grid>
             ))}
+            <Grid item>
+              <ScrollTop />
           </Grid>
-        </Grid>
-        <Grid item md={2}>
-          <ScrollTop />
-        </Grid>
       </Grid>
     </React.Fragment>
   )

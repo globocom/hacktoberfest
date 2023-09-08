@@ -13,15 +13,12 @@ const useStyles = makeStyles((theme: Theme) => ({
       [theme.breakpoints.up("md")]: {
         color: theme.palette.primary.contrastText,
       },
+      padding: 20,
     },
-  },
-  container: {
-    padding: 15,
   },
   logo: {
     display: "inline-block",
     border: "3px solid white",
-    padding: 30,
   },
 }))
 

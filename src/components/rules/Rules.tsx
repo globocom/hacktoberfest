@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     lineHeight: '1.3em'
   },
   rule: {
+    color: theme.palette.primary.dark,
     fontSize: "1.5em",
     lineHeight: "32px",
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
@@ -49,7 +50,7 @@ const Rules = () => {
   ]
 
   return (
-    <Spacing smart={{ margin: "90px auto" }} desktop={{ margin: "30vh auto" }}>
+    <Spacing smart={{ margin: "90px auto" }}>
       <Grid container justifyContent="space-between" >
         {
           rules.map((rule, index) =>
