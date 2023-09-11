@@ -1,12 +1,17 @@
 import React from "react"
 import { Grid, Typography } from "@material-ui/core"
+import { Image } from "@components/image"
 import Spacing from "@components/spacing"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, Theme } from "@material-ui/core/styles"
 import Layout from "@components/layout"
 import ProjectsList from "@components/projects"
 import { HeaderTitle } from "@components/header"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.primary.main,
+  },
   topDivider: {
     width: "100%",
     borderBottom: `1px solid #E0E0E0;`,
@@ -15,8 +20,12 @@ const useStyles = makeStyles({
   description: {
     fontSize: '1.5rem',
     lineHeight: '32px',
-  }
-})
+  },
+  separator: {
+    width: '100%',
+    marginBottom: '-10px'
+  },
+}))
 
 const ProjectsPage = () => {
   const classes = useStyles()
@@ -26,7 +35,7 @@ const ProjectsPage = () => {
       description="Projetos - Globo Hacktoberfest"
       headerTitle="Projetos"
     >
-      <React.Fragment>
+      <div className={classes.root}>
         <Grid container justifyContent="center">
             <Spacing desktop={{margin: "160px 0px 0px 0px"}} smart={{margin: "40px 0px"}}>
               <Grid style={{maxWidth: 944}} item xs={12} lg={6}>
@@ -50,7 +59,8 @@ const ProjectsPage = () => {
               </Grid>
             </Spacing>
         </Grid>
-      </React.Fragment>
+        <Image className={classes.separator} src={`2023/separator.svg`} />
+      </div>
     </Layout>
   )
 }

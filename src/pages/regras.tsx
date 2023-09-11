@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "@components/layout"
+import { Image } from "@components/image"
 import { Grid, Typography } from "@material-ui/core"
 import Spacing from '@components/spacing'
 import { makeStyles, Theme } from "@material-ui/core"
@@ -10,6 +11,10 @@ interface RuleProps {
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.primary.main,
+  },
   fontSection: {
     fontSize: '2.25rem',
     [theme.breakpoints.up("lg")]: {
@@ -24,7 +29,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   fontRule: {
 
-  }
+  },
+  separator: {
+    width: '100%',
+    marginBottom: '-10px'
+  },
 }))
 
 const Rule = (props: RuleProps) => {
@@ -46,7 +55,7 @@ const RuleBookPage = () => {
       title="Regras e Princípios - Globo Hacktoberfest"
       description="Regras e Princípos - Globo Hacktoberfest"
       headerTitle="Regras e Princípios">
-        <Grid container direction="column" justifyContent="center" alignItems="center">
+        <Grid className={classes.root} container direction="column" justifyContent="center" alignItems="center">
           <Spacing style={{maxWidth: 944}} desktop={{margin: "160px 0px 0px 0px"}} smart={{margin: "40px 0px"}}>
             <Grid item xs={12} lg={6}>
               <Grid container>
@@ -107,6 +116,7 @@ const RuleBookPage = () => {
               </Grid>
             </Grid>
           </Spacing>
+          <Image className={classes.separator} src={`2023/separator.svg`} />
         </Grid>
     </Layout>
   )

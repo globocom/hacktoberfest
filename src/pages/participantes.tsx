@@ -1,24 +1,33 @@
 import React from "react"
 import { Grid, Box, Typography } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, Theme } from "@material-ui/core"
+import { Image } from "@components/image"
 import Layout from "@components/layout"
 import Spacing from "@components/spacing"
 import Tabs from "@components/tabs"
 import { HeaderTitle } from "@components/header"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.primary.main,
+  },
   topDivider: {
     width: "100%",
     borderBottom: `1px solid #E0E0E0;`,
     marginBottom: 32,
-  }
-})
+  },
+  separator: {
+    width: '100%',
+    marginBottom: '-10px'
+  },
+}))
 
 const ParticipantsPage = () => {
-  
+  const classes = useStyles()
   return (
     <Layout title="Participantes - Globo Hacktoberfest" description="Participantes - Globo Hacktoberfest" headerTitle="Participantes">
-      <Grid container justifyContent="center" alignContent="center">
+      <Grid className={classes.root} container justifyContent="center" alignContent="center">
           <Spacing desktop={{margin: "160px 0px 0px 0px"}} smart={{margin: "40px 0px"}}>
             <Grid item style={{maxWidth: 944, minHeight: '61vh'}} xs={12} lg={6}>
               <div>
@@ -39,6 +48,7 @@ const ParticipantsPage = () => {
             </Box>
           </Grid>
         </Spacing>
+          <Image className={classes.separator} src={`2023/separator.svg`} />
       </Grid>
     </Layout>
   )
