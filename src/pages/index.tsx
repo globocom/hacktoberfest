@@ -78,7 +78,6 @@ const IndexPage = () => {
         <HeroCall user={user} />
         <Image className={classes.separator} src={`2023/separator.svg`} />
 
-
         <div className={classes.secondaryPage}>
         <Grid
           container

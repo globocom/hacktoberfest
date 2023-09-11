@@ -1,6 +1,6 @@
 import * as React from "react"
 import './reset.css'
-import {Header, HeaderTitle} from "@components/header"
+import { Header } from "@components/header"
 import Footer from "@components/footer"
 import Slide from '@material-ui/core/Slide'
 import Fade from '@material-ui/core/Fade'
@@ -35,20 +35,12 @@ const Layout = (props: LayoutProps) => {
 
   return (
     <div className={classes.root}>
-      <div >
-        <SEO description={props.description || "Globo Hacktoberfest"}  title={props.title || "Globo Hacktoberfest"} />
-        <Header />
-          <Slide direction="up" timeout={3000} in={true} mountOnEnter unmountOnExit>
-            <div>
-              <Fade in={true} timeout={3000}>
-                <main>
-                  {props.children}
-                </main>
-              </Fade>
-            </div>
-          </Slide>
-        <UserInfoAlert />
-      </div>
+      <SEO description={props.description || "Globo Hacktoberfest"} title={props.title || "Globo Hacktoberfest"} />
+      <Header />
+      <main>
+        {props.children}
+      </main>
+      <UserInfoAlert />
       <Footer />
     </div>
   )

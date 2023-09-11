@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       height: '80vh',
     },
+    padding: '32px',
   },
   terms: {
     width: "100%",
