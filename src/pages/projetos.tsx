@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   separator: {
     width: '100%',
-    paddingBottom: '-10px'
+    marginBottom: '-10px'
   },
 }))
 
@@ -55,7 +55,7 @@ const ProjectsPage = () => {
                     Todos os nossos projetos Open Source em um só lugar. Incentivamos sua contribuição no projeto que mais lhe agradar.
                   </Typography>
                 </Spacing>
-                <ProjectsList/>
+                  <ProjectsList useMansonry={false} />
               </Grid>
             </Spacing>
         </Grid>
