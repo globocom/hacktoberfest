@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react"
-import { 
+import {
   Avatar,
-  IconButton, 
-  List, 
-  ListItem, 
-  ListItemAvatar, 
-  ListItemSecondaryAction, 
-  ListItemText, 
-  Tab, 
-  Tabs, 
+  IconButton,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemSecondaryAction,
+  ListItemText,
+  Tab,
+  Tabs,
   Typography,
   Box
 } from "@material-ui/core"
@@ -18,6 +18,7 @@ import { Image } from '@components/image'
 import Participants, { ParticipantProps } from "@services/participants"
 
 const EDITIONS = [
+  2023,
   2022,
   2021,
   2020,
@@ -59,14 +60,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: "0 0 16px 0"
   },
   loading: {
-    textAlign: "center", 
+    textAlign: "center",
     marginTop: 10
   }
 }))
 
 const ParticipantsTabs = () => {
   const [tabValue, setTabValue] = useState<number>(0)
-  const [edition, setEdition] = useState<number>(2022)
+  const [edition, setEdition] = useState<number>(2023)
   const [participants, setParticipants] = useState<Array<ParticipantProps>>([])
   const [loading, setLoading] = useState(false)
   const classes = useStyles()
@@ -83,7 +84,7 @@ const ParticipantsTabs = () => {
       }finally {
         setLoading(false)
       }
-      
+
     }
     fetchParticipants()
   }, [edition]);
@@ -93,7 +94,7 @@ const ParticipantsTabs = () => {
     setTabValue(newTabValue)
     setEdition(newEditionValue)
   }
-  
+
   return (
     <>
       <Tabs
@@ -131,7 +132,7 @@ const ParticipantsTabs = () => {
                   </a>
                 </ListItem>
                 <Typography component="span" variant="caption"> {participant.total_pull_requests} pull requests </Typography>
-                <Typography component="span" variant="caption" className={participant.approved ? classes.complete : classes.incomplete}> • </Typography> 
+                <Typography component="span" variant="caption" className={participant.approved ? classes.complete : classes.incomplete}> • </Typography>
                 <Typography component="span" variant="caption"> {participant.approved ? "desafio completo" : "desafio incompleto"}  </Typography>
                </div>
               )))

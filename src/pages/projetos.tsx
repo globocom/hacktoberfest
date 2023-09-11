@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   separator: {
     width: '100%',
-    marginBottom: '-10px'
+    paddingBottom: '-10px'
   },
 }))
 

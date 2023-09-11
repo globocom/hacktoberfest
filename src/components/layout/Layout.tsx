@@ -2,8 +2,6 @@ import * as React from "react"
 import './reset.css'
 import { Header } from "@components/header"
 import Footer from "@components/footer"
-import Slide from '@material-ui/core/Slide'
-import Fade from '@material-ui/core/Fade'
 import { makeStyles, Theme } from "@material-ui/core"
 import SEO from '@components/seo'
 import UserInfoAlert from "@components/user-info-alert"

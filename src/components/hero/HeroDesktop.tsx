@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   progressionContainer: {
     width: '30vw',
-    maxWidth: 430
   },
   progression: {
     border: '2px solid #fff',
@@ -120,10 +119,11 @@ const LoggedView = (user: UserProps) => {
 
   return (
     <React.Fragment>
-      <Grid container direction="column" justifyContent="flex-end" alignItems="flex-end">
+    <Spacing smart={{ margin: "24px 0px 5px" }}>
+      <Grid container direction="column" justifyContent="flex-start" alignItems="stretch">
         <Spacing smart={{ margin: "0px 0px 5px" }}>
           <Grid item>
-            <Typography align="right" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
+            <Typography align="left" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
             <TextComponent />
           </Grid>
         </Spacing>
@@ -137,25 +137,26 @@ const LoggedView = (user: UserProps) => {
           </div>
         </Grid>
       </Grid>
+      </Spacing>
     </React.Fragment>
   )
 }
 
 const ProgressMessage = (props: any) => (
   <div style={{ maxWidth: 400 }}>
-    <Typography align="right" component="p">  Você tem <b> {props.opened} pull requests enviados</b> e <b>{props.merged} aceito(s) </b> </Typography>
+    <Typography align="left" component="p">  Você tem <b> {props.opened} pull requests enviados</b> e <b>{props.merged} aceito(s) </b> </Typography>
   </div>
 )
 
 const ConfirmMessage = () => (
   <div style={{ maxWidth: 430 }}>
-    <Typography align="right" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
+    <Typography align="left" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
   </div>
 )
 
 const CongratsMessage = () => (
   <div style={{ maxWidth: 430 }}>
-    <Typography align="right" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar</b> </Typography>
+    <Typography align="left" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar</b> </Typography>
   </div>
 )
 
