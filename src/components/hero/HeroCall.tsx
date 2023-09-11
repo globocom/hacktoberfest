@@ -10,14 +10,10 @@ import { UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
   heroPanel: {
-    height: '75vh',
     position: "relative",
     overflow: "hidden",
     width: "100%",
     zIndex: 1,
-    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      height: '80vh',
-    },
     padding: '32px',
   },
   terms: {

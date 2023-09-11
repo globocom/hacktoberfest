@@ -3,6 +3,7 @@ import { makeStyles, Theme, Typography, useMediaQuery } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import { Image } from "@components/image"
 import { Grid } from "@material-ui/core"
+import Box from '@mui/material/Box';
 import Logo from "@components/logo"
 import ScrollTop from "@components/scroll-top"
 
@@ -51,31 +52,31 @@ const FooterDesktop = (props: FooterItemsProps) => {
   return (
     <React.Fragment>
       <Grid container justifyContent="space-around" alignItems="center">
-            <Grid item>
-              <Image src="2023/globo.svg" />
-            </Grid>
-            <Grid item >
-              <Image src="2023/logo.png" with="278" height="90" />
-            </Grid>
-            <Grid item>
-              <Typography className={classes.menuItem} style={{ fontWeight: "bolder" }} variant="body1" component="p">
-                <a target="_blank" href={"https://globo.com"}>
-                  globo.com <span style={{ fontWeight: 400 }}>Opensource</span>
-                </a>
-              </Typography>
-            </Grid>
-            {props.menuItems.map((item: MenuItem, i: number) => (
-              <Grid key={i} item>
-                <Typography className={classes.menuItem} variant="body1" component="p">
-                  <a target="_blank" href={item.link}>
-                    {item.label}
-                  </a>
-                </Typography>
-              </Grid>
-            ))}
-            <Grid item>
-              <ScrollTop />
+        <Grid item>
+          <Image src="2023/globo.svg" />
+        </Grid>
+        <Grid item >
+          <Image src="2023/logo.png" with="278" height="90" />
+        </Grid>
+        <Grid item>
+          <Typography className={classes.menuItem} style={{ fontWeight: "bolder" }} variant="body1" component="p">
+            <a target="_blank" href={"https://globo.com"}>
+              globo.com <span style={{ fontWeight: 400 }}>Opensource</span>
+            </a>
+          </Typography>
+        </Grid>
+        {props.menuItems.map((item: MenuItem, i: number) => (
+          <Grid key={i} item>
+            <Typography className={classes.menuItem} variant="body1" component="p">
+              <a target="_blank" href={item.link}>
+                {item.label}
+              </a>
+            </Typography>
           </Grid>
+        ))}
+        <Grid item>
+          <ScrollTop />
+        </Grid>
       </Grid>
     </React.Fragment>
   )
@@ -84,34 +85,45 @@ const FooterDesktop = (props: FooterItemsProps) => {
 const FooterSmart = (props: FooterItemsProps) => {
   const classes = makeCss()
   return (
-    <React.Fragment>
-      <Spacing smart={{ margin: "0 0 60px" }}>
-        <div>
-          {props.menuItems.map((item: MenuItem, i: number) => (
-            <Spacing key={i} smart={{ margin: "0 0 24px" }}>
-              <Grid item>
-                <Typography className={classes.menuItem} variant="body1" component="p">
-                  <a target="_blank" href={item.link}>
-                    {item.label}
-                  </a>
-                </Typography>
-              </Grid>
-            </Spacing>
-          ))}
-        </div>
-      </Spacing>
-
-      <Grid container justifyContent="space-between" alignItems="center">
-        <Grid item xs={10}>
-          <Typography className={classes.menuItem} style={{ fontWeight: "bolder" }} variant="body1" component="p">
-            <a target="_blank" href={"https://globo.com"}> globo.com <span style={{ fontWeight: 400 }}>Opensource</span> </a>
-          </Typography>
-        </Grid>
-        <Grid item xs={1}>
-          <Logo />
+    <Spacing smart={{ margin: "32px" }}>
+      <Grid container direction="column" justifyContent="space-around" alignItems="flex-start">
+        <Spacing smart={{ margin: "0 0 24px" }}>
+          <Grid item>
+            <Image src="2023/globo.svg" />
+          </Grid>
+        </Spacing>
+        <Spacing smart={{ margin: "0 0 24px" }}>
+          <Grid item>
+            <Image src="2023/logo.png" with="278" height="90" />
+          </Grid>
+        </Spacing>
+        {props.menuItems.map((item: MenuItem, i: number) => (
+          <Spacing key={i} smart={{ margin: "0 0 24px" }}>
+            <Grid item>
+              <Typography className={classes.menuItem} variant="body1" component="p">
+                <a target="_blank" href={item.link}>
+                  {item.label}
+                </a>
+              </Typography>
+            </Grid>
+          </Spacing>
+        ))}
+        <Spacing smart={{ margin: "0 0 24px" }}>
+          <Grid item xs={12}>
+            <Typography className={classes.menuItem} style={{ fontWeight: "bolder" }} variant="body1" component="p">
+              <a target="_blank" href={"https://globo.com"}> globo.com <span style={{ fontWeight: 400 }}>Opensource</span> </a>
+            </Typography>
+          </Grid>
+        </Spacing>
+        <Grid item style={{ width: '90%'}} sm={12}>
+          <Grid container direction="row" justifyContent="flex-end" alignItems="flex-end">
+            <Grid item sm={12}>
+              <ScrollTop />
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
-    </React.Fragment>
+    </Spacing >
   )
 }
 
@@ -119,7 +131,6 @@ const Footer = () => {
   const classes = makeCss()
   const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up(theme.breakpoints.values.lg));
 
-  //TODO: a parte de cima da imagem deveria estar em branco
   return (
     <footer className={classes.root}>
       <Image src="2023/footer.svg" className={classes.footerImage} />

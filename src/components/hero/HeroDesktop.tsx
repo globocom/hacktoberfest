@@ -49,13 +49,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   logoEdition: {
     width: '80%',
     display: 'block',
-    webkitTransform:"translate3d(0,0,0)",
+    webkitTransform: "translate3d(0,0,0)",
     WebkitBackfaceVisibility: 'hidden',
   },
   logoGlobo: {
     width: '50%',
     display: 'block',
-    webkitTransform:"translate3d(0,0,0)",
+    webkitTransform: "translate3d(0,0,0)",
     WebkitBackfaceVisibility: 'hidden',
     marginBottom: '10%',
   },
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontSize: '1.125rem',
     }
   },
-  contributeText:{
+  contributeText: {
     fontSize: '1rem',
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       fontSize: '1.125rem',
@@ -84,10 +84,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 
 const getEditionState = (currentEdition: Edition | undefined): number => {
-  if(!currentEdition?.approved && !currentEdition?.completed){
+  if (!currentEdition?.approved && !currentEdition?.completed) {
     //Approved e Completed  false
     return 0;
-  }else if(currentEdition?.approved && !currentEdition.completed){
+  } else if (currentEdition?.approved && !currentEdition.completed) {
     //Approved true e completed false
     return 1;
   }
@@ -103,36 +103,36 @@ const LoggedView = (user: UserProps) => {
   const state = getEditionState(currentEdition);
   let TextComponent;
 
-  switch(state){
+  switch (state) {
     case 0:
-      TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
+      TextComponent = () => <ProgressMessage opened={opened} merged={merged} />
       break;
     case 1:
-      TextComponent = () => <ConfirmMessage/>
+      TextComponent = () => <ConfirmMessage />
       break;
     case 2:
-      TextComponent = () => <CongratsMessage/>
+      TextComponent = () => <CongratsMessage />
       break;
     default:
-      TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
+      TextComponent = () => <ProgressMessage opened={opened} merged={merged} />
       break;
   }
 
   return (
     <React.Fragment>
       <Grid container direction="column" justifyContent="flex-end" alignItems="flex-end">
-        <Spacing smart={{margin: "0px 0px 5px"}}>
+        <Spacing smart={{ margin: "0px 0px 5px" }}>
           <Grid item>
             <Typography align="right" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
-            <TextComponent/>
+            <TextComponent />
           </Grid>
         </Spacing>
         <Grid item>
           <div className={classes.progressionContainer}>
             <div className={classes.progression}>
-              <Image className={state == 0 ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
-              <Image className={state == 1 ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
-              <Image className={state == 2 ? classes.active : '' } src="hero/Shirt.svg"/> {/* Ativo se completed e aproved for true*/}
+              <Image className={state == 0 ? classes.active : ''} src="hero/PR.svg" /> {/** Ativo se Approved e Completed for false */}
+              <Image className={state == 1 ? classes.active : ''} src="hero/Check.svg" /> {/** Ativo se Approved true e completed false */}
+              <Image className={state == 2 ? classes.active : ''} src="hero/Shirt.svg" /> {/* Ativo se completed e aproved for true*/}
             </div>
           </div>
         </Grid>
@@ -142,19 +142,19 @@ const LoggedView = (user: UserProps) => {
 }
 
 const ProgressMessage = (props: any) => (
-    <div style={{maxWidth: 400}}>
-      <Typography align="right" component="p">  Você tem <b> {props.opened} pull requests enviados</b> e <b>{props.merged} aceito(s) </b> </Typography>
-    </div>
+  <div style={{ maxWidth: 400 }}>
+    <Typography align="right" component="p">  Você tem <b> {props.opened} pull requests enviados</b> e <b>{props.merged} aceito(s) </b> </Typography>
+  </div>
 )
 
 const ConfirmMessage = () => (
-  <div style={{maxWidth: 430}}>
+  <div style={{ maxWidth: 430 }}>
     <Typography align="right" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
   </div>
 )
 
 const CongratsMessage = () => (
-  <div style={{maxWidth: 430}}>
+  <div style={{ maxWidth: 430 }}>
     <Typography align="right" component="p">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar</b> </Typography>
   </div>
 )
@@ -171,20 +171,20 @@ const UnloggedView = () => {
       >
         <Grid item xs={12}>
         </Grid>
-          <Grid item md={12} className={classes.buttonContainer}>
-            <Button
-              href="/login"
-              style={{display: "block" }}
-              className={classes.button}
-              size="large"
-              fullWidth
-              variant="contained"
-            >
-              <Typography className={classes.buttonText} component="p" variant="body2" align="center">
-                  <b>participar</b> com sua conta do github
+        <Grid item md={12} className={classes.buttonContainer}>
+          <Button
+            href="/login"
+            style={{ display: "block" }}
+            className={classes.button}
+            size="large"
+            fullWidth
+            variant="contained"
+          >
+            <Typography className={classes.buttonText} component="p" variant="body2" align="center">
+              <b>participar</b> com sua conta do github
               </Typography>
-            </Button>
-          </Grid>
+          </Button>
+        </Grid>
       </Grid>
     </React.Fragment>
   )
@@ -194,43 +194,41 @@ const DesktopView = (props: DesktopViewProps) => {
   const classes = useStyles()
 
   const defaultOptions = {
-      loop: true,
-      autoplay: true,
-      animationData: animationData,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice"
-      }
-    };
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
 
   return (
-        <Grid
-          container
-          alignItems="center"
-          >
-          <Grid item sm={4}>
-              <Image className={classes.logoGlobo} src={`2023/globo.svg`}/>
-              <Image className={classes.logoEdition} src={`2023/logo.png`} />
-              <Typography variant="h1" align="left" style={{fontSize: "2.5vw", fontWeight: 100, marginTop: '1.2vw'}} component="h2">
-                01.10.2023 — 31.10.2023
+    <Grid
+      container
+      alignItems="center"
+    >
+      <Grid item sm={4}>
+        <Image className={classes.logoGlobo} src={`2023/globo.svg`} />
+        <Image className={classes.logoEdition} src={`2023/logo.png`} />
+        <Typography variant="h1" align="left" style={{ fontSize: "2.5vw", fontWeight: 100, marginTop: '1.2vw' }} component="h2">
+          01.10.2023 — 31.10.2023
               </Typography>
-              <Typography align="left">
-              O Hacktober está aberto a todos os que desejam trilhar o caminho da colaboração e deixar sua marca nos projetos open source.
+        <Typography align="left">
+          O Hacktober está aberto a todos os que desejam trilhar o caminho da colaboração e deixar sua marca nos projetos open source.
               </Typography>
-            {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
-          </Grid>
-          <Grid item sm={4}>
-          <div>
-              <Image src={`2023/character.svg`} />
-          </div>
-          </Grid>
-          <Grid item sm={4}>
-              <Lottie
-                options={defaultOptions}
-                height={300}
-                width={350}
-              />
-          </Grid>
-        </Grid>
+        {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
+      </Grid>
+      <Grid item sm={4}>
+        <Image src={`2023/character.svg`} />
+      </Grid>
+      <Grid item sm={4}>
+        <Lottie
+          options={defaultOptions}
+          height={300}
+          width={350}
+        />
+      </Grid>
+    </Grid>
   )
 }
 
