@@ -59,7 +59,6 @@ const RepoLanguages = (props: RepoLanguagesProps) => {
 
   const imageUrl = props.languages[0]?.name || "default"
 
-  console.log(props)
   return (
     <Image src={LANGUAGES[imageUrl.toLowerCase()]} />
   )

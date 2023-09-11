@@ -7,7 +7,7 @@ import HeroCall from "@components/hero"
 import Rules from "@components/rules"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Link, Grid, Typography } from "@material-ui/core"
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
+import Button from '@material-ui/core/Button';
 import ProjectsList from "@components/projects"
 import User, { UserProps } from '@services/user'
 
@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.main,
   },
   projectFont: {
-    fontSize: '2.25rem',
-    lineHeight: '48px',
+    fontSize: '41.15px',
+    lineHeight: '57.61px',
     color: theme.palette.primary.dark,
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       fontSize: '3rem',
@@ -54,6 +54,28 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start"
+  },
+  projectItem: {
+    width: "100%",
+  },
+  projectEye: {
+    width: "87.34px",
+    height: "104.35px",
+  },
+  allProjects: {
+    display: "flex",
+    margin: "60px 0px",
+    justifyContent: "center",
+  },
+  allProjectsButton: {
+    color: theme.palette.primary.dark,
+    width: "288px",
+    height: "70px",
+    borderRadius: "1px solid",
+    borderColor: theme.palette.primary.light,
+    fontFamily: "Globotipo Variable",
+    fontSize: '16px',
+    fontWeight: 700,
   }
 }))
 
@@ -94,7 +116,7 @@ const IndexPage = () => {
               justifyContent="flex-start"
               alignItems="flex-start"
             >
-              <Grid item>
+              <Grid item className={classes.projectItem}>
                 <Grid
                   container
                   direction="row"
@@ -103,15 +125,15 @@ const IndexPage = () => {
                 >
                   <Grid item className={classes.projectTitle} >
                     <Image src={`2023/body-raio.svg`} />
-                    <Typography className={classes.projectFont} variant="h2">
+                    <Typography className={classes.projectFont} variant="body1" component="p">
                       Principais Projetos
                     </Typography>
                   </Grid>
-                  <Grid item>
+                  <Grid item className={classes.projectEye}>
                     <Image src={`2023/eye.svg`} />
                   </Grid>
                 </Grid>
-                <Spacing smart={{ margin: "8px 0px 0px" }}>
+                <Spacing smart={{ margin: "0px 0px 60px" }}>
                   <Typography className={classes.projectCallDescription} align="left" variant="body1" color="textPrimary">
                     Gostaríamos da sua ajuda principalmente nos seguintes projetos
                 </Typography>
@@ -123,9 +145,12 @@ const IndexPage = () => {
                   <ProjectsList listLimit={6} useMansonry={false} />
                 </Grid>
               </Spacing>
-              <Grid>
+              <Grid item alignItems="center" justifyContent="center" className={classes.allProjects}>
                 <Link href="/projetos">
-                  <span
+                  <Button variant="outlined" color="primary" className={classes.allProjectsButton}>
+                    VER TODOS OS PROJETOS
+                  </Button>
+                  {/* <span
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -138,7 +163,7 @@ const IndexPage = () => {
                       style={{ marginLeft: 10 }}
                       color="secondary"
                     />
-                  </span>
+                  </span> */}
                 </Link>
               </Grid>
               </Grid>

@@ -7,7 +7,7 @@ theme.palette = {
   primary: {
     main: "#7F00FA",
     contrastText: "#fff",
-    light: "#17042B",
+    light: "#C6B6D9",
     dark: "#220A42",
   },
   secondary: {

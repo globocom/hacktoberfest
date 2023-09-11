@@ -25,11 +25,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
   },
-  projectName: {
-    fontSize: '2rem',
-    fontWeight: 600,
-    lineHeight: '48px',
-  },
   rounded: {
     borderRadius: 24,
     fontWeight: "normal",
@@ -65,18 +60,35 @@ const useStyles = makeStyles((theme: Theme) => ({
       width: "95%"
     }
   },
+  projectName: {
+    color: theme.palette.text.primary,
+    fontFamily: "Globotipo Variable",
+    fontSize: '22px',
+    fontWeight: 700,
+    lineHeight: '30.8px',
+  },
   projectDescription: {
-    lineHeight: '24px'
+    fontFamily: "Globotipo Variable",
+    fontSize: '18px',
+    fontWeight: 400,
+    lineHeight: '25.2px',
+    color: theme.palette.primary.light,
   },
   projectTable: {
     backgroundColor: theme.palette.primary.dark,
-    color: theme.palette.primary.dark,
+    color: theme.palette.primary.light,
   },
   projectImage: {
-    width: "100px",
+    width: "50px",
   },
   projectButton: {
-    width: "10px",
+    color: theme.palette.text.primary,
+    width: "176px",
+    height: "70px",
+    borderRadius: "1px solid",
+    fontFamily: "Globotipo Variable",
+    fontSize: '16px',
+    fontWeight: 700,
   }
 }))
 
@@ -121,7 +133,6 @@ const ProjectsList = (props: ProjectListProps) => {
     fetchProjects()
   }, [])
 
-  console.log(useMansonry)
   return (
     <>
       {loading && ( <ProjectsListLoading /> ) }
@@ -141,7 +152,6 @@ const ProjectsList = (props: ProjectListProps) => {
             </Table>
           </TableContainer>
         </Grid>
-        // </>
       )}
 
       {(!loading && !error && useMansonry && <Masonry
@@ -177,7 +187,6 @@ function ProjectsListError() {
 }
 
 function ProjectTableRow(props: ProjectProps) {
-  console.log(props)
   const classes = useStyles()
   const { name, description, repo, imageUrl, stats = {}, isHome } = props;
   function accessProjectRepo() {
@@ -188,17 +197,16 @@ function ProjectTableRow(props: ProjectProps) {
   if (items.length > 0) {
     filtered = items.filter(item => item.name && !excludedLanguages.includes(item?.name.toLowerCase()));
   }
-  console.log(filtered)
   return (
     <React.Fragment>
       <TableRow key={name}>
-        <TableCell component="th" scope="row" className={classes.projectImage}>
+        <TableCell component="th" scope="row" align="center" className={classes.projectImage}>
         <RepoLanguages languages={[filtered[0]]} />
         </TableCell>
         <TableCell component="th" scope="row" className={classes.projectName}>{name}</TableCell>
         <TableCell component="th" scope="row" className={classes.projectDescription}>{description}</TableCell>
-        <TableCell component="th" scope="row" className={classes.projectButton}>
-          <Button variant="outlined" color="primary" onClick={() => accessProjectRepo()}>ACESSAR</Button>
+        <TableCell component="th" scope="row">
+          <Button variant="outlined" color="primary" className={classes.projectButton} onClick={() => accessProjectRepo()}>ACESSAR</Button>
         </TableCell>
       </TableRow>
     </React.Fragment>
