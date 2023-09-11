@@ -8,13 +8,13 @@ theme.palette = {
     main: "#7F00FA",
     contrastText: "#fff",
     light: "#C6B6D9",
-    dark: "#220A42",
+    dark: "#220A42"
   },
   secondary: {
     main: "#FFCE0B",
     contrastText: "#000",
     light: "#000",
-    dark: "#878787",
+    dark: "#17042B",
   },
   background: {
     default: "#000000",

@@ -138,34 +138,18 @@ const IndexPage = () => {
                     Gostaríamos da sua ajuda principalmente nos seguintes projetos
                 </Typography>
                 </Spacing>
-
-
-              <Spacing smart={{ margin: "24px 0px 0px" }}>
-                <Grid item xs={12}>
-                  <ProjectsList listLimit={6} useMansonry={false} />
+                <Spacing smart={{ margin: "24px 0px 0px" }}>
+                  <Grid item xs={12}>
+                    <ProjectsList listLimit={6} useMansonry={false} />
+                  </Grid>
+                </Spacing>
+                <Grid item alignItems="center" justifyContent="center" className={classes.allProjects}>
+                  <Link href="/projetos">
+                    <Button variant="outlined" color="primary" className={classes.allProjectsButton}>
+                      VER TODOS OS PROJETOS
+                    </Button>
+                  </Link>
                 </Grid>
-              </Spacing>
-              <Grid item alignItems="center" justifyContent="center" className={classes.allProjects}>
-                <Link href="/projetos">
-                  <Button variant="outlined" color="primary" className={classes.allProjectsButton}>
-                    VER TODOS OS PROJETOS
-                  </Button>
-                  {/* <span
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Typography style={{ fontWeight: 600 }} variant="body1" color="secondary">
-                      ver todos os projetos
-                  </Typography>
-                    <ArrowForwardIcon
-                      style={{ marginLeft: 10 }}
-                      color="secondary"
-                    />
-                  </span> */}
-                </Link>
-              </Grid>
               </Grid>
             </Grid>
           </Spacing>
