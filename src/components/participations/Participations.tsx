@@ -93,25 +93,20 @@ const ParticipationHistory = (props: ParticipationHistoryProps) => {
   const editions: Array<string> = Object.keys(user.editions || {}) || []
 
   return (
-    <>
-      <Grid container>
-        <Spacing smart={{ margin: "0px 0px 16px 0px" }}>
-          <Grid item xs={12}>
-            <HeaderTitle title={"Histórico de Participação"} />
-          </Grid>
-        </Spacing>
-        <Spacing smart={{ margin: "0px 0px 34px 0px" }}>
-          <Grid item xs={12}>
-            <Typography component="h3" variant="h3">Relembre suas participações no Hacktoberfest.</Typography>
-          </Grid>
-        </Spacing>
+    <Grid
+      container
+      justifyContent="space-evenly"
+      alignItems="center"
+      spacing={2}
+    >
+      <Grid item xs={10} md={12}>
+        <HeaderTitle title={"Participações"} />
       </Grid>
-      <Spacing smart={{ margin: "0px 0px 80px 0px" }} desktop={{ margin: "0px 0px 160px 0px" }}>
-        <Grid container justifyContent='space-between'>
-          {editions.map((edition: string, index: number) => <Grid xs={12} md={4} item className={classes.root}> <EditionElement edition={edition} editionData={props.user.editions[edition]} /> </Grid>)}
-        </Grid>
-      </Spacing>
-    </>
+      <Grid item xs={10} md={12}>
+        <Typography component="h3" variant="h3">Relembre suas participações no Hacktoberfest.</Typography>
+      </Grid>
+      {editions.map((edition: string, index: number) => <Grid xs={10} md={4} key={index} item className={classes.root}> <EditionElement edition={edition} editionData={props.user.editions[edition]} /> </Grid>)}
+    </Grid >
   )
 }
 

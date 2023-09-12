@@ -44,30 +44,30 @@ const ProjectsPage = () => {
     >
       <div className={classes.root}>
         <Grid container justifyContent="center">
-            <Grid style={{ maxWidth: 944 }} item xs={12} lg={6}>
-              <Spacing desktop={{ margin: "5vh 0px 40px 0px" }} smart={{ margin: "64px 12px 0px 12px" }}>
-                <div className={classes.headerTitle}>
-                  <HeaderTitle title={"Projetos"} />
-                  <Image src={`2023/eye.svg`} />
-                </div>
-              </Spacing>
-              <Spacing desktop={{ margin: "0px 0px 10vh 0px" }} smart={{ margin: "24px 12px 40px 12px" }}>
-                <Typography
-                  className={classes.description}
-                  component="p"
-                  align="left"
-                  color="textPrimary"
-                  variant="body1"
-                >
-                  Todos os nossos projetos Open Source em um só lugar. Incentivamos sua contribuição no projeto que mais lhe agradar.
-                </Typography>
-              </Spacing>
-              <ProjectsList useMansonry={false} />
-            </Grid>
+          <Grid style={{ maxWidth: 944 }} item xs={12} lg={6}>
+            <Spacing desktop={{ margin: "5vh 0px 40px 0px" }} smart={{ margin: "64px 32px 0 32px" }}>
+              <div className={classes.headerTitle}>
+                <HeaderTitle title={"Projetos"} />
+                <Image src={`2023/eye.svg`} />
+              </div>
+            </Spacing>
+            <Spacing desktop={{ margin: "0 0 10vh 0" }} smart={{ margin: "24px 32px 40px 32px" }}>
+              <Typography
+                className={classes.description}
+                component="p"
+                align="left"
+                color="textPrimary"
+                variant="body1"
+              >
+                Todos os nossos projetos Open Source em um só lugar. Incentivamos sua contribuição no projeto que mais lhe agradar.
+          </Typography>
+            </Spacing>
+            <ProjectsList useMansonry={false} />
+          </Grid>
         </Grid>
         <Image className={classes.separator} src={`2023/separator.svg`} />
-      </div>
-    </Layout>
+      </div >
+    </Layout >
   )
 }
 

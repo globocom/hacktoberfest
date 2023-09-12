@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '100%',
     marginBottom: '-10px'
   },
+  formData: {
+    maxWidth: "944px",
+  }
 }))
 
 interface HacktoberFestAlertProps extends AlertProps {
@@ -61,32 +64,23 @@ const PersonalAreaPage = () => {
   return (
     <Layout title="Minha Área - Globo Hacktoberfest" description="Minha Área - Globo Hacktoberfest" headerTitle="Minha área">
       <div className={classes.root}>
-        <Snackbar
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-          autoHideDuration={5000}
-          onClose={closeSnackbar}
-          open={alert ? true : false}>
-          <Alert severity={alert?.severity} message={alert?.message} />
-        </Snackbar>
 
-        <Grid container alignItems="flex-start" alignContent="center" direction="column">
-          {loaded && user?.id &&
-            <React.Fragment>
-              <Grid style={{ maxWidth: 944 }} item xs={12} lg={6}>
-                <Spacing desktop={{ margin: "160px 0px" }} smart={{ margin: "40px 0px 80px 0px" }}>
-                  <div>
-                    <PersonalDataForm user={user} />
-                  </div>
-                </Spacing>
-                <ParticipationHistory user={user} />
-                <ShippingForm showSnackBar={showSnackBar} user={user} />
-              </Grid>
-            </React.Fragment>
-          }
-        </Grid>
+        {loaded && user?.id &&
+          <Grid container alignItems="flex-start" alignContent="center" direction="column" spacing={8}>
+            <Grid item xs={10} className={classes.formData}>
+              <PersonalDataForm user={user} />
+            </Grid>
+            <Grid item xs={10} className={classes.formData}>
+              <ParticipationHistory user={user} />
+            </Grid>
+            <Grid item xs={10} className={classes.formData}>
+              <ShippingForm showSnackBar={showSnackBar} user={user} />
+            </Grid>
+          </Grid>
+        }
         <Image className={classes.separator} src={`2023/separator.svg`} />
 
-      </div>
+      </div >
     </Layout>
   )
 }

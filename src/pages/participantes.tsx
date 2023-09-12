@@ -28,27 +28,25 @@ const ParticipantsPage = () => {
   return (
     <Layout title="Participantes - Globo Hacktoberfest" description="Participantes - Globo Hacktoberfest" headerTitle="Participantes">
       <Grid className={classes.root} container justifyContent="center" alignContent="center">
-          <Spacing desktop={{margin: "160px 0px 0px 0px"}} smart={{margin: "40px 0px"}}>
-            <Grid item style={{maxWidth: 944, minHeight: '61vh'}} xs={12} lg={6}>
-              <div>
-                <HeaderTitle title={"Participantes"}/>
-              </div>
-              <Spacing desktop={{margin: "40px 0px 10vh 0px"}} smart={{ margin: "24px 12px 40px 12px" }}>
-                <Typography
-                  component="p"
-                  align="left"
-                  color="textPrimary"
-                  variant="body1"
-                >
-                  Navegue e veja quem contribuiu com cada edição.
+        <Spacing desktop={{ margin: "160px 0px 0px 0px" }} smart={{ margin: "40px 32px" }}>
+          <Grid item style={{ maxWidth: 944, minHeight: '61vh' }} xs={12} lg={6}>
+            <HeaderTitle title={"Participantes"} />
+            <Spacing desktop={{ margin: "40px 0px 10vh 0px" }} smart={{ margin: "24px 0 40px 0" }}>
+              <Typography
+                component="p"
+                align="left"
+                color="textPrimary"
+                variant="body1"
+              >
+                Navegue e veja quem contribuiu com cada edição.
                 </Typography>
-              </Spacing>
+            </Spacing>
             <Box style={{ flexGrow: 1 }}>
               <Tabs />
             </Box>
           </Grid>
         </Spacing>
-          <Image className={classes.separator} src={`2023/separator.svg`} />
+        <Image className={classes.separator} src={`2023/separator.svg`} />
       </Grid>
     </Layout>
   )
