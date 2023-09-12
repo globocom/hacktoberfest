@@ -110,7 +110,7 @@ const RulesDesktop = (props: RulesProps) => {
             {
               props.rules.map((rule, index) =>
                 <Grid container direction="row" className={classes.rulesInsideContainer}>
-                  <Grid item key={`aaaaa${index}`}>
+                  <Grid item key={index}>
                     <div className={classes.number}>
                       {index + 1}
                     </div>

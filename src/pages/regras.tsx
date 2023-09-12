@@ -63,6 +63,50 @@ const useStyles = makeStyles((theme: Theme) => ({
       borderBottom: "none",
     }
   },
+  rulesContainer: {
+    flexWrap: "nowrap",
+    backgroundColor: theme.palette.secondary.dark,
+  },
+  rulesItemsContainer: {
+    flexWrap: "nowrap",
+    backgroundColor: "#230B42",
+    alignItems: "center",
+    margin: "30px 0px"
+  },
+  rulesInsideContainer: {
+    margin: "30px 1px",
+    flexWrap: "nowrap",
+    alignItems: "center",
+    backgroundColor: "#250849",
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      paddingTop: "8px",
+      paddingBottom: "8px",
+    },
+  },
+  rulesSeparator: {
+    margin: "25px 0px",
+    display: "flex",
+    alignItems: "center"
+  },
+  rulesSeparatorSvg: {
+    width: "38px",
+    height: "244px"
+  },
+  number: {
+    margin: "0px 20px",
+    padding: "0px 10px",
+    background: "linear-gradient(to bottom right, #250849 50%, #1C0733 50%)",
+    borderRadius: "50%",
+    border: `5px solid ${theme.palette.secondary.dark}`,
+    width: "70px",
+    height: "70px",
+    lineHeight: "60px",
+    textAlign: "center",
+    color: theme.palette.text.primary,
+    fontFamily: "Globotipo Variable",
+    fontSize: '34px',
+    fontWeight: 700,
+  },
 }))
 
 const Rule = (props: RuleProps) => {
@@ -93,6 +137,16 @@ const RuleBookPage = () => {
       "title": "Ação de curto prazo, impacto de longo prazo",
       "description": "Na comunidade de software de código aberto, estamos nos apoiando nos ombros daqueles que vieram antes de nós. Sua participação tem um efeito duradouro nas pessoas e na tecnologia, muito depois de outubro. Esta é uma viagem, não uma corrida."
     }
+  ]
+
+  const rules = [
+    "Para obter uma camiseta, você deve ter dois pull requests (PRs) enviados entre 1 e 31 de Outubro e pelo menos um deles aprovado.",
+    "Os pull requests podem ser feitos em qualquer repositório dos projetos open source da Globo, não apenas para aqueles destacados.",
+    "O PR deve conter confirmações que você mesmo fez."
+  ]
+  const rules2 = [
+    "Se um mantenedor reportar seu PR como spam, o mesmo não será contabilizado para sua participação no Hacktoberfest.",
+    "Se um mantenedor reportar um comportamento que não esteja de acordo com o código de conduta do projeto, você não poderá participar."
   ]
   return (
     <Layout
@@ -135,7 +189,58 @@ const RuleBookPage = () => {
                   <HeaderTitle title={"Regras"} />
                 </Grid>
               </Spacing>
-              <Spacing smart={{ margin: "0px 0px 40px" }}>
+              <Grid item key={"inner_container"}>
+                <Grid container direction="row" justifyContent="space-between" className={classes.rulesContainer}>
+                  <Grid item key={"test1"} className={classes.rulesSeparator}>
+                    <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
+                  </Grid>
+                  {
+                    rules.map((rule, index) =>
+                      <Grid container direction="row" className={classes.rulesInsideContainer}>
+                        <Grid item key={index}>
+                          <div className={classes.number}>
+                            {index + 1}
+                          </div>
+                        </Grid>
+                        <Grid item key={`rule${index}`}>
+                          {rule}
+                        </Grid>
+                      </Grid>
+                    )
+                  }
+                  <Grid item key={"img"} className={classes.rulesSeparator}>
+                    <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
+                  </Grid>
+                </Grid>
+                <Grid container direction="row" justifyContent="space-between" className={classes.rulesContainer}>
+                  <Grid item key={"test1"} className={classes.rulesSeparator}>
+                    <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
+                  </Grid>
+                  {
+                    rules2.map((rule, index) =>
+                      <Grid container direction="row" className={classes.rulesInsideContainer}>
+                        <Grid item key={index}>
+                          <div className={classes.number}>
+                            {index + 4}
+                          </div>
+                        </Grid>
+                        <Grid item key={`rule${index}`}>
+                          {rule}
+                        </Grid>
+                      </Grid>
+                    )
+                  }
+                  <Grid container direction="row" className={classes.rulesInsideContainer} justifyContent= "center">
+                    <Grid item>
+                      <Image  src={`2023/flag.svg`} />
+                    </Grid>
+                  </Grid>
+                  <Grid item key={"img"} className={classes.rulesSeparator} >
+                    <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
+                  </Grid>
+                </Grid>
+              </Grid>
+              {/* <Spacing smart={{ margin: "0px 0px 40px" }}>
                 <Grid item>
                   <Rule> Para obter uma camiseta, você deve ter dois pull requests (PRs) enviados entre 1 e 31 de Outubro e pelo menos um deles aprovado.</Rule>
                 </Grid>
@@ -159,7 +264,7 @@ const RuleBookPage = () => {
                 <Grid item>
                   <Rule> Se um mantenedor reportar um comportamento que não esteja de acordo com o código de conduta do projeto, você não poderá participar. </Rule>
                 </Grid>
-              </Spacing>
+              </Spacing> */}
             </Grid>
           </Grid>
         <Image className={classes.separator} src={`2023/separator.svg`} />
