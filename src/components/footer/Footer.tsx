@@ -85,20 +85,19 @@ const FooterDesktop = (props: FooterItemsProps) => {
 const FooterSmart = (props: FooterItemsProps) => {
   const classes = makeCss()
   return (
-    <Spacing smart={{ margin: "32px" }}>
       <Grid container direction="column" justifyContent="space-around" alignItems="flex-start">
-        <Spacing smart={{ margin: "0 0 24px" }}>
+        <Spacing smart={{ margin: "0 32px 24px" }}>
           <Grid item>
             <Image src="2023/globo.svg" />
           </Grid>
         </Spacing>
-        <Spacing smart={{ margin: "0 0 24px" }}>
+        <Spacing smart={{ margin: "0 32px 24px" }}>
           <Grid item>
             <Image src="2023/logo.png" with="278" height="90" />
           </Grid>
         </Spacing>
         {props.menuItems.map((item: MenuItem, i: number) => (
-          <Spacing smart={{ margin: "0 0 24px" }}>
+        <Spacing smart={{ margin: "0 32px 24px" }}>
             <Grid item key={i}>
               <Typography className={classes.menuItem} variant="body1" component="p">
                 <a target="_blank" href={item.link}>
@@ -108,7 +107,7 @@ const FooterSmart = (props: FooterItemsProps) => {
             </Grid>
           </Spacing>
         ))}
-        <Spacing smart={{ margin: "0 0 24px" }}>
+        <Spacing smart={{ margin: "0 32px 24px" }}>
           <Grid item xs={12}>
             <Typography className={classes.menuItem} style={{ fontWeight: "bolder" }} variant="body1" component="p">
               <a target="_blank" href={"https://globo.com"}> globo.com <span style={{ fontWeight: 400 }}>Opensource</span> </a>
@@ -123,7 +122,6 @@ const FooterSmart = (props: FooterItemsProps) => {
           </Grid>
         </Grid>
       </Grid>
-    </Spacing >
   )
 }
 
