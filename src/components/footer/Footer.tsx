@@ -66,7 +66,7 @@ const FooterDesktop = (props: FooterItemsProps) => {
           </Typography>
         </Grid>
         {props.menuItems.map((item: MenuItem, i: number) => (
-          <Grid key={i} item>
+          <Grid item key={i}>
             <Typography className={classes.menuItem} variant="body1" component="p">
               <a target="_blank" href={item.link}>
                 {item.label}
@@ -98,8 +98,8 @@ const FooterSmart = (props: FooterItemsProps) => {
           </Grid>
         </Spacing>
         {props.menuItems.map((item: MenuItem, i: number) => (
-          <Spacing key={i} smart={{ margin: "0 0 24px" }}>
-            <Grid item>
+          <Spacing smart={{ margin: "0 0 24px" }}>
+            <Grid item key={i}>
               <Typography className={classes.menuItem} variant="body1" component="p">
                 <a target="_blank" href={item.link}>
                   {item.label}

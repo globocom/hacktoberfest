@@ -19,14 +19,10 @@ const Image = ({ src, ...rest }) => {
     }
   `);
 
-  console.log(data)
   const match = useMemo(
     () => data.images.edges.find(({ node }) => src === node.relativePath),
     [data, src]
   );
-
-  console.log(data.images)
-  console.log(match)
 
   if (!match) return null;
 

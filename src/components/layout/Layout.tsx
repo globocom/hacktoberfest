@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     "& a": {
       textDecoration: "none",
     },
+    background: theme.palette.primary.main,
   },
   body: {
     padding: 0,
@@ -24,7 +25,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       padding: 0,
     },
-    animation: `$gradient-effect 15s ease infinite`,
   }
 }))
 

@@ -8,6 +8,7 @@ import User, { UserProps } from '@services/user'
 import { HacktoberfestTextInput } from '@components/text-input'
 import LoadingButton from '@components/loading-button'
 import Hacktoberfest from '@services/hacktoberfest'
+import { HeaderTitle } from "@components/header"
 
 //Icons
 import PersonPinCircle from '@material-ui/icons/PersonPinCircle'
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
 }))
 
-  
+
 const ShippingForm = (props: ShippingFormProps) => {
     const classes = useStyles();
     const { user, showSnackBar } = props
@@ -103,12 +104,12 @@ const ShippingForm = (props: ShippingFormProps) => {
                 <Grid container spacing={2}>
                     <Spacing smart={{margin: "0px 0px 16px 0px"}}>
                         <Grid item xs={12}>
-                            <Typography className={classes.fontCall} component="h2" color="secondary" variant="h2">Dados para premiação</Typography>
+                  <HeaderTitle title={"Dados para premiação"} />
                         </Grid>
                     </Spacing>
                     <Spacing smart={{margin: "0px 0px 34px 0px"}}>
                         <Grid item xs={12}>
-                            <Typography component="h3" color="secondary" variant="h3">Preencha com o endereço onde será entregue a camiseta.</Typography>
+                            <Typography component="h3" variant="h3">Preencha com o endereço onde será entregue a camiseta.</Typography>
                         </Grid>
                     </Spacing>
                     <Grid item xs={12} md={8}>

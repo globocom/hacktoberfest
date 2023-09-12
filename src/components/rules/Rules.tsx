@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rulesContainer: {
     flexWrap: "nowrap",
-    height:"308px",
+    height: "308px",
     backgroundColor: theme.palette.secondary.dark,
   },
   rulesItemsContainer: {
@@ -101,37 +101,37 @@ const Rules = () => {
         justifyContent="flex-start"
         alignItems="flex-start"
       >
-          <Grid item className={classes.projectTitle}>
-            <Image src={`2023/body-raio.svg`} />
-            <Typography className={classes.projectFont} variant="body1" component="p">
-              Como participar
+        <Grid item key={"como-participar"} className={classes.projectTitle}>
+          <Image src={`2023/body-raio.svg`} />
+          <Typography className={classes.projectFont} variant="body1" component="p">
+            Como participar
             </Typography>
-          </Grid>
-            <Grid container direction="row" justifyContent="space-between" className={classes.rulesContainer}>
-              <Grid item className={classes.rulesSeparator}>
-                <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`}/>
-              </Grid>
-              <Grid container direction="row" className={classes.rulesItemsContainer}>
-                {
-                  rules.map((rule, index) =>
-                    <Grid container direction="row" className={classes.rulesInsideContainer}>
-                        <Grid item>
-                          <div className={classes.number}>
-                            {index + 1}
-                          </div>
-                        </Grid>
-                        <Grid item>
-                          {rule}
-                        </Grid>
-                    </Grid>
-                  )
-                }
-              </Grid>
-              <Grid item className={classes.rulesSeparator}>
-                <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`}/>
-              </Grid>
+        </Grid>
+        <Grid item key={"inner_container"}>
+          <Grid container direction="row" justifyContent="space-between" className={classes.rulesContainer}>
+            <Grid item key={"test1"} className={classes.rulesSeparator}>
+              <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
+            </Grid>
+            {
+              rules.map((rule, index) =>
+                <Grid container direction="row" className={classes.rulesInsideContainer}>
+                  <Grid item key={`aaaaa${index}`}>
+                    <div className={classes.number}>
+                      {index + 1}
+                    </div>
+                  </Grid>
+                  <Grid item key={`rule${index}`}>
+                    {rule}
+                  </Grid>
+                </Grid>
+              )
+            }
+            <Grid item key={"img"} className={classes.rulesSeparator}>
+              <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
             </Grid>
           </Grid>
+        </Grid>
+      </Grid>
     </Spacing>
   )
 }

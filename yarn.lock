@@ -2915,7 +2915,11 @@ babel-plugin-transform-react-remove-prop-types@^0.4.24:
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
 
+<<<<<<< Updated upstream
 babel-preset-gatsby@^1.0.0, babel-preset-gatsby@^1.15.0:
+=======
+babel-preset-gatsby@^1.15.0:
+>>>>>>> Stashed changes
   version "1.15.0"
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/babel-preset-gatsby/-/babel-preset-gatsby-1.15.0.tgz#cc41c8d7b92662f989b821ee7afa952eb26c4701"
   integrity sha512-3t/bdj/uTcHgnGP74TT20/uhn7lS79w7djxBYV4/ZKQBHEQJ7MkjQxZq1Gi1q49KK6+/cA7CYmh7RKmH2XOvXw==
@@ -3174,6 +3178,14 @@ buffer-from@^1.0.0:
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
   integrity sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==
 
+<<<<<<< Updated upstream
+=======
+buffer-from@~0.1.1:
+  version "0.1.2"
+  resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/buffer-from/-/buffer-from-0.1.2.tgz#15f4b9bcef012044df31142c14333caf6e0260d0"
+  integrity sha512-RiWIenusJsmI2KcvqQABB83tLxCByE3upSP8QU3rJDMVFGPWLvPQJt/O1Su9moRWeH7d+Q2HYb68f6+v+tw2vg==
+
+>>>>>>> Stashed changes
 buffer@^5.5.0, buffer@^5.7.0:
   version "5.7.1"
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/buffer/-/buffer-5.7.1.tgz#ba62e7c13133053582197160851a8f648e99eed0"
@@ -3463,6 +3475,7 @@ classnames@^2.2.5:
   version "2.3.2"
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
+<<<<<<< Updated upstream
 
 clean-css@^5.1.1:
   version "5.3.2"
@@ -3470,6 +3483,8 @@ clean-css@^5.1.1:
   integrity sha512-JVJbM+f3d3Q704rF4bqQ5UUyTtuJ0JRKNbTKVEeujCCBoMdkEi+V+e8oktO9qGQNSvHrFTM6JZRXrUvGR1czww==
   dependencies:
     source-map "~0.6.0"
+=======
+>>>>>>> Stashed changes
 
 clean-stack@^2.0.0:
   version "2.2.0"
@@ -4428,6 +4443,16 @@ dotenv@^8.2.0:
   version "8.6.0"
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/dotenv/-/dotenv-8.6.0.tgz#061af664d19f7f4d8fc6e4ff9b584ce237adcb8b"
   integrity sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==
+<<<<<<< Updated upstream
+=======
+
+duplexer2@^0.1.2:
+  version "0.1.4"
+  resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/duplexer2/-/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
+  integrity sha512-asLFVfWWtJ90ZyOUHMqk7/S2w2guQKxUI2itj3d92ADHhxUSbCMGi1f1cBcJ7xM1To+pE/Khbwo1yuNbMEPKeA==
+  dependencies:
+    readable-stream "^2.0.2"
+>>>>>>> Stashed changes
 
 duplexer3@^0.1.4:
   version "0.1.5"
@@ -6539,6 +6564,20 @@ html-entities@^2.3.3:
   version "2.4.0"
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/html-entities/-/html-entities-2.4.0.tgz#edd0cee70402584c8c76cc2c0556db09d1f45061"
   integrity sha512-igBTJcNNNhvZFRtm8uA6xMY6xYleeDwn3PeBCkDz7tHttv4F2hsDI2aPgNERWzvRcNYHNT3ymRaQzllmXj4YsQ==
+<<<<<<< Updated upstream
+=======
+
+html-tokenize@^2.0.0:
+  version "2.0.1"
+  resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/html-tokenize/-/html-tokenize-2.0.1.tgz#c3b2ea6e2837d4f8c06693393e9d2a12c960be5f"
+  integrity sha512-QY6S+hZ0f5m1WT8WffYN+Hg+xm/w5I8XeUcAq/ZYP5wVC8xbKi4Whhru3FtrAebD5EhBW8rmFzkDI6eCAuFe2w==
+  dependencies:
+    buffer-from "~0.1.1"
+    inherits "~2.0.1"
+    minimist "~1.2.5"
+    readable-stream "~1.0.27-1"
+    through2 "~0.4.1"
+>>>>>>> Stashed changes
 
 htmlparser2@^6.1.0:
   version "6.1.0"
@@ -8585,7 +8624,11 @@ minimatch@^3.0.4, minimatch@^3.1.1, minimatch@^3.1.2:
   dependencies:
     brace-expansion "^1.1.7"
 
+<<<<<<< Updated upstream
 minimist@^1.1.0, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5, minimist@^1.2.6:
+=======
+minimist@^1.1.0, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5, minimist@^1.2.6, minimist@~1.2.5:
+>>>>>>> Stashed changes
   version "1.2.8"
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
   integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
@@ -8907,6 +8950,14 @@ object-keys@^1.1.1:
   version "1.1.1"
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
+<<<<<<< Updated upstream
+=======
+
+object-keys@~0.4.0:
+  version "0.4.0"
+  resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/object-keys/-/object-keys-0.4.0.tgz#28a6aae7428dd2c3a92f3d95f21335dd204e0336"
+  integrity sha512-ncrLw+X55z7bkl5PnUvHwFK9FcGuFYo9gtjws2XtSzL+aZ8tm830P60WJ0dSmFVaSalWieW5MD7kEdnXda9yJw==
+>>>>>>> Stashed changes
 
 object-path@0.11.5:
   version "0.11.5"
@@ -9674,7 +9725,11 @@ postcss-value-parser@^4.1.0, postcss-value-parser@^4.2.0:
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
+<<<<<<< Updated upstream
 postcss@^8.0.5, postcss@^8.2.15, postcss@^8.2.9, postcss@^8.3.5:
+=======
+postcss@^8.2.15, postcss@^8.2.9, postcss@^8.3.5:
+>>>>>>> Stashed changes
   version "8.4.29"
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/postcss/-/postcss-8.4.29.tgz#33bc121cf3b3688d4ddef50be869b2a54185a1dd"
   integrity sha512-cbI+jaqIeu/VGqXEarWkRCCffhjgXc0qjBtXpqJhTBohMUjUQnbBr0xqX3vEKudc4iviTewcJo5ajcec5+wdJw==
@@ -10146,7 +10201,11 @@ readable-stream@1.1.x:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
+<<<<<<< Updated upstream
 readable-stream@^2.2.2:
+=======
+readable-stream@^2.0.2, readable-stream@^2.2.2:
+>>>>>>> Stashed changes
   version "2.3.8"
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/readable-stream/-/readable-stream-2.3.8.tgz#91125e8042bba1b9887f49345f6277027ce8be9b"
   integrity sha512-8p0AUk4XODgIewSi0l8Epjs+EVnWiK7NoDIEGU0HhE7+ZyY8D1IMY7odu5lRrFXGg71L15KG8QrPmum45RTtdA==
@@ -12621,6 +12680,16 @@ xtend@^4.0.0, xtend@^4.0.1:
   version "4.0.2"
   resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
+<<<<<<< Updated upstream
+=======
+
+xtend@~2.1.1:
+  version "2.1.2"
+  resolved "https://artifactory.globoi.com:443/artifactory/api/npm/npm-repos/xtend/-/xtend-2.1.2.tgz#6efecc2a4dad8e6962c4901b337ce7ba87b5d28b"
+  integrity sha512-vMNKzr2rHP9Dp/e1NQFnLQlwlhp9L/LfvnsVdHxN1f+uggyVI3i08uD14GPvCToPkdsRfyPqIyYGmIk58V98ZQ==
+  dependencies:
+    object-keys "~0.4.0"
+>>>>>>> Stashed changes
 
 y18n@^4.0.0:
   version "4.0.3"
