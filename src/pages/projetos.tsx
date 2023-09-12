@@ -18,13 +18,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: 32,
   },
   description: {
-    fontSize: '1.5rem',
-    lineHeight: '32px',
+    fontSize: '20px',
+    lineHeight: '28px',
+    color: theme.palette.secondary.dark,
+    fontFamily: "Globotipo Variable",
+    fontWeight: 400,
   },
   separator: {
     width: '100%',
     marginBottom: '-10px'
   },
+  headerTitle: {
+    display: "flex",
+    alignItems: "flex-end"
+  }
 }))
 
 const ProjectsPage = () => {
@@ -37,11 +44,11 @@ const ProjectsPage = () => {
     >
       <div className={classes.root}>
         <Grid container justifyContent="center">
-          <Spacing desktop={{ margin: "160px 0px 0px 0px" }} smart={{ margin: "40px 0px" }}>
             <Grid style={{ maxWidth: 944 }} item xs={12} lg={6}>
               <Spacing desktop={{ margin: "5vh 0px 40px 0px" }} smart={{ margin: "64px 12px 0px 12px" }}>
-                <div>
+                <div className={classes.headerTitle}>
                   <HeaderTitle title={"Projetos"} />
+                  <Image src={`2023/eye.svg`} />
                 </div>
               </Spacing>
               <Spacing desktop={{ margin: "0px 0px 10vh 0px" }} smart={{ margin: "24px 12px 40px 12px" }}>
@@ -53,11 +60,10 @@ const ProjectsPage = () => {
                   variant="body1"
                 >
                   Todos os nossos projetos Open Source em um só lugar. Incentivamos sua contribuição no projeto que mais lhe agradar.
-                  </Typography>
+                </Typography>
               </Spacing>
               <ProjectsList useMansonry={false} />
             </Grid>
-          </Spacing>
         </Grid>
         <Image className={classes.separator} src={`2023/separator.svg`} />
       </div>
