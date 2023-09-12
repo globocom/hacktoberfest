@@ -2,7 +2,7 @@ import React from "react"
 import Spacing from "@components/spacing"
 import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { useMediaQuery, Grid, Typography } from "@material-ui/core"
+import { useMediaQuery, Grid, Button, Typography } from "@material-ui/core"
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -83,6 +83,39 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontFamily: "Globotipo Variable",
     fontSize: '20px',
     fontWeight: 700,
+  },
+  buttonText: {
+    padding: 16,
+    color: theme.palette.secondary.dark,
+    lineHeight: "28px",
+    fontFamily: "Globotipo Variable",
+    fontSize: '20px',
+    fontWeight: 400,
+  },
+  buttonContainer: {
+    marginTop: '5px',
+    width: "35%",
+  },
+  button: {
+    backgroundColor: theme.palette.secondary.main,
+    fontFamily: "inherit",
+    borderRadius: "8px",
+    textTransform: "none",
+    color: theme.palette.text.secondary
+  },
+  clipSeparator: {
+    marginTop: '5px'
+  },
+  participateContainer: {
+    display: "flex",
+    alignItems: "center"
+  },
+  participateHint: {
+    color: "#2E3192",
+    lineHeight: "28px",
+    fontFamily: "Globotipo Variable",
+    fontSize: '20px',
+    fontWeight: 700,
   }
 }))
 
@@ -125,6 +158,25 @@ const RulesDesktop = (props: RulesProps) => {
               <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
             </Grid>
           </Grid>
+          <Grid container direction="row" justifyContent="space-between" className={classes.participateContainer}>
+            <Grid item className={classes.clipSeparator}>
+              <Image src={`2023/clip-separator.svg`} />
+            </Grid>
+            <Grid item className={classes.buttonContainer}>
+              <Button
+                href="/login"
+                style={{ display: "block" }}
+                className={classes.button}
+                size="large"
+                fullWidth
+                variant="contained"
+              >
+                <Typography className={classes.buttonText} component="p" variant="body2" align="center">
+                  <span className={classes.participateHint}>PARTICIPAR</span> COM SUA CONTA DO GITHUB
+                </Typography>
+              </Button>
+            </Grid>
+            </Grid>
         </Grid>
       </Grid>
     </Spacing>
