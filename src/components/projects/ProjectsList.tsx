@@ -66,6 +66,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: '22px',
     fontWeight: 700,
     lineHeight: '30.8px',
+    borderBottom: "none"
   },
   projectDescription: {
     fontFamily: "Globotipo Variable",
@@ -73,6 +74,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
     lineHeight: '25.2px',
     color: theme.palette.primary.light,
+    borderBottom: "none"
   },
   projectTable: {
     backgroundColor: theme.palette.primary.dark,
@@ -80,6 +82,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projectImage: {
     width: "50px",
+    borderBottom: "none"
   },
   projectButton: {
     color: theme.palette.text.primary,
@@ -89,6 +92,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontFamily: "Globotipo Variable",
     fontSize: '16px',
     fontWeight: 700,
+  },
+  tableRow: {
+    borderBottom: `1px solid ${theme.palette.primary.light}`,
+    '&:last-child':{
+      borderBottom: "none"
+    }
   }
 }))
 
@@ -199,13 +208,13 @@ function ProjectTableRow(props: ProjectProps) {
   }
   return (
     <React.Fragment>
-      <TableRow key={name}>
+      <TableRow key={name} className={classes.tableRow}>
         <TableCell component="th" scope="row" align="center" className={classes.projectImage}>
         <RepoLanguages languages={[filtered[0]]} />
         </TableCell>
         <TableCell component="th" scope="row" className={classes.projectName}>{name}</TableCell>
         <TableCell component="th" scope="row" className={classes.projectDescription}>{description}</TableCell>
-        <TableCell component="th" scope="row">
+        <TableCell component="th" scope="row" style={{borderBottom: "none"}}>
           <Button variant="outlined" color="primary" className={classes.projectButton} onClick={() => accessProjectRepo()}>ACESSAR</Button>
         </TableCell>
       </TableRow>
