@@ -2,7 +2,7 @@ import React from "react"
 import Spacing from "@components/spacing"
 import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Grid, Typography } from "@material-ui/core"
+import { useMediaQuery, Grid, Typography } from "@material-ui/core"
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -50,7 +50,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rulesContainer: {
     flexWrap: "nowrap",
-    height: "308px",
     backgroundColor: theme.palette.secondary.dark,
   },
   rulesItemsContainer: {
@@ -63,6 +62,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: "0px 30px",
     flexWrap: "nowrap",
     alignItems: "center",
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      paddingTop: "8px",
+      paddingBottom: "8px",
+    },
   },
   rulesSeparator: {
     margin: "25px 0px",
@@ -82,17 +85,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-
-
-const Rules = () => {
+const RulesDesktop = (props: RulesProps) => {
   const classes = useStyles()
-
-  const rules = [
-    <Typography className={classes.rule}>Contribua com <span className={classes.importantRule}>dois Pull Requests</span> em qualquer projeto Open Source da Globo <span className={classes.importantRule}>durante o mês de outubro</span>.</Typography>,
-    <Typography className={classes.rule}>Garanta que pelo menos <span className={classes.importantRule}>um pull request</span> seja <span className={classes.importantRule}>ACEITO</span>.</Typography>,
-    <Typography className={classes.rule}>Os 100 primeiros inscritos que completarem os requisitos mínimos <span className={classes.importantRule}>ganharão uma camiseta</span>.*</Typography>,
-  ]
-
   return (
     <Spacing smart={{ margin: "100px auto" }}>
       <Grid
@@ -104,7 +98,7 @@ const Rules = () => {
         <Grid item key={"como-participar"} className={classes.projectTitle}>
           <Image src={`2023/body-raio.svg`} />
           <Typography className={classes.projectFont} variant="body1" component="p">
-            Como participar
+            Como participar Desktop
             </Typography>
         </Grid>
         <Grid item key={"inner_container"}>
@@ -113,7 +107,7 @@ const Rules = () => {
               <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
             </Grid>
             {
-              rules.map((rule, index) =>
+              props.rules.map((rule, index) =>
                 <Grid container direction="row" className={classes.rulesInsideContainer}>
                   <Grid item key={`aaaaa${index}`}>
                     <div className={classes.number}>
@@ -133,6 +127,65 @@ const Rules = () => {
         </Grid>
       </Grid>
     </Spacing>
+  )
+}
+
+const RulesSmart = (props: RulesProps) => {
+  const classes = useStyles()
+  return (
+    <Spacing smart={{ margin: "100px auto" }}>
+      <div >
+
+        <Grid container direction="column">
+          <Grid item key={"como-participar"} className={classes.projectTitle}>
+            <Image src={`2023/body-raio.svg`} />
+            <Typography className={classes.projectFont} variant="body1" component="p">
+              Como participar
+            </Typography>
+          </Grid>
+        </Grid>
+
+        <Grid container direction="column" justifyContent="space-between" className={classes.rulesContainer}>
+          {
+            props.rules.map((rule, index) =>
+              <Grid container direction="row" className={classes.rulesInsideContainer}>
+                <Grid xs={3} item key={`number${index}`}>
+                  <div className={classes.number}>
+                    {index + 1}
+                  </div>
+                </Grid>
+                <Grid xs={8} item key={`rule${index}`}>
+                  {rule}
+                </Grid>
+              </Grid>
+            )
+          }
+        </Grid>
+      </div>
+    </Spacing>
+  )
+}
+
+interface RulesProps {
+  rules: any[]
+}
+
+const Rules = () => {
+  const classes = useStyles()
+  const isDesktop = useMediaQuery((theme: Theme) => {
+    return theme.breakpoints.up(theme.breakpoints.values.lg)
+  });
+
+  const rules = [
+    <Typography className={classes.rule}>Contribua com <span className={classes.importantRule}>dois Pull Requests</span> em qualquer projeto Open Source da Globo <span className={classes.importantRule}>durante o mês de outubro</span>.</Typography>,
+    <Typography className={classes.rule}>Garanta que pelo menos <span className={classes.importantRule}>um pull request</span> seja <span className={classes.importantRule}>ACEITO</span>.</Typography>,
+    <Typography className={classes.rule}>Os 100 primeiros inscritos que completarem os requisitos mínimos <span className={classes.importantRule}>ganharão uma camiseta</span>.*</Typography>,
+  ]
+
+  return (
+    <div>
+      {isDesktop ? <RulesDesktop rules={rules} /> : <RulesSmart rules={rules} />}
+    </div>
   )
 }
 

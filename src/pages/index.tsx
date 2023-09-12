@@ -47,8 +47,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: "-10px",
   },
   projects: {
-    paddingLeft: "150px",
-    paddingRight: "150px",
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      paddingLeft: "50px",
+      paddingRight: "50px",
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      paddingLeft: "100px",
+      paddingRight: "100px",
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      paddingLeft: "150px",
+      paddingRight: "150px",
+    },
   },
   projectTitle: {
     display: "flex",
