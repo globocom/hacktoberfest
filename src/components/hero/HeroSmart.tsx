@@ -4,6 +4,8 @@ import { Grid, Typography, Button, Hidden } from "@material-ui/core"
 import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Edition, UserProps } from "@services/user"
+import Lottie from 'react-lottie';
+import animationData from '../../themes/images/2023/drone.json';
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -42,14 +44,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'block',
     margin: '0px auto',
     [theme.breakpoints.between("sm", "md")]: {
-      
-    }
-  },
-  logoEdition: {
-    width: '100%',
-    display: 'block',
-    [theme.breakpoints.between("sm", "md")]: {
-      width: '75%'
+
     }
   },
   loggedViewContainer: {
@@ -57,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: 10,
     alignItems: 'flex-start',
   },
-  titleData:{
+  titleData: {
     fontSize: '7.5vw',
     width: '100%',
     margin: 0,
@@ -69,14 +64,35 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   active: {
     borderBottom: `2px solid ${theme.palette.secondary.main}`,
+  },
+  logoEdition: {
+    width: '80%',
+    display: 'block',
+    webkitTransform: "translate3d(0,0,0)",
+    WebkitBackfaceVisibility: 'hidden',
+  },
+  logoGlobo: {
+    width: '50%',
+    display: 'block',
+    webkitTransform: "translate3d(0,0,0)",
+    WebkitBackfaceVisibility: 'hidden',
+    marginBottom: '10%',
+  },
+  character: {
+    marginTop: '16%',
+    width: '100%'
+  },
+  drone: {
+    width: '50%',
+    height: '50%',
   }
 }))
 
 const getEditionState = (currentEdition: Edition | undefined): number => {
-  if(!currentEdition?.approved && !currentEdition?.completed){
+  if (!currentEdition?.approved && !currentEdition?.completed) {
     //Approved e Completed  false
     return 0;
-  }else if(currentEdition?.approved && !currentEdition.completed){
+  } else if (currentEdition?.approved && !currentEdition.completed) {
     //Approved true e completed false
     return 1;
   }
@@ -92,36 +108,36 @@ const LoggedView = (user: UserProps) => {
   const state = getEditionState(currentEdition);
   let TextComponent;
 
-  switch(state){
+  switch (state) {
     case 0:
-      TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
+      TextComponent = () => <ProgressMessage opened={opened} merged={merged} />
       break;
     case 1:
-      TextComponent = () => <ConfirmMessage/>
+      TextComponent = () => <ConfirmMessage />
       break;
     case 2:
-      TextComponent = () => <CongratsMessage/>
+      TextComponent = () => <CongratsMessage />
       break;
     default:
-      TextComponent = () => <ProgressMessage opened={opened} merged={merged}/>
+      TextComponent = () => <ProgressMessage opened={opened} merged={merged} />
       break;
-  } 
+  }
 
   return (
     <React.Fragment>
       <Grid container className={classes.loggedViewContainer} direction="column" justifyContent="flex-start" alignItems="flex-start">
-        <Spacing smart={{margin: "0px 0px 5px"}}>
+        <Spacing smart={{ margin: "0px 0px 5px" }}>
           <Grid item xs={12}>
             <Typography align="left" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
-            <TextComponent/>
+            <TextComponent />
           </Grid>
         </Spacing>
       </Grid>
       <div className={classes.progressionContainer}>
         <div className={classes.progression}>
-          <Image className={state == 0 ? classes.active : '' } src="hero/PR.svg"/> {/** Ativo se Approved e Completed for false */}
-          <Image className={state == 1 ? classes.active : '' } src="hero/Check.svg"/> {/** Ativo se Approved true e completed false */}
-          <Image className={state == 2 ? classes.active : '' } src="hero/Shirt.svg"/> {/* Ativo se completed e aproved for true*/}
+          <Image className={state == 0 ? classes.active : ''} src="hero/PR.svg" /> {/** Ativo se Approved e Completed for false */}
+          <Image className={state == 1 ? classes.active : ''} src="hero/Check.svg" /> {/** Ativo se Approved true e completed false */}
+          <Image className={state == 2 ? classes.active : ''} src="hero/Shirt.svg" /> {/* Ativo se completed e aproved for true*/}
         </div>
       </div>
     </React.Fragment>
@@ -129,18 +145,18 @@ const LoggedView = (user: UserProps) => {
 }
 
 const ProgressMessage = (props: any) => (
-    <Typography align="left" variant="body1" component="h5">  Você tem <b> {props.opened} PRs enviados e {props.merged} aceito(s) </b> </Typography>
+  <Typography align="left" variant="body1" component="h5">  Você tem <b> {props.opened} PRs enviados e {props.merged} aceito(s) </b> </Typography>
 )
 
 const ConfirmMessage = () => (
-  <div style={{minWidth: '100%'}}>
+  <div style={{ minWidth: '100%' }}>
     <Typography align="left" variant="body1" component="h5">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
   </div>
 )
 
 
 const CongratsMessage = () => (
-  <div style={{minWidth: '100%'}}>
+  <div style={{ minWidth: '100%' }}>
     <Typography align="left" variant="body1" component="h5" >  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar!</b> </Typography>
   </div>
 )
@@ -149,59 +165,80 @@ const UnloggedView = () => {
   const classes = useStyles()
   return (
     <React.Fragment>
-          <Grid container justifyContent="center" alignContent="center" className="containerUserViewSmart">
-            <Spacing smart={{margin: "0px 0px 16px 0px;"}}>
-              <Grid item xs={12}>
-                <Typography align="center" variant="h3" component="h3" style={{fontSize: '1rem', fontWeight: 700 }}>
-                  contribua e ganhe uma camiseta exclusiva
+      <Grid container justifyContent="center" alignContent="center" className="containerUserViewSmart">
+        <Spacing smart={{ margin: "0px 0px 16px 0px;" }}>
+          <Grid item xs={12}>
+            <Typography align="center" variant="h3" component="h3" style={{ fontSize: '1rem', fontWeight: 700 }}>
+              contribua e ganhe uma camiseta exclusiva
                 </Typography>
-              </Grid>
-            </Spacing>
-            <Grid item xs={12}>
-              <Button
-                href="/login"
-                fullWidth
-                className={classes.button}
-                variant="contained"
-              >
-                <Typography component="p" variant="body2" align="center" style={{fontSize: '16px', color: "#000"}}>
-                  <b>participar</b> com sua conta do github
+          </Grid>
+        </Spacing>
+        <Grid item xs={12}>
+          <Button
+            href="/login"
+            fullWidth
+            className={classes.button}
+            variant="contained"
+          >
+            <Typography component="p" variant="body2" align="center" style={{ fontSize: '16px', color: "#000" }}>
+              <b>participar</b> com sua conta do github
                 </Typography>
 
-              </Button>
-            </Grid>
-          </Grid>
+          </Button>
+        </Grid>
+      </Grid>
     </React.Fragment>
   )
 }
 
 
 const SmartView = (props: SmartViewProps) => {
-   const classes = useStyles()
-    return (
-      <React.Fragment>
-            <Grid
-              container
-              alignItems="center"
-              alignContent="center"
-              justifyContent="center"
-            >
-                  <Grid item xs={12}>
-                      <Image className={classes.logoEdition} src={`2022/logo_smart.png`}/>
-                      <Typography variant="h1" align="left" component="h2" className={classes.titleData}>
-                        01.10.2022 — 31.10.2022
-                      </Typography>
-                  </Grid>
-                
+  const classes = useStyles()
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
+  return (
+    <React.Fragment>
+      <Grid
+        container
+        alignItems="center"
+        alignContent="center"
+        justifyContent="center"
+      >
+        <Grid item sm={12}>
+          <Image className={classes.logoGlobo} src={`2023/globo.svg`} />
+          <Image className={classes.logoEdition} src={`2023/logo.png`} />
+          <Typography variant="h1" align="left" style={{ fontSize: "2.5vw", fontWeight: 100, marginTop: '1.2vw' }} component="h2">
+            01.10.2023 — 31.10.2023
+              </Typography>
+          <Typography align="left">
+            O Hacktober está aberto a todos os que desejam trilhar o caminho da colaboração e deixar sua marca nos projetos open source.
+              </Typography>
+          {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
+        </Grid>
+        <Grid item sm={6}>
+          <Image className={classes.character} src={`2023/character.svg`} />
+        </Grid>
+        <Grid item sm={6}>
+          <Lottie
+            className={classes.drone}
+            options={defaultOptions}
+            height={200}
+            width={250}
+          />
+        </Grid>
+      </Grid>
+    </React.Fragment>
+  )
+}
 
-              {props.user ? <LoggedView {...props.user}/> : <UnloggedView/>}
-            </Grid>
-      </React.Fragment>
-    )
-  }
+interface SmartViewProps {
+  user?: UserProps
+}
 
-  interface SmartViewProps {
-    user?: UserProps
-  }
-
-  export default SmartView
+export default SmartView

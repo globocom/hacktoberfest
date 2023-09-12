@@ -15,7 +15,7 @@ const Logo = () => {
   const classes = useStyles()
   return (
     <a href="/" className={classes.logo}>
-      <Image src="header-icon2.svg" />
+      <Image src="2023/header-raio.svg" />
     </a>
   )
 }

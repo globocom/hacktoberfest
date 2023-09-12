@@ -1,44 +1,45 @@
 import React from "react"
-import { makeStyles, Theme, Typography } from "@material-ui/core"
+import { makeStyles, Theme, Typography, Grid } from "@material-ui/core"
+import { Image } from "@components/image"
 
 const useStyles = makeStyles((theme: Theme) => ({
-    root: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        minHeight: 260
-    },
-    colored: {
-        color: theme.palette.primary.contrastText,
-        lineHeight: '48px',
-        fontSize: '2.25rem',
-        [theme.breakpoints.up("lg")]: {
-            fontSize: '3.25rem',
-        }
-    },
-    divisor: {
-        width: "20%",
-        marginTop: 24,
-        borderBottom: `1px solid rgba(255, 255, 255, 0.18);`,
-    }
-  }))
+  fontSection: {
+    fontSize: '42px',
+    marginLeft: "20px",
+    color: theme.palette.text.primary,
+    fontFamily: "Globotipo Variable",
+    fontWeight: 400,
+    lineHeight: '58.8px',
+  },
+  projectTitle: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+}))
 
 const HeaderTitle = (props: HeaderTitleProps) => {
-    const classes = useStyles()
+  const classes = useStyles()
 
-    return (
-        <div>
-            <Typography variant="h1" align="left" className={classes.colored}>
-                {props.title}
-            </Typography>
-        </div>
-    )
-
+  return (
+      <Grid
+        container
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Grid item className={classes.projectTitle} >
+          <Image src={`2023/white-raio.svg`} />
+          <Typography variant="h2" component="h2" align="left" className={classes.fontSection} color="secondary">
+            {props.title}
+          </Typography>
+        </Grid>
+      </Grid>
+  )
 }
 
-interface HeaderTitleProps{
-    title: String
+interface HeaderTitleProps {
+  title: String
 }
 
 export default HeaderTitle

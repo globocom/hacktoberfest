@@ -11,14 +11,19 @@ import Projects, { ProjectProps } from "@services/projects"
 import Masonry from 'react-masonry-css'
 import _ from 'lodash'
 
+
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+
+
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
-  },
-  projectName: {
-    fontSize: '2rem',
-    fontWeight: 600,
-    lineHeight: '48px',
   },
   rounded: {
     borderRadius: 24,
@@ -55,9 +60,36 @@ const useStyles = makeStyles((theme: Theme) => ({
       width: "95%"
     }
   },
-  projectDescription: {
-    lineHeight: '24px'
+  projectName: {
+    color: theme.palette.text.primary,
+    fontFamily: "Globotipo Variable",
+    fontSize: '22px',
+    fontWeight: 700,
+    lineHeight: '30.8px',
   },
+  projectDescription: {
+    fontFamily: "Globotipo Variable",
+    fontSize: '18px',
+    fontWeight: 400,
+    lineHeight: '25.2px',
+    color: theme.palette.primary.light,
+  },
+  projectTable: {
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.primary.light,
+  },
+  projectImage: {
+    width: "50px",
+  },
+  projectButton: {
+    color: theme.palette.text.primary,
+    width: "176px",
+    height: "70px",
+    borderRadius: "1px solid",
+    fontFamily: "Globotipo Variable",
+    fontSize: '16px',
+    fontWeight: 700,
+  }
 }))
 
 const excludedLanguages = [
@@ -82,7 +114,7 @@ const ProjectsList = (props: ProjectListProps) => {
     768: 1,
     320: 1
   };
-  
+
 
   useEffect(() => {
     async function fetchProjects() {
@@ -106,17 +138,22 @@ const ProjectsList = (props: ProjectListProps) => {
       {loading && ( <ProjectsListLoading /> ) }
       {(!loading && error) && ( <ProjectsListError /> ) }
 
-      {(!loading && !error && !useMansonry && 
-        <Grid container> 
-          {projects.map((project, index) => {
-                return <Grid key={index} item xs={12} md={4} lg={4} xl={2} > 
-                  <ProjectCard key={index} {...project} isHome={true} />
-                </Grid>
-          })}
+      {(!loading && !error && !useMansonry &&
+        <Grid container>
+          <TableContainer component={Paper}>
+            <Table aria-label="simple table" className={classes.projectTable}>
+              <TableBody>
+                {projects.map((project, index) => {
+                  return (
+                    <ProjectTableRow key={index} {...project} />
+                  )
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Grid>
       )}
 
-      
       {(!loading && !error && useMansonry && <Masonry
               breakpointCols={breakpointColumnsObj}
               className={classes.masonryGrid}
@@ -149,6 +186,32 @@ function ProjectsListError() {
   )
 }
 
+function ProjectTableRow(props: ProjectProps) {
+  const classes = useStyles()
+  const { name, description, repo, imageUrl, stats = {}, isHome } = props;
+  function accessProjectRepo() {
+    window.open(repo, "_blank", "noopener,noreferrer")
+  }
+  const items:string[] = _.get(stats, 'repository.repoLanguages.items', []);
+  let filtered:string[] = []
+  if (items.length > 0) {
+    filtered = items.filter(item => item.name && !excludedLanguages.includes(item?.name.toLowerCase()));
+  }
+  return (
+    <React.Fragment>
+      <TableRow key={name}>
+        <TableCell component="th" scope="row" align="center" className={classes.projectImage}>
+        <RepoLanguages languages={[filtered[0]]} />
+        </TableCell>
+        <TableCell component="th" scope="row" className={classes.projectName}>{name}</TableCell>
+        <TableCell component="th" scope="row" className={classes.projectDescription}>{description}</TableCell>
+        <TableCell component="th" scope="row">
+          <Button variant="outlined" color="primary" className={classes.projectButton} onClick={() => accessProjectRepo()}>ACESSAR</Button>
+        </TableCell>
+      </TableRow>
+    </React.Fragment>
+  )
+}
 function ProjectCard(props: ProjectProps) {
   const classes = useStyles()
   const { name, description, repo, imageUrl, stats = {}, isHome } = props;
