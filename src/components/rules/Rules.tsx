@@ -59,9 +59,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: "30px 0px"
   },
   rulesInsideContainer: {
-    margin: "0px 30px",
+    margin: "30px 1px",
     flexWrap: "nowrap",
     alignItems: "center",
+    backgroundColor: "#250849",
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       paddingTop: "8px",
       paddingBottom: "8px",

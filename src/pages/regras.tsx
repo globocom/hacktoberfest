@@ -35,6 +35,34 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '100%',
     marginBottom: '-10px'
   },
+  principleTitle: {
+    maxWidth: "20%",
+    minWidth: "20%",
+    marginRight: "20px",
+    fontFamily: "Globotipo Variable",
+    fontSize: '20px',
+    fontWeight: 700,
+    lineHeight: '28px',
+    color: theme.palette.secondary.main,
+  },
+  principleDescription: {
+    fontFamily: "Globotipo Variable",
+    fontSize: '18px',
+    fontWeight: 400,
+    lineHeight: '25.2px',
+    color: theme.palette.primary.light,
+  },
+  principlesContainer: {
+    backgroundColor: theme.palette.secondary.dark,
+  },
+  principlesInsideContainer: {
+    flexWrap: "nowrap",
+    padding: "30px",
+    borderBottom: `0.1px solid ${theme.palette.primary.light}`,
+    '&:last-child': {
+      borderBottom: "none",
+    }
+  },
 }))
 
 const Rule = (props: RuleProps) => {
@@ -51,42 +79,60 @@ const Rule = (props: RuleProps) => {
 
 const RuleBookPage = () => {
   const classes = useStyles();
+
+  const principles = [
+    {
+      "title": "Todos são bem-vindos",
+      "description": "Os participantes do Hacktoberfest representaram 151 países e reuniu milhares de habilidades únicas. Damos as boas-vindas a todos que já fazem parte da comunidade de software de código aberto e todos que estão interessados em mergulhar nesse universo."
+    },
+    {
+      "title": "A quantidade é divertida, a qualidade é a chave",
+      "description": "Participar do Hacktoberfest leva ao crescimento pessoal, oportunidades profissionais e construção de comunidade. No entanto, tudo começa com contribuições significativas para o software de código aberto."
+    },
+    {
+      "title": "Ação de curto prazo, impacto de longo prazo",
+      "description": "Na comunidade de software de código aberto, estamos nos apoiando nos ombros daqueles que vieram antes de nós. Sua participação tem um efeito duradouro nas pessoas e na tecnologia, muito depois de outubro. Esta é uma viagem, não uma corrida."
+    }
+  ]
   return (
     <Layout
       title="Regras e Princípios - Globo Hacktoberfest"
       description="Regras e Princípos - Globo Hacktoberfest"
       headerTitle="Regras e Princípios">
       <Grid className={classes.root} container direction="column" justifyContent="center" alignItems="center">
-        <Spacing style={{ maxWidth: 944 }} desktop={{ margin: "160px 0px 0px 0px" }} smart={{ margin: "40px 0px" }}>
-          <Grid item xs={12} lg={6}>
+          <Grid item xs={12} lg={10}>
             <Grid container>
-              <Spacing smart={{ margin: "5vh 0 10vh 0" }}>
+              <Spacing smart={{ margin: "40px 0" }}>
                 <Grid item xs={12} lg={6}>
                   <HeaderTitle title={"Princípios"} />
                 </Grid>
               </Spacing>
-              <Spacing smart={{ margin: "0px 0px 40px" }}>
-                <Grid item xs={12}>
-                  <Rule title="Todos são bem-vindos">
-                    Os participantes do Hacktoberfest representaram 151 países e reuniu milhares de habilidades únicas. Damos as boas-vindas a todos que já fazem parte da comunidade de software de código aberto e todos que estão interessados em mergulhar nesse universo.
-                    </Rule>
-                </Grid>
-              </Spacing>
-              <Spacing smart={{ margin: "0px 0px 40px" }}>
-                <Grid item>
-                  <Rule title="A quantidade é divertida, a qualidade é a chave.">
-                    Participar do Hacktoberfest leva ao crescimento pessoal, oportunidades profissionais e construção de comunidade. No entanto, tudo começa com contribuições significativas para o software de código aberto.
-                    </Rule>
-                </Grid>
-              </Spacing>
-              <Grid item>
-                <Rule title="Ação de curto prazo, impacto de longo prazo.">
-                  Na comunidade de software de código aberto, estamos nos apoiando nos ombros daqueles que vieram antes de nós. Sua participação tem um efeito duradouro nas pessoas e na tecnologia, muito depois de outubro. Esta é uma viagem, não uma corrida.
-                  </Rule>
+              <Grid
+                container
+                direction="column"
+                justifyContent="flex-start"
+                alignItems="center"
+                className={classes.principlesContainer}
+              >
+                {principles.map((principle) => {
+                    return (
+                      <Grid
+                      container
+                      direction="row"
+                      justifyContent="center"
+                      alignItems="center"
+                      className={classes.principlesInsideContainer}
+                    >
+                      <Grid item className={classes.principleTitle}>{principle.title}</Grid>
+                      <Grid item className={classes.principleDescription}>{principle.description}</Grid>
+                    </Grid>
+                    )
+                  })
+                }
               </Grid>
               <Spacing smart={{ margin: "64px 0px 40px" }}>
                 <Grid item xs={12}>
-                  <Typography variant="h2" className={classes.fontSection} component="h2" color="secondary"> Regras </Typography>
+                  <HeaderTitle title={"Regras"} />
                 </Grid>
               </Spacing>
               <Spacing smart={{ margin: "0px 0px 40px" }}>
@@ -116,7 +162,6 @@ const RuleBookPage = () => {
               </Spacing>
             </Grid>
           </Grid>
-        </Spacing>
         <Image className={classes.separator} src={`2023/separator.svg`} />
       </Grid>
     </Layout>
