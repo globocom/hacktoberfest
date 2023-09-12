@@ -118,7 +118,7 @@ const IndexPage = () => {
             alignItems="center"
             className={classes.projects}
           >
-            <Rules />
+            <Rules user={user} />
             <Spacing smart={{ margin: "0px 0px 64px" }} desktop={{ margin: "30px 0px" }}>
               <Grid
                 container

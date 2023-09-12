@@ -4,6 +4,8 @@ import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { useMediaQuery, Grid, Button, Typography } from "@material-ui/core"
 
+import { UserProps } from "@services/user"
+
 
 const useStyles = makeStyles((theme: Theme) => ({
   rule: {
@@ -141,7 +143,7 @@ const RulesDesktop = (props: RulesProps) => {
               <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
             </Grid>
             {
-              props.rules.map((rule, index) =>
+              props.rules?.map((rule, index) =>
                 <Grid container direction="row" className={classes.rulesInsideContainer}>
                   <Grid item key={index}>
                     <div className={classes.number}>
@@ -158,7 +160,9 @@ const RulesDesktop = (props: RulesProps) => {
               <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
             </Grid>
           </Grid>
-          <Grid container direction="row" justifyContent="space-between" className={classes.participateContainer}>
+          {
+            !props.user &&
+            <Grid container direction="row" justifyContent="space-between" className={classes.participateContainer}>
             <Grid item className={classes.clipSeparator}>
               <Image src={`2023/clip-separator.svg`} />
             </Grid>
@@ -177,6 +181,7 @@ const RulesDesktop = (props: RulesProps) => {
               </Button>
             </Grid>
             </Grid>
+          }
         </Grid>
       </Grid>
     </Spacing>
@@ -220,10 +225,11 @@ const RulesSmart = (props: RulesProps) => {
 }
 
 interface RulesProps {
-  rules: any[]
+  rules?: any[]
+  user?: UserProps
 }
 
-const Rules = () => {
+const Rules = (props: RulesProps) => {
   const classes = useStyles()
   const isDesktop = useMediaQuery((theme: Theme) => {
     return theme.breakpoints.up(theme.breakpoints.values.lg)
@@ -237,7 +243,7 @@ const Rules = () => {
 
   return (
     <div>
-      {isDesktop ? <RulesDesktop rules={rules} /> : <RulesSmart rules={rules} />}
+      {isDesktop ? <RulesDesktop user={props.user} rules={rules} /> : <RulesSmart rules={rules} />}
     </div>
   )
 }
