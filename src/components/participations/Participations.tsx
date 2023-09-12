@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     overflow: 'hidden',
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
-    backgroundImage: "url(\"https://s3.glbimg.com/v1/AUTH_8b507d480c314f97a3b4b28346d025f5/hacktoberfest/Topo.png\")",
+    backgroundImage: "url(\"https://s2-backstage.glbimg.com/CM9pjJibR0jIa62tA-9j6PdHazw=/https://s3.glbimg.com/v1/AUTH_8b507d480c314f97a3b4b28346d025f5/hacktoberfest/Topo.png\")",
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     height: '18vh',

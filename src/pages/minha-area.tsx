@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.main,
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      padding: "100px 0 0 0",
+    },
   },
   topDivider: {
     width: "100%",
