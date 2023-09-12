@@ -98,7 +98,7 @@ const RulesDesktop = (props: RulesProps) => {
         <Grid item key={"como-participar"} className={classes.projectTitle}>
           <Image src={`2023/body-raio.svg`} />
           <Typography className={classes.projectFont} variant="body1" component="p">
-            Como participar Desktop
+            Como participar
             </Typography>
         </Grid>
         <Grid item key={"inner_container"}>
