@@ -15,6 +15,25 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.main,
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      backgroundImage: '',
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      backgroundImage: 'url("/stroke.svg")',
+      backgroundSize: "150%",
+      backgroundRepeat: "no-repeat",
+      backgroundClip: "border-box",
+      backgroundPosition: "bottom",
+      backgroundPositionY: "400px"
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      backgroundImage: 'url("/stroke.svg")',
+      backgroundSize: "150%",
+      backgroundRepeat: "no-repeat",
+      backgroundClip: "border-box",
+      backgroundPosition: "bottom",
+      backgroundPositionY: "400px"
+    },
   },
   projectFont: {
     fontSize: '41.15px',
