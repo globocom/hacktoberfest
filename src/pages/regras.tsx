@@ -240,31 +240,6 @@ const RuleBookPage = () => {
                   </Grid>
                 </Grid>
               </Grid>
-              {/* <Spacing smart={{ margin: "0px 0px 40px" }}>
-                <Grid item>
-                  <Rule> Para obter uma camiseta, você deve ter dois pull requests (PRs) enviados entre 1 e 31 de Outubro e pelo menos um deles aprovado.</Rule>
-                </Grid>
-              </Spacing>
-              <Spacing smart={{ margin: "0px 0px 40px" }}>
-                <Grid item>
-                  <Rule> Os pull requests podem ser feitos em qualquer repositório dos projetos open source da Globo, não apenas para aqueles destacados. </Rule>
-                </Grid>
-              </Spacing>
-              <Spacing smart={{ margin: "0px 0px 40px" }}>
-                <Grid item>
-                  <Rule> O PR deve conter confirmações que você mesmo fez. </Rule>
-                </Grid>
-              </Spacing>
-              <Spacing smart={{ margin: "0px 0px 40px" }}>
-                <Grid item>
-                  <Rule> Se um mantenedor reportar seu PR como spam, o mesmo não será contabilizado para sua participação no Hacktoberfest. </Rule>
-                </Grid>
-              </Spacing>
-              <Spacing smart={{ margin: "0px 0px 100px" }}>
-                <Grid item>
-                  <Rule> Se um mantenedor reportar um comportamento que não esteja de acordo com o código de conduta do projeto, você não poderá participar. </Rule>
-                </Grid>
-              </Spacing> */}
             </Grid>
           </Grid>
         <Image className={classes.separator} src={`2023/separator.svg`} />

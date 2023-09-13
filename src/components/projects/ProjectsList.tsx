@@ -216,9 +216,10 @@ function ProjectTableRow(props: ProjectProps) {
       <TableRow key={name} className={classes.tableRow}>
         <TableCell component="th" scope="row" align="center" className={classes.projectImage}>
           <RepoLanguages languages={[filtered[0]]} />
+          {!isDesktop && name}
         </TableCell>
-        <TableCell component="th" scope="row" className={classes.projectName}>{name}</TableCell>
-        {isDesktop ? <TableCell component="th" scope="row" className={classes.projectDescription}>{description}</TableCell> : <></>}
+        {isDesktop && <TableCell component="th" scope="row" className={classes.projectName}>{name}</TableCell>}
+        {isDesktop && <TableCell component="th" scope="row" className={classes.projectDescription}>{description}</TableCell>}
 
         <TableCell component="th" scope="row" style={{ borderBottom: "none" }}>
           <Button variant="outlined" color="primary" className={classes.projectButton} onClick={() => accessProjectRepo()}>ACESSAR</Button>

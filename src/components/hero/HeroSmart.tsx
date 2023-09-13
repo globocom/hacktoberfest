@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     bottom: '30px'
   },
   progressionContainer: {
-    width: '190%',
     display: 'block',
     margin: '0px auto 0px  auto',
     [theme.breakpoints.between("sm", "md")]: {
