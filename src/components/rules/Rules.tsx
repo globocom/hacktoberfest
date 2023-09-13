@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: "30px 0px"
   },
   rulesInsideContainer: {
-    margin: "30px 1px",
+    margin: "30px 0px",
     flexWrap: "nowrap",
     alignItems: "center",
     backgroundColor: "#250849",
