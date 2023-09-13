@@ -148,7 +148,7 @@ const SmartMenu = () => {
 
   return (
     <Grid container className={classes.container} direction="row" justifyContent="space-between" alignItems="center">
-      <Grid item xs={6} md={1} lg={1}>
+      <Grid item xs={6} md={3} lg={1}>
         <Logo />
       </Grid>
       <Grid item xs={2} md={1}>

@@ -3,11 +3,14 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Theme, useMediaQuery } from "@material-ui/core"
 import { Image } from "@components/image"
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
   logo: {
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+    justifyContent: "flex-start",
+    },
   },
 }))
 
