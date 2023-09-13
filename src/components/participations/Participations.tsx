@@ -64,7 +64,7 @@ const EditionElement = (props: EditionProps) => {
   const classes = useStyles()
   return (
     <div>
-      <div className={classes.pictureContainer} style={{ backgroundImage: `url("/editions/${props.edition}.png")`}} />
+      <div className={classes.pictureContainer} style={{ backgroundImage: `url("/${props.edition}.png")`}} />
       <Spacing smart={{ margin: "24px" }}>
         <div>
           <Grid container justifyContent="flex-start" alignItems="center">
