@@ -1,5 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
+import { Theme, useMediaQuery } from "@material-ui/core"
 import { Image } from "@components/image"
 
 const useStyles = makeStyles(() => ({
@@ -13,9 +14,14 @@ const useStyles = makeStyles(() => ({
 
 const Logo = () => {
   const classes = useStyles()
+  const isDesktop = useMediaQuery((theme: Theme) => {
+    return theme.breakpoints.up(theme.breakpoints.values.lg)
+  });
   return (
     <a href="/" className={classes.logo}>
-      <Image src="2023/header-raio.svg" />
+      {isDesktop ?
+      <Image src="2023/header-raio.svg" /> :
+      <span>Hacktoberfest Globo</span>}
     </a>
   )
 }
