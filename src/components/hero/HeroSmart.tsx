@@ -234,7 +234,7 @@ const SmartView = (props: SmartViewProps) => {
         <Grid item sm={12}>
           <Image className={classes.logoGlobo} src={`2023/globo.svg`} />
           <Image className={classes.logoEdition} src={`2023/logo.png`} />
-          <Typography variant="h1" align="left" style={{ fontSize: "2.5vw", fontWeight: 100, marginTop: '1.2vw' }} component="h2">
+          <Typography variant="h1" align="left" style={{ fontSize: "2.5rem", fontWeight: 100, marginTop: '1.2vw' }} component="h2">
             01.10.2023 — 31.10.2023
               </Typography>
           <Typography align="left">
