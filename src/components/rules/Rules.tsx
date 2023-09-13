@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
-    marginBottom: "20px"
+    marginBottom: "20px",
+    padding: "0 16px",
   },
   projectFont: {
     fontSize: '41.15px',
@@ -132,9 +133,9 @@ const RulesDesktop = (props: RulesProps) => {
         alignItems="flex-start"
       >
         <Grid item key={"como-participar"} className={classes.projectTitle}>
-          <Image src={`2023/body-raio.svg`} />
-          <Typography className={classes.projectFont} variant="body1" component="p">
-            Como participar
+              <Image src={`2023/body-raio.svg`} />
+              <Typography className={classes.projectFont} variant="body1" component="p">
+                Como participar
             </Typography>
         </Grid>
         <Grid item key={"inner_container"}>
@@ -163,23 +164,23 @@ const RulesDesktop = (props: RulesProps) => {
           {
             !props.user &&
             <Grid container direction="row" justifyContent="space-between" className={classes.participateContainer}>
-            <Grid item className={classes.clipSeparator}>
-              <Image src={`2023/clip-separator.svg`} />
-            </Grid>
-            <Grid item className={classes.buttonContainer}>
-              <Button
-                href="/login"
-                style={{ display: "block" }}
-                className={classes.button}
-                size="large"
-                fullWidth
-                variant="contained"
-              >
-                <Typography className={classes.buttonText} component="p" variant="body2" align="center">
-                  <span className={classes.participateHint}>PARTICIPAR</span> COM SUA CONTA DO GITHUB
+              <Grid item className={classes.clipSeparator}>
+                <Image src={`2023/clip-separator.svg`} />
+              </Grid>
+              <Grid item className={classes.buttonContainer}>
+                <Button
+                  href="/login"
+                  style={{ display: "block" }}
+                  className={classes.button}
+                  size="large"
+                  fullWidth
+                  variant="contained"
+                >
+                  <Typography className={classes.buttonText} component="p" variant="body2" align="center">
+                    <span className={classes.participateHint}>PARTICIPAR</span> COM SUA CONTA DO GITHUB
                 </Typography>
-              </Button>
-            </Grid>
+                </Button>
+              </Grid>
             </Grid>
           }
         </Grid>

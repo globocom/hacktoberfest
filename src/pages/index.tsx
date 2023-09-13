@@ -6,7 +6,7 @@ import Spacing from "@components/spacing"
 import HeroCall from "@components/hero"
 import Rules from "@components/rules"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Link, Grid, Typography } from "@material-ui/core"
+import { Link, Grid, Typography, useMediaQuery } from "@material-ui/core"
 import Button from '@material-ui/core/Button';
 import ProjectsList from "@components/projects"
 import User, { UserProps } from '@services/user'
@@ -48,8 +48,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projects: {
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
-      paddingLeft: "50px",
-      paddingRight: "50px",
+      paddingLeft: "0",
+      paddingRight: "0",
     },
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
       paddingLeft: "100px",
@@ -98,6 +98,9 @@ const IndexPage = () => {
   }, [])
 
   const classes = useStyles()
+  const isDesktop = useMediaQuery((theme: Theme) => {
+    return theme.breakpoints.up(theme.breakpoints.values.lg)
+  });
 
 
   // TODO: trazer o padding que ficava dentro do layout, pra ca, ai a tela ia ficar com background color sem fazer gambiarra
@@ -119,7 +122,7 @@ const IndexPage = () => {
             className={classes.projects}
           >
             <Rules user={user} />
-            <Spacing smart={{ margin: "0px 0px 64px" }} desktop={{ margin: "30px 0px" }}>
+            <Spacing smart={{ padding: "0 16px" }} desktop={{ margin: "30px 0px" }}>
               <Grid
                 container
                 direction="column"
@@ -139,9 +142,9 @@ const IndexPage = () => {
                         Principais Projetos
                     </Typography>
                     </Grid>
-                    <Grid item className={classes.projectEye}>
+                    {isDesktop && <Grid item className={classes.projectEye}>
                       <Image src={`2023/eye.svg`} />
-                    </Grid>
+                    </Grid>}
                   </Grid>
                   <Spacing smart={{ margin: "0px 0px 60px" }}>
                     <Typography className={classes.projectCallDescription} align="left" variant="body1" color="textPrimary">
