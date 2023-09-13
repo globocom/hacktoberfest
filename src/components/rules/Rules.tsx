@@ -97,14 +97,27 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   buttonContainer: {
     marginTop: '5px',
-    width: "35%",
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      width: "100%",
+      padding: "0 32px"
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      width: "35%",
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      width: "35%",
+    },
+  },
+  buttonSmart: {
+    padding: "16px 0"
   },
   button: {
     backgroundColor: theme.palette.secondary.main,
     fontFamily: "inherit",
     borderRadius: "8px",
     textTransform: "none",
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
+    padding: '24px',
   },
   clipSeparator: {
     marginTop: '5px'
@@ -133,9 +146,9 @@ const RulesDesktop = (props: RulesProps) => {
         alignItems="flex-start"
       >
         <Grid item key={"como-participar"} className={classes.projectTitle}>
-              <Image src={`2023/body-raio.svg`} />
-              <Typography className={classes.projectFont} variant="body1" component="p">
-                Como participar
+          <Image src={`2023/body-raio.svg`} />
+          <Typography className={classes.projectFont} variant="body1" component="p">
+            Como participar
             </Typography>
         </Grid>
         <Grid item key={"inner_container"}>
@@ -220,6 +233,22 @@ const RulesSmart = (props: RulesProps) => {
             )
           }
         </Grid>
+
+        {!props.user &&
+          <div className={classes.buttonSmart}>
+            <Button
+              href="/login"
+              fullWidth
+              className={classes.button}
+              variant="contained"
+            >
+              <Typography component="p" variant="body2" align="center" style={{ fontSize: '16px', color: "#000" }}>
+                <span className={classes.participateHint}>PARTICIPAR</span> COM SUA CONTA DO GITHUB
+                </Typography>
+            </Button>
+          </div>
+        }
+
       </div>
     </Spacing>
   )
