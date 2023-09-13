@@ -62,14 +62,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: "30px 0px"
   },
   rulesInsideContainer: {
-    margin: "30px 0px",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    backgroundColor: "#250849",
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      margin: "30px 0px",
       paddingTop: "8px",
       paddingBottom: "8px",
     },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      margin: "30px 1px",
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      margin: "30px 1px",
+    },
+    flexWrap: "nowrap",
+    alignItems: "center",
+    backgroundColor: "#250849",
   },
   rulesSeparator: {
     margin: "25px 0px",
@@ -101,15 +107,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   buttonContainer: {
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       width: "100%",
-    marginTop: '5px',
+      marginTop: '5px'
     },
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
       width: "35%",
-    marginTop: '5px',
+      marginTop: '5px',
     },
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       width: "35%",
-    marginTop: '5px',
+      marginTop: '5px',
     },
   },
   button: {
