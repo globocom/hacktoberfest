@@ -283,7 +283,7 @@ const Rules = (props: RulesProps) => {
   const rules = [
     <Typography className={classes.rule}>Contribua com <span className={classes.importantRule}>dois Pull Requests</span> em qualquer projeto Open Source da Globo <span className={classes.importantRule}>durante o mês de outubro</span>.</Typography>,
     <Typography className={classes.rule}>Garanta que pelo menos <span className={classes.importantRule}>um pull request</span> seja <span className={classes.importantRule}>ACEITO</span>.</Typography>,
-    <Typography className={classes.rule}>Os 100 primeiros inscritos que completarem os requisitos mínimos <span className={classes.importantRule}>ganharão uma camiseta</span>.*</Typography>,
+    <Typography className={classes.rule}>Os 50 primeiros inscritos que completarem os requisitos mínimos <span className={classes.importantRule}>ganharão uma camiseta</span>.*</Typography>,
   ]
 
   return (
