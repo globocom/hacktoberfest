@@ -78,7 +78,29 @@ const useStyles = makeStyles((theme: Theme) => ({
   drone: {
     display: 'flex',
     height: '100%',
-  }
+  },
+  droneAnimation: {
+    animation: `$MoveUpDown 3000ms cubic-bezier(0.65, 0, 0.35, 1) 0s infinite`
+  },
+  droneAnimation2: {
+    animation: `$MoveLeftRight 5000ms cubic-bezier(0.65, 0, 0.35, 1) 0s infinite`
+  },
+  "@keyframes MoveUpDown": {
+    "0%, 100%": {
+      transform: "translateY(0)",
+    },
+    "50%": {
+      transform: "translateY(-50px)",
+    },
+  },
+  "@keyframes MoveLeftRight": {
+    "0%, 100%": {
+      transform: "rotate(-2deg)",
+    },
+    "50%": {
+      transform: "rotate(2deg)",
+    },
+  },
 }))
 
 
@@ -119,24 +141,24 @@ const LoggedView = (user: UserProps) => {
 
   return (
     <React.Fragment>
-    <Spacing smart={{ margin: "24px 0px 5px" }}>
-      <Grid container direction="column" justifyContent="flex-start" alignItems="stretch">
-        <Spacing smart={{ margin: "0px 0px 5px" }}>
+      <Spacing smart={{ margin: "24px 0px 5px" }}>
+        <Grid container direction="column" justifyContent="flex-start" alignItems="stretch">
+          <Spacing smart={{ margin: "0px 0px 5px" }}>
+            <Grid item>
+              <Typography align="left" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
+              <TextComponent />
+            </Grid>
+          </Spacing>
           <Grid item>
-            <Typography align="left" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
-            <TextComponent />
-          </Grid>
-        </Spacing>
-        <Grid item>
-          <div className={classes.progressionContainer}>
-            <div className={classes.progression}>
-              <Image className={state == 0 ? classes.active : ''} src="hero/PR.svg" /> {/** Ativo se Approved e Completed for false */}
-              <Image className={state == 1 ? classes.active : ''} src="hero/Check.svg" /> {/** Ativo se Approved true e completed false */}
-              <Image className={state == 2 ? classes.active : ''} src="hero/Shirt.svg" /> {/* Ativo se completed e aproved for true*/}
+            <div className={classes.progressionContainer}>
+              <div className={classes.progression}>
+                <Image className={state == 0 ? classes.active : ''} src="hero/PR.svg" /> {/** Ativo se Approved e Completed for false */}
+                <Image className={state == 1 ? classes.active : ''} src="hero/Check.svg" /> {/** Ativo se Approved true e completed false */}
+                <Image className={state == 2 ? classes.active : ''} src="hero/Shirt.svg" /> {/* Ativo se completed e aproved for true*/}
+              </div>
             </div>
-          </div>
+          </Grid>
         </Grid>
-      </Grid>
       </Spacing>
     </React.Fragment>
   )
@@ -211,7 +233,7 @@ const DesktopView = (props: DesktopViewProps) => {
       <Grid item sm={4}>
         <Image className={classes.logoGlobo} src={`2023/globo.svg`} />
         <Image className={classes.logoEdition} src={`2023/logo.png`} />
-        <Typography variant="h1" align="left" style={{ fontSize: "2.5vw", fontWeight: 100, marginTop: '1.2vw' }} component="h2">
+        <Typography variant="h1" align="left" style={{ fontSize: "2.5rem", fontWeight: 100, marginTop: '1.2vw' }} component="h2">
           01.10.2023 — 31.10.2023
               </Typography>
         <Typography align="left">
@@ -222,12 +244,14 @@ const DesktopView = (props: DesktopViewProps) => {
       <Grid item sm={4}>
         <Image src={`2023/character.svg`} />
       </Grid>
-      <Grid item sm={4}>
+      <Grid item sm={4} className={classes.droneAnimation}>
+        <div className={classes.droneAnimation2}>
         <Lottie
           options={defaultOptions}
           height={300}
           width={350}
         />
+        </div>
       </Grid>
     </Grid>
   )

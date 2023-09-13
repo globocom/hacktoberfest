@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import {
   CircularProgress,
   Typography,
+  useMediaQuery,
   Grid
 } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
@@ -47,11 +48,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
   },
   masonryGridCol: {
-      backgroundClip: "padding-box",
-      width: "100% !important",
-      '&:not(:last-child)':{
-        marginRight: 24
-      }
+    backgroundClip: "padding-box",
+    width: "100% !important",
+    '&:not(:last-child)': {
+      marginRight: 24
+    }
   },
   homeCard: {
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
@@ -66,6 +67,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: '22px',
     fontWeight: 700,
     lineHeight: '30.8px',
+    borderBottom: "none"
   },
   projectDescription: {
     fontFamily: "Globotipo Variable",
@@ -73,6 +75,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
     lineHeight: '25.2px',
     color: theme.palette.primary.light,
+    borderBottom: "none"
   },
   projectTable: {
     backgroundColor: theme.palette.primary.dark,
@@ -80,6 +83,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projectImage: {
     width: "50px",
+    borderBottom: "none"
   },
   projectButton: {
     color: theme.palette.text.primary,
@@ -89,6 +93,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontFamily: "Globotipo Variable",
     fontSize: '16px',
     fontWeight: 700,
+  },
+  tableRow: {
+    borderBottom: `1px solid ${theme.palette.primary.light}`,
+    '&:last-child': {
+      borderBottom: "none"
+    }
   }
 }))
 
@@ -135,8 +145,8 @@ const ProjectsList = (props: ProjectListProps) => {
 
   return (
     <>
-      {loading && ( <ProjectsListLoading /> ) }
-      {(!loading && error) && ( <ProjectsListError /> ) }
+      {loading && (<ProjectsListLoading />)}
+      {(!loading && error) && (<ProjectsListError />)}
 
       {(!loading && !error && !useMansonry &&
         <Grid container>
@@ -155,14 +165,14 @@ const ProjectsList = (props: ProjectListProps) => {
       )}
 
       {(!loading && !error && useMansonry && <Masonry
-              breakpointCols={breakpointColumnsObj}
-              className={classes.masonryGrid}
-              columnClassName={classes.masonryGridCol}>
-                  {projects.map((project, index) => {
-                    return <ProjectCard key={index} {...project} />
-                  })
-                }
-            </Masonry>
+        breakpointCols={breakpointColumnsObj}
+        className={classes.masonryGrid}
+        columnClassName={classes.masonryGridCol}>
+        {projects.map((project, index) => {
+          return <ProjectCard key={index} {...project} />
+        })
+        }
+      </Masonry>
       )}
 
     </>
@@ -192,20 +202,26 @@ function ProjectTableRow(props: ProjectProps) {
   function accessProjectRepo() {
     window.open(repo, "_blank", "noopener,noreferrer")
   }
-  const items:string[] = _.get(stats, 'repository.repoLanguages.items', []);
-  let filtered:string[] = []
+  const items: string[] = _.get(stats, 'repository.repoLanguages.items', []);
+  let filtered: string[] = []
   if (items.length > 0) {
     filtered = items.filter(item => item.name && !excludedLanguages.includes(item?.name.toLowerCase()));
   }
+  const isDesktop = useMediaQuery((theme: Theme) => {
+    return theme.breakpoints.up(theme.breakpoints.values.lg)
+  });
+
   return (
     <React.Fragment>
-      <TableRow key={name}>
+      <TableRow key={name} className={classes.tableRow}>
         <TableCell component="th" scope="row" align="center" className={classes.projectImage}>
-        <RepoLanguages languages={[filtered[0]]} />
+          <RepoLanguages languages={[filtered[0]]} />
+          {!isDesktop && name}
         </TableCell>
-        <TableCell component="th" scope="row" className={classes.projectName}>{name}</TableCell>
-        <TableCell component="th" scope="row" className={classes.projectDescription}>{description}</TableCell>
-        <TableCell component="th" scope="row">
+        {isDesktop && <TableCell component="th" scope="row" className={classes.projectName}>{name}</TableCell>}
+        {isDesktop && <TableCell component="th" scope="row" className={classes.projectDescription}>{description}</TableCell>}
+
+        <TableCell component="th" scope="row" style={{ borderBottom: "none" }}>
           <Button variant="outlined" color="primary" className={classes.projectButton} onClick={() => accessProjectRepo()}>ACESSAR</Button>
         </TableCell>
       </TableRow>
@@ -218,22 +234,22 @@ function ProjectCard(props: ProjectProps) {
   function accessProjectRepo() {
     window.open(repo, "_blank", "noopener,noreferrer")
   }
-  const items:string[] = _.get(stats, 'repository.repoLanguages.items', []);
+  const items: string[] = _.get(stats, 'repository.repoLanguages.items', []);
   const filtered = items.filter(item => item.name && !excludedLanguages.includes(item?.name.toLowerCase()));
   return (
     <React.Fragment>
-      <Grid container direction="column" justifyContent="space-between" className={ isHome ? [classes.projectCard, classes.homeCard].join(" ") : classes.projectCard}>
-          {items.length > 0 && <RepoLanguages languages={[filtered[0]]} /> }
-          <div>
-            <Typography className={classes.projectName} component="p">{name}</Typography>
-          </div>
-          <div style={{marginTop: 16}}>
-            <Typography component="p" className={classes.projectDescription}>{description}</Typography>
-          </div>
-          <div style={{marginTop: 40, display: "flex", justifyContent: "flex-start", cursor: "pointer"}} onClick={() => accessProjectRepo()}>
-            <Typography style={{marginRight: 10, fontWeight: 600}} component="p" variant="body1">acessar {name}</Typography>
-            <ArrowForwardIcon color="secondary"/>
-          </div>
+      <Grid container direction="column" justifyContent="space-between" className={isHome ? [classes.projectCard, classes.homeCard].join(" ") : classes.projectCard}>
+        {items.length > 0 && <RepoLanguages languages={[filtered[0]]} />}
+        <div>
+          <Typography className={classes.projectName} component="p">{name}</Typography>
+        </div>
+        <div style={{ marginTop: 16 }}>
+          <Typography component="p" className={classes.projectDescription}>{description}</Typography>
+        </div>
+        <div style={{ marginTop: 40, display: "flex", justifyContent: "flex-start", cursor: "pointer" }} onClick={() => accessProjectRepo()}>
+          <Typography style={{ marginRight: 10, fontWeight: 600 }} component="p" variant="body1">acessar {name}</Typography>
+          <ArrowForwardIcon color="secondary" />
+        </div>
       </Grid>
     </React.Fragment>
   )

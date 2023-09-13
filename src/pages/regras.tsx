@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "@components/layout"
 import { Image } from "@components/image"
-import { Grid, Typography } from "@material-ui/core"
+import { Grid, Typography, useMediaQuery } from "@material-ui/core"
 import Spacing from '@components/spacing'
 import { makeStyles, Theme } from "@material-ui/core"
 import { HeaderTitle } from "@components/header"
@@ -36,7 +36,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: '-10px'
   },
   principleTitle: {
-    maxWidth: "20%",
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      maxWidth: "100%",
+      paddingBottom: "16px",
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      maxWidth: "20%",
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      maxWidth: "20%",
+    },
     minWidth: "20%",
     marginRight: "20px",
     fontFamily: "Globotipo Variable",
@@ -56,6 +65,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.secondary.dark,
   },
   principlesInsideContainer: {
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      justifyContent: "flex-start",
+      alignItems: "flex-start",
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      justifyContent: "center",
+      alignItems: "center",
+    },
     flexWrap: "nowrap",
     padding: "30px",
     borderBottom: `0.1px solid ${theme.palette.primary.light}`,
@@ -71,17 +92,23 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexWrap: "nowrap",
     backgroundColor: "#230B42",
     alignItems: "center",
-    margin: "30px 0px"
+    margin: "30px 0px",
   },
   rulesInsideContainer: {
-    margin: "30px 1px",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    backgroundColor: "#250849",
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      margin: "30px 0px",
       paddingTop: "8px",
       paddingBottom: "8px",
     },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      margin: "30px 1px",
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      margin: "30px 1px",
+    },
+    flexWrap: "nowrap",
+    alignItems: "center",
+    backgroundColor: "#250849",
   },
   rulesSeparator: {
     margin: "25px 0px",
@@ -90,7 +117,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rulesSeparatorSvg: {
     width: "38px",
-    height: "244px"
+    height: "244px",
   },
   number: {
     margin: "0px 20px",
@@ -109,20 +136,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-const Rule = (props: RuleProps) => {
+const Principles = () => {
   const classes = useStyles();
-  return (
-    <React.Fragment>
-      {props.title && <Spacing smart={{ margin: "0px 0px 24px" }}>
-        <Typography className={classes.fontSubSection} variant="h3" component="p" color="textPrimary" style={{ fontWeight: 600 }}> {props.title} </Typography>
-      </Spacing>}
-      <Typography variant="h3" align="center" component="span" color="textPrimary"> {props.children} </Typography>
-    </React.Fragment>
-  )
-}
-
-const RuleBookPage = () => {
-  const classes = useStyles();
+  const isDesktop = useMediaQuery((theme: Theme) => {
+    return theme.breakpoints.up(theme.breakpoints.values.lg)
+  });
 
   const principles = [
     {
@@ -139,6 +157,43 @@ const RuleBookPage = () => {
     }
   ]
 
+  return (
+    <>
+      <Grid item xs={12} lg={6}>
+        <HeaderTitle title={"Princípios"} />
+      </Grid>
+      <Grid
+        container
+        direction="column"
+        justifyContent="flex-start"
+        alignItems="center"
+        className={classes.principlesContainer}
+      >
+        {principles.map((principle) => {
+          return (
+            <Grid
+              container
+              direction={isDesktop ? "row" : "column"}
+              className={classes.principlesInsideContainer}
+            >
+              <Grid item className={classes.principleTitle}>{principle.title}</Grid>
+              <Grid item className={classes.principleDescription}>{principle.description}</Grid>
+            </Grid>
+          )
+        })
+        }
+      </Grid>
+    </>
+  )
+}
+
+
+const Rules = () => {
+  const classes = useStyles();
+  const isDesktop = useMediaQuery((theme: Theme) => {
+    return theme.breakpoints.up(theme.breakpoints.values.lg)
+  });
+
   const rules = [
     "Para obter uma camiseta, você deve ter dois pull requests (PRs) enviados entre 1 e 31 de Outubro e pelo menos um deles aprovado.",
     "Os pull requests podem ser feitos em qualquer repositório dos projetos open source da Globo, não apenas para aqueles destacados.",
@@ -148,127 +203,128 @@ const RuleBookPage = () => {
     "Se um mantenedor reportar seu PR como spam, o mesmo não será contabilizado para sua participação no Hacktoberfest.",
     "Se um mantenedor reportar um comportamento que não esteja de acordo com o código de conduta do projeto, você não poderá participar."
   ]
+
+  return (
+    <Grid container>
+      <Spacing smart={{ margin: "64px 32px 40px" }}>
+        <Grid item xs={10} lg={10}>
+          <HeaderTitle title={"Regras"} />
+        </Grid>
+      </Spacing>
+      <Grid item key={"inner_container"}>
+        <Grid
+          container
+          direction={isDesktop ? "row" : "column"}
+          justifyContent="space-between"
+          className={classes.rulesContainer}
+        >
+          {isDesktop &&
+            <Grid item key={"test1"} className={classes.rulesSeparator}>
+              <Image
+                className={classes.rulesSeparatorSvg}
+                src={`2023/separator-rules.svg`} />
+            </Grid>
+          }
+          {
+            rules.map((rule, index) =>
+              <Grid
+                container
+                direction="row"
+                className={classes.rulesInsideContainer}
+              >
+                <Grid item key={index}>
+                  <div className={classes.number}>
+                    {index + 1}
+                  </div>
+                </Grid>
+                <Grid item key={`rule${index}`}>
+                  {rule}
+                </Grid>
+              </Grid>
+            )
+          }
+          {isDesktop &&
+            <Grid item key={"test1"} className={classes.rulesSeparator}>
+              <Image
+                className={classes.rulesSeparatorSvg}
+                src={`2023/separator-rules.svg`} />
+            </Grid>
+          }
+        </Grid>
+        <Grid
+          container
+          direction={isDesktop ? "row" : "column"}
+          justifyContent="space-between"
+          className={classes.rulesContainer}
+        >
+          {isDesktop &&
+            <Grid item key={"test1"} className={classes.rulesSeparator}>
+              <Image
+                className={classes.rulesSeparatorSvg}
+                src={`2023/separator-rules.svg`} />
+            </Grid>
+          }
+          {
+            rules2.map((rule, index) =>
+              <Grid
+                container
+                direction="row"
+                className={classes.rulesInsideContainer}
+              >
+                <Grid item key={index}>
+                  <div className={classes.number}>
+                    {index + 4}
+                  </div>
+                </Grid>
+                <Grid item key={`rule${index}`}>
+                  {rule}
+                </Grid>
+              </Grid>
+            )
+          }
+
+          {isDesktop &&
+            <Grid
+              container
+              direction="row"
+              className={classes.rulesInsideContainer}
+              justifyContent="center"
+            >
+              <Grid item>
+                <Image src={`2023/flag.svg`} />
+              </Grid>
+            </Grid>
+          }
+          {isDesktop &&
+            <Grid item key={"test1"} className={classes.rulesSeparator}>
+              <Image
+                className={classes.rulesSeparatorSvg}
+                src={`2023/separator-rules.svg`} />
+            </Grid>
+          }
+        </Grid>
+      </Grid>
+    </Grid>
+  )
+}
+
+const RuleBookPage = () => {
+  const classes = useStyles();
+
   return (
     <Layout
       title="Regras e Princípios - Globo Hacktoberfest"
       description="Regras e Princípos - Globo Hacktoberfest"
       headerTitle="Regras e Princípios">
       <Grid className={classes.root} container direction="column" justifyContent="center" alignItems="center">
-          <Grid item xs={12} lg={10}>
-            <Grid container>
-              <Spacing smart={{ margin: "40px 0" }}>
-                <Grid item xs={12} lg={6}>
-                  <HeaderTitle title={"Princípios"} />
-                </Grid>
-              </Spacing>
-              <Grid
-                container
-                direction="column"
-                justifyContent="flex-start"
-                alignItems="center"
-                className={classes.principlesContainer}
-              >
-                {principles.map((principle) => {
-                    return (
-                      <Grid
-                      container
-                      direction="row"
-                      justifyContent="center"
-                      alignItems="center"
-                      className={classes.principlesInsideContainer}
-                    >
-                      <Grid item className={classes.principleTitle}>{principle.title}</Grid>
-                      <Grid item className={classes.principleDescription}>{principle.description}</Grid>
-                    </Grid>
-                    )
-                  })
-                }
-              </Grid>
-              <Spacing smart={{ margin: "64px 0px 40px" }}>
-                <Grid item xs={12}>
-                  <HeaderTitle title={"Regras"} />
-                </Grid>
-              </Spacing>
-              <Grid item key={"inner_container"}>
-                <Grid container direction="row" justifyContent="space-between" className={classes.rulesContainer}>
-                  <Grid item key={"test1"} className={classes.rulesSeparator}>
-                    <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
-                  </Grid>
-                  {
-                    rules.map((rule, index) =>
-                      <Grid container direction="row" className={classes.rulesInsideContainer}>
-                        <Grid item key={index}>
-                          <div className={classes.number}>
-                            {index + 1}
-                          </div>
-                        </Grid>
-                        <Grid item key={`rule${index}`}>
-                          {rule}
-                        </Grid>
-                      </Grid>
-                    )
-                  }
-                  <Grid item key={"img"} className={classes.rulesSeparator}>
-                    <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
-                  </Grid>
-                </Grid>
-                <Grid container direction="row" justifyContent="space-between" className={classes.rulesContainer}>
-                  <Grid item key={"test1"} className={classes.rulesSeparator}>
-                    <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
-                  </Grid>
-                  {
-                    rules2.map((rule, index) =>
-                      <Grid container direction="row" className={classes.rulesInsideContainer}>
-                        <Grid item key={index}>
-                          <div className={classes.number}>
-                            {index + 4}
-                          </div>
-                        </Grid>
-                        <Grid item key={`rule${index}`}>
-                          {rule}
-                        </Grid>
-                      </Grid>
-                    )
-                  }
-                  <Grid container direction="row" className={classes.rulesInsideContainer} justifyContent= "center">
-                    <Grid item>
-                      <Image  src={`2023/flag.svg`} />
-                    </Grid>
-                  </Grid>
-                  <Grid item key={"img"} className={classes.rulesSeparator} >
-                    <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
-                  </Grid>
-                </Grid>
-              </Grid>
-              {/* <Spacing smart={{ margin: "0px 0px 40px" }}>
-                <Grid item>
-                  <Rule> Para obter uma camiseta, você deve ter dois pull requests (PRs) enviados entre 1 e 31 de Outubro e pelo menos um deles aprovado.</Rule>
-                </Grid>
-              </Spacing>
-              <Spacing smart={{ margin: "0px 0px 40px" }}>
-                <Grid item>
-                  <Rule> Os pull requests podem ser feitos em qualquer repositório dos projetos open source da Globo, não apenas para aqueles destacados. </Rule>
-                </Grid>
-              </Spacing>
-              <Spacing smart={{ margin: "0px 0px 40px" }}>
-                <Grid item>
-                  <Rule> O PR deve conter confirmações que você mesmo fez. </Rule>
-                </Grid>
-              </Spacing>
-              <Spacing smart={{ margin: "0px 0px 40px" }}>
-                <Grid item>
-                  <Rule> Se um mantenedor reportar seu PR como spam, o mesmo não será contabilizado para sua participação no Hacktoberfest. </Rule>
-                </Grid>
-              </Spacing>
-              <Spacing smart={{ margin: "0px 0px 100px" }}>
-                <Grid item>
-                  <Rule> Se um mantenedor reportar um comportamento que não esteja de acordo com o código de conduta do projeto, você não poderá participar. </Rule>
-                </Grid>
-              </Spacing> */}
-            </Grid>
-          </Grid>
-        <Image className={classes.separator} src={`2023/separator.svg`} />
+        <Grid item xs={10} lg={10}>
+          <Principles />
+        </Grid>
+        <Grid item xs={12} lg={10}>
+          <Rules />
+        </Grid>
       </Grid>
+      <Image className={classes.separator} src={`2023/separator.svg`} />
     </Layout>
   )
 }

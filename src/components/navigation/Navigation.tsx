@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Button, Grid, Typography, Slide, Paper, useMediaQuery } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import {NavigationItemProps, NavigationProps} from "./index"
+import { NavigationItemProps, NavigationProps } from "./index"
 import Logo from "@components/logo"
 import NavigationItem from "./NavigationItem"
 import User from "@services/user"
+import { Image } from "@components/image"
 
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'fixed',
     width: "100%",
     height: "100%",
-    top:0,
+    top: 0,
     left: 0,
     backgroundColor: 'rgba(0,0,0,.5)',
     overflow: 'hidden',
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   smartMenuContainerGrid: {
     display: "flex",
     flex: 1,
-    height:"100%",
+    height: "100%",
     flexDirection: "column",
     justifyContent: "start",
     alignItems: "flex-end",
@@ -77,15 +78,15 @@ const NavigationItems = (props: NavigationItemsProps) => {
   useEffect(() => {
     const checkIfLogged = async () => setIsLogged(await User.Service.getInstance().isLogged())
     checkIfLogged()
-  },[])
+  }, [])
 
   const classes = useStyles()
   return (
     <ul className={classes.navigation}>
       {isDesktop &&
-      <li style={{marginLeft: 20}}>
-        <Logo/>
-      </li>
+        <li style={{ marginLeft: 20 }}>
+          <Logo />
+        </li>
       }
       {props.items.map((def: NavigationItemProps) => (
         <NavigationItem key={def.label} {...def} />
@@ -98,15 +99,15 @@ const NavigationItems = (props: NavigationItemsProps) => {
 const HomeCall = () => <Typography variant="subtitle1" component="a"> <b> globo.com </b> opensource </Typography>
 
 const DeskMenu = () => {
-    const classes = useStyles()
-    return (
-        <Grid container className={classes.container} direction="row" justifyContent="space-between" alignItems="center">
-            <Grid item xs={9}>
-              <NavigationItems items={MenuItems}/>
-            </Grid>
-            <Grid item xs={3} lg={3} style={{textAlign: "right"}}> <HomeCall/> </Grid>
-        </Grid>
-    )
+  const classes = useStyles()
+  return (
+    <Grid container className={classes.container} direction="row" justifyContent="space-between" alignItems="center">
+      <Grid item xs={9}>
+        <NavigationItems items={MenuItems} />
+      </Grid>
+      <Grid item xs={3} lg={3} style={{ textAlign: "right" }}> <HomeCall /> </Grid>
+    </Grid>
+  )
 }
 
 interface MenuOpenProps {
@@ -117,25 +118,25 @@ const MenuOpen = (props: MenuOpenProps) => {
   const classes = useStyles()
   return (
     <div className={classes.smartMenu}>
-          <Slide direction="left" in={true} mountOnEnter unmountOnExit>
-              <Paper className={classes.smartMenuContainer}>
-                  <Spacing smart={{padding: "40px"}}>
-                    <Grid className={classes.smartMenuContainerGrid}>
-                      <Spacing smart={{margin: "0px 0px 45px"}}>
+      <Slide direction="left" in={true} mountOnEnter unmountOnExit>
+        <Paper className={classes.smartMenuContainer}>
+          <Spacing smart={{ padding: "40px" }}>
+            <Grid className={classes.smartMenuContainerGrid}>
+              <Spacing smart={{ margin: "0px 0px 45px" }}>
 
-                          <div onClick={() => props.closeMenu()}>
-                              <CloseIcon/>
-                          </div>
+                <div onClick={() => props.closeMenu()}>
+                  <CloseIcon />
+                </div>
 
-                      </Spacing>
-                      <Spacing smart={{margin: "0px 0px 0px"}}>
-                          <NavigationItems items={MenuItems}/>
-                      </Spacing>
-                    </Grid>
-                  </Spacing>
-                  <div className={classes.smartHomeCall}> <HomeCall/> </div>
-              </Paper>
-          </Slide>
+              </Spacing>
+              <Spacing smart={{ margin: "0px 0px 0px" }}>
+                <NavigationItems items={MenuItems} />
+              </Spacing>
+            </Grid>
+          </Spacing>
+          <div className={classes.smartHomeCall}> <HomeCall /> </div>
+        </Paper>
+      </Slide>
     </div>
   )
 }
@@ -147,16 +148,16 @@ const SmartMenu = () => {
 
   return (
     <Grid container className={classes.container} direction="row" justifyContent="space-between" alignItems="center">
-            <Grid item xs={1} md={1} lg={1}>
-                <Logo/>
-            </Grid>
-            <Grid item xs={2} md={1}>
-                <Button style={{display: 'block', float: 'right'}} onClick={() => setMenuOpened(!menuOpened)}>
-                  <MenuIcon style={{color: "#fff"}} fill="#fff"/>
-                </Button>
-                {menuOpened && <MenuOpen closeMenu={() => setMenuOpened(false)}/> }
-            </Grid>
-        </Grid>
+      <Grid item xs={6} md={3} lg={1}>
+        <Logo />
+      </Grid>
+      <Grid item xs={2} md={1}>
+        <Button style={{ display: 'block', float: 'right' }} onClick={() => setMenuOpened(!menuOpened)}>
+          <Image src="2023/menu.svg" />
+        </Button>
+        {menuOpened && <MenuOpen closeMenu={() => setMenuOpened(false)} />}
+      </Grid>
+    </Grid>
   )
 }
 

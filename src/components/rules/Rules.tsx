@@ -4,6 +4,8 @@ import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { useMediaQuery, Grid, Button, Typography } from "@material-ui/core"
 
+import { UserProps } from "@services/user"
+
 
 const useStyles = makeStyles((theme: Theme) => ({
   rule: {
@@ -32,7 +34,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
-    marginBottom: "20px"
+    marginBottom: "20px",
+    padding: "0 16px",
   },
   projectFont: {
     fontSize: '41.15px',
@@ -59,14 +62,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: "30px 0px"
   },
   rulesInsideContainer: {
-    margin: "30px 1px",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    backgroundColor: "#250849",
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      margin: "30px 0px",
       paddingTop: "8px",
       paddingBottom: "8px",
     },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      margin: "30px 1px",
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      margin: "30px 1px",
+    },
+    flexWrap: "nowrap",
+    alignItems: "center",
+    backgroundColor: "#250849",
   },
   rulesSeparator: {
     margin: "25px 0px",
@@ -84,6 +93,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: '20px',
     fontWeight: 700,
   },
+  buttonSmart: {
+    padding: "16px 0"
+  },
   buttonText: {
     padding: 16,
     color: theme.palette.secondary.dark,
@@ -93,15 +105,34 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
   },
   buttonContainer: {
-    marginTop: '5px',
-    width: "35%",
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      width: "100%",
+      marginTop: '5px'
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      width: "35%",
+      marginTop: '5px',
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      width: "35%",
+      marginTop: '5px',
+    },
   },
   button: {
     backgroundColor: theme.palette.secondary.main,
     fontFamily: "inherit",
     borderRadius: "8px",
     textTransform: "none",
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      padding: '24px',
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      padding: '0',
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      padding: '0',
+    },
   },
   clipSeparator: {
     marginTop: '5px'
@@ -141,7 +172,7 @@ const RulesDesktop = (props: RulesProps) => {
               <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
             </Grid>
             {
-              props.rules.map((rule, index) =>
+              props.rules?.map((rule, index) =>
                 <Grid container direction="row" className={classes.rulesInsideContainer}>
                   <Grid item key={index}>
                     <div className={classes.number}>
@@ -158,25 +189,28 @@ const RulesDesktop = (props: RulesProps) => {
               <Image className={classes.rulesSeparatorSvg} src={`2023/separator-rules.svg`} />
             </Grid>
           </Grid>
-          <Grid container direction="row" justifyContent="space-between" className={classes.participateContainer}>
-            <Grid item className={classes.clipSeparator}>
-              <Image src={`2023/clip-separator.svg`} />
-            </Grid>
-            <Grid item className={classes.buttonContainer}>
-              <Button
-                href="/login"
-                style={{ display: "block" }}
-                className={classes.button}
-                size="large"
-                fullWidth
-                variant="contained"
-              >
-                <Typography className={classes.buttonText} component="p" variant="body2" align="center">
-                  <span className={classes.participateHint}>PARTICIPAR</span> COM SUA CONTA DO GITHUB
+          {
+            !props.user &&
+            <Grid container direction="row" justifyContent="space-between" className={classes.participateContainer}>
+              <Grid item className={classes.clipSeparator}>
+                <Image src={`2023/clip-separator.svg`} />
+              </Grid>
+              <Grid item className={classes.buttonContainer}>
+                <Button
+                  href="/login"
+                  style={{ display: "block" }}
+                  className={classes.button}
+                  size="large"
+                  fullWidth
+                  variant="contained"
+                >
+                  <Typography className={classes.buttonText} component="p" variant="body2" align="center">
+                    <span className={classes.participateHint}>PARTICIPAR</span> COM SUA CONTA DO GITHUB
                 </Typography>
-              </Button>
+                </Button>
+              </Grid>
             </Grid>
-            </Grid>
+          }
         </Grid>
       </Grid>
     </Spacing>
@@ -214,16 +248,33 @@ const RulesSmart = (props: RulesProps) => {
             )
           }
         </Grid>
+
+        {!props.user &&
+          <div className={classes.buttonSmart}>
+            <Button
+              href="/login"
+              fullWidth
+              className={classes.button}
+              variant="contained"
+            >
+              <Typography component="p" variant="body2" align="center" style={{ fontSize: '16px', color: "#000" }}>
+                <span className={classes.participateHint}>PARTICIPAR</span> COM SUA CONTA DO GITHUB
+                </Typography>
+            </Button>
+          </div>
+        }
+
       </div>
     </Spacing>
   )
 }
 
 interface RulesProps {
-  rules: any[]
+  rules?: any[]
+  user?: UserProps
 }
 
-const Rules = () => {
+const Rules = (props: RulesProps) => {
   const classes = useStyles()
   const isDesktop = useMediaQuery((theme: Theme) => {
     return theme.breakpoints.up(theme.breakpoints.values.lg)
@@ -232,12 +283,12 @@ const Rules = () => {
   const rules = [
     <Typography className={classes.rule}>Contribua com <span className={classes.importantRule}>dois Pull Requests</span> em qualquer projeto Open Source da Globo <span className={classes.importantRule}>durante o mês de outubro</span>.</Typography>,
     <Typography className={classes.rule}>Garanta que pelo menos <span className={classes.importantRule}>um pull request</span> seja <span className={classes.importantRule}>ACEITO</span>.</Typography>,
-    <Typography className={classes.rule}>Os 100 primeiros inscritos que completarem os requisitos mínimos <span className={classes.importantRule}>ganharão uma camiseta</span>.*</Typography>,
+    <Typography className={classes.rule}>Os 50 primeiros inscritos que completarem os requisitos mínimos <span className={classes.importantRule}>ganharão uma camiseta</span>.*</Typography>,
   ]
 
   return (
     <div>
-      {isDesktop ? <RulesDesktop rules={rules} /> : <RulesSmart rules={rules} />}
+      {isDesktop ? <RulesDesktop user={props.user} rules={rules} /> : <RulesSmart rules={rules} />}
     </div>
   )
 }

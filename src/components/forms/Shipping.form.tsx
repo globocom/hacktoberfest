@@ -208,15 +208,15 @@ const ShippingForm = (props: ShippingFormProps) => {
               </InputAdornment>
             }}
             label="Tamanho da Camiseta">
-            <MenuItem style={{ color: "#000" }} value={"BLP"}>Baby Look - P</MenuItem>
-            <MenuItem style={{ color: "#000" }} value={"BLM"}>Baby Look - M</MenuItem>
-            <MenuItem style={{ color: "#000" }} value={"BLG"}>Baby Look - G</MenuItem>
-            <MenuItem style={{ color: "#000" }} value={"BLGG"}>Baby Look - GG</MenuItem>
-            <MenuItem style={{ color: "#000" }} value={"TSP"}>Camiseta - P</MenuItem>
-            <MenuItem style={{ color: "#000" }} value={"TSM"}>Camiseta - M</MenuItem>
-            <MenuItem style={{ color: "#000" }} value={"TSG"}>Camiseta - G</MenuItem>
-            <MenuItem style={{ color: "#000" }} value={"TSGG"}>Camiseta - GG</MenuItem>
-            <MenuItem style={{ color: "#000" }} value={"TSGGG"}>Camiseta - GGG</MenuItem>
+            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"BLP"}>Baby Look - P</MenuItem>
+            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"BLM"}>Baby Look - M</MenuItem>
+            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"BLG"}>Baby Look - G</MenuItem>
+            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"BLGG"}>Baby Look - GG</MenuItem>
+            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"TSP"}>Camiseta - P</MenuItem>
+            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"TSM"}>Camiseta - M</MenuItem>
+            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"TSG"}>Camiseta - G</MenuItem>
+            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"TSGG"}>Camiseta - GG</MenuItem>
+            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"TSGGG"}>Camiseta - GGG</MenuItem>
           </HacktoberfestTextInput>
         </Grid>
 
@@ -239,7 +239,7 @@ const ShippingForm = (props: ShippingFormProps) => {
                 </InputAdornment>
               }}>
               {
-                colors.map((color, index) => (<MenuItem key={index} style={{ color: "#000" }} value={color}>{color}</MenuItem>))
+                colors.map((color, index) => (<MenuItem key={index} style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={color}>{color}</MenuItem>))
               }
             </HacktoberfestTextInput>
           </Grid>

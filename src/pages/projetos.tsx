@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   headerTitle: {
     display: "flex",
     alignItems: "flex-end"
+  },
+  projectsList: {
+    padding: "0px 32px 0 32px"
   }
 }))
 
@@ -62,7 +65,9 @@ const ProjectsPage = () => {
                 Todos os nossos projetos Open Source em um só lugar. Incentivamos sua contribuição no projeto que mais lhe agradar.
           </Typography>
             </Spacing>
-            <ProjectsList useMansonry={false} />
+            <div className={classes.projectsList}>
+              <ProjectsList useMansonry={false} />
+            </div>
           </Grid>
         </Grid>
         <Image className={classes.separator} src={`2023/separator.svg`} />
