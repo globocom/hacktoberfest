@@ -82,14 +82,25 @@ const useStyles = makeStyles((theme: Theme) => ({
   droneAnimation: {
     animation: `$MoveUpDown 3000ms cubic-bezier(0.65, 0, 0.35, 1) 0s infinite`
   },
+  droneAnimation2: {
+    animation: `$MoveLeftRight 5000ms cubic-bezier(0.65, 0, 0.35, 1) 0s infinite`
+  },
   "@keyframes MoveUpDown": {
     "0%, 100%": {
       transform: "translateY(0)",
     },
     "50%": {
       transform: "translateY(-50px)",
-    }
-  }
+    },
+  },
+  "@keyframes MoveLeftRight": {
+    "0%, 100%": {
+      transform: "rotate(-2deg)",
+    },
+    "50%": {
+      transform: "rotate(2deg)",
+    },
+  },
 }))
 
 
@@ -234,11 +245,13 @@ const DesktopView = (props: DesktopViewProps) => {
         <Image src={`2023/character.svg`} />
       </Grid>
       <Grid item sm={4} className={classes.droneAnimation}>
+        <div className={classes.droneAnimation2}>
         <Lottie
           options={defaultOptions}
           height={300}
           width={350}
         />
+        </div>
       </Grid>
     </Grid>
   )
