@@ -85,6 +85,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   drone: {
     width: '50%',
     height: '50%',
+  },
+  droneAnimation: {
+    animation: `$MoveUpDown 3000ms cubic-bezier(0.65, 0, 0.35, 1) 0s infinite`
+  },
+  "@keyframes MoveUpDown": {
+    "0%, 100%": {
+      transform: "translateY(0)",
+    },
+    "50%": {
+      transform: "translateY(-50px)",
+    }
   }
 }))
 
@@ -224,7 +235,7 @@ const SmartView = (props: SmartViewProps) => {
         <Grid item sm={6}>
           <Image className={classes.character} src={`2023/character.svg`} />
         </Grid>
-        <Grid item sm={6}>
+        <Grid item sm={6} className={classes.droneAnimation}>
           <Lottie
             className={classes.drone}
             options={defaultOptions}
