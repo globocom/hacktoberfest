@@ -87,6 +87,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: '20px',
     fontWeight: 700,
   },
+  buttonSmart: {
+    padding: "16px 0"
+  },
   buttonText: {
     padding: 16,
     color: theme.palette.secondary.dark,
@@ -96,20 +99,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
   },
   buttonContainer: {
-    marginTop: '5px',
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       width: "100%",
-      padding: "0 32px"
+    marginTop: '5px',
     },
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
       width: "35%",
+    marginTop: '5px',
     },
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       width: "35%",
+    marginTop: '5px',
     },
-  },
-  buttonSmart: {
-    padding: "16px 0"
   },
   button: {
     backgroundColor: theme.palette.secondary.main,
@@ -117,7 +118,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: "8px",
     textTransform: "none",
     color: theme.palette.text.secondary,
-    padding: '24px',
+    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+      padding: '24px',
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      padding: '0',
+    },
+    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+      padding: '0',
+    },
   },
   clipSeparator: {
     marginTop: '5px'

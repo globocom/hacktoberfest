@@ -149,11 +149,9 @@ const Principles = () => {
 
   return (
     <>
-      <Spacing smart={{ margin: "40px 0" }}>
-        <Grid item xs={12} lg={6}>
-          <HeaderTitle title={"Princípios"} />
-        </Grid>
-      </Spacing>
+      <Grid item xs={12} lg={6}>
+        <HeaderTitle title={"Princípios"} />
+      </Grid>
       <Grid
         container
         direction="column"
