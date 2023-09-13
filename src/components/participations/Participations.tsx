@@ -33,9 +33,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     overflow: 'hidden',
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
-    backgroundImage: "url(\"https://s2-backstage.glbimg.com/CM9pjJibR0jIa62tA-9j6PdHazw=/https://s3.glbimg.com/v1/AUTH_8b507d480c314f97a3b4b28346d025f5/hacktoberfest/Topo.png\")",
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
+    backgroundPosition: "center",
     height: '18vh',
     [theme.breakpoints.up("md")]: {
       height: '16vh'
@@ -64,7 +64,7 @@ const EditionElement = (props: EditionProps) => {
   const classes = useStyles()
   return (
     <div>
-      <div className={classes.pictureContainer} />
+      <div className={classes.pictureContainer} style={{ backgroundImage: `url("/editions/${props.edition}.png")`}} />
       <Spacing smart={{ margin: "24px" }}>
         <div>
           <Grid container justifyContent="flex-start" alignItems="center">
