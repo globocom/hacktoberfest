@@ -88,14 +88,25 @@ const useStyles = makeStyles((theme: Theme) => ({
   droneAnimation: {
     animation: `$MoveUpDown 3000ms cubic-bezier(0.65, 0, 0.35, 1) 0s infinite`
   },
+  droneAnimation2: {
+    animation: `$MoveLeftRight 5000ms cubic-bezier(0.65, 0, 0.35, 1) 0s infinite`
+  },
   "@keyframes MoveUpDown": {
     "0%, 100%": {
       transform: "translateY(0)",
     },
     "50%": {
       transform: "translateY(-50px)",
-    }
-  }
+    },
+  },
+  "@keyframes MoveLeftRight": {
+    "0%, 100%": {
+      transform: "rotate(-2deg)",
+    },
+    "50%": {
+      transform: "rotate(2deg)",
+    },
+  },
 }))
 
 const getEditionState = (currentEdition: Edition | undefined): number => {
@@ -234,13 +245,15 @@ const SmartView = (props: SmartViewProps) => {
         <Grid item sm={6}>
           <Image className={classes.character} src={`2023/character.svg`} />
         </Grid>
-        <Grid item sm={6} className={classes.droneAnimation}>
-          <Lottie
-            className={classes.drone}
-            options={defaultOptions}
-            height={200}
-            width={250}
-          />
+        <Grid item sm={4} className={classes.droneAnimation}>
+          <div className={classes.droneAnimation2}>
+            <Lottie
+              className={classes.drone}
+              options={defaultOptions}
+              height={200}
+              width={250}
+            />
+          </div>
         </Grid>
       </Grid>
     </React.Fragment>
