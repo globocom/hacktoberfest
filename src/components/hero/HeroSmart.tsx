@@ -9,12 +9,12 @@ import animationData from '../../themes/images/2023/drone.json';
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
-    backgroundColor: "#fff",
     fontFamily: "inherit",
     borderRadius: "8px",
     textTransform: "none",
     padding: '24px',
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
+    backgroundColor: theme.palette.secondary.main,
   },
   howWorks: {
     position: 'absolute',
