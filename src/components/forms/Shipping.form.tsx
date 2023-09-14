@@ -65,7 +65,7 @@ const ShippingForm = (props: ShippingFormProps) => {
     const fillColors = async () => {
       const edition = await Hacktoberfest.Service.getInstance().GetEdition()
       setColors(edition?.shirtColors || [])
-      setCurrentEdition(edition?.year)
+      setCurrentEdition(edition?.edition)
     }
     fillColors()
   }, [])
