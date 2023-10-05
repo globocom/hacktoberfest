@@ -55,17 +55,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const ShippingForm = (props: ShippingFormProps) => {
   const classes = useStyles();
-  const { user, showSnackBar } = props
+  const { user, showSnackBar, currentEdition, setCurrentEdition } = props
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [currentEdition, setCurrentEdition] = useState<number>(0)
-
   const [colors, setColors] = useState<Array<string>>([])
 
   useEffect(() => {
     const fillColors = async () => {
       const edition = await Hacktoberfest.Service.getInstance().GetEdition()
       setColors(edition?.shirtColors || [])
-      setCurrentEdition(edition?.edition)
     }
     fillColors()
   }, [])
@@ -258,6 +255,8 @@ const ShippingForm = (props: ShippingFormProps) => {
 
 interface ShippingFormProps {
   user: UserProps,
-  showSnackBar: Function
+  showSnackBar: Function,
+  currentEdition: number,
+  setCurrentEdition: (edition: number) => void,
 }
 export default ShippingForm
