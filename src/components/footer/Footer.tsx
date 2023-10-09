@@ -20,7 +20,7 @@ interface MenuItem {
 const MENU_ITEMS: Array<MenuItem> = [
   { label: "github", link: "https://github.com/globocom/hacktoberfest" },
   { label: "open source", link: "https://opensource.globo.com/" },
-  { label: "trabalhe conosco", link: "https://www.vempraglobo.com.br/" }
+  { label: "trabalhe conosco", link: "https://vempraglobo.g.globo/" }
 ]
 
 const makeCss = makeStyles((theme: Theme) => ({
