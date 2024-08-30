@@ -125,7 +125,7 @@ const IndexPage = () => {
   // TODO: trazer o padding que ficava dentro do layout, pra ca, ai a tela ia ficar com background color sem fazer gambiarra
   return (
     <Layout
-      title="Início - Globo Hacktoberfest"
+      title="Globo Hacktoberfest"
     >
       <div className={classes.root}>
         {(user && !user?.email) && <EmailPopin user={user} />}
