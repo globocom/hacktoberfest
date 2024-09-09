@@ -1,60 +1,65 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
-import { Grid, Typography, InputAdornment, MenuItem, makeStyles, Theme } from '@material-ui/core'
+import {
+  Grid,
+  Typography,
+  InputAdornment,
+  MenuItem,
+  makeStyles,
+  Theme,
+  Box,
+} from "@material-ui/core"
+import InfoSharpIcon from "@material-ui/icons/InfoSharp"
 
 //Internal
-import Spacing from '@components/spacing'
-import User, { UserProps } from '@services/user'
-import { HacktoberfestTextInput } from '@components/text-input'
-import LoadingButton from '@components/loading-button'
-import Hacktoberfest from '@services/hacktoberfest'
+import User, { UserProps } from "@services/user"
+import { HacktoberfestTextInput } from "@components/text-input"
+import LoadingButton from "@components/loading-button"
+import Hacktoberfest from "@services/hacktoberfest"
 import { HeaderTitle } from "@components/header"
 
 //Icons
-import PersonPinCircle from '@material-ui/icons/PersonPinCircle'
-import LocationCityIcon from '@material-ui/icons/LocationCity'
-import LocationOnIcon from '@material-ui/icons/LocationOn'
-import FormatSizeIcon from '@material-ui/icons/FormatSize'
-import ColorizeIcon from '@material-ui/icons/Colorize'
+import PersonPinCircle from "@material-ui/icons/PersonPinCircle"
+import LocationCityIcon from "@material-ui/icons/LocationCity"
+import LocationOnIcon from "@material-ui/icons/LocationOn"
+import FormatSizeIcon from "@material-ui/icons/FormatSize"
+import ColorizeIcon from "@material-ui/icons/Colorize"
 //End-Icons
-
 
 //Formik
 import * as Yup from "yup"
-import { useFormik } from 'formik'
-import { useEffect } from 'react'
+import { useFormik } from "formik"
+import { useEffect } from "react"
 
-const validationSchema = () => Yup.object().shape({
-  name: Yup
-    .string()
-    .min(0)
-    .max(30, "Nome longo demais")
-    .required("Preenchimento do nome é obrigatório"),
-  city: Yup.string().required("Preenchimento da cidade é obrigatório"),
-  postalCode: Yup.string().required("Preenchimento do CEP é obrigatório"),
-  state: Yup.string().required("Preenchimento do Estado é obrigatório"),
-  address: Yup.string().required("Preenchimento da Rua é obrigatório")
-})
-
+const validationSchema = () =>
+  Yup.object().shape({
+    name: Yup.string()
+      .min(0)
+      .max(30, "Nome longo demais")
+      .required("Preenchimento do nome é obrigatório"),
+    city: Yup.string().required("Preenchimento da cidade é obrigatório"),
+    postalCode: Yup.string().required("Preenchimento do CEP é obrigatório"),
+    state: Yup.string().required("Preenchimento do Estado é obrigatório"),
+    address: Yup.string().required("Preenchimento da Rua é obrigatório"),
+  })
 
 const useStyles = makeStyles((theme: Theme) => ({
   fontCall: {
     fontSize: "2.25rem",
     [theme.breakpoints.up("lg")]: {
       fontSize: "3.5rem",
-    }
+    },
   },
   subFontCall: {
     fontSize: "1.125rem",
     [theme.breakpoints.up("lg")]: {
       fontSize: "1.5rem",
-    }
-  }
+    },
+  },
 }))
 
-
 const ShippingForm = (props: ShippingFormProps) => {
-  const classes = useStyles();
+  const classes = useStyles()
   const { user, showSnackBar, currentEdition, setCurrentEdition } = props
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [colors, setColors] = useState<Array<string>>([])
@@ -76,9 +81,8 @@ const ShippingForm = (props: ShippingFormProps) => {
     state: user.state,
     address: user.address,
     shirtSize: userEdition[currentEdition]?.shirtSize || "",
-    shirtColor: userEdition[currentEdition]?.shirtColor || ''
+    shirtColor: userEdition[currentEdition]?.shirtColor || "",
   }
-
 
   const onSubmit = async (values: any) => {
     try {
@@ -94,7 +98,12 @@ const ShippingForm = (props: ShippingFormProps) => {
     }
   }
 
-  const formik = useFormik({ initialValues, validationSchema, onSubmit, enableReinitialize: true });
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
+    enableReinitialize: true,
+  })
   return (
     <form onSubmit={formik.handleSubmit}>
       <Grid
@@ -107,7 +116,17 @@ const ShippingForm = (props: ShippingFormProps) => {
           <HeaderTitle title={"Dados para premiação"} />
         </Grid>
         <Grid item xs={10} md={12}>
-          <Typography component="h3" variant="h3">Preencha com o endereço onde será entregue a camiseta.</Typography>
+          <Typography component="h3" variant="h3">
+            Preencha com o endereço onde será entregue a camiseta.
+          </Typography>
+          <Box marginBottom={2} display="flex" alignItems="center">
+            <InfoSharpIcon
+              style={{ color: "#FFD700", marginRight: "2px", fontSize: "24px" }}
+            />
+            <Typography variant="body2" style={{ fontStyle: "italic" }}>
+              Envio de camisetas somente para o Brasil!
+            </Typography>
+          </Box>
         </Grid>
         <Grid item xs={10} md={8}>
           <HacktoberfestTextInput
@@ -121,9 +140,11 @@ const ShippingForm = (props: ShippingFormProps) => {
             helperText={formik.touched.name && formik.errors.name}
             color="secondary"
             InputProps={{
-              startAdornment: <InputAdornment position="start">
-                <PersonPinCircle />
-              </InputAdornment>
+              startAdornment: (
+                <InputAdornment position="start">
+                  <PersonPinCircle />
+                </InputAdornment>
+              ),
             }}
           />
         </Grid>
@@ -134,11 +155,14 @@ const ShippingForm = (props: ShippingFormProps) => {
             name="postalCode"
             onChange={formik.handleChange}
             value={formik.values.postalCode}
-            error={formik.touched.postalCode && Boolean(formik.errors.postalCode)}
+            error={
+              formik.touched.postalCode && Boolean(formik.errors.postalCode)
+            }
             helperText={formik.touched.postalCode && formik.errors.postalCode}
             color="secondary"
             variant="outlined"
-            label="CEP" />
+            label="CEP"
+          />
         </Grid>
 
         <Grid item xs={10} md={8}>
@@ -151,11 +175,15 @@ const ShippingForm = (props: ShippingFormProps) => {
             helperText={formik.touched.city && formik.errors.city}
             color="secondary"
             variant="outlined"
-            label="Cidade" InputProps={{
-              startAdornment: <InputAdornment position="start">
-                <LocationCityIcon />
-              </InputAdornment>
-            }} />
+            label="Cidade"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LocationCityIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
         </Grid>
 
         <Grid item xs={10} md={4}>
@@ -168,7 +196,8 @@ const ShippingForm = (props: ShippingFormProps) => {
             helperText={formik.touched.state && formik.errors.state}
             color="secondary"
             variant="outlined"
-            label="Estado" />
+            label="Estado"
+          />
         </Grid>
 
         <Grid item xs={10} md={12}>
@@ -181,11 +210,15 @@ const ShippingForm = (props: ShippingFormProps) => {
             helperText={formik.touched.address && formik.errors.address}
             color="secondary"
             variant="outlined"
-            label="Endereço Completo" InputProps={{
-              startAdornment: <InputAdornment position="start">
-                <LocationOnIcon />
-              </InputAdornment>
-            }} />
+            label="Endereço Completo"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LocationOnIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
         </Grid>
 
         <Grid item xs={10} md={12}>
@@ -200,24 +233,72 @@ const ShippingForm = (props: ShippingFormProps) => {
             color="secondary"
             select
             InputProps={{
-              startAdornment: <InputAdornment position="start">
-                <FormatSizeIcon />
-              </InputAdornment>
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FormatSizeIcon />
+                </InputAdornment>
+              ),
             }}
-            label="Tamanho da Camiseta">
-            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"BLP"}>Baby Look - P</MenuItem>
-            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"BLM"}>Baby Look - M</MenuItem>
-            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"BLG"}>Baby Look - G</MenuItem>
-            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"BLGG"}>Baby Look - GG</MenuItem>
-            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"TSP"}>Camiseta - P</MenuItem>
-            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"TSM"}>Camiseta - M</MenuItem>
-            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"TSG"}>Camiseta - G</MenuItem>
-            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"TSGG"}>Camiseta - GG</MenuItem>
-            <MenuItem style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={"TSGGG"}>Camiseta - GGG</MenuItem>
+            label="Tamanho da Camiseta"
+          >
+            <MenuItem
+              style={{ color: "#000", fontFamily: "Globotipo Variable" }}
+              value={"BLP"}
+            >
+              Baby Look - P
+            </MenuItem>
+            <MenuItem
+              style={{ color: "#000", fontFamily: "Globotipo Variable" }}
+              value={"BLM"}
+            >
+              Baby Look - M
+            </MenuItem>
+            <MenuItem
+              style={{ color: "#000", fontFamily: "Globotipo Variable" }}
+              value={"BLG"}
+            >
+              Baby Look - G
+            </MenuItem>
+            <MenuItem
+              style={{ color: "#000", fontFamily: "Globotipo Variable" }}
+              value={"BLGG"}
+            >
+              Baby Look - GG
+            </MenuItem>
+            <MenuItem
+              style={{ color: "#000", fontFamily: "Globotipo Variable" }}
+              value={"TSP"}
+            >
+              Camiseta - P
+            </MenuItem>
+            <MenuItem
+              style={{ color: "#000", fontFamily: "Globotipo Variable" }}
+              value={"TSM"}
+            >
+              Camiseta - M
+            </MenuItem>
+            <MenuItem
+              style={{ color: "#000", fontFamily: "Globotipo Variable" }}
+              value={"TSG"}
+            >
+              Camiseta - G
+            </MenuItem>
+            <MenuItem
+              style={{ color: "#000", fontFamily: "Globotipo Variable" }}
+              value={"TSGG"}
+            >
+              Camiseta - GG
+            </MenuItem>
+            <MenuItem
+              style={{ color: "#000", fontFamily: "Globotipo Variable" }}
+              value={"TSGGG"}
+            >
+              Camiseta - GGG
+            </MenuItem>
           </HacktoberfestTextInput>
         </Grid>
 
-        {colors.length > 0 &&
+        {colors.length > 0 && (
           <Grid item xs={10} md={12}>
             <HacktoberfestTextInput
               fullWidth
@@ -226,37 +307,45 @@ const ShippingForm = (props: ShippingFormProps) => {
               label="Cor da Camiseta"
               value={formik.values.shirtColor}
               onChange={formik.handleChange("shirtColor")}
-              error={formik.touched.shirtColor && Boolean(formik.errors.shirtColor)}
+              error={
+                formik.touched.shirtColor && Boolean(formik.errors.shirtColor)
+              }
               helperText={formik.touched.shirtColor && formik.errors.shirtColor}
               color="secondary"
               select
               InputProps={{
-                startAdornment: <InputAdornment position="start">
-                  <ColorizeIcon />
-                </InputAdornment>
-              }}>
-              {
-                colors.map((color, index) => (<MenuItem key={index} style={{ color: "#000", fontFamily: "Globotipo Variable" }} value={color}>{color}</MenuItem>))
-              }
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <ColorizeIcon />
+                  </InputAdornment>
+                ),
+              }}
+            >
+              {colors.map((color, index) => (
+                <MenuItem
+                  key={index}
+                  style={{ color: "#000", fontFamily: "Globotipo Variable" }}
+                  value={color}
+                >
+                  {color}
+                </MenuItem>
+              ))}
             </HacktoberfestTextInput>
           </Grid>
-        }
+        )}
 
         <Grid item xs={10} lg={3}>
-          <LoadingButton isLoading={isLoading}>
-            Salvar Alterações
-                        </LoadingButton>
+          <LoadingButton isLoading={isLoading}>Salvar Alterações</LoadingButton>
         </Grid>
       </Grid>
     </form>
   )
 }
 
-
 interface ShippingFormProps {
-  user: UserProps,
-  showSnackBar: Function,
-  currentEdition: number,
-  setCurrentEdition: (edition: number) => void,
+  user: UserProps
+  showSnackBar: Function
+  currentEdition: number
+  setCurrentEdition: (edition: number) => void
 }
 export default ShippingForm
