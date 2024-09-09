@@ -102,7 +102,7 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
                 helperText={formik.touched.githubUser && formik.errors.githubUser}
                 InputProps={{
                   startAdornment: <InputAdornment position="start">@</InputAdornment>,
-                  readOnly: true
+                  disabled: true
                 }}
               />
             </Grid>
@@ -114,7 +114,7 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
                 variant="outlined"
                 label="ID Github"
                 InputProps={{
-                  readOnly: true
+                  disabled: true
                 }}
               />
             </Grid>
