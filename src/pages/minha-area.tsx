@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Image } from "@components/image"
 
 //Internal Components
 import Layout from '@components/layout'
-import Spacing from '@components/spacing'
 import Hacktoberfest from '@services/hacktoberfest'
-import { PersonalDataForm, ShippingForm } from '@components/forms'
+import { PersonalDataForm } from '@components/forms'
 import User, { UserProps } from '@services/user'
-import { Snackbar } from '@material-ui/core'
 import MuiAlert, { AlertProps, Color } from '@material-ui/lab/Alert'
 import { ParticipationHistory } from '@components/participations'
+import { HeaderTitle } from '@components/header'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -70,8 +69,6 @@ const PersonalAreaPage = () => {
 
   const classes = useStyles()
 
-  const isCurrentEditionCompleted = user?.editions?.[currentEdition]?.completed
-
   return (
     <Layout title="Minha Área - Globo Hacktoberfest" description="Minha Área - Globo Hacktoberfest" headerTitle="Minha área">
       <div className={classes.root}>
@@ -84,11 +81,10 @@ const PersonalAreaPage = () => {
             <Grid item xs={10} className={classes.formData}>
               <ParticipationHistory user={user} />
             </Grid>
-            {isCurrentEditionCompleted &&
-              <Grid item xs={10} className={classes.formData}>
-                <ShippingForm showSnackBar={showSnackBar} user={user} currentEdition={currentEdition} setCurrentEdition={setCurrentEdition}/>
-              </Grid>
-            }
+            <Grid item xs={10} className={classes.formData}>
+              <HeaderTitle title={"Premiação"} />
+              <Typography component="h3" variant="h3">A partir da edição de 2024, os participantes premiados receberão um voucher por email junto com instruções para poder receber o brinde da camiseta.</Typography>
+            </Grid>
           </Grid>
         }
         <Image className={classes.separator} src={`2023/separator.svg`} />
