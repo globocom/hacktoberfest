@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Image } from "@components/image"
 
@@ -10,6 +10,7 @@ import { PersonalDataForm } from '@components/forms'
 import User, { UserProps } from '@services/user'
 import MuiAlert, { AlertProps, Color } from '@material-ui/lab/Alert'
 import { ParticipationHistory } from '@components/participations'
+import { HeaderTitle } from '@components/header'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -79,6 +80,10 @@ const PersonalAreaPage = () => {
             </Grid>
             <Grid item xs={10} className={classes.formData}>
               <ParticipationHistory user={user} />
+            </Grid>
+            <Grid item xs={10} className={classes.formData}>
+              <HeaderTitle title={"Premiação"} />
+              <Typography component="h3" variant="h3">A partir da edição de 2024, os participantes premiados receberão um voucher por email junto com instruções para poder receber o brinde da camiseta.</Typography>
             </Grid>
           </Grid>
         }
