@@ -1,30 +1,29 @@
 import React from "react"
 import Layout from "@components/layout"
 import { Image } from "@components/image"
-import EmailPopin from '@components/email-popin'
+import EmailPopin from "@components/email-popin"
 import Spacing from "@components/spacing"
 import HeroCall from "@components/hero"
 import Rules from "@components/rules"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Link, Grid, Typography, useMediaQuery } from "@material-ui/core"
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button"
 import ProjectsList from "@components/projects"
-import User, { UserProps } from '@services/user'
+import User, { UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.main,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
-      backgroundImage: '',
+      backgroundImage: "",
     },
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      backgroundImage: 'url("/stroke.svg")',
       backgroundSize: "150%",
       backgroundRepeat: "no-repeat",
       backgroundClip: "border-box",
       backgroundPosition: "bottom",
-      backgroundPositionY: "400px"
+      backgroundPositionY: "400px",
     },
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       backgroundImage: 'url("/stroke.svg")',
@@ -32,37 +31,37 @@ const useStyles = makeStyles((theme: Theme) => ({
       backgroundRepeat: "no-repeat",
       backgroundClip: "border-box",
       backgroundPosition: "bottom",
-      backgroundPositionY: "400px"
+      backgroundPositionY: "400px",
     },
   },
   projectFont: {
-    fontSize: '41.15px',
-    lineHeight: '57.61px',
+    fontSize: "41.15px",
+    lineHeight: "57.61px",
     color: theme.palette.primary.dark,
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      fontSize: '3rem',
-      lineHeight: '56px',
+      fontSize: "3rem",
+      lineHeight: "56px",
     },
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
-      fontSize: '3.5rem',
-      lineHeight: '64px',
+      fontSize: "3.5rem",
+      lineHeight: "64px",
     },
     marginLeft: "30px",
   },
   projectCallDescription: {
     color: theme.palette.primary.dark,
-    fontSize: '1.5rem',
-    lineHeight: '32px',
+    fontSize: "1.5rem",
+    lineHeight: "32px",
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
-      fontSize: '2rem',
-      lineHeight: '48px',
-    }
+      fontSize: "2rem",
+      lineHeight: "48px",
+    },
   },
   separator: {
-    width: '100%',
+    width: "100%",
   },
   secondaryPage: {
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
     marginTop: "-10px",
   },
   projects: {
@@ -82,7 +81,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   projectTitle: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
   },
   projectItem: {
     width: "100%",
@@ -103,32 +102,30 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: "1px solid",
     borderColor: theme.palette.primary.light,
     fontFamily: "Globotipo Variable",
-    fontSize: '16px',
+    fontSize: "16px",
     fontWeight: 700,
-  }
+  },
 }))
 
 const IndexPage = () => {
   const [user, setUser] = React.useState<UserProps>()
 
   React.useEffect(() => {
-    const fetchUser = async () => setUser(await User.Service.getInstance().GetUser())
+    const fetchUser = async () =>
+      setUser(await User.Service.getInstance().GetUser())
     fetchUser()
   }, [])
 
   const classes = useStyles()
   const isDesktop = useMediaQuery((theme: Theme) => {
     return theme.breakpoints.up(theme.breakpoints.values.lg)
-  });
-
+  })
 
   // TODO: trazer o padding que ficava dentro do layout, pra ca, ai a tela ia ficar com background color sem fazer gambiarra
   return (
-    <Layout
-      title="Globo Hacktoberfest"
-    >
+    <Layout title="Globo Hacktoberfest">
       <div className={classes.root}>
-        {(user && !user?.email) && <EmailPopin user={user} />}
+        {user && !user?.email && <EmailPopin user={user} />}
         <HeroCall user={user} />
         <Image className={classes.separator} src={`2023/separator.svg`} />
 
@@ -141,7 +138,10 @@ const IndexPage = () => {
             className={classes.projects}
           >
             <Rules user={user} />
-            <Spacing smart={{ padding: "0 16px" }} desktop={{ margin: "30px 0px" }}>
+            <Spacing
+              smart={{ padding: "0 16px" }}
+              desktop={{ margin: "30px 0px" }}
+            >
               <Grid
                 container
                 direction="column"
@@ -155,20 +155,32 @@ const IndexPage = () => {
                     justifyContent="space-between"
                     alignItems="center"
                   >
-                    <Grid item className={classes.projectTitle} >
+                    <Grid item className={classes.projectTitle}>
                       <Image src={`2023/body-raio.svg`} />
-                      <Typography className={classes.projectFont} variant="body1" component="p">
+                      <Typography
+                        className={classes.projectFont}
+                        variant="body1"
+                        component="p"
+                      >
                         Principais Projetos
-                    </Typography>
+                      </Typography>
                     </Grid>
-                    {isDesktop && <Grid item className={classes.projectEye}>
-                      <Image src={`2023/eye.svg`} />
-                    </Grid>}
+                    {isDesktop && (
+                      <Grid item className={classes.projectEye}>
+                        <Image src={`2023/eye.svg`} />
+                      </Grid>
+                    )}
                   </Grid>
                   <Spacing smart={{ margin: "0px 0px 60px" }}>
-                    <Typography className={classes.projectCallDescription} align="left" variant="body1" color="textPrimary">
-                      Gostaríamos da sua ajuda principalmente nos seguintes projetos
-                </Typography>
+                    <Typography
+                      className={classes.projectCallDescription}
+                      align="left"
+                      variant="body1"
+                      color="textPrimary"
+                    >
+                      Gostaríamos da sua ajuda principalmente nos seguintes
+                      projetos
+                    </Typography>
                   </Spacing>
                   <Spacing smart={{ margin: "24px 0px 0px" }}>
                     <Grid item xs={12}>
@@ -177,9 +189,13 @@ const IndexPage = () => {
                   </Spacing>
                   <Grid item className={classes.allProjects}>
                     <Link href="/projetos">
-                      <Button variant="outlined" color="primary" className={classes.allProjectsButton}>
+                      <Button
+                        variant="outlined"
+                        color="primary"
+                        className={classes.allProjectsButton}
+                      >
                         VER TODOS OS PROJETOS
-                    </Button>
+                      </Button>
                     </Link>
                   </Grid>
                 </Grid>
@@ -188,7 +204,7 @@ const IndexPage = () => {
           </Grid>
         </div>
       </div>
-    </Layout >
+    </Layout>
   )
 }
 
