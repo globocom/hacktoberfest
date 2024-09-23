@@ -14,11 +14,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   button: {
     width: "100%",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#07B1EF4D",
     fontFamily: "inherit",
-    borderRadius: "8px",
-    textTransform: "none",
-    color: theme.palette.text.secondary
+    borderRadius: "2px",
+    border: "3px solid #02BBFF",
+    color: theme.palette.text.primary,
+    textTransform: "uppercase",
   },
   buttonContainer: {
     marginTop: '16px'
@@ -204,7 +205,7 @@ const UnloggedView = () => {
             variant="contained"
           >
             <Typography className={classes.buttonText} component="p" variant="body2" align="center">
-              <b>participar</b> com sua conta do github
+              <b>participar com sua conta do github</b>
               </Typography>
           </Button>
         </Grid>
@@ -231,18 +232,18 @@ const DesktopView = (props: DesktopViewProps) => {
       alignItems="center"
     >
       <Grid item sm={4}>
-        <Image className={classes.logoGlobo} src={`2023/globo.svg`} />
-        <Image className={classes.logoEdition} src={`2023/logo.png`} />
+        <Image className={classes.logoGlobo} src={`2024/globo.svg`} />
+        <Image className={classes.logoEdition} src={`2024/logo.png`} />
         <Typography variant="h1" align="left" style={{ fontSize: "2.5rem", fontWeight: 100, marginTop: '1.2vw' }} component="h2">
-          01.10.2023 — 31.10.2023
+          01.10.2024 — 31.10.2024
               </Typography>
         <Typography align="left">
-          O Hacktober está aberto a todos os que desejam trilhar o caminho da colaboração e deixar sua marca nos projetos open source.
+        O Hacktober está aberto a todos os que desejam trilhar o caminho da colaboração e deixar sua marca nos projetos open source.
               </Typography>
         {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
       </Grid>
       <Grid item sm={4}>
-        <Image src={`2023/character.svg`} />
+        <Image style={{paddingTop: 100}} src={`2024/character.svg`} />
       </Grid>
       <Grid item sm={4} className={classes.droneAnimation}>
         <div className={classes.droneAnimation2}>
