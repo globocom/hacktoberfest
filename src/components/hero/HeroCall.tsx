@@ -6,6 +6,10 @@ import { useMediaQuery, Grid, Box } from "@material-ui/core"
 import SmartView from "./HeroSmart"
 import DesktopView from "./HeroDesktop"
 import { UserProps } from "@services/user"
+import { Image } from "@components/image"
+
+import headerBackground from "../../themes/images/2024/header-backgroud.png";
+
 
 const useStyles = makeStyles((theme: Theme) => ({
   heroPanel: {
