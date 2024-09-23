@@ -101,6 +101,7 @@ const ParticipantsTabs = () => {
         {EDITIONS.map((edition, index) => (
           <Tab key={index} className={classes.tab} label={edition} />
         ))}
+
       </Tabs>
       {EDITIONS.map((_, index) => (
         <TabPanel key={index} value={tabValue} index={index}>

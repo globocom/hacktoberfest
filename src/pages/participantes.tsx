@@ -1,5 +1,5 @@
 import React from "react"
-import { Grid, Box, Typography } from "@material-ui/core"
+import { Grid, Box, Typography, useMediaQuery } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core"
 import { Image } from "@components/image"
 import Layout from "@components/layout"
@@ -21,16 +21,26 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '100%',
     marginBottom: '-10px'
   },
+  hero: {
+    width: 180,
+    height: 180,
+    float: "right",
+    zIndex: 1,
+    position: "relative",
+    top: -100,
+  }
 }))
 
 const ParticipantsPage = () => {
   const classes = useStyles()
+  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up(theme.breakpoints.values.lg));
   return (
     <Layout title="Participantes - Globo Hacktoberfest" description="Participantes - Globo Hacktoberfest" headerTitle="Participantes">
       <Grid className={classes.root} container justifyContent="center" alignContent="center">
         <Spacing desktop={{ margin: "160px 0px 0px 0px" }} smart={{ margin: "40px 32px" }}>
           <Grid item style={{ maxWidth: 1520, minHeight: '61vh' }} xs={12} lg={6}>
             <HeaderTitle title={"Participantes"} />
+            {isDesktop && <Image className={classes.hero} src="2024/participant-hero.svg" />}
             <Spacing desktop={{ margin: "40px 0px 10vh 0px" }} smart={{ margin: "24px 0 40px 0" }}>
               <Typography
                 component="p"
