@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" viewBox="0 0 38 244" xmlns="http://www.w3.org/2000/svg">
+<path d="M38 0H0V244H38V0Z" fill="#17042B"/>
+<path d="m19.5 125.3c1.2316 0 2.23-0.998 2.23-2.23 0-1.231-0.9984-2.23-2.23-2.23s-2.23 0.999-2.23 2.23c0 1.232 0.9984 2.23 2.23 2.23z" fill="#FF0F1D"/>
+<path d="m17.21 115.18h4.16s-2.08-59.37-2.08-58.076-2.08 58.076-2.08 58.076z" fill="#341456"/>
+<path d="m21.37 130.11h-4.16s2.08 59.371 2.08 58.077 2.08-58.077 2.08-58.077z" fill="#341456"/>
+<path d="m26.89 57.283h-15.52v132.46h15.52v-132.46z" stroke="#341456" stroke-miterlimit="10"/>
+<path d="m11 48.35h17" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m26.63 42.634h-14.26" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m25.25 36.919h-11.5" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m23.88 31.196h-8.76" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m22.51 25.481h-6.02" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m21.14 19.766h-3.28" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m19.76 14.042h-0.52" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m18.39 8.3271h2.22" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m28 193.77h-17" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m12.37 199.49h14.26" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m13.75 205.21h11.5" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m15.12 210.92h8.76" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m16.49 216.64h6.02" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m17.86 222.36h3.28" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m19.24 228.08h0.52" stroke="#495685" stroke-miterlimit="10"/>
+<path d="m20.61 233.8h-2.22" stroke="#495685" stroke-miterlimit="10"/>
+</svg>

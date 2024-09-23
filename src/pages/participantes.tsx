@@ -10,7 +10,7 @@ import { HeaderTitle } from "@components/header"
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
-    backgroundColor: theme.palette.primary.main,
+    background: theme.palette.background.default,
   },
   topDivider: {
     width: "100%",
@@ -29,7 +29,7 @@ const ParticipantsPage = () => {
     <Layout title="Participantes - Globo Hacktoberfest" description="Participantes - Globo Hacktoberfest" headerTitle="Participantes">
       <Grid className={classes.root} container justifyContent="center" alignContent="center">
         <Spacing desktop={{ margin: "160px 0px 0px 0px" }} smart={{ margin: "40px 32px" }}>
-          <Grid item style={{ maxWidth: 944, minHeight: '61vh' }} xs={12} lg={6}>
+          <Grid item style={{ maxWidth: 1520, minHeight: '61vh' }} xs={12} lg={6}>
             <HeaderTitle title={"Participantes"} />
             <Spacing desktop={{ margin: "40px 0px 10vh 0px" }} smart={{ margin: "24px 0 40px 0" }}>
               <Typography
@@ -46,7 +46,7 @@ const ParticipantsPage = () => {
             </Box>
           </Grid>
         </Spacing>
-        <Image className={classes.separator} src={`2023/separator.svg`} />
+        <Image className={classes.separator} src={`2024/separator.svg`} />
       </Grid>
     </Layout>
   )
