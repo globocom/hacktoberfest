@@ -23,7 +23,7 @@ interface NavigationItemsProps {
 }
 
 const MenuItems: Array<NavigationItemProps> = [
-  { label: "projetosss", link: "/projetos" },
+  { label: "projetos", link: "/projetos" },
   { label: "regras e princípios", link: "/regras" },
   { label: "participantes", link: "/participantes" },
 ]
