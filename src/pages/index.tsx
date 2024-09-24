@@ -127,7 +127,8 @@ const IndexPage = () => {
       <div className={classes.root}>
         {user && !user?.email && <EmailPopin user={user} />}
         <HeroCall user={user} />
-        <Image className={classes.separator} src={`2023/separator.svg`} />
+        <Image className={classes.separator} src={`2024/pink-line.svg`} />
+        <Image className={classes.separator} src={`2024/violet-line.svg`} />
 
         <div className={classes.secondaryPage}>
           <Grid
