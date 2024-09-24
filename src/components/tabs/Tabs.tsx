@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import {
   Avatar,
   IconButton,
-  List,
   ListItem,
   ListItemAvatar,
   ListItemSecondaryAction,
@@ -10,20 +9,16 @@ import {
   Tab,
   Tabs,
   Typography,
-  Box
+  Box,
+  Grid,
+  Card,
 } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { CircularProgress } from "@material-ui/core"
-import { Image } from '@components/image'
+import { Image } from "@components/image"
 import Participants, { ParticipantProps } from "@services/participants"
 
-const EDITIONS = [
-  2023,
-  2022,
-  2021,
-  2020,
-  2019
-]
+const EDITIONS = [2024, 2023, 2022, 2021, 2020, 2019]
 
 const useStyles = makeStyles((theme: Theme) => ({
   tab: {
@@ -38,31 +33,26 @@ const useStyles = makeStyles((theme: Theme) => ({
       justifyContent: "center",
       textAlign: "center",
       padding: "48px 80px",
-    }
+    },
   },
   listItem: {
     padding: 24,
-    borderRadius: 8,
-    margin: "24px 0",
-    border: "1px solid white",
-    backgroundColor: "#0d0d0d",
-    [theme.breakpoints.up("lg")]: {
-      margin: "32px 0",
-    },
+    backgroundColor: "#491B77",
+    width: 482,
   },
   complete: {
-    color: "#33DD99"
+    color: "#33DD99",
   },
-  incomplete:{
-    color: "#ff0000"
+  incomplete: {
+    color: "#ff0000",
   },
-  gutterRemove:{
-    padding: "0 0 16px 0"
+  gutterRemove: {
+    padding: "0 0 16px 0",
   },
   loading: {
     textAlign: "center",
-    marginTop: 10
-  }
+    marginTop: 10,
+  },
 }))
 
 const ParticipantsTabs = () => {
@@ -72,22 +62,21 @@ const ParticipantsTabs = () => {
   const [loading, setLoading] = useState(false)
   const classes = useStyles()
 
-
   useEffect(() => {
     const fetchParticipants = async () => {
-      try{
+      try {
         setLoading(true)
-        const response: Array<ParticipantProps> = await Participants.Service.getInstance().GetParticipants(edition)
+        const response: Array<ParticipantProps> = await Participants.Service.getInstance().GetParticipants(
+          edition
+        )
         setParticipants(response)
-      }catch(e){
-
-      }finally {
+      } catch (e) {
+      } finally {
         setLoading(false)
       }
-
     }
     fetchParticipants()
-  }, [edition]);
+  }, [edition])
 
   const handleChange = (_: any, newTabValue: number) => {
     const newEditionValue = EDITIONS[newTabValue]
@@ -102,42 +91,87 @@ const ParticipantsTabs = () => {
         onChange={handleChange}
         indicatorColor="secondary"
         textColor="inherit"
+        style={{marginBottom: 20}}
+        TabIndicatorProps={{
+          style: {
+            backgroundColor: "#FF0099"
+          },
+        }}
       >
         {EDITIONS.map((edition, index) => (
           <Tab key={index} className={classes.tab} label={edition} />
         ))}
+
       </Tabs>
       {EDITIONS.map((_, index) => (
         <TabPanel key={index} value={tabValue} index={index}>
-          {loading && <div className={classes.loading}><CircularProgress /></div>}
-          {!loading && (
-            participants.length ? (
-          <List className={classes.list}>
-            {!loading && (
-             participants.map && participants.map((participant, index) => (
-              <div className={classes.listItem}>
-                <ListItem key={index} className={classes.gutterRemove} alignItems="center">
-                  <ListItemAvatar>
-                    <Avatar alt={participant.githubUser} src={participant.avatar} />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={`@${participant.githubUser}`}
-                  />
-                  <a href={`https://github.com/${participant.githubUser}`} target="_blank">
-                    <ListItemSecondaryAction>
-                      <IconButton edge="end" aria-label="GitHub">
-                        <Image src="github-logo.svg" />
-                      </IconButton>
-                    </ListItemSecondaryAction>
-                  </a>
-                </ListItem>
-                <Typography component="span" variant="caption"> {participant.total_pull_requests} pull requests </Typography>
-                <Typography component="span" variant="caption" className={participant.approved ? classes.complete : classes.incomplete}> • </Typography>
-                <Typography component="span" variant="caption"> {participant.approved ? "desafio completo" : "desafio incompleto"}  </Typography>
-               </div>
-              )))
-            }
-          </List>) : <EmptyList className={classes.list} />)}
+          {loading && (
+            <div className={classes.loading}>
+              <CircularProgress />
+            </div>
+          )}
+          {!loading &&
+            (participants.length ? (
+              <Grid container spacing={3}>
+                {!loading &&
+                  participants.map &&
+                  participants.map((participant, index) => (
+                    <Grid container item xs={12} sm={12} md={6} lg={6} xl={4} spacing={1}>
+                      <Card className={classes.listItem}>
+                        <ListItem
+                          key={index}
+                          className={classes.gutterRemove}
+                          alignItems="center"
+                        >
+                          <ListItemAvatar>
+                            <Avatar
+                              alt={participant.githubUser}
+                              src={participant.avatar}
+                            />
+                          </ListItemAvatar>
+                          <ListItemText
+                            primary={`@${participant.githubUser}`}
+                          />
+                          <a
+                            href={`https://github.com/${participant.githubUser}`}
+                            target="_blank"
+                          >
+                            <ListItemSecondaryAction>
+                              <IconButton edge="end" aria-label="GitHub">
+                                <Image src="github-logo.svg" />
+                              </IconButton>
+                            </ListItemSecondaryAction>
+                          </a>
+                        </ListItem>
+                        <Typography component="span" variant="caption">
+                          {" "}
+                          {participant.total_pull_requests} pull requests{" "}
+                        </Typography>
+                        <Typography
+                          component="span"
+                          variant="caption"
+                          className={
+                            participant.approved
+                              ? classes.complete
+                              : classes.incomplete
+                          }
+                        >
+                          {" "}
+                          •{" "}
+                        </Typography>
+                        <Typography component="span" variant="caption">
+                          {" "}
+                          {participant.approved
+                            ? "desafio completo"
+                            : "desafio incompleto"}{" "}
+                        </Typography>
+                      </Card>
+                    </Grid>
+                  ))}
+              </Grid>
+            ) : (
+              <EmptyList className={classes.list} />
+            ))}
         </TabPanel>
       ))}
     </>
@@ -145,25 +179,17 @@ const ParticipantsTabs = () => {
 }
 
 interface TabPanelProps {
-  children: React.ReactNode,
-  value: number,
-  index: number,
+  children: React.ReactNode
+  value: number
+  index: number
 }
 
 const TabPanel = (props: TabPanelProps) => {
-  const { children, value, index, ...rest } = props;
+  const { children, value, index, ...rest } = props
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      {...rest}
-    >
-      {value === index && (
-        <React.Fragment>
-          {children}
-        </React.Fragment>
-      )}
+    <div role="tabpanel" hidden={value !== index} {...rest}>
+      {value === index && <React.Fragment>{children}</React.Fragment>}
     </div>
   )
 }
