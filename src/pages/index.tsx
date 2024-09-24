@@ -57,8 +57,17 @@ const useStyles = makeStyles((theme: Theme) => ({
       lineHeight: "48px",
     },
   },
-  separator: {
+  separatorPink: {
     width: "100%",
+    marginTop: "-118px",
+    position: "relative",
+    zIndex: 1,
+  },
+  separatorViolet: {
+    width: "100%",
+    marginTop: "-232px",
+    position: "relative",
+    zIndex: 1,
   },
   secondaryPage: {
     backgroundColor: "#FFF",
@@ -127,8 +136,8 @@ const IndexPage = () => {
       <div className={classes.root}>
         {user && !user?.email && <EmailPopin user={user} />}
         <HeroCall user={user} />
-        <Image className={classes.separator} src={`2024/pink-line.svg`} />
-        <Image className={classes.separator} src={`2024/violet-line.svg`} />
+        <Image className={classes.separatorPink} src={`2024/pink-line.svg`} />
+        <Image className={classes.separatorViolet} src={`2024/violet-line.svg`} />
 
         <div className={classes.secondaryPage}>
           <Grid

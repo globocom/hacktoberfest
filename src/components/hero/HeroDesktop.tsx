@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   buttonText: {
     padding: 16,
-    color: "#000",
+    color: "#FFF",
     fontSize: "1rem",
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       fontSize: "1.125rem",
@@ -285,12 +285,27 @@ const DesktopView = (props: DesktopViewProps) => {
         <Typography
           variant="h1"
           align="left"
-          style={{ fontSize: "2.5rem", fontWeight: 100, marginTop: "1.2vw" }}
+          style={{
+            fontSize: '26px',
+            fontWeight: 700,
+            lineHeight: '31.47px',
+            letterSpacing: '0.06em',
+            textAlign: 'left',
+            marginTop: "1.2vw"
+          }}
           component="h2"
         >
           01.10.2024 — 31.10.2024
         </Typography>
-        <Typography align="left">
+        <Typography
+          style={{
+            fontSize: '20px',
+            fontWeight: 400,
+            lineHeight: '24.2px',
+            textAlign: 'left',
+            marginTop: "1vw"
+          }}
+          align="left">
           O Hacktober está aberto a todos os que desejam trilhar o caminho da
           colaboração e deixar sua marca nos projetos open source.
         </Typography>
