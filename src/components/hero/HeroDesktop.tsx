@@ -1,6 +1,6 @@
 import React from "react"
 import Spacing from "@components/spacing"
-import { Grid, Typography, Button } from "@material-ui/core"
+import { Grid, Typography, Button, Box } from "@material-ui/core"
 import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Edition, UserProps } from "@services/user"
@@ -47,26 +47,32 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: 22,
   },
   logoEdition: {
-    width: "80%",
+    width: "110%",
     display: "block",
     webkitTransform: "translate3d(0,0,0)",
     WebkitBackfaceVisibility: "hidden",
+    marginLeft: "-64px"
   },
   character: {
-    width: "835px",
-    height: "836px",
-    top: "400px",
-    left: "638px",
-    gap: "0px",
-    opacity: "0",
-    paddingTop: 100,
+    width: "700px !important",
+  },
+  message: {
+    width: "500px",
+    marginBottom: "212px",
+    marginRight: "-16px",
+  },
+  gridItem: {
+    height: "800px",
+  },
+  gridMessage: {
+    display: "flex",
+    justifyContent: "flex-end",
   },
   logoGlobo: {
-    width: "50%",
+    width: "190px",
     display: "block",
     webkitTransform: "translate3d(0,0,0)",
     WebkitBackfaceVisibility: "hidden",
-    marginBottom: "10%",
   },
   active: {
     borderBottom: `2px solid ${theme.palette.secondary.main}`,
@@ -273,7 +279,7 @@ const DesktopView = (props: DesktopViewProps) => {
 
   return (
     <Grid container alignItems="center">
-      <Grid item sm={4}>
+      <Grid item sm={4} className={classes.gridItem}>
         <Image className={classes.logoGlobo} src={`2024/globo.svg`} />
         <Image className={classes.logoEdition} src={`2024/logo.png`} />
         <Typography
@@ -290,13 +296,17 @@ const DesktopView = (props: DesktopViewProps) => {
         </Typography>
         {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
       </Grid>
-      <Grid item sm={4}>
-        <Image classnName={classes.character} src={`2024/character.svg`} />
+      <Grid item sm={4} className={classes.gridItem}>
+        <Box display="flex" marginTop={20}>
+          <Image classnName={classes.character} src={`2024/character.svg`} />
+        </Box>
       </Grid>
-      <Grid item sm={4} className={classes.droneAnimation}>
-        <div className={classes.droneAnimation2}>
+      <Grid item sm={4} className={classes.gridMessage}>
+        <Image className={classes.message} src={`2024/message.png`} />
+
+        {/* <div className={classes.droneAnimation2}>
           <Lottie options={defaultOptions} height={300} width={350} />
-        </div>
+        </div> */}
       </Grid>
     </Grid>
   )
