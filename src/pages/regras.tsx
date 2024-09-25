@@ -14,7 +14,6 @@ interface RuleProps {
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
-    // backgroundColor: theme.palette.primary.main,
   },
   fontSection: {
     fontSize: "2.25rem",
