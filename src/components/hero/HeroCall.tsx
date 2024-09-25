@@ -40,7 +40,7 @@ const HeroCall = (props: HeroCallProps) => {
 
   return (
     <>
-      <Box className={classes.backgroundImageBox} />
+      {isDesktop && <Box className={classes.backgroundImageBox} />}
       <Spacing
         desktop={{ padding: "0px 100px 0px 100px" }}
         smart={{ margin: "0" }}

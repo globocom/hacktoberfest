@@ -10,11 +10,13 @@ import animationData from '../../themes/images/2023/drone.json';
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
     fontFamily: "inherit",
-    borderRadius: "8px",
-    textTransform: "none",
+    borderRadius: "2px",
+    border: "3px solid #02BBFF",
+    textTransform: "uppercase",
     padding: '24px',
-    color: theme.palette.text.secondary,
-    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.text.primary,
+    backgroundColor: "#07B1EF4D",
+    marginTop: '32px',
   },
   howWorks: {
     position: 'absolute',
@@ -65,17 +67,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderBottom: `2px solid ${theme.palette.secondary.main}`,
   },
   logoEdition: {
-    width: '80%',
+    width: '110%',
+    marginLeft: '-46px',
     display: 'block',
     webkitTransform: "translate3d(0,0,0)",
     WebkitBackfaceVisibility: 'hidden',
   },
   logoGlobo: {
-    width: '50%',
+    width: '190px',
     display: 'block',
     webkitTransform: "translate3d(0,0,0)",
     WebkitBackfaceVisibility: 'hidden',
-    marginBottom: '10%',
   },
   character: {
     marginTop: '16%',
@@ -187,13 +189,13 @@ const UnloggedView = () => {
   return (
     <React.Fragment>
       <Grid container justifyContent="center" alignContent="center" className="containerUserViewSmart">
-        <Spacing smart={{ margin: "0px 0px 16px 0px;" }}>
+        {/* <Spacing smart={{ margin: "0px 0px 16px 0px;" }}>
           <Grid item xs={12}>
             <Typography align="center" variant="h3" component="h3" style={{ fontSize: '1rem', fontWeight: 700 }}>
               contribua e ganhe uma camiseta exclusiva
                 </Typography>
           </Grid>
-        </Spacing>
+        </Spacing> */}
         <Grid item xs={12}>
           <Button
             href="/login"
@@ -201,8 +203,8 @@ const UnloggedView = () => {
             className={classes.button}
             variant="contained"
           >
-            <Typography component="p" variant="body2" align="center" style={{ fontSize: '16px', color: "#000" }}>
-              <b>participar</b> com sua conta do github
+            <Typography component="p" variant="body2" align="center" style={{ fontSize: '16px', color: "#fff" }}>
+              <b>participar com sua conta do github</b>
                 </Typography>
 
           </Button>
@@ -232,28 +234,51 @@ const SmartView = (props: SmartViewProps) => {
         justifyContent="center"
       >
         <Grid item sm={12}>
-          <Image className={classes.logoGlobo} src={`2023/globo.svg`} />
-          <Image className={classes.logoEdition} src={`2023/logo.png`} />
-          <Typography variant="h1" align="left" style={{ fontSize: "2.5rem", fontWeight: 100, marginTop: '1.2vw' }} component="h2">
-            01.10.2023 — 31.10.2023
+          <Image className={classes.logoGlobo} src={`2024/globo.svg`} />
+          <Image className={classes.logoEdition} src={`2024/logo.png`} />
+          <Typography
+            variant="h1"
+            align="left"
+            style={{
+              fontSize: '26px',
+              fontWeight: 700,
+              lineHeight: '31.47px',
+              letterSpacing: '0.06em',
+              textAlign: 'left',
+              marginTop: "1.2vw"
+            }}
+            component="h2"
+          >
+          01.10.2024 — 31.10.2024
               </Typography>
-          <Typography align="left">
-            O Hacktober está aberto a todos os que desejam trilhar o caminho da colaboração e deixar sua marca nos projetos open source.
+          <Typography
+            style={{
+              fontSize: '20px',
+              fontWeight: 400,
+              lineHeight: '24.2px',
+              textAlign: 'left',
+              marginTop: "1vw"
+            }}
+            align="left"
+          >
+          O Hacktober está aberto a todos os que desejam trilhar o caminho da
+          colaboração e deixar sua marca nos projetos open source.
               </Typography>
           {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
         </Grid>
         <Grid item sm={6}>
-          <Image className={classes.character} src={`2023/character.svg`} />
+          <Image className={classes.character} src={`2024/character.svg`} />
         </Grid>
         <Grid item sm={4} className={classes.droneAnimation}>
-          <div className={classes.droneAnimation2}>
+        <Image  src={`2024/message.png`} />
+          {/* <div className={classes.droneAnimation2}>
             <Lottie
               className={classes.drone}
               options={defaultOptions}
               height={200}
               width={250}
             />
-          </div>
+          </div> */}
         </Grid>
       </Grid>
     </React.Fragment>
