@@ -6,6 +6,8 @@ import Navigation from "@components/navigation"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
+    position: "relative",
+    zIndex: 10,
     fontFamily: theme.typography.fontFamily,
     "& a": {
       color: theme.palette.text.primary,
@@ -26,7 +28,7 @@ const Header = () => {
   const classes = useStyles()
   const isDesktop = useMediaQuery((theme: Theme) => {
     return theme.breakpoints.up(theme.breakpoints.values.lg)
-  });
+  })
   return (
     <header className={classes.root}>
       {isDesktop ? <Navigation mode="desk" /> : <Navigation mode="smart" />}
