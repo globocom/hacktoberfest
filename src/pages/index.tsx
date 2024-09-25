@@ -10,6 +10,7 @@ import { Link, Grid, Typography, useMediaQuery } from "@material-ui/core"
 import Button from "@material-ui/core/Button"
 import ProjectsList from "@components/projects"
 import User, { UserProps } from "@services/user"
+import { projects } from "./mock"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -36,7 +37,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   projectFont: {
     fontSize: "41.15px",
     lineHeight: "57.61px",
-    color: theme.palette.primary.dark,
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       fontSize: "3rem",
       lineHeight: "56px",
@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: "30px",
   },
   projectCallDescription: {
-    color: theme.palette.primary.dark,
     fontSize: "1.5rem",
     lineHeight: "32px",
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
@@ -93,8 +92,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   projectItem: {
     width: "100%",
   },
-  projectEye: {
-    width: "87.34px",
+  computer: {
+    width: "165px",
     height: "104.35px",
   },
   allProjects: {
@@ -174,18 +173,18 @@ const IndexPage = () => {
                     alignItems="center"
                   >
                     <Grid item className={classes.projectTitle}>
-                      <Image src={`2023/body-raio.svg`} />
+                      <Image src={`2024/white-raio.svg`} />
                       <Typography
                         className={classes.projectFont}
                         variant="body1"
                         component="p"
                       >
-                        Principais Projetos
+                        Principais Projetoss
                       </Typography>
                     </Grid>
                     {isDesktop && (
-                      <Grid item className={classes.projectEye}>
-                        <Image src={`2023/eye.svg`} />
+                      <Grid item className={classes.computer}>
+                        <Image src={`2024/computer.svg`} />
                       </Grid>
                     )}
                   </Grid>

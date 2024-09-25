@@ -179,7 +179,11 @@ const RulesDesktop = (props: RulesProps) => {
             Como participar
           </Typography>
         </Grid>
-        <Grid item key={"inner_container"} className={classes.boxRulesContainer}>
+        <Grid
+          item
+          key={"inner_container"}
+          className={classes.boxRulesContainer}
+        >
           <Grid
             container
             direction="row"
