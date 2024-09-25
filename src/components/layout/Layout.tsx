@@ -1,9 +1,9 @@
 import * as React from "react"
-import './reset.css'
+import "./reset.css"
 import { Header } from "@components/header"
 import Footer from "@components/footer"
 import { makeStyles, Theme } from "@material-ui/core"
-import SEO from '@components/seo'
+import SEO from "@components/seo"
 import UserInfoAlert from "@components/user-info-alert"
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       padding: 0,
     },
-  }
+  },
 }))
 
 const Layout = (props: LayoutProps) => {
@@ -33,11 +33,12 @@ const Layout = (props: LayoutProps) => {
 
   return (
     <div className={classes.root}>
-      <SEO description={props.description || "Globo Hacktoberfest"} title={props.title || "Globo Hacktoberfest"} />
+      <SEO
+        description={props.description || "Globo Hacktoberfest"}
+        title={props.title || "Globo Hacktoberfest"}
+      />
       <Header />
-      <main>
-        {props.children}
-      </main>
+      <main>{props.children}</main>
       <UserInfoAlert />
       <Footer />
     </div>
@@ -46,8 +47,8 @@ const Layout = (props: LayoutProps) => {
 
 interface LayoutProps {
   children: React.ReactNode
-  headerTitle?: string,
-  title: string,
+  headerTitle?: string
+  title: string
   description?: string
 }
 

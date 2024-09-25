@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     zIndex: 1,
   },
   secondaryPage: {
-    backgroundColor: "#FFF",
+    // backgroundColor: "#FFF",
     marginTop: "-10px",
   },
   projects: {
@@ -136,12 +136,18 @@ const IndexPage = () => {
       <div className={classes.root}>
         {user && !user?.email && <EmailPopin user={user} />}
         <HeroCall user={user} />
-        {isDesktop &&
+        {isDesktop && (
           <>
-            <Image className={classes.separatorPink} src={`2024/pink-line.svg`} />
-            <Image className={classes.separatorViolet} src={`2024/violet-line.svg`} />
+            <Image
+              className={classes.separatorPink}
+              src={`2024/pink-line.svg`}
+            />
+            <Image
+              className={classes.separatorViolet}
+              src={`2024/violet-line.svg`}
+            />
           </>
-        }
+        )}
 
         <div className={classes.secondaryPage}>
           <Grid
