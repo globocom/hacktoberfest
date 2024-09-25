@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   projectFont: {
     fontSize: "41.15px",
     lineHeight: "57.61px",
-    color: theme.palette.primary.dark,
+    color: theme.palette.primary.contrastText,
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       fontSize: "3rem",
       lineHeight: "56px",
@@ -54,6 +54,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   rulesContainer: {
     flexWrap: "nowrap",
     backgroundColor: theme.palette.secondary.dark,
+    height: "308px",
+  },
+  boxRulesContainer: {
+    padding: "0px 60px",
   },
   rulesItemsContainer: {
     flexWrap: "nowrap",
@@ -76,6 +80,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexWrap: "nowrap",
     alignItems: "center",
     backgroundColor: "#250849",
+    height: "244px",
   },
   rulesSeparator: {
     margin: "25px 0px",
@@ -98,7 +103,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   buttonText: {
     padding: 16,
-    color: theme.palette.secondary.dark,
+    color: "#FFF",
     lineHeight: "28px",
     fontFamily: "Globotipo Variable",
     fontSize: "20px",
@@ -111,19 +116,21 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
       width: "35%",
-      marginTop: "5px",
+      marginTop: "-4px",
     },
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       width: "35%",
-      marginTop: "5px",
+      marginTop: "-4px",
     },
   },
   button: {
-    backgroundColor: theme.palette.secondary.main,
+    width: "100%",
+    backgroundColor: "#07B1EF4D",
     fontFamily: "inherit",
-    borderRadius: "8px",
-    textTransform: "none",
-    color: theme.palette.text.secondary,
+    borderRadius: "2px",
+    border: "3px solid #02BBFF",
+    color: theme.palette.text.primary,
+    textTransform: "uppercase",
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       padding: "24px",
     },
@@ -136,10 +143,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   clipSeparator: {
     marginTop: "5px",
+    marginLeft: "-100px",
   },
   participateContainer: {
     display: "flex",
     alignItems: "center",
+    marginTop: "-50px",
   },
   participateHint: {
     color: "#2E3192",
@@ -153,7 +162,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 const RulesDesktop = (props: RulesProps) => {
   const classes = useStyles()
   return (
-    <Spacing smart={{ margin: "100px auto" }}>
+    <Spacing smart={{ margin: "24px auto" }}>
       <Grid
         container
         direction="column"
@@ -161,7 +170,7 @@ const RulesDesktop = (props: RulesProps) => {
         alignItems="flex-start"
       >
         <Grid item key={"como-participar"} className={classes.projectTitle}>
-          <Image src={`2023/body-raio.svg`} />
+          <Image src={`2024/white-raio.svg`} />
           <Typography
             className={classes.projectFont}
             variant="body1"
@@ -170,19 +179,19 @@ const RulesDesktop = (props: RulesProps) => {
             Como participar
           </Typography>
         </Grid>
-        <Grid item key={"inner_container"}>
+        <Grid item key={"inner_container"} className={classes.boxRulesContainer}>
           <Grid
             container
             direction="row"
             justifyContent="space-between"
             className={classes.rulesContainer}
           >
-            <Grid item key={"test1"} className={classes.rulesSeparator}>
+            {/* <Grid item key={"test1"} className={classes.rulesSeparator}>
               <Image
                 className={classes.rulesSeparatorSvg}
                 src={`2023/separator-rules.svg`}
               />
-            </Grid>
+            </Grid> */}
             {props.rules?.map((rule, index) => (
               <Grid
                 container
@@ -197,12 +206,12 @@ const RulesDesktop = (props: RulesProps) => {
                 </Grid>
               </Grid>
             ))}
-            <Grid item key={"img"} className={classes.rulesSeparator}>
+            {/* <Grid item key={"img"} className={classes.rulesSeparator}>
               <Image
                 className={classes.rulesSeparatorSvg}
                 src={`2023/separator-rules.svg`}
               />
-            </Grid>
+            </Grid> */}
           </Grid>
           {!props.user && (
             <Grid
@@ -212,7 +221,7 @@ const RulesDesktop = (props: RulesProps) => {
               className={classes.participateContainer}
             >
               <Grid item className={classes.clipSeparator}>
-                <Image src={`2023/clip-separator.svg`} />
+                <Image src={`2024/clip-separator.svg`} />
               </Grid>
               <Grid item className={classes.buttonContainer}>
                 <Button
@@ -229,8 +238,7 @@ const RulesDesktop = (props: RulesProps) => {
                     variant="body2"
                     align="center"
                   >
-                    <span className={classes.participateHint}>PARTICIPAR</span>{" "}
-                    COM SUA CONTA DO GITHUB
+                    PARTICIPAR COM SUA CONTA DO GITHUB
                   </Typography>
                 </Button>
               </Grid>
