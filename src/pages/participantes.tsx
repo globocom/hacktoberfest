@@ -28,6 +28,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: "relative",
     top: -100,
   },
+  hero: {
+    width: 180,
+    height: 180,
+    float: "right",
+    zIndex: 1,
+    position: "relative",
+    top: -100,
+  },
 }))
 
 const ParticipantsPage = () => {
