@@ -114,14 +114,14 @@ const FooterSmart = (props: FooterItemsProps) => {
       justifyContent="space-around"
       alignItems="flex-start"
     >
-      <Spacing smart={{ margin: "0 32px 24px" }}>
+      <Spacing smart={{ margin: "10px 32px 0" }}>
         <Grid item>
-          <Image src="2023/globo.svg" />
+          <Image height="30" src="2023/globo.svg" />
         </Grid>
       </Spacing>
-      <Spacing smart={{ margin: "0 32px 24px" }}>
+      <Spacing smart={{ margin: "0 18px 0" }}>
         <Grid item>
-          <Image src="2023/logo.png" with="278" height="90" />
+          <Image src="2024/logo.png" with="278" height="90" />
         </Grid>
       </Spacing>
       {props.menuItems.map((item: MenuItem, i: number) => (
