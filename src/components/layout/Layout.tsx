@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     "& a": {
       textDecoration: "none",
     },
-    background: theme.palette.primary.main,
+    background: theme.palette.background.default,
   },
   body: {
     padding: 0,

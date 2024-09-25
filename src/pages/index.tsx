@@ -14,7 +14,7 @@ import User, { UserProps } from "@services/user"
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
-    backgroundColor: theme.palette.primary.main,
+    // backgroundColor: theme.palette.background.default,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       backgroundImage: "",
     },

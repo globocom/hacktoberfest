@@ -24,7 +24,6 @@ const MENU_ITEMS: Array<MenuItem> = [
 
 const makeCss = makeStyles((theme: Theme) => ({
   root: {
-    backgroundColor: "#FFF",
     color: theme.palette.text.primary,
     paddingTop: "32px",
     textAlign: "center",
