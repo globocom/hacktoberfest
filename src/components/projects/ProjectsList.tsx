@@ -62,12 +62,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
   },
   projectName: {
-    color: theme.palette.text.primary,
+    color: theme.palette.text.light,
     fontFamily: "Globotipo Variable",
     fontSize: '22px',
     fontWeight: 700,
     lineHeight: '30.8px',
-    borderBottom: "none"
+    borderBottom: "none",
+    padding: "16px 32px"
   },
   projectDescription: {
     fontFamily: "Globotipo Variable",
@@ -75,31 +76,32 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
     lineHeight: '25.2px',
     color: theme.palette.primary.light,
-    borderBottom: "none"
+    borderBottom: "none",
   },
   projectTable: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.table.background,
     color: theme.palette.primary.light,
   },
   projectImage: {
-    width: "50px",
-    borderBottom: "none"
+    borderBottom: "none",
   },
   projectButton: {
     color: theme.palette.text.primary,
     width: "176px",
     height: "70px",
     borderRadius: "1px solid",
+    border: "1px solid rgb(255, 255, 255, 0.1)",
     fontFamily: "Globotipo Variable",
     fontSize: '16px',
     fontWeight: 700,
+    marginRight: "32px"
   },
   tableRow: {
-    borderBottom: `1px solid ${theme.palette.primary.light}`,
+    borderBottom: `1px solid rgb(255, 255, 255, 0.1)`,
     '&:last-child': {
       borderBottom: "none"
-    }
-  }
+    },
+  },
 }))
 
 const excludedLanguages = [
@@ -112,9 +114,9 @@ const excludedLanguages = [
 
 const ProjectsList = (props: ProjectListProps) => {
   const classes = useStyles();
-  const { listLimit = 0, useMansonry = true } = props
+  const { listLimit = 20, useMansonry = true } = props
   const [projects, setProjects] = useState<Array<ProjectProps>>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
 
   const breakpointColumnsObj = {
