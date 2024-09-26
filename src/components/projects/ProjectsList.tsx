@@ -21,6 +21,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
+import {mockApi} from "./mock"
+
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -85,6 +87,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   projectImage: {
     borderBottom: "none",
   },
+  responsiveImage: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    borderBottom: "none"
+  },
   projectButton: {
     color: theme.palette.text.primary,
     width: "176px",
@@ -128,22 +136,22 @@ const ProjectsList = (props: ProjectListProps) => {
   };
 
 
-  useEffect(() => {
-    async function fetchProjects() {
-      setLoading(true)
-      try {
-        const response: Array<ProjectProps> = await Projects.Service.getInstance().GetProjects()
-        if (response) {
-          if (listLimit) response.splice(listLimit)
-          setProjects(response)
-        } else setError(true)
-        setLoading(false)
-      } catch (e: any) {
-        console.error(e.message)
-      }
-    }
-    fetchProjects()
-  }, [])
+  // useEffect(() => {
+  //   async function fetchProjects() {
+  //     setLoading(true)
+  //     try {
+  //       const response: Array<ProjectProps> = await Projects.Service.getInstance().GetProjects()
+  //       if (response) {
+  //         if (listLimit) response.splice(listLimit)
+  //         setProjects(response)
+  //       } else setError(true)
+  //       setLoading(false)
+  //     } catch (e: any) {
+  //       console.error(e.message)
+  //     }
+  //   }
+  //   fetchProjects()
+  // }, [])
 
   return (
     <>
@@ -155,7 +163,7 @@ const ProjectsList = (props: ProjectListProps) => {
           <TableContainer component={Paper}>
             <Table aria-label="simple table" className={classes.projectTable}>
               <TableBody>
-                {projects.map((project, index) => {
+                {mockApi.map((project, index) => {
                   return (
                     <ProjectTableRow key={index} {...project} />
                   )
@@ -170,7 +178,7 @@ const ProjectsList = (props: ProjectListProps) => {
         breakpointCols={breakpointColumnsObj}
         className={classes.masonryGrid}
         columnClassName={classes.masonryGridCol}>
-        {projects.map((project, index) => {
+        {mockApi.map((project, index) => {
           return <ProjectCard key={index} {...project} />
         })
         }
@@ -216,7 +224,7 @@ function ProjectTableRow(props: ProjectProps) {
   return (
     <React.Fragment>
       <TableRow key={name} className={classes.tableRow}>
-        <TableCell component="th" scope="row" align="center" className={classes.projectImage}>
+        <TableCell component="th" scope="row" align="center" className={isDesktop ?  classes.projectImage : classes.responsiveImage}>
           <RepoLanguages languages={[filtered[0]]} />
           {!isDesktop && name}
         </TableCell>

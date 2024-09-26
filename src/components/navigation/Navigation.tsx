@@ -23,21 +23,20 @@ interface NavigationItemsProps {
 }
 
 const MenuItems: Array<NavigationItemProps> = [
-  { label: "projetos", link: "/projetos" },
-  { label: "regras e princípios", link: "/regras" },
-  { label: "participantes", link: "/participantes" },
+  { label: "Home", link: "/" },
+  { label: "Projetos", link: "/projetos" },
+  { label: "Regras e Princípios", link: "/regras" },
+  { label: "Participantes", link: "/participantes" },
 ]
 
 const useStyles = makeStyles((theme: Theme) => ({
   navigation: {
     listStyle: "none",
-    marginTop: "5rem",
     [theme.breakpoints.up("md")]: {
       marginTop: 0,
       display: "inline-flex",
       listStyle: "none",
     },
-    textAlign: "right",
   },
   smartMenu: {
     position: "fixed",
@@ -53,7 +52,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: "90%",
     marginLeft: "10%",
     height: "100%",
-    backgroundColor: theme.palette.background.default,
+    borderRadius:"6px 0px 0 6px",
+    background: "black",
     display: "flex",
     zIndex: 1,
   },
@@ -63,7 +63,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: "100%",
     flexDirection: "column",
     justifyContent: "start",
-    alignItems: "flex-end",
   },
   smartHomeCall: {
     position: "absolute",
@@ -139,11 +138,18 @@ const MenuOpen = (props: MenuOpenProps) => {
     <div className={classes.smartMenu}>
       <Slide direction="left" in={true} mountOnEnter unmountOnExit>
         <Paper className={classes.smartMenuContainer}>
-          <Spacing smart={{ padding: "40px" }}>
-            <Grid className={classes.smartMenuContainerGrid}>
-              <Spacing smart={{ margin: "0px 0px 45px" }}>
-                <div onClick={() => props.closeMenu()}>
-                  <CloseIcon />
+          <Spacing smart={{ padding: "16px 40px 40px 16px"}}>
+            <Grid className={classes.smartMenuContainerGrid} style={{ background:"#1B0530", borderRadius:6, margin: 2}}>
+              <Spacing smart={{ margin: "0px 0px 8px", padding: "0 20px 20px 20px" }}>
+              <div style={{display:"flex", justifyContent: "space-between"}}>
+                <Image src="2024/carrovoador.png" style={{width:175, marginTop:12, marginLeft:-16}}/>
+                <div style={{ backgroundColor: "#0031CC", width:48, height:50, borderRadius:"8px", marginRight:-44, marginTop:-4}}>
+                  <div style={{ backgroundColor: "black", width:48, height:48, borderRadius:"8px", display: "flex",alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ backgroundColor: "white", width:44, height:44, borderRadius:"8px", display: "flex", alignItems: "center", justifyContent: "center"}} onClick={() => props.closeMenu()}>
+                      <CloseIcon style={{color:"#000000", fontSize: "38px"}} />
+                    </div>
+                  </div>
+                </div>
                 </div>
               </Spacing>
               <Spacing smart={{ margin: "0px 0px 0px" }}>
@@ -151,10 +157,6 @@ const MenuOpen = (props: MenuOpenProps) => {
               </Spacing>
             </Grid>
           </Spacing>
-          <div className={classes.smartHomeCall}>
-            {" "}
-            <HomeCall />{" "}
-          </div>
         </Paper>
       </Slide>
     </div>
@@ -178,7 +180,7 @@ const SmartMenu = () => {
       </Grid>
       <Grid item xs={2} md={1}>
         <Button
-          style={{ display: "block", float: "right" }}
+          style={{ display: "block", float: "right", marginTop:8, marginRight:8 }}
           onClick={() => setMenuOpened(!menuOpened)}
         >
           <Image src="2023/menu.svg" />

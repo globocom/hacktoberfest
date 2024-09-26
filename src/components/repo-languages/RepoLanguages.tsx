@@ -12,8 +12,8 @@ const useStyles = makeStyles({
   },
 
   wrapper: {
-    width: 50,
-    height: 50,
+    width: "50px",
+    height: "50px",
     marginLeft: '16px'
   },
 
