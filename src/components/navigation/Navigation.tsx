@@ -14,6 +14,7 @@ import NavigationItem from "./NavigationItem"
 import User from "@services/user"
 import { Image } from "@components/image"
 
+import MenuIcon from "@material-ui/icons/Menu"
 import CloseIcon from "@material-ui/icons/Close"
 import Spacing from "@components/spacing"
 

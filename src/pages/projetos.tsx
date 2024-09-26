@@ -19,9 +19,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   description: {
     fontSize: "20px",
     lineHeight: "28px",
-    color: theme.palette.secondary.dark,
+    color: theme.palette.primary.contrastText,
     fontFamily: "Globotipo Variable",
     fontWeight: 400,
+    marginLeft: "32px",
   },
   separator: {
     width: "100%",
@@ -30,9 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   headerTitle: {
     display: "flex",
     alignItems: "flex-end",
-  },
-  projectsList: {
-    padding: "0px 32px 0 32px",
+    justifyContent: "space-between",
   },
 }))
 
@@ -46,32 +45,30 @@ const ProjectsPage = () => {
     >
       <div className={classes.root}>
         <Grid container justifyContent="center">
-          <Grid style={{ maxWidth: 944 }} item xs={12} lg={6}>
+          <Grid style={{ maxWidth: 1523 }} item xs={5} lg={10}>
             <Spacing
               desktop={{ margin: "5vh 0px 40px 0px" }}
               smart={{ margin: "64px 32px 0 32px" }}
             >
               <div className={classes.headerTitle}>
-                <HeaderTitle title={"Projetos"} />
-                <Image src={`2023/eye.svg`} />
+                <div>
+                  <HeaderTitle title={"Projetos"} />
+                  <Typography
+                    className={classes.description}
+                    component="p"
+                    align="left"
+                    color="textPrimary"
+                    variant="body1"
+                  >
+                    Todos os nossos projetos Open Source em um só lugar.
+                    Incentivamos sua contribuição no projeto que mais lhe
+                    agradar.
+                  </Typography>
+                </div>
+                <Image src={`2024/notebook.svg`} />
               </div>
             </Spacing>
-            <Spacing
-              desktop={{ margin: "0 0 10vh 0" }}
-              smart={{ margin: "24px 32px 40px 32px" }}
-            >
-              <Typography
-                className={classes.description}
-                component="p"
-                align="left"
-                color="textPrimary"
-                variant="body1"
-              >
-                Todos os nossos projetos Open Source em um só lugar.
-                Incentivamos sua contribuição no projeto que mais lhe agradar.
-              </Typography>
-            </Spacing>
-            <div className={classes.projectsList}>
+            <div>
               <ProjectsList useMansonry={false} />
             </div>
           </Grid>

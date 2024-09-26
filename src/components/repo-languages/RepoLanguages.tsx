@@ -11,6 +11,12 @@ const useStyles = makeStyles({
     marginBottom: 40,
   },
 
+  wrapper: {
+    width: "50px",
+    height: "50px",
+    marginLeft: '16px'
+  },
+
   repoLanguageWrapper: {
     display: "flex",
     alignItems: "center",
@@ -60,7 +66,7 @@ const RepoLanguages = (props: RepoLanguagesProps) => {
   const imageUrl = props.languages[0]?.name || "default"
 
   return (
-    <Image src={LANGUAGES[imageUrl.toLowerCase()]} />
+    <Image src={LANGUAGES[imageUrl.toLowerCase()]} className={classes.wrapper}/>
   )
 }
 

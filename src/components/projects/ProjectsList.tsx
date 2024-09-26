@@ -21,6 +21,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
+import {mockApi} from "./mock"
+
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -62,12 +64,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
   },
   projectName: {
-    color: theme.palette.text.primary,
+    color: theme.palette.text.light,
     fontFamily: "Globotipo Variable",
     fontSize: '22px',
     fontWeight: 700,
     lineHeight: '30.8px',
-    borderBottom: "none"
+    borderBottom: "none",
+    padding: "16px 32px"
   },
   projectDescription: {
     fontFamily: "Globotipo Variable",
@@ -75,14 +78,19 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
     lineHeight: '25.2px',
     color: theme.palette.primary.light,
-    borderBottom: "none"
+    borderBottom: "none",
   },
   projectTable: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.table.background,
     color: theme.palette.primary.light,
   },
   projectImage: {
-    width: "50px",
+    borderBottom: "none",
+  },
+  responsiveImage: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     borderBottom: "none"
   },
   projectButton: {
@@ -90,16 +98,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: "176px",
     height: "70px",
     borderRadius: "1px solid",
+    border: "1px solid rgb(255, 255, 255, 0.1)",
     fontFamily: "Globotipo Variable",
     fontSize: '16px',
     fontWeight: 700,
+    marginRight: "32px"
   },
   tableRow: {
-    borderBottom: `1px solid ${theme.palette.primary.light}`,
+    borderBottom: `1px solid rgb(255, 255, 255, 0.1)`,
     '&:last-child': {
       borderBottom: "none"
-    }
-  }
+    },
+  },
 }))
 
 const excludedLanguages = [
@@ -112,9 +122,9 @@ const excludedLanguages = [
 
 const ProjectsList = (props: ProjectListProps) => {
   const classes = useStyles();
-  const { listLimit = 0, useMansonry = true } = props
+  const { listLimit = 20, useMansonry = true } = props
   const [projects, setProjects] = useState<Array<ProjectProps>>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
 
   const breakpointColumnsObj = {
@@ -126,22 +136,22 @@ const ProjectsList = (props: ProjectListProps) => {
   };
 
 
-  useEffect(() => {
-    async function fetchProjects() {
-      setLoading(true)
-      try {
-        const response: Array<ProjectProps> = await Projects.Service.getInstance().GetProjects()
-        if (response) {
-          if (listLimit) response.splice(listLimit)
-          setProjects(response)
-        } else setError(true)
-        setLoading(false)
-      } catch (e: any) {
-        console.error(e.message)
-      }
-    }
-    fetchProjects()
-  }, [])
+  // useEffect(() => {
+  //   async function fetchProjects() {
+  //     setLoading(true)
+  //     try {
+  //       const response: Array<ProjectProps> = await Projects.Service.getInstance().GetProjects()
+  //       if (response) {
+  //         if (listLimit) response.splice(listLimit)
+  //         setProjects(response)
+  //       } else setError(true)
+  //       setLoading(false)
+  //     } catch (e: any) {
+  //       console.error(e.message)
+  //     }
+  //   }
+  //   fetchProjects()
+  // }, [])
 
   return (
     <>
@@ -153,7 +163,7 @@ const ProjectsList = (props: ProjectListProps) => {
           <TableContainer component={Paper}>
             <Table aria-label="simple table" className={classes.projectTable}>
               <TableBody>
-                {projects.map((project, index) => {
+                {mockApi.map((project, index) => {
                   return (
                     <ProjectTableRow key={index} {...project} />
                   )
@@ -168,7 +178,7 @@ const ProjectsList = (props: ProjectListProps) => {
         breakpointCols={breakpointColumnsObj}
         className={classes.masonryGrid}
         columnClassName={classes.masonryGridCol}>
-        {projects.map((project, index) => {
+        {mockApi.map((project, index) => {
           return <ProjectCard key={index} {...project} />
         })
         }
@@ -214,7 +224,7 @@ function ProjectTableRow(props: ProjectProps) {
   return (
     <React.Fragment>
       <TableRow key={name} className={classes.tableRow}>
-        <TableCell component="th" scope="row" align="center" className={classes.projectImage}>
+        <TableCell component="th" scope="row" align="center" className={isDesktop ?  classes.projectImage : classes.responsiveImage}>
           <RepoLanguages languages={[filtered[0]]} />
           {!isDesktop && name}
         </TableCell>
