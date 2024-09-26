@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   rulesContainer: {
     flexWrap: "nowrap",
     backgroundColor: theme.palette.secondary.dark,
-    height: "308px",
   },
   boxRulesContainer: {
     padding: "0px 60px",
@@ -99,7 +98,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 700,
   },
   buttonSmart: {
-    padding: "16px 0",
+    padding: "16px 4px",
   },
   buttonText: {
     padding: 16,
@@ -234,7 +233,6 @@ const RulesDesktop = (props: RulesProps) => {
                   className={classes.button}
                   size="large"
                   fullWidth
-                  variant="contained"
                 >
                   <Typography
                     className={classes.buttonText}
@@ -261,7 +259,7 @@ const RulesSmart = (props: RulesProps) => {
       <div>
         <Grid container direction="column">
           <Grid item key={"como-participar"} className={classes.projectTitle}>
-            <Image src={`2023/body-raio.svg`} />
+            <Image src={`2024/white-raio.svg`} />
             <Typography
               className={classes.projectFont}
               variant="body1"
@@ -297,21 +295,21 @@ const RulesSmart = (props: RulesProps) => {
         {!props.user && (
           <div className={classes.buttonSmart}>
             <Button
-              href="/login"
-              fullWidth
-              className={classes.button}
-              variant="contained"
-            >
-              <Typography
-                component="p"
-                variant="body2"
-                align="center"
-                style={{ fontSize: "16px", color: "#000" }}
-              >
-                <span className={classes.participateHint}>PARTICIPAR</span> COM
-                SUA CONTA DO GITHUB
-              </Typography>
-            </Button>
+                  href="/login"
+                  style={{ display: "block" }}
+                  className={classes.button}
+                  size="large"
+                  fullWidth
+                >
+                  <Typography
+                    className={classes.buttonText}
+                    component="p"
+                    variant="body2"
+                    align="center"
+                  >
+                    PARTICIPAR COM SUA CONTA DO GITHUB
+                  </Typography>
+                </Button>
           </div>
         )}
       </div>

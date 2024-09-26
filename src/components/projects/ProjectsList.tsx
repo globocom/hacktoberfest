@@ -11,7 +11,6 @@ import RepoLanguages from "@components/repo-languages"
 import { ProjectProps } from "@services/projects"
 import Masonry from "react-masonry-css"
 import _ from "lodash"
-import { teste } from "./mock.js"
 
 import Table from "@material-ui/core/Table"
 import TableBody from "@material-ui/core/TableBody"
@@ -104,50 +103,52 @@ const useStyles = makeStyles((theme: Theme) => ({
 const excludedLanguages = ["makefile", "css", "shell", "html", "dockerfile"]
 
 const ProjectsList = (props: ProjectListProps) => {
-  const classes = useStyles()
-  const { listLimit = 5, useMansonry = true } = props
+  const classes = useStyles();
+  const { listLimit = 0, useMansonry = true } = props
   const [projects, setProjects] = useState<Array<ProjectProps>>([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
-  console.log(projects, "teste")
 
   const breakpointColumnsObj = {
     default: 3,
     1620: 3,
     1024: 2,
     768: 1,
-    320: 1,
-  }
+    320: 1
+  };
 
-  // useEffect(() => {
-  //   async function fetchProjects() {
-  //     setLoading(true)
-  //     try {
-  //       const response: Array<ProjectProps> = await Projects.Service.getInstance().GetProjects()
-  //       if (response) {
-  //         if (listLimit) response.splice(listLimit)
-  //         setProjects(response)
-  //       } else setError(true)
-  //       setLoading(false)
-  //     } catch (e: any) {
-  //       console.error(e.message)
-  //     }
-  //   }
-  //   fetchProjects()
-  // }, [])
+
+  useEffect(() => {
+    async function fetchProjects() {
+      setLoading(true)
+      try {
+        const response: Array<ProjectProps> = await Projects.Service.getInstance().GetProjects()
+        if (response) {
+          if (listLimit) response.splice(listLimit)
+          setProjects(response)
+        } else setError(true)
+        setLoading(false)
+      } catch (e: any) {
+        console.error(e.message)
+      }
+    }
+    fetchProjects()
+  }, [])
 
   return (
     <>
-      {loading && <ProjectsListLoading />}
-      {!loading && error && <ProjectsListError />}
+      {loading && (<ProjectsListLoading />)}
+      {(!loading && error) && (<ProjectsListError />)}
 
-      {!loading && !error && !useMansonry && (
+      {(!loading && !error && !useMansonry &&
         <Grid container>
           <TableContainer component={Paper}>
             <Table aria-label="simple table" className={classes.projectTable}>
               <TableBody>
-                {teste.map((project, index) => {
-                  return <ProjectTableRow key={index} {...project} />
+                {projects.map((project, index) => {
+                  return (
+                    <ProjectTableRow key={index} {...project} />
+                  )
                 })}
               </TableBody>
             </Table>
@@ -161,7 +162,7 @@ const ProjectsList = (props: ProjectListProps) => {
           className={classes.masonryGrid}
           columnClassName={classes.masonryGridCol}
         >
-          {teste.map((project, index) => {
+          {projects.map((project, index) => {
             return <ProjectCard key={index} {...project} />
           })}
         </Masonry>

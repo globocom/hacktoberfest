@@ -248,7 +248,6 @@ const UnloggedView = () => {
             className={classes.button}
             size="large"
             fullWidth
-            variant="contained"
           >
             <Typography
               className={classes.buttonText}

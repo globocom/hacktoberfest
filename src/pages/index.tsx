@@ -102,14 +102,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "center",
   },
   allProjectsButton: {
-    color: theme.palette.primary.dark,
     width: "288px",
     height: "70px",
-    borderRadius: "1px solid",
-    borderColor: theme.palette.primary.light,
     fontFamily: "Globotipo Variable",
     fontSize: "16px",
     fontWeight: 700,
+    backgroundColor: "#07B1EF4D",
+    borderRadius: "2px",
+    border: "3px solid #02BBFF",
+    color: theme.palette.text.primary,
+    textTransform: "uppercase",
   },
 }))
 
@@ -208,7 +210,6 @@ const IndexPage = () => {
                     <Link href="/projetos">
                       <Button
                         variant="outlined"
-                        color="primary"
                         className={classes.allProjectsButton}
                       >
                         VER TODOS OS PROJETOS
