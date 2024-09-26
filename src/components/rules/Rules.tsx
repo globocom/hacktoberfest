@@ -255,7 +255,7 @@ const RulesDesktop = (props: RulesProps) => {
 const RulesSmart = (props: RulesProps) => {
   const classes = useStyles()
   return (
-    <Spacing smart={{ margin: "100px auto" }}>
+    <Spacing smart={{ margin: "0 auto 100px auto" }}>
       <div>
         <Grid container direction="column">
           <Grid item key={"como-participar"} className={classes.projectTitle}>

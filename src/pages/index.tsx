@@ -10,7 +10,6 @@ import { Link, Grid, Typography, useMediaQuery } from "@material-ui/core"
 import Button from "@material-ui/core/Button"
 import ProjectsList from "@components/projects"
 import User, { UserProps } from "@services/user"
-import { projects } from "./mock"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
