@@ -119,7 +119,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   number: {
     margin: "0px 20px",
     padding: "0px 10px",
-    background: "linear-gradient(to bottom right, #250849 50%, #1C0733 50%)",
     borderRadius: "50%",
     border: `5px solid ${theme.palette.secondary.dark}`,
     width: "70px",
@@ -235,7 +234,7 @@ const Rules = () => {
               className={classes.rulesInsideContainer}
             >
               <Grid item key={index}>
-                <div className={classes.number}>{index + 1}</div>
+                <div className={classes.number} style={{"background": "linear-gradient(180deg, #21083B 18.5%, #510D5B 87%, #710568 96%)"}}>{index + 1}</div>
               </Grid>
               <Grid item key={`rule${index}`}>
                 {rule}
