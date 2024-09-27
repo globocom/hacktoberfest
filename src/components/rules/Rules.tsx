@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rulesContainer: {
     flexWrap: "nowrap",
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: "#250849",
   },
   boxRulesContainer: {
     padding: "0px 60px",
@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     flexWrap: "nowrap",
     alignItems: "center",
-    backgroundColor: "#250849",
+    backgroundColor: "#7F00FA33",
     height: "244px",
   },
   rulesSeparator: {

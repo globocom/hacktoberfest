@@ -14,7 +14,6 @@ import NavigationItem from "./NavigationItem"
 import User from "@services/user"
 import { Image } from "@components/image"
 
-import MenuIcon from "@material-ui/icons/Menu"
 import CloseIcon from "@material-ui/icons/Close"
 import Spacing from "@components/spacing"
 
@@ -23,7 +22,6 @@ interface NavigationItemsProps {
 }
 
 const MenuItems: Array<NavigationItemProps> = [
-  { label: "Home", link: "/" },
   { label: "Projetos", link: "/projetos" },
   { label: "Regras e Princípios", link: "/regras" },
   { label: "Participantes", link: "/participantes" },
@@ -153,7 +151,7 @@ const MenuOpen = (props: MenuOpenProps) => {
                 </div>
               </Spacing>
               <Spacing smart={{ margin: "0px 0px 0px" }}>
-                <NavigationItems items={MenuItems} />
+                <NavigationItems items={[{ label: "Home", link: "/" }, ...MenuItems]} />
               </Spacing>
             </Grid>
           </Spacing>

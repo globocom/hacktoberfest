@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "@components/layout"
 import { Image } from "@components/image"
-import { Grid, Typography, useMediaQuery } from "@material-ui/core"
+import { Box, Grid, Typography, useMediaQuery } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core"
 import { HeaderTitle } from "@components/header"
@@ -51,6 +51,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     lineHeight: "28px",
     color: theme.palette.secondary.main,
   },
+  pinkLabel: {
+    fontFamily: "Globotipo Variable",
+    fontWeight: 700,
+    lineHeight: "28px",
+    color: theme.palette.secondary.main,
+  },
   principleDescription: {
     fontFamily: "Globotipo Variable",
     fontSize: "18px",
@@ -59,7 +65,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.primary.light,
   },
   principlesContainer: {
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: "#7F00FA33",
   },
   principlesInsideContainer: {
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
@@ -83,7 +89,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rulesContainer: {
     flexWrap: "nowrap",
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: "#250849",
   },
   rulesItemsContainer: {
     flexWrap: "nowrap",
@@ -94,8 +100,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   rulesInsideContainer: {
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       margin: "30px 0px",
-      paddingTop: "8px",
-      paddingBottom: "8px",
+      padding: "8px 12px",
     },
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
       margin: "30px 1px",
@@ -105,7 +110,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     flexWrap: "nowrap",
     alignItems: "center",
-    backgroundColor: "#250849",
+    backgroundColor: "#7F00FA33",
+    height: "244px",
   },
   rulesSeparator: {
     margin: "25px 0px",
@@ -159,9 +165,11 @@ const Principles = () => {
 
   return (
     <>
+    <Spacing smart={{ margin: "40px 32px 40px 0" }}>
       <Grid item xs={12} lg={6}>
         <HeaderTitle title={"Princípios"} />
       </Grid>
+    </Spacing>
       <Grid
         container
         direction="column"
@@ -197,18 +205,18 @@ const Rules = () => {
   })
 
   const rules = [
-    "Para obter uma camiseta, você deve ter dois pull requests (PRs) enviados entre 1 e 31 de Outubro e pelo menos um deles aprovado.",
-    "Os pull requests podem ser feitos em qualquer repositório dos projetos open source da Globo, não apenas para aqueles destacados.",
-    "O PR deve conter confirmações que você mesmo fez.",
+    <Box>Para obter uma camiseta, você deve ter <span className={classes.pinkLabel}>dois pull requests</span> (PRs) enviados entre 1 e 31 de Outubro e <span className={classes.pinkLabel}>pelo menos um deles aprovado</span>.</Box>,
+    <Box>Os pull requests podem ser feitos <span className={classes.pinkLabel}>em qualquer repositório dos projetos open source da Globo</span>, não apenas para aqueles destacados.</Box>,
+    <Box>O PR deve conter <span className={classes.pinkLabel}>confirmações que você mesmo fez</span>.</Box>,
   ]
   const rules2 = [
-    "Se um mantenedor reportar seu PR como spam, o mesmo não será contabilizado para sua participação no Hacktoberfest.",
-    "Se um mantenedor reportar um comportamento que não esteja de acordo com o código de conduta do projeto, você não poderá participar.",
+    <Box>Se um mantenedor reportar seu <span className={classes.pinkLabel}>PR como spam</span>, o mesmo <span className={classes.pinkLabel}>não será contabilizado</span> para sua participação no Hacktoberfest.</Box>,
+    <Box>Se um mantenedor reportar um <span className={classes.pinkLabel}>comportamento que não esteja de acordo com o código de conduta</span> do projeto, você <span className={classes.pinkLabel}>não poderá participar</span>.</Box>,
   ]
 
   return (
     <Grid container>
-      <Spacing smart={{ margin: "64px 32px 40px" }}>
+      <Spacing smart={{ margin: "64px 32px 40px 0" }}>
         <Grid item xs={10} lg={10}>
           <HeaderTitle title={"Regras"} />
         </Grid>
@@ -220,14 +228,6 @@ const Rules = () => {
           justifyContent="space-between"
           className={classes.rulesContainer}
         >
-          {isDesktop && (
-            <Grid item key={"test1"} className={classes.rulesSeparator}>
-              <Image
-                className={classes.rulesSeparatorSvg}
-                src={`2023/separator-rules.svg`}
-              />
-            </Grid>
-          )}
           {rules.map((rule, index) => (
             <Grid
               container
@@ -242,14 +242,6 @@ const Rules = () => {
               </Grid>
             </Grid>
           ))}
-          {isDesktop && (
-            <Grid item key={"test1"} className={classes.rulesSeparator}>
-              <Image
-                className={classes.rulesSeparatorSvg}
-                src={`2023/separator-rules.svg`}
-              />
-            </Grid>
-          )}
         </Grid>
         <Grid
           container
@@ -257,14 +249,6 @@ const Rules = () => {
           justifyContent="space-between"
           className={classes.rulesContainer}
         >
-          {isDesktop && (
-            <Grid item key={"test1"} className={classes.rulesSeparator}>
-              <Image
-                className={classes.rulesSeparatorSvg}
-                src={`2023/separator-rules.svg`}
-              />
-            </Grid>
-          )}
           {rules2.map((rule, index) => (
             <Grid
               container
@@ -292,15 +276,7 @@ const Rules = () => {
               </Grid>
             </Grid>
           )}
-          {isDesktop && (
-            <Grid item key={"test1"} className={classes.rulesSeparator}>
-              <Image
-                className={classes.rulesSeparatorSvg}
-                src={`2023/separator-rules.svg`}
-              />
-            </Grid>
-          )}
-        </Grid>
+          </Grid>
       </Grid>
     </Grid>
   )
@@ -325,7 +301,7 @@ const RuleBookPage = () => {
         <Grid item xs={10} lg={10}>
           <Principles />
         </Grid>
-        <Grid item xs={12} lg={10}>
+        <Grid item xs={10} lg={10}>
           <Rules />
         </Grid>
       </Grid>

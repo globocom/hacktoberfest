@@ -4,6 +4,7 @@ import {
   Typography,
   useMediaQuery,
   Grid,
+  Box,
 } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
@@ -172,7 +173,9 @@ const ProjectsList = (props: ProjectListProps) => {
 }
 
 function ProjectsListLoading() {
-  return <CircularProgress />
+  return <Box display="flex" width="100%" justifyContent="center">
+      <CircularProgress />
+    </Box>
 }
 
 function ProjectsListError() {
