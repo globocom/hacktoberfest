@@ -201,7 +201,6 @@ const UnloggedView = () => {
             href="/login"
             fullWidth
             className={classes.button}
-            variant="contained"
           >
             <Typography component="p" variant="body2" align="center" style={{ fontSize: '16px', color: "#fff" }}>
               <b>participar com sua conta do github</b>

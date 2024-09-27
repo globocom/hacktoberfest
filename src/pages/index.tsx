@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   projectFont: {
     fontSize: "41.15px",
     lineHeight: "57.61px",
-    color: theme.palette.primary.dark,
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
       fontSize: "3rem",
       lineHeight: "56px",
@@ -48,7 +47,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: "30px",
   },
   projectCallDescription: {
-    color: theme.palette.primary.dark,
     fontSize: "1.5rem",
     lineHeight: "32px",
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
@@ -93,8 +91,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   projectItem: {
     width: "100%",
   },
-  projectEye: {
-    width: "87.34px",
+  computer: {
+    width: "165px",
     height: "104.35px",
   },
   allProjects: {
@@ -103,14 +101,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "center",
   },
   allProjectsButton: {
-    color: theme.palette.primary.dark,
     width: "288px",
     height: "70px",
-    borderRadius: "1px solid",
-    borderColor: theme.palette.primary.light,
     fontFamily: "Globotipo Variable",
     fontSize: "16px",
     fontWeight: 700,
+    backgroundColor: "#07B1EF4D",
+    borderRadius: "2px",
+    border: "3px solid #02BBFF",
+    color: theme.palette.text.primary,
+    textTransform: "uppercase",
   },
 }))
 
@@ -174,18 +174,18 @@ const IndexPage = () => {
                     alignItems="center"
                   >
                     <Grid item className={classes.projectTitle}>
-                      <Image src={`2023/body-raio.svg`} />
+                      <Image src={`2024/white-raio.svg`} />
                       <Typography
                         className={classes.projectFont}
                         variant="body1"
                         component="p"
                       >
-                        Principais Projetos
+                        Principais Projetoss
                       </Typography>
                     </Grid>
                     {isDesktop && (
-                      <Grid item className={classes.projectEye}>
-                        <Image src={`2023/eye.svg`} />
+                      <Grid item className={classes.computer}>
+                        <Image src={`2024/computer.svg`} />
                       </Grid>
                     )}
                   </Grid>
@@ -209,7 +209,6 @@ const IndexPage = () => {
                     <Link href="/projetos">
                       <Button
                         variant="outlined"
-                        color="primary"
                         className={classes.allProjectsButton}
                       >
                         VER TODOS OS PROJETOS

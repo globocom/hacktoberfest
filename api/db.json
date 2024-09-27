@@ -6,11 +6,7 @@
     "result": {
       "edition": 2020,
       "metadata": {
-        "shirtColors": [
-          "Azul",
-          "Verde",
-          "Preto"
-        ]
+        "shirtColors": ["Azul", "Verde", "Preto"]
       },
       "editionLogo": "https://s3.glbimg.com/v1/AUTH_8b507d480c314f97a3b4b28346d025f5/hacktoberfest/Topo.png",
       "id": "872485b5-ff40-4448-9658-be866a387080",
