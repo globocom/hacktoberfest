@@ -205,7 +205,7 @@ const Rules = () => {
   })
 
   const rules = [
-    <Box>Para obter uma camiseta, você deve ter <span className={classes.pinkLabel}>dois pull requests</span> (PRs) enviados entre 1 e 31 de Outubro e <span className={classes.pinkLabel}>pelo menos um deles aprovado</span>.</Box>,
+    <Box>Para obter uma camiseta, você deve ter <span className={classes.pinkLabel}>um pull request</span> (PRs) enviados entre 1 e 31 de Outubro e <span className={classes.pinkLabel}>pelo menos um deles aprovado</span>.</Box>,
     <Box>Os pull requests podem ser feitos <span className={classes.pinkLabel}>em qualquer repositório dos projetos open source da Globo</span>, não apenas para aqueles destacados.</Box>,
     <Box>O PR deve conter <span className={classes.pinkLabel}>confirmações que você mesmo fez</span>.</Box>,
   ]

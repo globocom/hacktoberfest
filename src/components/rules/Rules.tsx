@@ -327,7 +327,7 @@ const Rules = (props: RulesProps) => {
   const rules = [
     <Typography className={classes.rule}>
       Contribua com{" "}
-      <span className={classes.importantRule}>dois Pull Requests</span> em
+      <span className={classes.importantRule}>um Pull Request</span> em
       qualquer projeto Open Source da Globo{" "}
       <span className={classes.importantRule}>durante o mês de outubro</span>.
     </Typography>,
