@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 
 interface NavigationItemProps {
   label: string
   link: string
+  diferentColor: string
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -27,10 +28,16 @@ const useStyles = makeStyles((theme: Theme) => ({
 }))
 
 const MenuItem = (props: NavigationItemProps) => {
+  const [pathName, setPathName] = useState("")
+
+  useEffect(() => {
+    setPathName(window.location.pathname)
+  }, [])
+
   const classes = useStyles()
   return (
     <li className={classes.item}>
-      <a className={classes.typographyFontSize} href={props.link}>
+      <a className={classes.typographyFontSize} href={props.link} style={{color: props.link == pathName ? "#FF0099" : ""}}>
         {" "}
         {props.label}{" "}</a>
     </li>

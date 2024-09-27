@@ -16,6 +16,9 @@ theme.palette = {
     light: "#000",
     dark: "#17042B",
   },
+  table: {
+    background: "#491B77"
+  },
   background: {
     default: "linear-gradient(180deg, #21083B 18.5%, #510D5B 87%, #710568 96%)",
     paper: "#FFFFFF"

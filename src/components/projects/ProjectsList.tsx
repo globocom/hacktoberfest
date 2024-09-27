@@ -12,13 +12,6 @@ import { ProjectProps } from "@services/projects"
 import Masonry from "react-masonry-css"
 import _ from "lodash"
 
-import Table from "@material-ui/core/Table"
-import TableBody from "@material-ui/core/TableBody"
-import TableCell from "@material-ui/core/TableCell"
-import TableContainer from "@material-ui/core/TableContainer"
-import TableRow from "@material-ui/core/TableRow"
-import Paper from "@material-ui/core/Paper"
-import Button from "@material-ui/core/Button"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -60,12 +53,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   projectName: {
-    color: theme.palette.text.primary,
+    color: theme.palette.text.light,
     fontFamily: "Globotipo Variable",
     fontSize: "22px",
     fontWeight: 700,
-    lineHeight: "30.8px",
+    lineHeight: '30.8px',
     borderBottom: "none",
+    padding: "16px 32px"
   },
   projectDescription: {
     fontFamily: "Globotipo Variable",
@@ -76,26 +70,33 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderBottom: "none",
   },
   projectTable: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.table.background,
     color: theme.palette.primary.light,
   },
   projectImage: {
-    width: "50px",
     borderBottom: "none",
+  },
+  responsiveImage: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    borderBottom: "none"
   },
   projectButton: {
     color: theme.palette.text.primary,
     width: "176px",
     height: "70px",
     borderRadius: "1px solid",
+    border: "1px solid rgb(255, 255, 255, 0.1)",
     fontFamily: "Globotipo Variable",
     fontSize: "16px",
     fontWeight: 700,
+    marginRight: "32px"
   },
   tableRow: {
-    borderBottom: `1px solid ${theme.palette.primary.light}`,
-    "&:last-child": {
-      borderBottom: "none",
+    borderBottom: `1px solid rgb(255, 255, 255, 0.1)`,
+    '&:last-child': {
+      borderBottom: "none"
     },
   },
 }))
@@ -104,7 +105,7 @@ const excludedLanguages = ["makefile", "css", "shell", "html", "dockerfile"]
 
 const ProjectsList = (props: ProjectListProps) => {
   const classes = useStyles();
-  const { listLimit = 0, useMansonry = true } = props
+  const { listLimit = 20, useMansonry = true } = props
   const [projects, setProjects] = useState<Array<ProjectProps>>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -156,16 +157,15 @@ const ProjectsList = (props: ProjectListProps) => {
         </Grid>
       )}
 
-      {!loading && !error && useMansonry && (
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className={classes.masonryGrid}
-          columnClassName={classes.masonryGridCol}
-        >
-          {projects.map((project, index) => {
-            return <ProjectCard key={index} {...project} />
-          })}
-        </Masonry>
+      {(!loading && !error && useMansonry && <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className={classes.masonryGrid}
+        columnClassName={classes.masonryGridCol}>
+        {projects.map((project, index) => {
+          return <ProjectCard key={index} {...project} />
+        })
+        }
+      </Masonry>
       )}
     </>
   )
@@ -209,12 +209,7 @@ function ProjectTableRow(props: ProjectProps) {
   return (
     <React.Fragment>
       <TableRow key={name} className={classes.tableRow}>
-        <TableCell
-          component="th"
-          scope="row"
-          align="center"
-          className={classes.projectImage}
-        >
+        <TableCell component="th" scope="row" align="center" className={isDesktop ?  classes.projectImage : classes.responsiveImage}>
           <RepoLanguages languages={[filtered[0]]} />
           {!isDesktop && name}
         </TableCell>
