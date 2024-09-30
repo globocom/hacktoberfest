@@ -180,7 +180,7 @@ const IndexPage = () => {
                         variant="body1"
                         component="p"
                       >
-                        Principais Projetoss
+                        Principais Projetos
                       </Typography>
                     </Grid>
                     {isDesktop && (
@@ -189,7 +189,7 @@ const IndexPage = () => {
                       </Grid>
                     )}
                   </Grid>
-                  <Spacing smart={{ margin: "0px 0px 60px" }}>
+                  <Spacing smart={{ margin: "0px 0px 60px 40px" }}>
                     <Typography
                       className={classes.projectCallDescription}
                       align="left"

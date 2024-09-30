@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rulesContainer: {
     flexWrap: "nowrap",
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: "#250849",
   },
   boxRulesContainer: {
     padding: "0px 60px",
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     flexWrap: "nowrap",
     alignItems: "center",
-    backgroundColor: "#250849",
+    backgroundColor: "#7F00FA33",
     height: "244px",
   },
   rulesSeparator: {
@@ -177,7 +177,11 @@ const RulesDesktop = (props: RulesProps) => {
             Como participar
           </Typography>
         </Grid>
-        <Grid item key={"inner_container"} className={classes.boxRulesContainer}>
+        <Grid
+          item
+          key={"inner_container"}
+          className={classes.boxRulesContainer}
+        >
           <Grid
             container
             direction="row"
@@ -290,21 +294,21 @@ const RulesSmart = (props: RulesProps) => {
         {!props.user && (
           <div className={classes.buttonSmart}>
             <Button
-                  href="/login"
-                  style={{ display: "block" }}
-                  className={classes.button}
-                  size="large"
-                  fullWidth
-                >
-                  <Typography
-                    className={classes.buttonText}
-                    component="p"
-                    variant="body2"
-                    align="center"
-                  >
-                    PARTICIPAR COM SUA CONTA DO GITHUB
-                  </Typography>
-                </Button>
+              href="/login"
+              style={{ display: "block" }}
+              className={classes.button}
+              size="large"
+              fullWidth
+            >
+              <Typography
+                className={classes.buttonText}
+                component="p"
+                variant="body2"
+                align="center"
+              >
+                PARTICIPAR COM SUA CONTA DO GITHUB
+              </Typography>
+            </Button>
           </div>
         )}
       </div>
@@ -326,8 +330,8 @@ const Rules = (props: RulesProps) => {
   const rules = [
     <Typography className={classes.rule}>
       Contribua com{" "}
-      <span className={classes.importantRule}>dois Pull Requests</span> em
-      qualquer projeto Open Source da Globo{" "}
+      <span className={classes.importantRule}>um Pull Request</span> em qualquer
+      projeto Open Source da Globo{" "}
       <span className={classes.importantRule}>durante o mês de outubro</span>.
     </Typography>,
     <Typography className={classes.rule}>
@@ -336,7 +340,7 @@ const Rules = (props: RulesProps) => {
       <span className={classes.importantRule}>ACEITO</span>.
     </Typography>,
     <Typography className={classes.rule}>
-      Os 50 primeiros inscritos que completarem os requisitos mínimos{" "}
+      Os primeiros inscritos que completarem os requisitos mínimos{" "}
       <span className={classes.importantRule}>ganharão uma camiseta</span>
       . <br />
       <Box display="flex" alignItems="center">
