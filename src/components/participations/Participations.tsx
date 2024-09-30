@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'column',
     flex:1,
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      flexDirection:"row-reverse", 
+      flexDirection:"row", 
     },
   },
   pictureContainer: {
