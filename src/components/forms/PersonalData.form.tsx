@@ -83,12 +83,10 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
         >
           {!showOnlyEmailField && <>
             <Grid item xs={10} md={12}>
-              <HeaderTitle title={"Dados pessoais"} />
+              <HeaderTitle title={"Minha Área"} />
+              <p style={{marginTop:24, marginBottom:8}}>Dados pessoais</p>
             </Grid>
-            <Grid item xs={10} md={12}>
-              <Typography component="h3" variant="h3">Preencha o seu e-mail para podermos enviar atualizações sobre o evento.</Typography>
-            </Grid>
-            <Grid item xs={10} md={8}>
+            <Grid item xs={10} md={6}>
               <HacktoberfestTextInput
                 fullWidth
                 onChange={formik.handleChange}
@@ -106,7 +104,7 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
                 }}
               />
             </Grid>
-            <Grid item xs={10} md={4}>
+            <Grid item xs={10} md={6}>
               <HacktoberfestTextInput
                 color="primary"
                 value={formik.values.githubID}
@@ -137,10 +135,10 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
               }}
             />
           </Grid>
-          <Grid container alignItems="flex-start" justifyContent="flex-start" item xs={10} lg={3}>
+          <Grid container alignItems="flex-start" justifyContent="flex-start" item xs={10} lg={12}>
             <LoadingButton fullWidth isLoading={isLoading}>
-              Salvar Alterações
-                        </LoadingButton>
+              SALVAR
+            </LoadingButton>
           </Grid>
         </Grid>
       </form>

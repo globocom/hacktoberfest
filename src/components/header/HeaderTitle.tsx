@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: "20px",
     color: theme.palette.text.primary,
     fontFamily: "Globotipo Variable",
-    fontWeight: 400,
+    fontWeight: 330,
     lineHeight: '58.8px',
   },
   projectTitle: {

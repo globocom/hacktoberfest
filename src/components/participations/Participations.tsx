@@ -14,32 +14,33 @@ import { HeaderTitle } from "@components/header"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    backgroundColor: 'rgba(33, 22, 128, 0.04)',
-    border: '2px solid #fff',
-    borderRadius: 24,
-    flexDirection: 'column',
-    boxShadow: "0px 0px 4px #FFFFFF, 0px 4px 4px rgba(255, 255, 255, 0.25)",
+    flexDirection: 'row',
+    backgroundColor:"#17042B",
+    marginTop:24,
+    marginRight:32,
     marginBottom: 30,
+    height:400,
+    width:"100%",
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      maxWidth: '28vw',
+      width:200,
     },
-    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      maxWidth: '32%',
-    }
+  },
 
+  conatinerPicures: {
+    display:"flex", 
+    flexDirection: 'column',
+    flex:1,
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      flexDirection:"row-reverse", 
+    },
   },
   pictureContainer: {
     textAlign: "center",
     overflow: 'hidden',
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: "center",
-    height: '18vh',
-    [theme.breakpoints.up("md")]: {
-      height: '16vh'
-    },
+    height: '280px'
   },
 
   trophy: {
@@ -100,12 +101,14 @@ const ParticipationHistory = (props: ParticipationHistoryProps) => {
       spacing={2}
     >
       <Grid item xs={10} md={12}>
-        <HeaderTitle title={"Participações"} />
+        <HeaderTitle title={"Histórico de Participação"} />
       </Grid>
       <Grid item xs={10} md={12}>
-        <Typography component="h3" variant="h3">Relembre suas participações no Hacktoberfest.</Typography>
+        <Typography style={{fontWeight:330}} component="h3" variant="h3">Relembre suas participações no Hacktoberfest.</Typography>
       </Grid>
-      {editions.map((edition: string, index: number) => <Grid xs={10} md={4} key={index} item className={classes.root}> <EditionElement edition={edition} editionData={props.user.editions[edition]} /> </Grid>)}
+      <Grid  xs={10} md={12} className={classes.conatinerPicures}>
+        {editions.map((edition: string, index: number) => <Grid key={index} item className={classes.root}> <EditionElement edition={edition} editionData={props.user.editions[edition]} /> </Grid>)}
+      </Grid>
     </Grid >
   )
 }

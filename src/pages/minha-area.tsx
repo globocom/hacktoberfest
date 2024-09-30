@@ -107,7 +107,6 @@ const PersonalAreaPage = () => {
             </Grid>
           </Grid>
         )}
-        <Image className={classes.separator} src={`2023/separator.svg`} />
       </div>
     </Layout>
   )
