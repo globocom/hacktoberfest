@@ -180,7 +180,7 @@ const IndexPage = () => {
                         variant="body1"
                         component="p"
                       >
-                        Principais Projetoss
+                        Principais Projetos
                       </Typography>
                     </Grid>
                     {isDesktop && (
