@@ -11,21 +11,25 @@ interface LoadingButtonProps {
 
 const useStyles = makeStyles((theme: Theme) => ({
    button: {
-    width: "100%",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#1d3a73",
     fontFamily: "Globotipo Variable",
-    borderRadius: "8px",
+    border: "3px solid #02BBFF",
+    color:"white",
+    fontWeight: "bold",
     textTransform: "none",
+    borderRadius: "0px",
   },
 }))
 const LoadingButton = (props: LoadingButtonProps) => {
     const classes = useStyles()
 
     return (
-        <Button className={classes.button} fullWidth disabled={props.isLoading} type="submit" variant="contained" size="large">
-            {props.isLoading ? "Processando..." : props.children}
-            {props.isLoading && <CircularProgress size="1.1rem" color="inherit"/> }
-        </Button>
+        <div style={{backgroundColor:"#0031CC", paddingBottom: 3}}>
+            <Button className={classes.button} disabled={props.isLoading} type="submit" variant="contained" size="large">
+                {props.isLoading ? "Processando..." : props.children}
+                {props.isLoading && <CircularProgress size="1.1rem" color="inherit"/> }
+            </Button>
+        </div>
     )
 }
 
