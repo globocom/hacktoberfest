@@ -12,6 +12,7 @@ import RepoLanguages from "@components/repo-languages"
 import { ProjectProps } from "@services/projects"
 import Masonry from "react-masonry-css"
 import _ from "lodash"
+import ProjectsService from '@services/projects/Projects.service'
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -124,7 +125,7 @@ const ProjectsList = (props: ProjectListProps) => {
     async function fetchProjects() {
       setLoading(true)
       try {
-        const response: Array<ProjectProps> = await Projects.Service.getInstance().GetProjects()
+        const response: Array<ProjectProps> = await ProjectsService.getInstance().GetProjects()
         if (response) {
           if (listLimit) response.splice(listLimit)
           setProjects(response)
