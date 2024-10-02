@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import Spacing from "@components/spacing"
 import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
@@ -196,14 +196,15 @@ const RulesDesktop = (props: RulesProps) => {
             </Grid> */}
             {props.rules?.map((rule, index) => (
               <Grid
+                key={`rule-${index}`}
                 container
                 direction="row"
                 className={classes.rulesInsideContainer}
               >
-                <Grid item key={index}>
+                <Grid item>
                   <div className={classes.number} style={{background: "linear-gradient(180deg, #21083B 18.5%, #510D5B 87%, #710568 96%)"}}>{index + 1}</div>
                 </Grid>
-                <Grid item key={`rule${index}`}>
+                <Grid item>
                   {rule}
                 </Grid>
               </Grid>
@@ -275,16 +276,17 @@ const RulesSmart = (props: RulesProps) => {
           justifyContent="space-between"
           className={classes.rulesContainer}
         >
-          {props.rules.map((rule, index) => (
+          {props.rules?.map((rule, index) => (
             <Grid
+              key={`rule-${index}`}
               container
               direction="row"
               className={classes.rulesInsideContainer}
             >
-              <Grid xs={3} item key={`number${index}`}>
+              <Grid xs={3} item>
                 <div className={classes.number}>{index + 1}</div>
               </Grid>
-              <Grid xs={8} item key={`rule${index}`}>
+              <Grid xs={8} item>
                 {rule}
               </Grid>
             </Grid>
@@ -317,7 +319,7 @@ const RulesSmart = (props: RulesProps) => {
 }
 
 interface RulesProps {
-  rules?: any[]
+  rules?: ReactNode[]
   user?: UserProps
 }
 
@@ -328,30 +330,35 @@ const Rules = (props: RulesProps) => {
   })
 
   const rules = [
-    <Typography className={classes.rule}>
-      Contribua com{" "}
-      <span className={classes.importantRule}>um Pull Request</span> em qualquer
-      projeto Open Source da Globo{" "}
-      <span className={classes.importantRule}>durante o mês de outubro</span>.
-    </Typography>,
-    <Typography className={classes.rule}>
-      Garanta que pelo menos{" "}
-      <span className={classes.importantRule}>um pull request</span> seja{" "}
-      <span className={classes.importantRule}>ACEITO</span>.
-    </Typography>,
-    <Typography className={classes.rule}>
-      Os primeiros inscritos que completarem os requisitos mínimos{" "}
-      <span className={classes.importantRule}>ganharão uma camiseta</span>
-      . <br />
+    <Box className={classes.rule}>
+      <Typography>
+        Contribua com{" "}
+        <span className={classes.importantRule}>um Pull Request</span> em qualquer
+        projeto Open Source da Globo{" "}
+        <span className={classes.importantRule}>durante o mês de outubro</span>.
+      </Typography>
+    </Box>,
+    <Box className={classes.rule}>
+      <Typography>
+        Garanta que pelo menos{" "}
+        <span className={classes.importantRule}>um pull request</span> seja{" "}
+        <span className={classes.importantRule}>ACEITO</span>.
+      </Typography>
+    </Box>,
+    <Box className={classes.rule}>
+      <Typography>
+        Os primeiros inscritos que completarem os requisitos mínimos{" "}
+        <span className={classes.importantRule}>ganharão uma camiseta</span>.
+      </Typography>
       <Box display="flex" alignItems="center">
         <InfoSharpIcon
           style={{ color: "#FFD700", marginRight: "2px", fontSize: "24px" }}
         />
-        <Typography variant="body2" style={{ fontStyle: "italic" }}>
+        <Typography component="span" variant="body2" style={{ fontStyle: "italic" }}>
           Envio de camisetas somente para o Brasil!
         </Typography>
       </Box>
-    </Typography>,
+    </Box>,
   ]
 
   return (
