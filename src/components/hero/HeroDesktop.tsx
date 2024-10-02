@@ -312,7 +312,7 @@ const DesktopView = (props: DesktopViewProps) => {
       </Grid>
       <Grid item sm={4} className={classes.gridItem}>
         <Box display="flex" marginTop={20}>
-          <Image classnName={classes.character} src={`2024/character.svg`} />
+          <Image className={classes.character} src={`2024/character.svg`} />
         </Box>
       </Grid>
       <Grid item sm={4} className={classes.gridMessage}>
