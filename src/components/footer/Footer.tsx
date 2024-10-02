@@ -18,7 +18,6 @@ interface MenuItem {
 
 const MENU_ITEMS: Array<MenuItem> = [
   { label: "github", link: "https://github.com/globocom/hacktoberfest" },
-  { label: "open source", link: "https://opensource.globo.com/" },
   { label: "trabalhe conosco", link: "https://vempraglobo.g.globo/" },
 ]
 
@@ -57,18 +56,6 @@ const FooterDesktop = (props: FooterItemsProps) => {
         <Grid item>
           <Image src="2024/logo.png" width="278" height="90" />
         </Grid>
-        <Grid item>
-          <Typography
-            className={classes.menuItem}
-            style={{ fontWeight: "bolder" }}
-            variant="body1"
-            component="p"
-          >
-            <a target="_blank" href={"https://globo.com"}>
-              globo.com <span style={{ fontWeight: 400 }}>Opensource</span>
-            </a>
-          </Typography>
-        </Grid>
         {props.menuItems.map((item: MenuItem, i: number) => (
           <Grid item key={i}>
             <Typography
@@ -91,9 +78,8 @@ const FooterDesktop = (props: FooterItemsProps) => {
         style={{
           fontWeight: "400",
           fontSize: "14px",
-          marginLeft: "-1125px",
+          marginLeft: "-848px",
           marginTop: "188px",
-          fontFamily: "Titillium Web",
           color: "#A03FFF",
         }}
       >
@@ -138,21 +124,7 @@ const FooterSmart = (props: FooterItemsProps) => {
           </Grid>
         </Spacing>
       ))}
-      <Spacing smart={{ margin: "0 32px 24px" }}>
-        <Grid item xs={12}>
-          <Typography
-            className={classes.menuItem}
-            style={{ fontWeight: "bolder" }}
-            variant="body1"
-            component="p"
-          >
-            <a target="_blank" href={"https://globo.com"}>
-              {" "}
-              globo.com <span style={{ fontWeight: 400 }}>Opensource</span>{" "}
-            </a>
-          </Typography>
-        </Grid>
-      </Spacing>
+
       <Grid item style={{ width: "90%" }} sm={12}>
         <Grid
           container
