@@ -69,8 +69,8 @@ const FooterDesktop = (props: FooterItemsProps) => {
             </a>
           </Typography>
         </Grid>
-        {props.menuItems.map((item: MenuItem, i: number) => (
-          <Grid item key={i}>
+        {props.menuItems.map((item: MenuItem, index: number) => (
+          <Grid item key={`menu-desktop-${index}`}>
             <Typography
               className={classes.menuItem}
               variant="body1"
@@ -123,9 +123,12 @@ const FooterSmart = (props: FooterItemsProps) => {
           <Image src="2024/logo.png" with="278" height="90" />
         </Grid>
       </Spacing>
-      {props.menuItems.map((item: MenuItem, i: number) => (
-        <Spacing smart={{ margin: "0 32px 24px" }}>
-          <Grid item key={i}>
+      {props.menuItems.map((item: MenuItem, index: number) => (
+        <Spacing
+          key={`menu-smart-${index}`}
+          smart={{ margin: "0 32px 24px" }}
+        >
+          <Grid item>
             <Typography
               className={classes.menuItem}
               variant="body1"
