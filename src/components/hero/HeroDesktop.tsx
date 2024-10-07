@@ -8,6 +8,9 @@ import Lottie from "react-lottie"
 import animationData from "../../themes/images/2023/drone.json"
 
 const useStyles = makeStyles((theme: Theme) => ({
+  wrapper: {
+    height: "100%",
+  },
   title: {
     width: "80%",
     height: "180px",
@@ -62,7 +65,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: "-16px",
   },
   gridItem: {
-    height: "800px",
+    // height: "800px",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column"
   },
   gridMessage: {
     display: "flex",
@@ -277,7 +283,7 @@ const DesktopView = (props: DesktopViewProps) => {
   }
 
   return (
-    <Grid container alignItems="center">
+    <Grid container alignItems="center" className={classes.wrapper}>
       <Grid item sm={4} className={classes.gridItem}>
         <Image className={classes.logoGlobo} src={`2024/globo.svg`} />
         <Image className={classes.logoEdition} src={`2024/logo.png`} />
@@ -310,9 +316,9 @@ const DesktopView = (props: DesktopViewProps) => {
         </Typography>
         {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
       </Grid>
-      <Grid item sm={4} className={classes.gridItem}>
-        <Box display="flex" marginTop={20}>
-          <Image classnName={classes.character} src={`2024/character.svg`} />
+      <Grid item sm={4} className={classes.gridItem} >
+        <Box display="flex" marginTop={"auto"}>
+          <Image classnName={classes.character} src={`2024/character.png`} />
         </Box>
       </Grid>
       <Grid item sm={4} className={classes.gridMessage}>

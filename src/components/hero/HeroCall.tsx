@@ -12,12 +12,18 @@ import headerBackground from "../../themes/images/2024/header-backgroud.png";
 
 
 const useStyles = makeStyles((theme: Theme) => ({
+  wrapper: {
+    height: "100%",
+  },
   heroPanel: {
     position: "relative",
     overflow: "hidden",
     width: "100%",
     zIndex: 1,
     padding: "32px",
+    paddingBottom: "0px",
+    height: "calc(100vh - 77px)",
+    alignItems: "baseline",
   },
   terms: {
     width: "100%",
@@ -55,7 +61,7 @@ const HeroCall = (props: HeroCallProps) => {
           className={classes.heroPanel}
           id="hero_panel"
         >
-          <Grid item xs={12}>
+          <Grid item xs={12} className={classes.wrapper}>
             {isDesktop ? (
               <DesktopView user={props.user} />
             ) : (
