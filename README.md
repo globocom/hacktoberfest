@@ -102,4 +102,14 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
 
+## ✨ Contributors
+
+Thanks go to these wonderful people. [[Contribute](https://github.com/globocom/hacktoberfest/fork)]. 
+
+<a href="https://github.com/globocom/hacktoberfest/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=globocom/hacktoberfest" />
+</a>
+
+This project follows the [[Gatsby](https://www.gatsbyjs.com/contributing/code-of-conduct/)]. code of conduct. Contributions of any kind are welcome!
+
 <!-- AUTO-GENERATED-CONTENT:END -->
