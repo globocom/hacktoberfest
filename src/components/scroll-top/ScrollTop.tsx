@@ -1,6 +1,6 @@
-import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
-import { Image } from "@components/image"
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { Image } from "@components/image";
 
 const useStyles = makeStyles(() => ({
   scrollTop: {
@@ -9,22 +9,20 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     cursor: "pointer"
   },
-}))
-
+}));
 
 const ScrollTop = () => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
   };
 
   return (
     <div className={classes.scrollTop}>
       <Image src="2023/scroll-top.svg" onClick={scrollToTop} />
     </div>
-  )
-}
+  );
+};
 
-
-export default ScrollTop
+export default ScrollTop;
