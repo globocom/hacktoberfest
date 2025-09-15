@@ -35,6 +35,11 @@ theme.palette = {
     disabled: "#FFFFFFA3",
     hint: "#FFF",
   },
+  // Cores customizadas para as linhas decorativas
+  custom: {
+    yellow: "#FFD006",
+    darkGray: "#0D1114",
+  },
   type: "light",
 }
 

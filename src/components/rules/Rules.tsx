@@ -1,7 +1,7 @@
 import React from "react"
 import Spacing from "@components/spacing"
 import { Image } from "@components/image"
-import { makeStyles, Theme } from "@material-ui/core/styles"
+import { makeStyles, Theme, useTheme } from "@material-ui/core/styles"
 import { useMediaQuery, Grid, Button, Typography, Box } from "@material-ui/core"
 import InfoSharpIcon from "@material-ui/icons/InfoSharp"
 
@@ -9,13 +9,31 @@ import { UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
   containerRules: {
-    backgroundImage: "url('/grid.svg')",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
+    position: "relative",
     height: "780px",
     display: "flex",
     alignItems: "center",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      width: "100%",
+      height: "100%",
+      backgroundImage: "url('/grid.svg')",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      opacity: 0.3,
+      zIndex: 0,
+      pointerEvents: "none",
+    },
+    "& > *": {
+      position: "relative",
+      zIndex: 1,
+    },
   },
   rule: {
     color: theme.palette.text.primary,
@@ -122,6 +140,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
   },
   buttonContainer: {
+    display: "flex",
+    justifyContent: "flex-end",
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       width: "100%",
       marginTop: "5px",
@@ -136,7 +156,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   button: {
-    width: "100%",
     fontFamily: "inherit",
     borderRadius: "25px",
     border: `1px solid ${theme.palette.text.secondary}`,
@@ -148,10 +167,10 @@ const useStyles = makeStyles((theme: Theme) => ({
       padding: "24px",
     },
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      padding: "0",
+      padding: "0 32px",
     },
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
-      padding: "0",
+      padding: "0 32px",
     },
   },
   clipSeparator: {
@@ -189,7 +208,39 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.secondary.main,
     margin: "20px auto",
   },
+  horizontalLineDesktop: {
+    width: "100%",
+    height: "3px",
+    margin: "20px auto",
+  },
 }))
+
+interface DecorativeLineProps {
+  color: "yellow" | "darkGray" | string
+}
+
+const DecorativeLine: React.FC<DecorativeLineProps> = ({ color }) => {
+  const classes = useStyles()
+  const theme = useTheme()
+
+  const getColor = () => {
+    switch (color) {
+      case "yellow":
+        return theme.palette.custom?.yellow
+      case "darkGray":
+        return theme.palette.custom?.darkGray
+      default:
+        return color
+    }
+  }
+
+  return (
+    <div
+      className={classes.horizontalLineDesktop}
+      style={{ backgroundColor: getColor() }}
+    />
+  )
+}
 
 const RulesDesktop = (props: RulesProps) => {
   const classes = useStyles()
@@ -217,12 +268,16 @@ const RulesDesktop = (props: RulesProps) => {
             key={"inner_container"}
             className={classes.boxRulesContainer}
           >
+            <DecorativeLine color="yellow" />
+            <DecorativeLine color="darkGray" />
+            <DecorativeLine color="yellow" />
             <Grid
               container
               direction="row"
               justifyContent="space-between"
               className={classes.rulesContainer}
             >
+
               {props.rules?.map((rule, index) => (
                 <React.Fragment key={`rule-fragment-${index}`}>
                   <Grid
@@ -245,6 +300,7 @@ const RulesDesktop = (props: RulesProps) => {
                 </React.Fragment>
               ))}
             </Grid>
+            <DecorativeLine color="darkGray" />
             {!props.user && (
               <Grid
                 container
@@ -259,7 +315,6 @@ const RulesDesktop = (props: RulesProps) => {
                     className={classes.button}
                     size="large"
                     variant="outlined"
-                    fullWidth
                   >
                     Participe com sua conta do Github
                   </Button>
