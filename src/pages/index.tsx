@@ -71,6 +71,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: "-10px",
   },
   projects: {
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.primary,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       paddingLeft: "0",
       paddingRight: "0",
@@ -103,16 +105,45 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   allProjectsButton: {
     width: "288px",
-    // height: "70px",
+    height: "44px",
     fontFamily: "Globotipo Variable",
     fontSize: "16px",
-    fontWeight: 700,
-    backgroundColor: "#07B1EF4D",
-    borderRadius: "25px",
-    border: `1px solid ${theme.palette.text.secondary}`,
-    color: theme.palette.text.secondary,
+    fontWeight: 400,
+    fontStyle: "normal",
+    lineHeight: "100%",
+    letterSpacing: "0%",
+    borderRadius: "40px",
+    border: "none",
+    background: "linear-gradient(90deg, #FFBD09 0%, #FF111E 100%)",
+    color: theme.palette.text.primary,
     textTransform: "none",
-    height: "44px",
+    opacity: 1,
+    transform: "rotate(0deg)",
+    position: "relative",
+    padding: "1px",
+    transition: "all 0.3s ease",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: "1px",
+      left: "1px",
+      right: "1px",
+      bottom: "1px",
+      borderRadius: "39px",
+      background: theme.palette.background.paper,
+      zIndex: 1,
+      transition: "opacity 0.3s ease",
+    },
+    "&:hover::before": {
+      opacity: 0,
+    },
+    "&:hover": {
+      color: "#FFFFFF",
+    },
+    "& .MuiButton-label": {
+      position: "relative",
+      zIndex: 2,
+    },
   },
 }))
 
@@ -130,7 +161,6 @@ const IndexPage = () => {
     return theme.breakpoints.up(theme.breakpoints.values.lg)
   })
 
-  // TODO: trazer o padding que ficava dentro do layout, pra ca, ai a tela ia ficar com background color sem fazer gambiarra
   return (
     <Layout title="Globo Hacktoberfest">
       <div className={classes.root}>
@@ -163,7 +193,6 @@ const IndexPage = () => {
                     alignItems="center"
                   >
                     <Grid item className={classes.projectTitle}>
-                      <Image src={`2024/white-raio.svg`} />
                       <Typography
                         className={classes.projectFont}
                         variant="body1"
@@ -172,11 +201,6 @@ const IndexPage = () => {
                         Principais Projetos
                       </Typography>
                     </Grid>
-                    {isDesktop && (
-                      <Grid item className={classes.computer}>
-                        <Image src={`2024/computer.svg`} />
-                      </Grid>
-                    )}
                   </Grid>
                   <Spacing smart={{ margin: "0px 0px 60px 40px" }}>
                     <Typography
@@ -200,7 +224,7 @@ const IndexPage = () => {
                         variant="outlined"
                         className={classes.allProjectsButton}
                       >
-                        VER TODOS OS PROJETOS
+                        Ver todos os projetos
                       </Button>
                     </Link>
                   </Grid>
