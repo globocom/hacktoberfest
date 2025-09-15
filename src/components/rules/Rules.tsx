@@ -8,6 +8,15 @@ import InfoSharpIcon from "@material-ui/icons/InfoSharp"
 import { UserProps } from "@services/user"
 
 const useStyles = makeStyles((theme: Theme) => ({
+  containerRules: {
+    backgroundImage: "url('/grid.svg')",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    height: "780px",
+    display: "flex",
+    alignItems: "center",
+  },
   rule: {
     color: theme.palette.text.primary,
     fontFamily: "Globotipo Variable",
@@ -18,16 +27,18 @@ const useStyles = makeStyles((theme: Theme) => ({
   number: {
     margin: "0px 20px",
     padding: "0px 10px",
-    borderRadius: "50%",
-    border: `5px solid ${theme.palette.secondary.dark}`,
-    width: "70px",
-    height: "70px",
-    lineHeight: "60px",
+    width: "48px",
+    height: "48px",
+    lineHeight: "48px",
     textAlign: "center",
-    color: theme.palette.text.primary,
+    color: theme.palette.secondary.contrastText,
+    background: theme.palette.secondary.main,
     fontFamily: "Globotipo Variable",
-    fontSize: "34px",
+    fontSize: "24px",
     fontWeight: 700,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   projectTitle: {
     display: "flex",
@@ -35,24 +46,26 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "flex-start",
     marginBottom: "20px",
     padding: "0 16px",
+    width: "100%",
   },
   projectFont: {
-    fontSize: "41.15px",
-    lineHeight: "57.61px",
+    fontSize: "52px",
+    lineHeight: "52px",
     color: theme.palette.primary.contrastText,
+    textAlign: "left",
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      fontSize: "3rem",
-      lineHeight: "56px",
+      fontSize: "69px",
+      lineHeight: "69px",
     },
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
-      fontSize: "3.5rem",
-      lineHeight: "64px",
+      fontSize: "69px",
+      lineHeight: "69px",
     },
     marginLeft: "30px",
   },
   rulesContainer: {
     flexWrap: "nowrap",
-    backgroundColor: "#250849",
+    backgroundColor: theme.palette.background.paper,
   },
   boxRulesContainer: {
     padding: "0px 60px",
@@ -65,7 +78,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rulesInsideContainer: {
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
-      margin: "30px 0px",
+      margin: "4px 0px",
       paddingTop: "8px",
       paddingBottom: "8px",
       paddingRight: "10px",
@@ -78,8 +91,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     flexWrap: "nowrap",
     alignItems: "center",
-    backgroundColor: "#7F00FA33",
-    height: "244px",
+    color: theme.palette.text.primary,
+    height: "164px",
   },
   rulesSeparator: {
     margin: "25px 0px",
@@ -124,12 +137,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   button: {
     width: "100%",
-    backgroundColor: "#07B1EF4D",
     fontFamily: "inherit",
-    borderRadius: "2px",
-    border: "3px solid #02BBFF",
-    color: theme.palette.text.primary,
-    textTransform: "uppercase",
+    borderRadius: "25px",
+    border: `1px solid ${theme.palette.text.secondary}`,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.text.secondary,
+    textTransform: "none",
+    height: "44px",
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       padding: "24px",
     },
@@ -147,7 +161,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   participateContainer: {
     display: "flex",
     alignItems: "center",
-    marginTop: "-50px",
+    marginTop: "20px",
   },
   participateHint: {
     color: "#2E3192",
@@ -156,99 +170,105 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "20px",
     fontWeight: 700,
   },
+  verticalLine: {
+    width: "1px",
+    height: "92px",
+    backgroundColor: theme.palette.secondary.main,
+    margin: "0 auto",
+  },
+  verticalLineContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "244px",
+    width: "30px",
+  },
+  horizontalLine: {
+    width: "75%",
+    height: "1px",
+    backgroundColor: theme.palette.secondary.main,
+    margin: "20px auto",
+  },
 }))
 
 const RulesDesktop = (props: RulesProps) => {
   const classes = useStyles()
   return (
-    <Spacing smart={{ margin: "24px auto" }}>
+    <Box className={classes.containerRules}>
       <Grid
-        container
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-      >
-        <Grid item key={"como-participar"} className={classes.projectTitle}>
-          <Image src={`2024/white-raio.svg`} />
-          <Typography
-            className={classes.projectFont}
-            variant="body1"
-            component="p"
-          >
-            Como participar
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          key={"inner_container"}
-          className={classes.boxRulesContainer}
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="flex-start"
+          className={classes.containerRules}
+          style={{ height: "100%" }}
         >
-          <Grid
-            container
-            direction="row"
-            justifyContent="space-between"
-            className={classes.rulesContainer}
-          >
-            {/* <Grid item key={"test1"} className={classes.rulesSeparator}>
-              <Image
-                className={classes.rulesSeparatorSvg}
-                src={`2023/separator-rules.svg`}
-              />
-            </Grid> */}
-            {props.rules?.map((rule, index) => (
-              <Grid
-                container
-                direction="row"
-                className={classes.rulesInsideContainer}
-              >
-                <Grid item key={index}>
-                  <div className={classes.number} style={{background: "linear-gradient(180deg, #21083B 18.5%, #510D5B 87%, #710568 96%)"}}>{index + 1}</div>
-                </Grid>
-                <Grid item key={`rule${index}`}>
-                  {rule}
-                </Grid>
-              </Grid>
-            ))}
-            {/* <Grid item key={"img"} className={classes.rulesSeparator}>
-              <Image
-                className={classes.rulesSeparatorSvg}
-                src={`2023/separator-rules.svg`}
-              />
-            </Grid> */}
+          <Grid item key={"como-participar"} className={classes.projectTitle}>
+            <Typography
+              className={classes.projectFont}
+              variant="body1"
+              component="p"
+            >
+              Como participar
+            </Typography>
           </Grid>
-          {!props.user && (
+          <Grid
+            item
+            key={"inner_container"}
+            className={classes.boxRulesContainer}
+          >
             <Grid
               container
               direction="row"
               justifyContent="space-between"
-              className={classes.participateContainer}
+              className={classes.rulesContainer}
             >
-              <Grid item className={classes.clipSeparator}>
-                <Image src={`2024/clip-separator.svg`} />
-              </Grid>
-              <Grid item className={classes.buttonContainer}>
-                <Button
-                  href="/login"
-                  style={{ display: "block" }}
-                  className={classes.button}
-                  size="large"
-                  fullWidth
-                >
-                  <Typography
-                    className={classes.buttonText}
-                    component="p"
-                    variant="body2"
-                    align="center"
+              {props.rules?.map((rule, index) => (
+                <React.Fragment key={`rule-fragment-${index}`}>
+                  <Grid
+                    container
+                    direction="row"
+                    className={classes.rulesInsideContainer}
                   >
-                    PARTICIPAR COM SUA CONTA DO GITHUB
-                  </Typography>
-                </Button>
-              </Grid>
+                    <Grid item key={index}>
+                      <div className={classes.number} >{index + 1}</div>
+                    </Grid>
+                    <Grid item key={`rule${index}`}>
+                      {rule}
+                    </Grid>
+                  </Grid>
+                  {index < (props.rules?.length ?? 0) - 1 && (
+                    <Grid container className={classes.verticalLineContainer}>
+                      <div className={classes.verticalLine}></div>
+                    </Grid>
+                  )}
+                </React.Fragment>
+              ))}
             </Grid>
-          )}
+            {!props.user && (
+              <Grid
+                container
+                direction="row"
+                justifyContent="space-between"
+                className={classes.participateContainer}
+              >
+                <Grid item />
+                <Grid item className={classes.buttonContainer}>
+                  <Button
+                    href="/login"
+                    className={classes.button}
+                    size="large"
+                    variant="outlined"
+                    fullWidth
+                  >
+                    Participe com sua conta do Github
+                  </Button>
+                </Grid>
+              </Grid>
+            )}
+          </Grid>
         </Grid>
-      </Grid>
-    </Spacing>
+    </Box>
   )
 }
 
@@ -259,7 +279,6 @@ const RulesSmart = (props: RulesProps) => {
       <div>
         <Grid container direction="column">
           <Grid item key={"como-participar"} className={classes.projectTitle}>
-            <Image src={`2024/white-raio.svg`} />
             <Typography
               className={classes.projectFont}
               variant="body1"
@@ -277,18 +296,23 @@ const RulesSmart = (props: RulesProps) => {
           className={classes.rulesContainer}
         >
           {props.rules.map((rule, index) => (
-            <Grid
-              container
-              direction="row"
-              className={classes.rulesInsideContainer}
-            >
-              <Grid xs={3} item key={`number${index}`}>
-                <div className={classes.number}>{index + 1}</div>
+            <React.Fragment key={`mobile-rule-fragment-${index}`}>
+              <Grid
+                container
+                direction="row"
+                className={classes.rulesInsideContainer}
+              >
+                <Grid xs={3} item key={`number${index}`}>
+                  <div className={classes.number}>{index + 1}</div>
+                </Grid>
+                <Grid xs={8} item key={`rule${index}`}>
+                  {rule}
+                </Grid>
               </Grid>
-              <Grid xs={8} item key={`rule${index}`}>
-                {rule}
-              </Grid>
-            </Grid>
+              {index < (props.rules?.length ?? 0) - 1 && (
+                <div className={classes.horizontalLine}></div>
+              )}
+            </React.Fragment>
           ))}
         </Grid>
 
@@ -296,19 +320,11 @@ const RulesSmart = (props: RulesProps) => {
           <div className={classes.buttonSmart}>
             <Button
               href="/login"
-              style={{ display: "block" }}
               className={classes.button}
               size="large"
               fullWidth
             >
-              <Typography
-                className={classes.buttonText}
-                component="p"
-                variant="body2"
-                align="center"
-              >
-                PARTICIPAR COM SUA CONTA DO GITHUB
-              </Typography>
+              Participar com sua conta do Github
             </Button>
           </div>
         )}
@@ -331,19 +347,20 @@ const Rules = (props: RulesProps) => {
   const rules = [
     <Typography className={classes.rule}>
       Contribua com{" "}
-      <span className={classes.importantRule}>um Pull Request</span> em qualquer
+      <span className={classes.importantRule}>dois Pull Requests</span> em qualquer
       projeto Open Source da Globo{" "}
       <span className={classes.importantRule}>durante o mês de outubro</span>.
     </Typography>,
     <Typography className={classes.rule}>
       Garanta que pelo menos{" "}
       <span className={classes.importantRule}>um pull request</span> seja{" "}
-      <span className={classes.importantRule}>ACEITO</span>.
+      <span className={classes.importantRule}>aceito</span>.
     </Typography>,
     <Typography className={classes.rule}>
       Os primeiros inscritos que completarem os requisitos mínimos{" "}
       <span className={classes.importantRule}>ganharão uma camiseta</span>
-      . <br />
+      .
+      {/* <br />
       <Box display="flex" alignItems="center">
         <InfoSharpIcon
           style={{ color: "#FFD700", marginRight: "2px", fontSize: "24px" }}
@@ -351,7 +368,7 @@ const Rules = (props: RulesProps) => {
         <Typography variant="body2" style={{ fontStyle: "italic" }}>
           Envio de camisetas somente para o Brasil!
         </Typography>
-      </Box>
+      </Box> */}
     </Typography>,
   ]
 

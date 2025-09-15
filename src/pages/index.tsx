@@ -14,6 +14,7 @@ import User, { UserProps } from "@services/user"
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.primary.main,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       backgroundImage: "",
     },
@@ -102,15 +103,16 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   allProjectsButton: {
     width: "288px",
-    height: "70px",
+    // height: "70px",
     fontFamily: "Globotipo Variable",
     fontSize: "16px",
     fontWeight: 700,
     backgroundColor: "#07B1EF4D",
-    borderRadius: "2px",
-    border: "3px solid #02BBFF",
-    color: theme.palette.text.primary,
-    textTransform: "uppercase",
+    borderRadius: "25px",
+    border: `1px solid ${theme.palette.text.secondary}`,
+    color: theme.palette.text.secondary,
+    textTransform: "none",
+    height: "44px",
   },
 }))
 
@@ -134,19 +136,7 @@ const IndexPage = () => {
       <div className={classes.root}>
         {user && !user?.email && <EmailPopin user={user} />}
         <HeroCall user={user} />
-        {isDesktop && (
-          <>
-            <Image
-              className={classes.separatorPink}
-              src={`2024/pink-line.svg`}
-            />
-            <Image
-              className={classes.separatorViolet}
-              src={`2024/violet-line.svg`}
-            />
-          </>
-        )}
-
+          <Rules user={user} />
         <div className={classes.secondaryPage}>
           <Grid
             container
@@ -155,7 +145,6 @@ const IndexPage = () => {
             alignItems="center"
             className={classes.projects}
           >
-            <Rules user={user} />
             <Spacing
               smart={{ padding: "0 16px" }}
               desktop={{ margin: "30px 0px" }}
