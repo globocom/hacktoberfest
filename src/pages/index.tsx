@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: "-10px",
   },
   projects: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.primary,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       paddingLeft: "0",
@@ -93,6 +93,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projectItem: {
     width: "100%",
+    marginTop: "120px",
   },
   computer: {
     width: "165px",
