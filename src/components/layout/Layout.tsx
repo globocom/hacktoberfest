@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     "& a": {
       textDecoration: "none",
     },
+    backgroundColor: theme.palette.primary.main,
   },
   body: {
     padding: 0,
@@ -32,7 +33,7 @@ const Layout = (props: LayoutProps) => {
   const classes = useStyles()
 
   return (
-    <div className={classes.root} style={{ background: "linear-gradient(180deg, #21083B 18.5%, #510D5B 87%, #710568 96%)" }}>
+    <div className={classes.root}>
       <SEO
         description={props.description || "Globo Hacktoberfest"}
         title={props.title || "Globo Hacktoberfest"}

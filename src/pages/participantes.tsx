@@ -48,21 +48,21 @@ const ParticipantsPage = () => {
         alignContent="center"
       >
         <Spacing
-          desktop={{ margin: "160px 0px 0px 0px" }}
+          desktop={{ margin: "100px 0px 80px 0px" }}
           smart={{ margin: "40px 32px" }}
         >
           <Grid
             item
-            style={{ maxWidth: 1520, minHeight: "61vh", width: isDesktop ? "auto" : "340px" }}
+            style={{ maxWidth: 1400, minHeight: "61vh", width: isDesktop ? "auto" : "340px" }}
             xs={12}
-            lg={6}
+            lg={12}
           >
             <HeaderTitle title={"Participantes"} />
             {isDesktop && (
-              <Image className={classes.hero} src="2024/participant-hero.svg" />
+              <Image className={classes.hero} src="2025/participant-hero.svg" />
             )}
             <Spacing
-              desktop={{ margin: "40px 0px 10vh 0px" }}
+              desktop={{ margin: "24px 0px 40px 0px" }}
               smart={{ margin: "24px 0 40px 0" }}
             >
               <Typography
