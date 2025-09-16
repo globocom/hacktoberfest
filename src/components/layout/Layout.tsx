@@ -5,7 +5,7 @@ import Footer from "@components/footer"
 import { makeStyles, Theme } from "@material-ui/core"
 import SEO from "@components/seo"
 import UserInfoAlert from "@components/user-info-alert"
-import VLibras from '@components/vlibras'
+import VLibras from "@components/vlibras"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     "& a": {
       textDecoration: "none",
     },
+    backgroundColor: theme.palette.primary.main,
   },
   body: {
     padding: 0,

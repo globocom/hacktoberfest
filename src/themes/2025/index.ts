@@ -30,8 +30,8 @@ theme.palette = {
     disabled: "#b8b8b8",
   },
   text: {
-    primary: "#000",
-    secondary: "#fff",
+    primary: "#fff",
+    secondary: "#000",
     disabled: "#FFFFFFA3",
     hint: "#FFF",
   },

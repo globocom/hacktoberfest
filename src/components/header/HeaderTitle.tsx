@@ -1,26 +1,26 @@
 import React from "react"
 import { makeStyles, Theme, Typography, Grid } from "@material-ui/core"
-import { Image } from "@components/image"
 
-const useStyles = makeStyles((theme: Theme) => ({
-  fontSection: {
-    fontSize: "42px",
-
-    color: theme.palette.text.primary,
-    fontFamily: "Globotipo Variable",
-    fontWeight: 330,
-    lineHeight: "58.8px",
-  },
-  projectTitle: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-start",
-  },
-}))
+const useStyles = makeStyles((theme: Theme) => {
+  console.log(JSON.stringify(theme))
+  return {
+    fontSection: {
+      fontSize: "69px",
+      color: theme.palette.text.primary,
+      fontWeight: 400,
+      fontStyle: "regular",
+      lineHeight: "100%",
+    },
+    projectTitle: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-start",
+    },
+  }
+})
 
 const HeaderTitle = (props: HeaderTitleProps) => {
   const classes = useStyles()
-
   return (
     <Grid
       container
@@ -34,7 +34,6 @@ const HeaderTitle = (props: HeaderTitleProps) => {
           component="h2"
           align="left"
           className={classes.fontSection}
-          color="secondary"
         >
           {props.title}
         </Typography>
