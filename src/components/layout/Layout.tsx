@@ -5,6 +5,7 @@ import Footer from "@components/footer"
 import { makeStyles, Theme } from "@material-ui/core"
 import SEO from "@components/seo"
 import UserInfoAlert from "@components/user-info-alert"
+import VLibras from '@components/vlibras'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -41,6 +42,7 @@ const Layout = (props: LayoutProps) => {
         description={props.description || "Globo Hacktoberfest"}
         title={props.title || "Globo Hacktoberfest"}
       />
+      <VLibras />
       <Header />
       <main>{props.children}</main>
       <UserInfoAlert />
