@@ -10,6 +10,7 @@ import { Link, Grid, Typography, useMediaQuery } from "@material-ui/core"
 import Button from "@material-ui/core/Button"
 import ProjectsList from "@components/projects"
 import User, { UserProps } from "@services/user"
+import ComeToGlobo from "@components/come-to-globo"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -103,6 +104,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     margin: "60px 0px",
     justifyContent: "center",
+  },
+  backgroundImage: {
+    position: "absolute",
+    zIndex: 1,
+    [theme.breakpoints.down("sm")]: {
+      width: "240%",
+      height: "auto",
+    },
+  },
+  backgroundImageContainer: {
+    height: "140px",
+    [theme.breakpoints.down("sm")]: {
+      height: "80px",
+    },
   },
   allProjectsButton: {
     width: "288px",
@@ -233,6 +248,14 @@ const IndexPage = () => {
               </Grid>
             </Spacing>
           </Grid>
+        </div>
+
+          <Grid container justifyContent="center" alignItems="center" className={classes.backgroundImageContainer}>
+            <Image src="2025/come-to-globo.svg" className={classes.backgroundImage} />
+          </Grid>
+
+        <div>
+          <ComeToGlobo />
         </div>
       </div>
     </Layout>
