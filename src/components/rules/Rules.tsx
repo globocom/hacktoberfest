@@ -247,82 +247,81 @@ const RulesDesktop = (props: RulesProps) => {
   return (
     <Box className={classes.containerRules}>
       <Grid
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="flex-start"
-          className={classes.containerRules}
-          style={{ height: "100%" }}
-        >
-          <Grid item key={"como-participar"} className={classes.projectTitle}>
-            <Typography
-              className={classes.projectFont}
-              variant="body1"
-              component="p"
-            >
-              Como participar
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            key={"inner_container"}
-            className={classes.boxRulesContainer}
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="flex-start"
+        className={classes.containerRules}
+        style={{ height: "100%" }}
+      >
+        <Grid item key={"como-participar"} className={classes.projectTitle}>
+          <Typography
+            className={classes.projectFont}
+            variant="body1"
+            component="p"
           >
-            <DecorativeLine color="yellow" />
-            <DecorativeLine color="darkGray" />
-            <DecorativeLine color="yellow" />
+            Como participar
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          key={"inner_container"}
+          className={classes.boxRulesContainer}
+        >
+          <DecorativeLine color="yellow" />
+          <DecorativeLine color="darkGray" />
+          <DecorativeLine color="yellow" />
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            className={classes.rulesContainer}
+          >
+            {props.rules?.map((rule, index) => (
+              <React.Fragment key={`rule-fragment-${index}`}>
+                <Grid
+                  container
+                  direction="row"
+                  className={classes.rulesInsideContainer}
+                >
+                  <Grid item key={index}>
+                    <div className={classes.number}>{index + 1}</div>
+                  </Grid>
+                  <Grid item key={`rule${index}`}>
+                    {rule}
+                  </Grid>
+                </Grid>
+                {index < (props.rules?.length ?? 0) - 1 && (
+                  <Grid container className={classes.verticalLineContainer}>
+                    <div className={classes.verticalLine}></div>
+                  </Grid>
+                )}
+              </React.Fragment>
+            ))}
+          </Grid>
+          <DecorativeLine color="darkGray" />
+          {!props.user && (
             <Grid
               container
               direction="row"
               justifyContent="space-between"
-              className={classes.rulesContainer}
+              className={classes.participateContainer}
             >
-
-              {props.rules?.map((rule, index) => (
-                <React.Fragment key={`rule-fragment-${index}`}>
-                  <Grid
-                    container
-                    direction="row"
-                    className={classes.rulesInsideContainer}
-                  >
-                    <Grid item key={index}>
-                      <div className={classes.number} >{index + 1}</div>
-                    </Grid>
-                    <Grid item key={`rule${index}`}>
-                      {rule}
-                    </Grid>
-                  </Grid>
-                  {index < (props.rules?.length ?? 0) - 1 && (
-                    <Grid container className={classes.verticalLineContainer}>
-                      <div className={classes.verticalLine}></div>
-                    </Grid>
-                  )}
-                </React.Fragment>
-              ))}
-            </Grid>
-            <DecorativeLine color="darkGray" />
-            {!props.user && (
-              <Grid
-                container
-                direction="row"
-                justifyContent="space-between"
-                className={classes.participateContainer}
-              >
-                <Grid item />
-                <Grid item className={classes.buttonContainer}>
-                  <Button
-                    href="/login"
-                    className={classes.button}
-                    size="large"
-                    variant="outlined"
-                  >
-                    Participe com sua conta do Github
-                  </Button>
-                </Grid>
+              <Grid item />
+              <Grid item className={classes.buttonContainer}>
+                <Button
+                  href="/login"
+                  className={classes.button}
+                  size="large"
+                  variant="outlined"
+                >
+                  Participe com sua conta do Github
+                </Button>
               </Grid>
-            )}
-          </Grid>
+            </Grid>
+          )}
         </Grid>
+      </Grid>
     </Box>
   )
 }
@@ -402,8 +401,8 @@ const Rules = (props: RulesProps) => {
   const rules = [
     <Typography className={classes.rule}>
       Contribua com{" "}
-      <span className={classes.importantRule}>dois Pull Requests</span> em qualquer
-      projeto Open Source da Globo{" "}
+      <span className={classes.importantRule}>dois Pull Requests</span> em
+      qualquer projeto Open Source da Globo{" "}
       <span className={classes.importantRule}>durante o mês de outubro</span>.
     </Typography>,
     <Typography className={classes.rule}>
@@ -413,8 +412,7 @@ const Rules = (props: RulesProps) => {
     </Typography>,
     <Typography className={classes.rule}>
       Os primeiros inscritos que completarem os requisitos mínimos{" "}
-      <span className={classes.importantRule}>ganharão uma camiseta</span>
-      .
+      <span className={classes.importantRule}>ganharão uma camiseta</span>.
       {/* <br />
       <Box display="flex" alignItems="center">
         <InfoSharpIcon

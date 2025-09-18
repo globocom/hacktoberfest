@@ -4,12 +4,12 @@ import { Image } from "@components/image"
 
 const useStyles = makeStyles((theme: Theme) => ({
   fontSection: {
-    fontSize: '42px',
-    marginLeft: "20px",
+    fontSize: "42px",
+
     color: theme.palette.text.primary,
     fontFamily: "Globotipo Variable",
     fontWeight: 330,
-    lineHeight: '58.8px',
+    lineHeight: "58.8px",
   },
   projectTitle: {
     display: "flex",
@@ -22,19 +22,24 @@ const HeaderTitle = (props: HeaderTitleProps) => {
   const classes = useStyles()
 
   return (
-      <Grid
-        container
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <Grid item className={classes.projectTitle} >
-          <Image src={`2023/white-raio.svg`} />
-          <Typography variant="h2" component="h2" align="left" className={classes.fontSection} color="secondary">
-            {props.title}
-          </Typography>
-        </Grid>
+    <Grid
+      container
+      direction="row"
+      justifyContent="space-between"
+      alignItems="center"
+    >
+      <Grid item className={classes.projectTitle}>
+        <Typography
+          variant="h2"
+          component="h2"
+          align="left"
+          className={classes.fontSection}
+          color="secondary"
+        >
+          {props.title}
+        </Typography>
       </Grid>
+    </Grid>
   )
 }
 
