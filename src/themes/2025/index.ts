@@ -39,6 +39,7 @@ theme.palette = {
   custom: {
     yellow: "#FFD006",
     darkGray: "#0D1114",
+    yellowChallenge: "#FFCB07",
   },
   type: "light",
 }
