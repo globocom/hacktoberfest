@@ -3,13 +3,14 @@ import { makeStyles, Theme, Typography, Grid } from "@material-ui/core"
 
 const useStyles = makeStyles((theme: Theme) => {
   console.log(JSON.stringify(theme))
-  return {
-    fontSection: {
-      fontSize: "69px",
-      color: theme.palette.text.primary,
-      fontWeight: 400,
-      fontStyle: "regular",
-      lineHeight: "100%",
+    return {
+      fontSection: {
+        fontSize: '69px',
+        color: theme.palette.text.secondary,
+        fontWeight: 400,
+        fontStyle: 'regular',
+        lineHeight: '100%',
+        fontFamily: "Globotipo Corporativa",
     },
     projectTitle: {
       display: "flex",

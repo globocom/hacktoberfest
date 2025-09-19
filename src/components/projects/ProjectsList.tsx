@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   projectName: {
-    color: theme.palette.text.light,
+    color: theme.palette.text.primary,
     fontFamily: "Globotipo Variable",
     fontSize: "22px",
     fontWeight: 700,
@@ -74,9 +74,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontFamily: "Globotipo Variable",
     fontSize: "18px",
     fontWeight: 400,
-    lineHeight: "25.2px",
-    color: theme.palette.primary.light,
+    lineHeight: "100%",
+    color: theme.palette.text.primary,
     borderBottom: "none",
+    letterSpacing: "0%",
   },
   projectTable: {
     backgroundColor: theme.palette.table.background,
@@ -92,21 +93,54 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderBottom: "none"
   },
   projectButton: {
-    color: theme.palette.text.primary,
-    width: "176px",
-    height: "70px",
-    borderRadius: "1px solid",
-    border: "1px solid rgb(255, 255, 255, 0.1)",
+    width: "103px",
+    height: "44px",
     fontFamily: "Globotipo Variable",
     fontSize: "16px",
-    fontWeight: 700,
-    marginRight: "32px"
+    fontWeight: 400,
+    fontStyle: "normal",
+    lineHeight: "100%",
+    letterSpacing: "0%",
+    borderRadius: "40px",
+    border: "none",
+    background: "linear-gradient(90deg, #FFBD09 0%, #FF111E 100%)",
+    color: theme.palette.text.primary,
+    textTransform: "none",
+    opacity: 1,
+    transform: "rotate(0deg)",
+    position: "relative",
+    padding: "1px",
+    transition: "all 0.3s ease",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: "1px",
+      left: "1px",
+      right: "1px",
+      bottom: "1px",
+      borderRadius: "39px",
+      background: theme.palette.background.paper,
+      zIndex: 1,
+      transition: "opacity 0.3s ease",
+    },
+    "&:hover::before": {
+      opacity: 0,
+    },
+    "&:hover": {
+      color: "#FFFFFF",
+    },
+    "& .MuiButton-label": {
+      position: "relative",
+      zIndex: 2,
+    },
   },
   tableRow: {
-    borderBottom: `1px solid rgb(255, 255, 255, 0.1)`,
+    borderBottom: `1px solid #E3E3E3`,
     '&:last-child': {
       borderBottom: "none"
     },
+    height: 120,
+    "&:hover": { backgroundColor: theme.palette.action.hover }
   },
 }))
 
@@ -239,14 +273,13 @@ function ProjectTableRow(props: ProjectProps) {
           </TableCell>
         )}
 
-        <TableCell component="th" scope="row" style={{ borderBottom: "none" }}>
+        <TableCell component="th" scope="row" style={{ borderBottom: "none", textAlign: "center" }}>
           <Button
             variant="outlined"
-            color="primary"
             className={classes.projectButton}
             onClick={() => accessProjectRepo()}
           >
-            ACESSAR
+            Acessar
           </Button>
         </TableCell>
       </TableRow>
