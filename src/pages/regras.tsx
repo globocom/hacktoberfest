@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Layout from "@components/layout"
 import { Image } from "@components/image"
 import { Grid, useMediaQuery, Typography } from "@material-ui/core"
@@ -6,23 +6,55 @@ import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { HeaderTitle } from "@components/header"
 
+const useGridDynamicPosition = () => {
+  const [gridStyles, setGridStyles] = useState({
+    top: "60vh",
+    height: "calc(100vh - 20px)",
+    bottom: "84px",
+  })
+
+  useEffect(() => {
+    const calculateGridPosition = () => {
+      const viewportHeight = window.innerHeight
+      const viewportWidth = window.innerWidth
+
+      if (viewportWidth >= 1024) {
+        const baseHeight = 900
+        const ratio = viewportHeight / baseHeight
+        const topValue = Math.max(600, 678 * ratio)
+        const heightOffset = Math.max(80, 100 * ratio)
+
+        setGridStyles({
+          top: `${topValue}px`,
+          height: `calc(100vh - ${heightOffset}px)`,
+          bottom: "84px",
+        })
+      }
+    }
+
+    calculateGridPosition()
+    window.addEventListener("resize", calculateGridPosition)
+    return () => window.removeEventListener("resize", calculateGridPosition)
+  }, [])
+
+  return gridStyles
+}
+
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
     backgroundColor: "#8600F6",
     minHeight: "158vh",
     position: "relative",
-    overflow: "hidden",
     "&::before": {
       content: '""',
       position: "absolute",
       top: "60vh",
       left: 0,
       right: 0,
-      bottom: 0,
+      bottom: "84px",
       width: "100%",
-      height: "60vh",
-      backgroundImage: "url('/grid.svg')",
+      height: "calc(100vh - 20px)",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
       backgroundSize: "cover",
@@ -31,13 +63,17 @@ const useStyles = makeStyles((theme: Theme) => ({
       pointerEvents: "none",
       transform: "scaleY(-1)",
       [theme.breakpoints.up("lg")]: {
-        top: "678px",
-        height: "772px",
+        backgroundImage: "url('/grid.svg')",
       },
     },
     "& > *": {
       position: "relative",
       zIndex: 1,
+    },
+  },
+  containerPadding: {
+    [theme.breakpoints.down("md")]: {
+      padding: "0 20px",
     },
   },
   principiosTitle: {
@@ -68,25 +104,24 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontSize: "2rem", //32
     },
   },
-  fontRule: {},
   separator: {
     width: "100%",
     marginBottom: "-10px",
   },
   principleTitle: {
-    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+    [theme.breakpoints.up("sm")]: {
       maxWidth: "100%",
       paddingBottom: "16px",
       minWidth: "auto",
       marginRight: "0px",
     },
-    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+    [theme.breakpoints.up("md")]: {
       maxWidth: "30%",
       minWidth: "20%",
       marginRight: "20px",
       paddingBottom: "0px",
     },
-    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+    [theme.breakpoints.up("xl")]: {
       maxWidth: "20%",
     },
     fontFamily: "Globotipo Variable",
@@ -120,17 +155,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: "40px",
   },
   principlesInsideContainer: {
-    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+    [theme.breakpoints.up("sm")]: {
       justifyContent: "flex-start",
       alignItems: "flex-start",
       padding: "20px",
     },
-    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      justifyContent: "center",
-      alignItems: "center",
-      padding: "30px",
-    },
-    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+    [theme.breakpoints.up("md")]: {
       justifyContent: "center",
       alignItems: "center",
       padding: "30px",
@@ -162,18 +192,21 @@ const useStyles = makeStyles((theme: Theme) => ({
     minHeight: "400px",
   },
   rulesInsideContainer: {
-    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+    [theme.breakpoints.up("sm")]: {
       margin: "0px",
       paddingTop: "8px",
       paddingBottom: "8px",
       paddingRight: "10px",
       paddingLeft: "10px",
     },
-    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      margin: "0px",
-      padding: "30px",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "flex-start",
+      textAlign: "left",
+      padding: "20px",
     },
-    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
+    [theme.breakpoints.up("md")]: {
       margin: "0px",
       padding: "30px",
     },
@@ -187,10 +220,37 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: "20px",
     position: "relative",
   },
+  ruleVerticalDivider: {
+    position: "absolute",
+    right: "0px",
+    top: "20%",
+    width: "2px",
+    height: "60%",
+    backgroundColor: "#000000",
+    opacity: 1,
+  },
+  ruleHorizontalDivider: {
+    position: "absolute",
+    bottom: "0px",
+    left: "0px",
+    width: "100%",
+    height: "2px",
+    backgroundColor: "#E5E5E5",
+    opacity: 1,
+  },
   numberContainer: {
     position: "absolute",
     top: "20px",
     left: "20px",
+    [theme.breakpoints.down("md")]: {
+      position: "relative",
+      top: "auto",
+      left: "auto",
+      display: "flex",
+      justifyContent: "flex-start",
+      marginRight: "15px",
+      marginBottom: "0px",
+    },
     [theme.breakpoints.up("md")]: {
       top: "47px",
       left: "98px",
@@ -200,38 +260,27 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: "20px",
     paddingLeft: "80px",
     paddingRight: "10px",
+    [theme.breakpoints.down("md")]: {
+      textAlign: "center",
+      paddingLeft: "0px",
+      paddingRight: "20px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      minHeight: "100px",
+      marginTop: "0px",
+      flex: 1,
+    },
     [theme.breakpoints.up("md")]: {
       marginTop: "30px",
       paddingLeft: "146px",
       paddingRight: "20px",
     },
   },
-  verticalLine: {
-    width: "1px",
-    height: "92px",
-    backgroundColor: theme.palette.secondary.main,
-    margin: "0 auto",
-  },
-  verticalLineContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "200px",
-    width: "30px",
-  },
   horizontalLineDesktop: {
     width: "100%",
     height: "3px",
     margin: "8px auto",
-  },
-  rulesSeparator: {
-    margin: "25px 0px",
-    display: "flex",
-    alignItems: "center",
-  },
-  rulesSeparatorSvg: {
-    width: "38px",
-    height: "244px",
   },
   number: {
     margin: "0px 20px 0px 0px",
@@ -335,9 +384,7 @@ const DecorativeVerticalBar: React.FC<DecorativeVerticalBarProps> = ({
 
 const Principles = () => {
   const classes = useStyles()
-  const isDesktop = useMediaQuery((theme: Theme) => {
-    return theme.breakpoints.up(theme.breakpoints.values.lg)
-  })
+  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"))
 
   const principles = [
     {
@@ -416,9 +463,7 @@ const Principles = () => {
 
 const Rules = () => {
   const classes = useStyles()
-  const isMedium = useMediaQuery((theme: Theme) => {
-    return theme.breakpoints.up(theme.breakpoints.values.md)
-  })
+  const isMedium = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"))
 
   const rules = [
     <Typography className={classes.rule}>
@@ -507,29 +552,24 @@ const Rules = () => {
                   style={{
                     flex: isMedium ? "1 1 calc(33.333% - 1px)" : "1 1 100%",
                     position: "relative",
-                    borderBottom: isMedium
-                      ? index < 3
-                        ? "1px solid #E5E5E5"
-                        : "none"
-                      : index < [...rules, ...rules2].length - 1
-                      ? "1px solid #E5E5E5"
-                      : "none",
-                    borderRight:
-                      isMedium &&
-                      (index + 1) % 3 !== 0 &&
-                      index < [...rules, ...rules2].length - 1
-                        ? "1px solid #E5E5E5"
-                        : "none",
                   }}
                 >
                   <div className={classes.numberContainer}>
                     <div className={classes.number}>{index + 1}</div>
                   </div>
                   <div className={classes.ruleTextContainer}>{rule}</div>
+
+                  {isMedium && (index + 1) % 3 !== 0 && index < 4 && (
+                    <div className={classes.ruleVerticalDivider} />
+                  )}
+
+                  {(isMedium ? index < 3 : index < 4) && (
+                    <div className={classes.ruleHorizontalDivider} />
+                  )}
                 </Grid>
               ))}
 
-              {isMedium && [...rules, ...rules2].length % 3 !== 0 && (
+              {isMedium && (
                 <Grid
                   item
                   style={{
@@ -539,8 +579,20 @@ const Rules = () => {
                     display: "flex",
                     backgroundColor: "#FFFFFF",
                     height: "200px",
+                    position: "relative",
                   }}
                 >
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: "0px",
+                      top: "20%",
+                      width: "2px",
+                      height: "84%",
+                      backgroundColor: "#000000",
+                      opacity: 1,
+                    }}
+                  />
                   <Image height={168} src={`2025/flag-rules-25.svg`} />
                 </Grid>
               )}
@@ -554,6 +606,26 @@ const Rules = () => {
 
 const RuleBookPage = () => {
   const classes = useStyles()
+  const gridStyles = useGridDynamicPosition()
+  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"))
+
+  useEffect(() => {
+    if (isDesktop) {
+      const styleElement = document.createElement("style")
+      styleElement.innerHTML = `
+        .${classes.root}::before {
+          top: ${gridStyles.top} !important;
+          height: ${gridStyles.height} !important;
+          bottom: ${gridStyles.bottom} !important;
+        }
+      `
+      document.head.appendChild(styleElement)
+
+      return () => {
+        document.head.removeChild(styleElement)
+      }
+    }
+  }, [gridStyles, isDesktop, classes.root])
 
   return (
     <Layout
@@ -574,6 +646,7 @@ const RuleBookPage = () => {
             xs={10}
             lg={10}
             style={{ width: "100%", maxWidth: "1523px" }}
+            className={classes.containerPadding}
           >
             <Principles />
           </Grid>
@@ -581,7 +654,12 @@ const RuleBookPage = () => {
             item
             xs={10}
             lg={10}
-            style={{ top: "10vh", width: "100%", maxWidth: "1523px" }}
+            style={{
+              ...(isDesktop ? { top: "10vh" } : {}),
+              width: "100%",
+              maxWidth: "1523px",
+            }}
+            className={classes.containerPadding}
           >
             <Rules />
           </Grid>
