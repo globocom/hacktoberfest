@@ -17,12 +17,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: 32,
   },
   description: {
-    fontSize: "20px",
-    lineHeight: "28px",
+    fontSize: "18px",
+    lineHeight: "100%",
     color: theme.palette.primary.contrastText,
-    fontFamily: "Globotipo Variable",
+    fontFamily: "Globotipo Corporativa",
     fontWeight: 400,
-    marginLeft: "32px",
+    lineSpacing: "0%",
+    marginTop: "32px",
   },
   separator: {
     width: "100%",
@@ -45,14 +46,18 @@ const ProjectsPage = () => {
     >
       <div className={classes.root}>
         <Grid container justifyContent="center">
+          <Spacing
+            desktop={{ margin: "100px 0px 80px 0px" }}
+            smart={{ margin: "40px 32px" }}
+          >
           <Grid style={{ maxWidth: 1523 }} item xs={5} lg={10}>
-            <Spacing
-              desktop={{ margin: "5vh 0px 40px 0px" }}
-              smart={{ margin: "64px 32px 0 32px" }}
-            >
               <div className={classes.headerTitle}>
                 <div>
                   <HeaderTitle title={"Projetos"} />
+                    <Spacing
+                      desktop={{ margin: "24px 0px 40px 0px" }}
+                      smart={{ margin: "24px 0 40px 0" }}
+                    >
                   <Typography
                     className={classes.description}
                     component="p"
@@ -64,14 +69,15 @@ const ProjectsPage = () => {
                     Incentivamos sua contribuição no projeto que mais lhe
                     agradar.
                   </Typography>
+                  </Spacing>
                 </div>
-                <Image src={`2024/notebook.svg`} />
+                <Image src={`2025/project.svg`} />
               </div>
-            </Spacing>
             <div>
               <ProjectsList useMansonry={false} />
             </div>
           </Grid>
+            </Spacing>
         </Grid>
       </div>
     </Layout>

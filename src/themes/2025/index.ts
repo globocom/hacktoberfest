@@ -18,7 +18,7 @@ theme.palette = {
   },
   // remover esse table
   table: {
-    background: "#491B77"
+    background: "#FFFFFF"
   },
   background: {
     default: "#000000",

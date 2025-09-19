@@ -28,6 +28,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: "relative",
     top: -100,
   },
+  description: {
+    fontSize: "18px",
+    lineHeight: "100%",
+    color: theme.palette.primary.contrastText,
+    fontFamily: "Globotipo Corporativa",
+    fontWeight: 400,
+    lineSpacing: "0%"
+  },
 }))
 
 const ParticipantsPage = () => {
@@ -66,6 +74,7 @@ const ParticipantsPage = () => {
               smart={{ margin: "24px 0 40px 0" }}
             >
               <Typography
+                className={classes.description}
                 component="p"
                 align="left"
                 color="textPrimary"
