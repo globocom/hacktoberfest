@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     height: "110px",
     borderRadius: 0,
-    border: "1px solid #C4C4C4",
+    border: "1px solid #C4C4C4"
   },
   gutterRemove: {
     padding: "0 0 16px 0",
@@ -186,7 +186,7 @@ interface UserCardProps {
 const UserCard = ({ participant, key }: UserCardProps) => {
   const classes = useStyles()
   return (
-    <Grid container item xs={12} sm={12} md={6} lg={6} xl={4} key={key}>
+    <Grid container item xs={12} sm={12} md={6} lg={4} xl={4} key={key}>
       <Card className={classes.listItem}>
         <CardHeader
           avatar={

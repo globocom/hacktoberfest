@@ -1,7 +1,6 @@
 import React from "react"
-import { Grid, Box, Typography, useMediaQuery } from "@material-ui/core"
+import { Grid, Box, useMediaQuery } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core"
-import { Image } from "@components/image"
 import Layout from "@components/layout"
 import Spacing from "@components/spacing"
 import Tabs from "@components/tabs"
@@ -56,7 +55,7 @@ const ParticipantsPage = () => {
         alignContent="center"
       >
         <Spacing
-          desktop={{ margin: "100px 0px 80px 0px" }}
+          desktop={{ margin: "50px 0px 80px 0px" }}
           smart={{ margin: "40px 32px" }}
         >
           <Grid
@@ -65,24 +64,11 @@ const ParticipantsPage = () => {
             xs={12}
             lg={12}
           >
-            <HeaderTitle title={"Participantes"} />
-            {isDesktop && (
-              <Image className={classes.hero} src="2025/participant-hero.svg" />
-            )}
-            <Spacing
-              desktop={{ margin: "24px 0px 40px 0px" }}
-              smart={{ margin: "24px 0 40px 0" }}
-            >
-              <Typography
-                className={classes.description}
-                component="p"
-                align="left"
-                color="textPrimary"
-                variant="body1"
-              >
-                Navegue e veja quem contribuiu com cada edição.
-              </Typography>
-            </Spacing>
+            <HeaderTitle 
+              title="Participantes"
+              description="Navegue e veja quem contribuiu com cada edição."
+              imagePath={"2025/participant-hero.svg"}
+            />
             <Box style={{ flexGrow: 1 }}>
               <Tabs />
             </Box>

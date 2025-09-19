@@ -1,6 +1,5 @@
 import React from "react"
-import { Grid, Typography } from "@material-ui/core"
-import { Image } from "@components/image"
+import { Grid } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import Layout from "@components/layout"
@@ -47,37 +46,18 @@ const ProjectsPage = () => {
       <div className={classes.root}>
         <Grid container justifyContent="center">
           <Spacing
-            desktop={{ margin: "100px 0px 80px 0px" }}
+            desktop={{ margin: "50px 0px 80px 0px" }}
             smart={{ margin: "40px 32px" }}
           >
-          <Grid style={{ maxWidth: 1523 }} item xs={5} lg={10}>
-              <div className={classes.headerTitle}>
-                <div>
-                  <HeaderTitle title={"Projetos"} />
-                    <Spacing
-                      desktop={{ margin: "24px 0px 40px 0px" }}
-                      smart={{ margin: "24px 0 40px 0" }}
-                    >
-                  <Typography
-                    className={classes.description}
-                    component="p"
-                    align="left"
-                    color="textPrimary"
-                    variant="body1"
-                  >
-                    Todos os nossos projetos Open Source em um só lugar.
-                    Incentivamos sua contribuição no projeto que mais lhe
-                    agradar.
-                  </Typography>
-                  </Spacing>
-                </div>
-                <Image src={`2025/project.svg`} />
-              </div>
-            <div>
+            <Grid style={{ maxWidth: 1523 }} item xs={5} lg={10}>
+              <HeaderTitle
+                title="Projetos"
+                description="Todos os nossos projetos Open Source em um só lugar. Incentivamos sua contribuição no projeto que mais lhe agradar."
+                imagePath="2025/project.svg"
+              />
               <ProjectsList useMansonry={false} />
-            </div>
-          </Grid>
-            </Spacing>
+            </Grid>
+          </Spacing>
         </Grid>
       </div>
     </Layout>
