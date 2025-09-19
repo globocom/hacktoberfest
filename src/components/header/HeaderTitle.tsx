@@ -1,50 +1,87 @@
 import React from "react"
-import { makeStyles, Theme, Typography, Grid } from "@material-ui/core"
+import { makeStyles, Theme, Typography, Grid, useMediaQuery } from "@material-ui/core"
+import { Image } from "@components/image"
 
 const useStyles = makeStyles((theme: Theme) => {
-  console.log(JSON.stringify(theme))
-    return {
-      fontSection: {
-        fontSize: '69px',
-        color: theme.palette.text.secondary,
-        fontWeight: 400,
-        fontStyle: 'regular',
-        lineHeight: '100%',
-        fontFamily: "Globotipo Corporativa",
+  return {
+    fontSection: {
+      fontSize: "69px",
+      color: theme.palette.text.secondary,
+      fontWeight: 400,
+      fontStyle: "regular",
+      lineHeight: "100%",
+      fontFamily: "Globotipo Corporativa",
     },
     projectTitle: {
       display: "flex",
       alignItems: "center",
       justifyContent: "flex-start",
     },
+    description: {
+      fontSize: "18px",
+      lineHeight: "100%",
+      color: theme.palette.primary.contrastText,
+      fontFamily: "Globotipo Corporativa",
+      fontWeight: 400,
+      lineSpacing: "0%",
+      marginTop: "32px",
+    },
   }
 })
 
-const HeaderTitle = (props: HeaderTitleProps) => {
-  const classes = useStyles()
+interface HeaderTitleProps {
+  title: string;
+  description?: string;
+  imagePath?: string;
+}
+
+const HeaderTitle = ({ title, description, imagePath }: HeaderTitleProps) => {
+  const classes = useStyles();
+  const isDesktop = useMediaQuery((theme: Theme) =>
+      theme.breakpoints.up(theme.breakpoints.values.lg)
+    )
   return (
     <Grid
       container
       direction="row"
-      justifyContent="space-between"
       alignItems="center"
+      justifyContent="space-between"
+      style={{ minHeight: '180px', borderRadius: 0 }}
     >
-      <Grid item className={classes.projectTitle}>
+      <Grid item xs={12} md={10} lg={10} className={classes.projectTitle} style={{ flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center' }}>
         <Typography
           variant="h2"
-          component="h2"
+          component="h1"
           align="left"
           className={classes.fontSection}
         >
-          {props.title}
+          {title}
         </Typography>
+        {description && (
+          <Typography
+            className={classes.description}
+            component="p"
+            align="left"
+            color="textPrimary"
+            variant="body1"
+          >
+            {description}
+          </Typography>
+        )}
       </Grid>
+      
+      {imagePath && isDesktop && (
+        <Grid item xs={12} md={2} lg={2} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', height: '100%' }}>
+          <Image
+            src={imagePath}
+            alt="Header image"
+            width="187" 
+            height="220"
+          />
+        </Grid>
+      )}
     </Grid>
-  )
-}
-
-interface HeaderTitleProps {
-  title: String
+  );
 }
 
 export default HeaderTitle
