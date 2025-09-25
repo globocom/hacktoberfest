@@ -1,22 +1,54 @@
 import React from "react"
 import Spacing from "@components/spacing"
-import { Grid, Typography, Button, Hidden } from "@material-ui/core"
+import { Grid, Typography, Button } from "@material-ui/core"
 import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Edition, UserProps } from "@services/user"
-import Lottie from 'react-lottie';
-import animationData from '../../themes/images/2023/drone.json';
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
-    fontFamily: "inherit",
-    borderRadius: "2px",
-    border: "3px solid #02BBFF",
-    textTransform: "uppercase",
-    padding: '24px',
-    color: theme.palette.text.primary,
-    backgroundColor: "#07B1EF4D",
-    marginTop: '32px',
+    width: "100%",
+    height: "44px",
+    fontFamily: "Globotipo Variable",
+    fontSize: "16px",
+    fontWeight: 400,
+    fontStyle: "normal",
+    lineHeight: "100%",
+    letterSpacing: "0%",
+    borderRadius: "40px",
+    border: "none",
+    background: "transparent",
+    color: "#FFFFFF",
+    textAlign: "center",
+    textTransform: "none",
+    opacity: 1,
+    transform: "rotate(0deg)",
+    position: "relative",
+    transition: "all 0.3s ease",
+    marginTop: "44px",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      borderRadius: "40px",
+      padding: "1px",
+      background: "linear-gradient(90deg, #FFBD09 0%, #FF111E 100%)",
+      mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+      maskComposite: "xor",
+      WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+      WebkitMaskComposite: "xor",
+      zIndex: -1,
+    },
+    "&:hover": {
+      background: "linear-gradient(90deg, #FFBD09 0%, #FF111E 100%)",
+      color: "#FFFFFF",
+      "&::before": {
+        display: "none",
+      },
+    },
   },
   howWorks: {
     position: 'absolute',
@@ -67,17 +99,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderBottom: `2px solid ${theme.palette.secondary.main}`,
   },
   logoEdition: {
-    width: '110%',
-    marginLeft: '-46px',
-    display: 'block',
-    webkitTransform: "translate3d(0,0,0)",
-    WebkitBackfaceVisibility: 'hidden',
+    width: "380px",
+    marginTop: "32px",
+    marginBottom: "16px",
   },
   logoGlobo: {
-    width: '190px',
+    width: '180px',
     display: 'block',
-    webkitTransform: "translate3d(0,0,0)",
-    WebkitBackfaceVisibility: 'hidden',
+    textAlign: 'left',
+  },
+  contentCenter: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
   },
   character: {
     marginTop: '16%',
@@ -86,6 +121,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   drone: {
     width: '50%',
     height: '50%',
+  },
+  messageImage:{
+    marginTop: '40px',
+    display: "flex",
+    justifyContent: "center",
   },
   droneAnimation: {
     animation: `$MoveUpDown 3000ms cubic-bezier(0.65, 0, 0.35, 1) 0s infinite`
@@ -125,7 +165,8 @@ const getEditionState = (currentEdition: Edition | undefined): number => {
 
 const LoggedView = (user: UserProps) => {
   const classes = useStyles()
-  const currentEdition = user.editions?.[2021]
+  const currentEdition =
+    user.editions?.[Math.max(...Object.keys(user.editions))]
   const opened = currentEdition?.totalMergeRequests || 0
   const merged = currentEdition?.totalMergeRequestsMerged || "nenhum"
   const state = getEditionState(currentEdition);
@@ -199,13 +240,10 @@ const UnloggedView = () => {
         <Grid item xs={12}>
           <Button
             href="/login"
-            fullWidth
             className={classes.button}
+            size="large"
           >
-            <Typography component="p" variant="body2" align="center" style={{ fontSize: '16px', color: "#fff" }}>
-              <b>participar com sua conta do github</b>
-                </Typography>
-
+            Participar com sua conta do Github
           </Button>
         </Grid>
       </Grid>
@@ -216,14 +254,6 @@ const UnloggedView = () => {
 
 const SmartView = (props: SmartViewProps) => {
   const classes = useStyles()
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  };
   return (
     <React.Fragment>
       <Grid
@@ -234,42 +264,44 @@ const SmartView = (props: SmartViewProps) => {
       >
         <Grid item sm={12}>
           <Image className={classes.logoGlobo} src={`2024/globo.svg`} />
-          <Image className={classes.logoEdition} src={`2024/logo.png`} />
-          <Typography
-            variant="h1"
-            align="left"
-            style={{
-              fontSize: '26px',
-              fontWeight: 700,
-              lineHeight: '31.47px',
-              letterSpacing: '0.06em',
-              textAlign: 'left',
-              marginTop: "1.2vw"
-            }}
-            component="h2"
-          >
-          01.10.2024 — 31.10.2024
-              </Typography>
-          <Typography
-            style={{
-              fontSize: '20px',
-              fontWeight: 400,
-              lineHeight: '24.2px',
-              textAlign: 'left',
-              marginTop: "1vw"
-            }}
-            align="left"
-          >
-          O Hacktober está aberto a todos os que desejam trilhar o caminho da
-          colaboração e deixar sua marca nos projetos open source.
-              </Typography>
-          {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
+          <div className={classes.contentCenter}>
+            <Image className={classes.logoEdition} src={`2025/home-logo.svg`} />
+            <Typography
+              variant="h1"
+              align="center"
+              style={{
+                fontSize: '24px',
+                fontWeight: 700,
+                fontStyle: 'normal',
+                lineHeight: '31.47px',
+                letterSpacing: '6%',
+                textAlign: 'center',
+                marginTop: "1.2vw"
+              }}
+              component="h2"
+            >
+            01.10.2025 — 31.10.2025
+                </Typography>
+            <Typography
+              style={{
+                fontSize: '18px',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                letterSpacing: '0%',
+                // color: '#939598',
+                textAlign: 'center',
+                marginTop: "1vw"
+              }}
+              align="center"
+            >
+            O Hacktober está aberto a todos os que desejam trilhar o caminho da colaboração e deixar sua marca nos projetos open source.
+                </Typography>
+            {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
+          </div>
         </Grid>
-        <Grid item sm={6}>
-          <Image className={classes.character} src={`2024/character.svg`} />
-        </Grid>
-        <Grid item sm={4} className={classes.droneAnimation}>
-        <Image  src={`2024/message.png`} />
+        <Grid item sm={6}></Grid>
+        <Grid item sm={4} className={classes.messageImage}  >
+          <Image  src={`2025/message.svg`} />
           {/* <div className={classes.droneAnimation2}>
             <Lottie
               className={classes.drone}

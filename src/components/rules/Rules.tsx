@@ -130,6 +130,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   buttonSmart: {
     padding: "16px 4px",
+    display: "flex",
+    justifyContent: "center",
   },
   buttonText: {
     padding: 16,
@@ -172,6 +174,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       padding: "0 32px",
     },
+     "&:hover": {
+      backgroundColor: theme.palette.secondary.main,
+      color: theme.palette.text.secondary,
+      border: `1px solid ${theme.palette.secondary.main}`,
+      transform: "translateY(-2px)",
+      boxShadow: "0 8px 20px rgba(0, 0, 0, 0.3)",
+      "&::before": {
+        left: "100%",
+      },
+    }
   },
   clipSeparator: {
     marginTop: "5px",
@@ -342,33 +354,34 @@ const RulesSmart = (props: RulesProps) => {
             </Typography>
           </Grid>
         </Grid>
-
-        <Grid
-          container
-          direction="column"
-          justifyContent="space-between"
-          className={classes.rulesContainer}
-        >
-          {props.rules.map((rule, index) => (
-            <React.Fragment key={`mobile-rule-fragment-${index}`}>
-              <Grid
-                container
-                direction="row"
-                className={classes.rulesInsideContainer}
-              >
-                <Grid xs={3} item key={`number${index}`}>
-                  <div className={classes.number}>{index + 1}</div>
-                </Grid>
-                <Grid xs={8} item key={`rule${index}`}>
-                  {rule}
-                </Grid>
-              </Grid>
-              {index < (props.rules?.length ?? 0) - 1 && (
-                <div className={classes.horizontalLine}></div>
-              )}
-            </React.Fragment>
-          ))}
-        </Grid>
+        <Box padding={2}>
+            <Grid
+              container
+              direction="column"
+              justifyContent="space-between"
+              className={classes.rulesContainer}
+            >
+              {props.rules.map((rule, index) => (
+                <React.Fragment key={`mobile-rule-fragment-${index}`}>
+                  <Grid
+                    container
+                    direction="row"
+                    className={classes.rulesInsideContainer}
+                  >
+                    <Grid xs={3} item key={`number${index}`}>
+                      <div className={classes.number}>{index + 1}</div>
+                    </Grid>
+                    <Grid xs={8} item key={`rule${index}`}>
+                      {rule}
+                    </Grid>
+                  </Grid>
+                  {index < (props.rules?.length ?? 0) - 1 && (
+                    <div className={classes.horizontalLine}></div>
+                  )}
+                </React.Fragment>
+              ))}
+            </Grid>
+        </Box>
 
         {!props.user && (
           <div className={classes.buttonSmart}>
@@ -376,7 +389,6 @@ const RulesSmart = (props: RulesProps) => {
               href="/login"
               className={classes.button}
               size="large"
-              fullWidth
             >
               Participar com sua conta do Github
             </Button>
