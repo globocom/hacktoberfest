@@ -13,27 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: "780px",
     display: "flex",
     alignItems: "center",
-    "&::before": {
-      content: '""',
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      width: "100%",
-      height: "100%",
-      backgroundImage: "url('/grid.svg')",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-      opacity: 0.3,
-      zIndex: 0,
-      pointerEvents: "none",
-    },
-    "& > *": {
-      position: "relative",
-      zIndex: 1,
-    },
+
   },
   rule: {
     color: theme.palette.text.primary,
@@ -61,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   projectTitle: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
     marginBottom: "20px",
     padding: "0 16px",
     width: "100%",
@@ -158,32 +138,31 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   button: {
-    fontFamily: "inherit",
-    borderRadius: "25px",
+    backgroundColor: theme.palette.secondary.main,
     border: `1px solid ${theme.palette.text.secondary}`,
-    backgroundColor: theme.palette.primary.main,
+    borderRadius: "40px",
+    padding: "12px 32px",
+    fontSize: "16px",
+    fontWeight: 400,
+    fontStyle: "normal",
     color: theme.palette.text.secondary,
     textTransform: "none",
+    minWidth: "280px",
     height: "44px",
-    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
-      padding: "24px",
-    },
-    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      padding: "0 32px",
-    },
-    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
-      padding: "0 32px",
-    },
-     "&:hover": {
-      backgroundColor: theme.palette.secondary.main,
-      color: theme.palette.text.secondary,
+    opacity: 1,
+    lineHeight: "100%",
+    letterSpacing: "0%",
+    textAlign: "center",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      backgroundColor: theme.palette.text.secondary,
+      color: theme.palette.secondary.main,
       border: `1px solid ${theme.palette.secondary.main}`,
-      transform: "translateY(-2px)",
-      boxShadow: "0 8px 20px rgba(0, 0, 0, 0.3)",
-      "&::before": {
-        left: "100%",
-      },
-    }
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      maxWidth: "306px",
+    },
   },
   clipSeparator: {
     marginTop: "5px",
@@ -227,35 +206,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-interface DecorativeLineProps {
-  color: "yellow" | "darkGray" | string
-}
-
-const DecorativeLine: React.FC<DecorativeLineProps> = ({ color }) => {
-  const classes = useStyles()
-  const theme = useTheme()
-
-  const getColor = () => {
-    switch (color) {
-      case "yellow":
-        return theme.palette.custom?.yellow
-      case "darkGray":
-        return theme.palette.custom?.darkGray
-      default:
-        return color
-    }
-  }
-
-  return (
-    <div
-      className={classes.horizontalLineDesktop}
-      style={{ backgroundColor: getColor() }}
-    />
-  )
-}
-
 const RulesDesktop = (props: RulesProps) => {
   const classes = useStyles()
+  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"))
+
   return (
     <Box className={classes.containerRules}>
       <Grid
@@ -274,15 +228,23 @@ const RulesDesktop = (props: RulesProps) => {
           >
             Como participar
           </Typography>
+          {isDesktop && (
+            <div style={{ marginBottom: "-28px", paddingRight: "52px" }}>
+              <Image
+                src="2025/ilustracao-participar.svg"
+                style={{
+                  width: "328px",
+                  height: "224px",
+                }}
+              />
+            </div>
+          )}
         </Grid>
         <Grid
           item
           key={"inner_container"}
           className={classes.boxRulesContainer}
         >
-          <DecorativeLine color="yellow" />
-          <DecorativeLine color="darkGray" />
-          <DecorativeLine color="yellow" />
           <Grid
             container
             direction="row"
@@ -311,7 +273,6 @@ const RulesDesktop = (props: RulesProps) => {
               </React.Fragment>
             ))}
           </Grid>
-          <DecorativeLine color="darkGray" />
           {!props.user && (
             <Grid
               container

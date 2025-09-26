@@ -1,6 +1,6 @@
 import React from "react"
 import Spacing from "@components/spacing"
-import { Grid, Typography, Button } from "@material-ui/core"
+import { Grid, Typography, Button, Box } from "@material-ui/core"
 import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Edition, UserProps } from "@services/user"
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: "40px",
     border: "none",
     background: "transparent",
-    color: "#FFFFFF",
+    color: theme.palette.text.primary,
     textAlign: "center",
     textTransform: "none",
     opacity: 1,
@@ -88,7 +88,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: "290px",
   },
   character: {
-    width: "700px !important",
   },
   message: {
     width: "164px",
@@ -117,7 +116,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   buttonText: {
     padding: 16,
-    color: "#FFF",
+    color: theme.palette.text.primary,
     fontSize: "1rem",
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       fontSize: "1.125rem",
@@ -322,7 +321,8 @@ const DesktopView = (props: DesktopViewProps) => {
             lineHeight: '31.47px',
             letterSpacing: '6%',
             textAlign: 'center',
-            marginTop: "1.2vw"
+            marginTop: "1.2vw",
+            color: "#000000"
           }}
           component="h2"
         >
@@ -345,9 +345,9 @@ const DesktopView = (props: DesktopViewProps) => {
         {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
       </Grid>
       <Grid item sm={4} className={classes.gridItem} >
-        {/* <Box display="flex" marginTop={"auto"}>
-          <Image classnName={classes.character} src={`2024/character.png`} />
-        </Box> */}
+        <Box display="flex" alignItems="center" justifyContent="center" height="100%" paddingLeft={"440px"}>
+          <Image className={classes.character} src={`2025/ilustracao-home.svg`} />
+        </Box>
       </Grid>
       <Grid item sm={4} className={classes.gridMessage}>
         <Image className={classes.message} src={`2025/message.svg`} />

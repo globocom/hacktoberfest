@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: "30px",
   },
   projectCallDescription: {
+    color: theme.palette.text.secondary,
     fontSize: "1.5rem",
     lineHeight: "32px",
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
@@ -69,11 +70,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     zIndex: 1,
   },
   secondaryPage: {
-    marginTop: "-10px",
   },
   projects: {
-    backgroundColor: theme.palette.background.paper,
-    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.text.secondary,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       paddingLeft: "0",
       paddingRight: "0",
@@ -120,45 +120,30 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   allProjectsButton: {
-    width: "288px",
-    height: "44px",
-    fontFamily: "Globotipo Variable",
+    backgroundColor: "transparent",
+    border: `1px solid ${theme.palette.text.secondary}`,
+    borderRadius: "40px",
+    padding: "12px 32px",
     fontSize: "16px",
     fontWeight: 400,
     fontStyle: "normal",
+    color: theme.palette.text.secondary,
+    textTransform: "none",
+    minWidth: "280px",
+    height: "44px",
+    opacity: 1,
     lineHeight: "100%",
     letterSpacing: "0%",
-    borderRadius: "40px",
-    border: "none",
-    background: "linear-gradient(90deg, #FFBD09 0%, #FF111E 100%)",
-    color: theme.palette.text.primary,
-    textTransform: "none",
-    opacity: 1,
-    transform: "rotate(0deg)",
-    position: "relative",
-    padding: "1px",
+    textAlign: "center",
     transition: "all 0.3s ease",
-    "&::before": {
-      content: '""',
-      position: "absolute",
-      top: "1px",
-      left: "1px",
-      right: "1px",
-      bottom: "1px",
-      borderRadius: "39px",
-      background: theme.palette.background.paper,
-      zIndex: 1,
-      transition: "opacity 0.3s ease",
-    },
-    "&:hover::before": {
-      opacity: 0,
-    },
     "&:hover": {
-      color: "#FFFFFF",
+      backgroundColor: theme.palette.text.secondary,
+      color: theme.palette.secondary.main,
+      border: `1px solid ${theme.palette.secondary.main}`,
     },
-    "& .MuiButton-label": {
-      position: "relative",
-      zIndex: 2,
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      maxWidth: "306px",
     },
   },
 }))
@@ -182,7 +167,7 @@ const IndexPage = () => {
       <div className={classes.root}>
         {user && !user?.email && <EmailPopin user={user} />}
         <HeroCall user={user} />
-          <Rules user={user} />
+        <Rules user={user} />
         <div className={classes.secondaryPage}>
           <Grid
             container

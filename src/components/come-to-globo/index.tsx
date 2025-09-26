@@ -7,7 +7,7 @@ import Spacing from "@components/spacing"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    background: theme.palette.custom.yellowChallenge,
+    background: "linear-gradient(90deg, #07A3FF 0%, #8405F8 100%)",
     minHeight: "782px",
     width: "100%",
     position: "relative",
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   title: {
     fontSize: "48px",
     fontWeight: 700,
-    color: "#000000",
+    color: theme.palette.text.secondary,
     marginBottom: "32px",
     lineHeight: "56px",
     [theme.breakpoints.down("md")]: {
@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "20px",
     fontWeight: 400,
     fontStyle: "normal",
-    color: "#000000",
+    color: theme.palette.text.secondary,
     marginBottom: "24px",
     lineHeight: "140%",
     letterSpacing: "0%",
@@ -101,13 +101,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   button: {
     backgroundColor: "transparent",
-    border: "1px solid #000000",
+    border: `1px solid ${theme.palette.text.secondary}`,
     borderRadius: "40px",
     padding: "12px 32px",
     fontSize: "16px",
     fontWeight: 400,
     fontStyle: "normal",
-    color: "#000000",
+    color: theme.palette.text.secondary,
     textTransform: "none",
     minWidth: "280px",
     height: "44px",
@@ -117,8 +117,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: "center",
     transition: "all 0.3s ease",
     "&:hover": {
-      backgroundColor: "#000000",
-      color: "#FFFFFF",
+      backgroundColor: theme.palette.text.secondary,
+      color: theme.palette.text.primary,
     },
     [theme.breakpoints.down("md")]: {
       width: "100%",

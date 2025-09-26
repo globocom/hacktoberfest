@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: "relative",
     zIndex: 10,
     fontFamily: theme.typography.fontFamily,
+    background: "linear-gradient(90deg, #07A3FF 0%, #8405F8 100%)",
     "& a": {
       color: theme.palette.text.primary,
       textDecoration: "none",
