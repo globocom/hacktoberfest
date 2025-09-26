@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react"
-import { Grid, Typography } from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Image } from "@components/image"
 
 //Internal Components
 import Layout from "@components/layout"
 import Hacktoberfest from "@services/hacktoberfest"
-import { PersonalDataForm } from "@components/forms"
-import User, { UserProps } from "@services/user"
+import { ExcludeAccountForm, PersonalDataForm } from "@components/forms"
+import { UserProps } from "@services/user"
 import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert"
 import { ParticipationHistory } from "@components/participations"
-import { HeaderTitle } from "@components/header"
+import Spacing from '@components/spacing'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
+    backgroundColor: "#ffffff",
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      padding: "100px 0 0 0",
+      padding: "50px 0 0 0",
     },
   },
   topDivider: {
@@ -31,10 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   separator: {
     width: "100%",
     marginBottom: "-10px",
-  },
-  formData: {
-    maxWidth: "944px",
-  },
+  }
 }))
 
 interface HacktoberFestAlertProps extends AlertProps {
@@ -60,9 +57,23 @@ const PersonalAreaPage = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const user:
-        | UserProps
-        | undefined = await User.Service.getInstance().GetUser()
+      const user: UserProps = {
+        id: "123",
+        name: "Usuário Mock",
+        email: "mock@exemplo.com",
+        avatarURL: "https://example.com/avatar.png",
+        githubUser: "mockuser",
+        githubID: "mockgithubid",
+        city: "Mock City",
+        state: "Mock State",
+        postalCode: "12345-678",
+        address: "Rua Mock, 123",
+        shirtSize: "M",
+        shirtColor: "Azul",
+        linkedin: "LinkedIn do Usuário",
+        cpf: "123.456.789-00"
+        // Adicione outras propriedades obrigatórias aqui
+      }
       setUser(user)
       setIsLoaded(true)
 
@@ -89,22 +100,28 @@ const PersonalAreaPage = () => {
             alignItems="flex-start"
             alignContent="center"
             direction="column"
-            spacing={8}
           >
-            <Grid item xs={10} className={classes.formData}>
-              <PersonalDataForm user={user} />
+            <Spacing
+          desktop={{ margin: "50px 40px 80px 40px" }}
+          smart={{ margin: "50px 40px 80px 40px" }}
+        >
+            <Grid
+              item
+              style={{ maxWidth: 1400, minHeight: "61vh"}}
+              xs={12}
+              lg={12}
+            >
+              <Grid item xs={12}>
+                <PersonalDataForm user={user} />
+              </Grid>
+              <Grid item xs={12}>
+                <ParticipationHistory user={user} />
+              </Grid>
+              <Grid item xs={12}>
+                <ExcludeAccountForm/>
+              </Grid>
             </Grid>
-            <Grid item xs={10} className={classes.formData}>
-              <ParticipationHistory user={user} />
-            </Grid>
-            <Grid item xs={10} className={classes.formData}>
-              <HeaderTitle title={"Premiação"} />
-              <Typography component="h3" variant="h3">
-                A partir da edição de 2024, os participantes premiados receberão
-                um voucher por email junto com instruções para poder receber o
-                brinde da camiseta.
-              </Typography>
-            </Grid>
+            </Spacing>
           </Grid>
         )}
       </div>

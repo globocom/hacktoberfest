@@ -53,6 +53,8 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
     email: user.email,
     githubUser: user.githubUser,
     githubID: user.githubID,
+    linkedin: user.linkedin,
+    cpf: user.cpf,
   }
 
   const onSubmit = async (values: any) => {
@@ -82,11 +84,8 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
           spacing={2}
         >
           {!showOnlyEmailField && <>
-            <Grid item xs={10} md={12}>
-              <HeaderTitle title={"Minha Área"} />
-              <p style={{marginTop:24, marginBottom:8}}>Dados pessoais</p>
-            </Grid>
-            <Grid item xs={10} md={6}>
+            <HeaderTitle title={"Minha Área"} description='Dados pessoais'/>
+            <Grid item xs={12} md={4}>
               <HacktoberfestTextInput
                 fullWidth
                 onChange={formik.handleChange}
@@ -104,7 +103,7 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
                 }}
               />
             </Grid>
-            <Grid item xs={10} md={6}>
+            <Grid item xs={12} md={4}>
               <HacktoberfestTextInput
                 color="primary"
                 value={formik.values.githubID}
@@ -116,9 +115,21 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
                 }}
               />
             </Grid>
+            <Grid item xs={12} md={4}>
+              <HacktoberfestTextInput
+                color="primary"
+                value={formik.values.linkedin}
+                fullWidth
+                variant="outlined"
+                label="LinkedIn"
+                InputProps={{
+                  disabled: true
+                }}
+              />
+            </Grid>
           </>
           }
-          <Grid item xs={10} md={12}>
+          <Grid item xs={12} md={7}>
             <HacktoberfestTextInput
               onChange={formik.handleChange}
               name="email"
@@ -135,7 +146,24 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
               }}
             />
           </Grid>
-          <Grid container alignItems="flex-start" justifyContent="flex-start" item xs={10} lg={12}>
+          <Grid item xs={12} md={5}>
+            <HacktoberfestTextInput
+              onChange={formik.handleChange}
+              name="cpf"
+              value={formik.values.cpf}
+              fullWidth
+              variant="outlined"
+              error={formik.touched.cpf && Boolean(formik.errors.cpf)}
+              helperText={formik.touched.cpf && formik.errors.cpf}
+              label="CPF"
+              InputProps={{
+                startAdornment: <InputAdornment position="start">
+                  <EmailIcon />
+                </InputAdornment>
+              }}
+            />
+          </Grid>
+          <Grid container alignItems="flex-start" justifyContent="flex-start" item xs={12} lg={12}>
             <LoadingButton fullWidth isLoading={isLoading}>
               SALVAR
             </LoadingButton>

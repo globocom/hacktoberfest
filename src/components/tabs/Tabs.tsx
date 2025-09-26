@@ -108,12 +108,12 @@ const ParticipantsTabs = () => {
       <Tabs
         value={tabValue}
         onChange={handleChange}
-        indicatorColor="secondary"
+        indicatorColor="primary"
         textColor="inherit"
         style={{marginBottom: 20, borderBottom: "1px solid #05A6FF"}}
         TabIndicatorProps={{
           style: {
-            backgroundColor: "secondary",
+            backgroundColor: "primary",
           },
         }}
       >
@@ -126,7 +126,7 @@ const ParticipantsTabs = () => {
         <TabPanel key={index} value={tabValue} index={index}>
           {loading && (
             <div className={classes.loading}>
-              <CircularProgress color='secondary' />
+              <CircularProgress color='primary' />
             </div>
           )}
           {!loading &&

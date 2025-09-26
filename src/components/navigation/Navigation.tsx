@@ -171,14 +171,14 @@ const MenuOpen = (props: MenuOpenProps) => {
           <Spacing smart={{ padding: "16px 20px 20px 16px" }}>
             <Grid
               className={classes.smartMenuContainerGrid}
-              style={{ background: "#0C1013", borderRadius: 6, margin: 2 }}
+              style={{ background: "linear-gradient(90deg, #07A3FF 0%, #8405F8 100%)", padding: 20}}
             >
               <Spacing
                 smart={{ margin: "0px 0px 8px", padding: "0 0px 20px 20px" }}
               >
                 <div
                   style={{ display: "flex", justifyContent: "flex-end" }}
-                >
+                >  
                   <div
                     className={classes.closeIcon}
                     onClick={() => props.closeMenu()}

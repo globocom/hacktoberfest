@@ -1,7 +1,6 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 
-
 //Internal
 import { UserProps, Edition } from '@services/user'
 import Spacing from '@components/spacing'
@@ -94,22 +93,23 @@ const ParticipationHistory = (props: ParticipationHistoryProps) => {
   const editions: Array<string> = Object.keys(user.editions || {}) || []
 
   return (
-    <Grid
-      container
-      justifyContent="space-evenly"
-      alignItems="center"
-      spacing={2}
-    >
-      <Grid item xs={10} md={12}>
-        <HeaderTitle title={"Histórico de Participação"} />
-      </Grid>
-      <Grid item xs={10} md={12}>
-        <Typography style={{fontWeight:330}} component="h3" variant="h3">Relembre suas participações no Hacktoberfest.</Typography>
-      </Grid>
-      <Grid  xs={10} md={12} className={classes.conatinerPicures}>
-        {editions.map((edition: string, index: number) => <Grid key={index} item className={classes.root}> <EditionElement edition={edition} editionData={props.user.editions[edition]} /> </Grid>)}
-      </Grid>
-    </Grid >
+    <Spacing
+        desktop={{ margin: "100px 0px 0px 0px" }}
+        smart={{ margin: "100px 0px 0px 0px" }}
+        >
+      <Grid
+        container
+        justifyContent="space-evenly"
+        alignItems="center"
+        spacing={2}
+      >
+      
+        <HeaderTitle title={"Histórico de Participação"} description='Relembre suas participações no Hacktoberfest.' />
+        <Grid  xs={12} md={12} className={classes.conatinerPicures}>
+          {editions.map((edition: string, index: number) => <Grid key={index} item className={classes.root}> <EditionElement edition={edition} editionData={props.user.editions[edition]} /> </Grid>)}
+        </Grid>
+      </Grid >
+    </Spacing>
   )
 }
 
