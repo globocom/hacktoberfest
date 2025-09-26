@@ -36,7 +36,7 @@ const Layout = (props: LayoutProps) => {
     <div
       className={classes.root}
       style={{
-        background: "#8600F6",
+        background: "#FFFFFF"
       }}
     >
       <SEO

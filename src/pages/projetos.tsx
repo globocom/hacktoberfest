@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "18px",
     lineHeight: "100%",
     color: theme.palette.primary.contrastText,
-    fontFamily: "Globotipo Corporativa",
     fontWeight: 400,
     lineSpacing: "0%",
     marginTop: "32px",
@@ -46,10 +45,12 @@ const ProjectsPage = () => {
       <div className={classes.root}>
         <Grid container justifyContent="center">
           <Spacing
-            desktop={{ margin: "50px 0px 80px 0px" }}
-            smart={{ margin: "40px 32px" }}
+            desktop={{ margin: "50px 40px 80px 40px" }}
+            smart={{ margin: "50px 40px 80px 40px" }}
           >
-            <Grid style={{ maxWidth: 1523 }} item xs={5} lg={10}>
+            <Grid style={{ maxWidth: 1400, minHeight: "61vh" }}
+            xs={12}
+            lg={12}>
               <HeaderTitle
                 title="Projetos"
                 description="Todos os nossos projetos Open Source em um só lugar. Incentivamos sua contribuição no projeto que mais lhe agradar."

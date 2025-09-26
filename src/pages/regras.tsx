@@ -409,9 +409,7 @@ const Principles = () => {
         }}
       >
         <Grid item xs={12} lg={6}>
-          <div className={classes.principiosTitle}>
-            <HeaderTitle title={"Princípios"} />
-          </div>
+          <HeaderTitle title={"Princípios"} />
         </Grid>
         {isDesktop && (
           <div style={{ position: "absolute", top: "-28px", right: "-14px" }}>
@@ -507,7 +505,7 @@ const Rules = () => {
       <Spacing smart={{ margin: "32px 16px 20px 0" }}>
         <Grid item xs={12} lg={6}>
           <div className={classes.principiosTitle}>
-            <HeaderTitle title={"Regras"} />
+            <HeaderTitle title={"Regras"} imagePath='2025/flag-rules-25.svg'/>
           </div>
         </Grid>
       </Spacing>
@@ -556,34 +554,6 @@ const Rules = () => {
                   )}
                 </Grid>
               ))}
-
-              {isMedium && (
-                <Grid
-                  item
-                  style={{
-                    flex: "1 1 calc(33.333% - 1px)",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: "flex",
-                    backgroundColor: "#F6F6F6",
-                    height: "200px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      left: "0px",
-                      top: "20%",
-                      width: "2px",
-                      height: "84%",
-                      backgroundColor: "#000000",
-                      opacity: 1,
-                    }}
-                  />
-                  <Image height={168} src={`2025/flag-rules-25.svg`} />
-                </Grid>
-              )}
             </Grid>
           </div>
         </div>

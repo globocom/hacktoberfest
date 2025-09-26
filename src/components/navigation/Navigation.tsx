@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    boxShadow: "0px 2px 0px 0px #DF0025"
+    boxShadow: "0px 2px 0px 0px #0F9BFF"
   },
 }))
 
@@ -177,13 +177,8 @@ const MenuOpen = (props: MenuOpenProps) => {
                 smart={{ margin: "0px 0px 8px", padding: "0 0px 20px 20px" }}
               >
                 <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
+                  style={{ display: "flex", justifyContent: "flex-end" }}
                 >
-                  <Image
-                    src="2025/hero-menu.svg"
-                    style={{ width: 90, height: 106 }}
-                  />
-                    
                   <div
                     className={classes.closeIcon}
                     onClick={() => props.closeMenu()}

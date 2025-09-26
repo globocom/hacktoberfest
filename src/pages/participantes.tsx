@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "18px",
     lineHeight: "100%",
     color: theme.palette.primary.contrastText,
-    fontFamily: "Globotipo Corporativa",
     fontWeight: 400,
     lineSpacing: "0%"
   },
@@ -55,8 +54,8 @@ const ParticipantsPage = () => {
         alignContent="center"
       >
         <Spacing
-          desktop={{ margin: "50px 0px 80px 0px" }}
-          smart={{ margin: "40px 32px" }}
+          desktop={{ margin: "50px 40px 80px 40px" }}
+          smart={{ margin: "50px 40px 80px 40px" }}
         >
           <Grid
             item

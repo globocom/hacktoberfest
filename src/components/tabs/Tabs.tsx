@@ -20,6 +20,7 @@ const EDITIONS = [2025, 2024, 2023, 2022, 2021, 2020, 2019]
 
 const useStyles = makeStyles((theme: Theme) => ({
   tab: {
+    color: theme.palette.text.primary,
     minWidth: 68,
     fontSize: "22px",
     fontWeight: 900,
@@ -109,7 +110,7 @@ const ParticipantsTabs = () => {
         onChange={handleChange}
         indicatorColor="secondary"
         textColor="inherit"
-        style={{marginBottom: 20, borderBottom: "1px solid #361560"}}
+        style={{marginBottom: 20, borderBottom: "1px solid #05A6FF"}}
         TabIndicatorProps={{
           style: {
             backgroundColor: "secondary",

@@ -5,12 +5,13 @@ import { Image } from "@components/image"
 const useStyles = makeStyles((theme: Theme) => {
   return {
     fontSection: {
-      fontSize: "69px",
-      color: theme.palette.text.secondary,
+      color: theme.palette.text.primary,
       fontWeight: 400,
       fontStyle: "regular",
       lineHeight: "100%",
-      fontFamily: "Globotipo Corporativa",
+      [theme.breakpoints.up("md")]: {
+        fontSize: "69px !important",
+      },
     },
     projectTitle: {
       display: "flex",
@@ -20,8 +21,7 @@ const useStyles = makeStyles((theme: Theme) => {
     description: {
       fontSize: "18px",
       lineHeight: "100%",
-      color: theme.palette.primary.contrastText,
-      fontFamily: "Globotipo Corporativa",
+      color: theme.palette.text.primary,
       fontWeight: 400,
       lineSpacing: "0%",
       marginTop: "32px",

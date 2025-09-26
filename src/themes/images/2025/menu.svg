@@ -12,7 +12,7 @@
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="2"/>
 <feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.8745098039 0 0 0 0 0.0 0 0 0 0 0.1450980392 0 0 0 1 0"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0588235294 0 0 0 0 0.6078431373 0 0 0 0 1 0 0 0 1 0"/>
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_110_102218"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_110_102218" result="shape"/>
 </filter>
