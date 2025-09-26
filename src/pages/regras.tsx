@@ -43,8 +43,7 @@ const useGridDynamicPosition = () => {
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
-    backgroundColor: "#8600F6",
-    minHeight: "158vh",
+    backgroundColor: "#FFFFFF",
     position: "relative",
     "&::before": {
       content: '""',
@@ -62,9 +61,6 @@ const useStyles = makeStyles((theme: Theme) => ({
       zIndex: 0,
       pointerEvents: "none",
       transform: "scaleY(-1)",
-      [theme.breakpoints.up("lg")]: {
-        backgroundImage: "url('/grid.svg')",
-      },
     },
     "& > *": {
       position: "relative",
@@ -89,7 +85,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         fontSize: "69px !important",
       },
       letterSpacing: "0px !important",
-      color: "#FFFF !important",
+      color: "#000000 !important",
     },
   },
   fontSection: {
@@ -122,16 +118,15 @@ const useStyles = makeStyles((theme: Theme) => ({
       paddingBottom: "0px",
     },
     [theme.breakpoints.up("xl")]: {
-      maxWidth: "20%",
+      maxWidth: "18%",
     },
     fontFamily: "Globotipo Variable",
-    fontSize: "18px",
+    fontSize: "22px",
     fontWeight: 700,
-    lineHeight: "28px",
-    color: "#FF0C1F",
-    [theme.breakpoints.up("md")]: {
-      fontSize: "20px",
-    },
+    fontStyle: "normal",
+    lineHeight: "124%",
+    letterSpacing: 0,
+    color: "#800BF8",
   },
   pinkLabel: {
     fontFamily: "Globotipo Variable",
@@ -141,17 +136,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   principleDescription: {
     fontFamily: "Globotipo Variable",
-    fontSize: "16px",
+    fontSize: "20px",
     fontWeight: 400,
-    lineHeight: "22px",
+    fontStyle: "normal",
+    lineHeight: "124%",
+    letterSpacing: "0.05em",
     color: "#333333",
-    [theme.breakpoints.up("md")]: {
-      fontSize: "18px",
-      lineHeight: "25.2px",
-    },
   },
   principlesContainer: {
-    backgroundColor: "#7F00FA33",
+    backgroundColor: "#F6F6F6",
     marginTop: "40px",
   },
   principlesInsideContainer: {
@@ -167,11 +160,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     flexWrap: "nowrap",
     padding: "20px",
-    borderBottom: `0.1px solid #E5E5E5`,
+    borderBottom: `1px solid #E5E5E5`,
     "&:last-child": {
       borderBottom: "none",
     },
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#F6F6F6",
     width: "100%",
     maxWidth: "1523px",
     minHeight: "128px",
@@ -179,17 +172,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: "0 auto",
   },
   rulesContainer: {
-    backgroundColor: "#7F00FA33",
     marginTop: "40px",
   },
   rulesGridContainer: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#F6F6F6",
     width: "100%",
     maxWidth: "1523px",
     padding: "0px",
     margin: "0 auto",
     height: "auto",
     minHeight: "400px",
+    borderRadius: "8px",
   },
   rulesInsideContainer: {
     [theme.breakpoints.up("sm")]: {
@@ -216,9 +209,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.text.primary,
     height: "auto",
     minHeight: "200px",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#F6F6F6",
     padding: "20px",
     position: "relative",
+    borderRadius: "8px",
   },
   ruleVerticalDivider: {
     position: "absolute",
@@ -298,6 +292,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     justifyContent: "center",
     flexShrink: 0,
+    borderRadius: "8px",
   },
   rule: {
     color: theme.palette.text.primary,
@@ -406,32 +401,22 @@ const Principles = () => {
 
   return (
     <>
-      <Spacing smart={{ margin: "32px 16px 20px 0" }}>
+      <div
+        style={{
+          marginTop: "40px",
+          marginBottom: "40px",
+          position: "relative",
+        }}
+      >
         <Grid item xs={12} lg={6}>
           <div className={classes.principiosTitle}>
             <HeaderTitle title={"Princípios"} />
           </div>
         </Grid>
-      </Spacing>
-      <Grid
-        container
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="center"
-        className={classes.principlesContainer}
-        style={{ position: "relative" }}
-      >
         {isDesktop && (
-          <div
-            style={{
-              position: "absolute",
-              top: "-180px",
-              right: "0%",
-              zIndex: 10,
-            }}
-          >
+          <div style={{ position: "absolute", top: "-28px", right: "-14px" }}>
             <Image
-              src="2025/robozinho-novo.png"
+              src="2025/ilustracao-regras.png"
               style={{
                 width: "180px",
                 height: "auto",
@@ -440,23 +425,34 @@ const Principles = () => {
             />
           </div>
         )}
-        {principles.map((principle) => {
-          return (
-            <Grid
-              container
-              direction={isDesktop ? "row" : "column"}
-              className={classes.principlesInsideContainer}
-            >
-              <Grid item className={classes.principleTitle}>
-                {principle.title}
+      </div>
+      <div style={{ position: "relative" }}>
+        <Grid
+          container
+          direction="column"
+          justifyContent="flex-start"
+          alignItems="center"
+          className={classes.principlesContainer}
+          style={{ position: "relative" }}
+        >
+          {principles.map((principle) => {
+            return (
+              <Grid
+                container
+                direction={isDesktop ? "row" : "column"}
+                className={classes.principlesInsideContainer}
+              >
+                <Grid item className={classes.principleTitle}>
+                  <div>{principle.title}</div>
+                </Grid>
+                <Grid item className={classes.principleDescription}>
+                  <div>{principle.description}</div>
+                </Grid>
               </Grid>
-              <Grid item className={classes.principleDescription}>
-                {principle.description}
-              </Grid>
-            </Grid>
-          )
-        })}
-      </Grid>
+            )
+          })}
+        </Grid>
+      </div>
     </>
   )
 }
@@ -524,20 +520,12 @@ const Rules = () => {
         style={{ position: "relative" }}
       >
         <div style={{ position: "relative" }}>
-          <DecorativeLine color="yellow" />
-          <DecorativeLine color="darkGray" />
-          <DecorativeLine color="yellow" />
-
-          <DecorativeVerticalBar position="left" />
-          <DecorativeVerticalBar position="right" />
-
-          {/* Container branco com o grid */}
           <div className={classes.rulesGridContainer}>
             <Grid
               container
               direction="row"
               style={{
-                backgroundColor: "#FFFFFF",
+                backgroundColor: "#F6F6F6",
                 flexWrap: "wrap",
                 height: "100%",
                 alignItems: "stretch",
@@ -577,7 +565,7 @@ const Rules = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     display: "flex",
-                    backgroundColor: "#FFFFFF",
+                    backgroundColor: "#F6F6F6",
                     height: "200px",
                     position: "relative",
                   }}
@@ -633,7 +621,7 @@ const RuleBookPage = () => {
       description="Regras e Princípos - Globo Hacktoberfest"
       headerTitle="Regras e Princípios"
     >
-      <div style={{ backgroundColor: "#8600F6", minHeight: "100vh" }}>
+      <div style={{ backgroundColor: "#FFFFFF", minHeight: "100vh" }}>
         <Grid
           className={classes.root}
           container
@@ -655,7 +643,6 @@ const RuleBookPage = () => {
             xs={10}
             lg={10}
             style={{
-              ...(isDesktop ? { top: "10vh" } : {}),
               width: "100%",
               maxWidth: "1523px",
             }}
