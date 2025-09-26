@@ -5,13 +5,13 @@ const theme = createTheme()
 theme.palette = {
   ...theme.palette,
   primary: {
-    main: "#8600F6",
+    main: "#05A6FF",
     contrastText: "#fff",
     light: "#C6B6D9",
     dark: "#220A42",
   },
   secondary: {
-    main: "#FF0C1F",
+    main: "#8701F8",
     contrastText: "#fff",
     light: "#000",
     dark: "#17042B",
