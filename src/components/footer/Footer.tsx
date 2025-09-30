@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import { makeStyles, Theme, Typography, useMediaQuery } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import { Image } from "@components/image"
@@ -168,10 +168,15 @@ const Footer = () => {
   const isDesktop = useMediaQuery((theme: Theme) =>
     theme.breakpoints.up(theme.breakpoints.values.lg)
   )
+  const [pathName, setPathName] = useState("")
+  
+  useEffect(() => {
+    setPathName(window.location.pathname)
+  }, [])
 
   return (
     <footer className={classes.root}>
-      <div className={classes.footerTop}></div>
+      {pathName !== "/" && <div className={classes.footerTop}></div>}
       <div className={classes.footer}>
         {isDesktop ? (
           <FooterDesktop menuItems={MENU_ITEMS} />
