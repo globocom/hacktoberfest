@@ -57,7 +57,7 @@ const ExcludeAccountForm = () => {
               
                 <Grid item md={12} className={classes.buttonContainer}>
                   <Button className={classes.button}>
-                    Excluir minha conta
+                    Excluir Conta
                   </Button>
                 </Grid>
               </Grid>

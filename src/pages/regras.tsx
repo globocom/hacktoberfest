@@ -223,6 +223,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: "#000000",
     opacity: 1,
   },
+  ruleVerticalDividerLeft: {
+    position: "absolute",
+    left: "0px",
+    top: "20%",
+    width: "2px",
+    height: "60%",
+    backgroundColor: "#000000",
+    opacity: 1,
+  },
   ruleHorizontalDivider: {
     position: "absolute",
     bottom: "0px",
@@ -315,17 +324,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontSize: "20px",
       lineHeight: "28px",
     },
-  },
-  gradientBar: {
-    position: "relative",
-    width: "100vw",
-    height: "24px",
-    marginLeft: "calc(-50vw + 50%)",
-    marginTop: "60px",
-    opacity: 1,
-    background:
-      "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)",
-  },
+  }
 }))
 
 interface DecorativeLineProps {
@@ -400,17 +399,8 @@ const Principles = () => {
   ]
 
   return (
-    <>
-      <div
-        style={{
-          marginTop: "40px",
-          marginBottom: "40px",
-          position: "relative",
-        }}
-      >
-        <Grid item xs={12} lg={6}>
-          <HeaderTitle title={"Princípios"} />
-        </Grid>
+      <>
+        <HeaderTitle title={"Princípios"} />
         {isDesktop && (
           <div style={{ position: "absolute", top: "-28px", right: "-14px" }}>
             <Image
@@ -423,8 +413,6 @@ const Principles = () => {
             />
           </div>
         )}
-      </div>
-      <div style={{ position: "relative" }}>
         <Grid
           container
           direction="column"
@@ -450,8 +438,7 @@ const Principles = () => {
             )
           })}
         </Grid>
-      </div>
-    </>
+        </>
   )
 }
 
@@ -503,11 +490,7 @@ const Rules = () => {
   return (
     <>
       <Spacing smart={{ margin: "32px 16px 20px 0" }}>
-        <Grid item xs={12} lg={6}>
-          <div className={classes.principiosTitle}>
-            <HeaderTitle title={"Regras"} imagePath='2025/flag-rules-25.svg'/>
-          </div>
-        </Grid>
+        <HeaderTitle title={"Regras"}/>
       </Spacing>
       <Grid
         container
@@ -549,11 +532,27 @@ const Rules = () => {
                     <div className={classes.ruleVerticalDivider} />
                   )}
 
-                  {(isMedium ? index < 3 : index < 4) && (
+                  {(isMedium ? index < 3 : index < 5) && (
                     <div className={classes.ruleHorizontalDivider} />
                   )}
                 </Grid>
               ))}
+              
+              <Grid
+                  key={`rule-999`}
+                  item
+                  className={classes.rulesInsideContainer}
+                  style={{
+                    flex: isMedium ? "1 1 calc(33.333% - 1px)" : "1 1 100%",
+                    position: "relative",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    display: "flex",
+                  }}
+                >
+                  {isMedium && <div className={classes.ruleVerticalDividerLeft} />}
+                  <Image src='2025/flag-rules-25.svg' alt='Flag Rules 25' />
+                </Grid>
             </Grid>
           </div>
         </div>
@@ -599,10 +598,15 @@ const RuleBookPage = () => {
           justifyContent="center"
           alignItems="center"
         >
+          <Spacing
+            desktop={{ margin: "50px 40px 80px 40px" }}
+            smart={{ margin: "50px 40px 80px 40px" }}
+          >
+            <div>
           <Grid
             item
-            xs={10}
-            lg={10}
+            xs={12}
+            lg={12}
             style={{ width: "100%", maxWidth: "1523px" }}
             className={classes.containerPadding}
           >
@@ -610,8 +614,8 @@ const RuleBookPage = () => {
           </Grid>
           <Grid
             item
-            xs={10}
-            lg={10}
+            xs={12}
+            lg={12}
             style={{
               width: "100%",
               maxWidth: "1523px",
@@ -620,9 +624,9 @@ const RuleBookPage = () => {
           >
             <Rules />
           </Grid>
+          </div>
+          </Spacing>
         </Grid>
-
-        <div className={classes.gradientBar}></div>
       </div>
     </Layout>
   )

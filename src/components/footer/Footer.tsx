@@ -49,6 +49,7 @@ const makeCss = makeStyles((theme: Theme) => ({
     width: "100%",
   },
   footercontent: { height: "316px", display: "flex", alignItems: "center", justifyItems: "center"},
+  footerTop: { height: "24px", width: "100%", background: "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)" },
 }))
 
 const FooterDesktop = (props: FooterItemsProps) => {
@@ -170,6 +171,7 @@ const Footer = () => {
 
   return (
     <footer className={classes.root}>
+      <div className={classes.footerTop}></div>
       <div className={classes.footer}>
         {isDesktop ? (
           <FooterDesktop menuItems={MENU_ITEMS} />
