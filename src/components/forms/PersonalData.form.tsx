@@ -84,6 +84,7 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
       setTimeout(() => {
         setIsLoading(false)
         snackbarContext.showSnackBar("success", "Dados pessoais atualizado com sucesso !")
+        // A mensagem não é exibida ao inserir o CPF e clicar em Salvar, pois o CPF não está persistindo
         onSuccess && onSuccess()
       }, 3000)
     } catch (e) {
