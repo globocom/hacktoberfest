@@ -19,7 +19,7 @@ interface MenuItem {
 const MENU_ITEMS: Array<MenuItem> = [
   { label: "globo.com opensource", link: "https://www.globo.com/" },
   { label: "Github", link: "https://github.com/globocom/hacktoberfest" },
-  { label: "Open Source", link: "https://github.com/globocom/hacktoberfest" },
+  { label: "Open Source", link: "https://github.com/globocom/" },
   { label: "Trabalhe Conosco", link: "https://vempraglobo.g.globo/" },
 ]
 
