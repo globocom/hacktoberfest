@@ -24,6 +24,10 @@ const validationSchema = () => Yup.object().shape({
     .email("E-mail inválido")
     .required("Preenchimento do email obrigatório"),
   githubUser: Yup.string().required("Preenchimento do usuário Github obrigatório"),
+  cpf: Yup
+    .string()
+    .matches(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, "CPF inválido")
+    .required("Preenchimento do CPF obrigatório"),
 })
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -40,6 +44,22 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
   }
 }))
+
+const formatCPF = (value: string): string => {
+  // Remove tudo que não é dígito
+  const numbers = value.replace(/\D/g, '')
+
+  // Aplica a máscara: 000.000.000-00
+  if (numbers.length <= 3) {
+    return numbers
+  } else if (numbers.length <= 6) {
+    return numbers.replace(/(\d{3})(\d{1,3})/, '$1.$2')
+  } else if (numbers.length <= 9) {
+    return numbers.replace(/(\d{3})(\d{3})(\d{1,3})/, '$1.$2.$3')
+  } else {
+    return numbers.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4')
+  }
+}
 
 
 const PersonalDataForm = (props: PersonalDataFormProps) => {
@@ -73,6 +93,11 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
   }
 
   const formik = useFormik({ initialValues, validationSchema, onSubmit });
+
+  const handleCPFChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatCPF(event.target.value)
+    formik.setFieldValue('cpf', formatted)
+  }
 
   return (
     <React.Fragment>
@@ -148,7 +173,7 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
           </Grid>
           <Grid item xs={12} md={5}>
             <HacktoberfestTextInput
-              onChange={formik.handleChange}
+              onChange={handleCPFChange}
               name="cpf"
               value={formik.values.cpf}
               fullWidth
@@ -156,11 +181,7 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
               error={formik.touched.cpf && Boolean(formik.errors.cpf)}
               helperText={formik.touched.cpf && formik.errors.cpf}
               label="CPF"
-              InputProps={{
-                startAdornment: <InputAdornment position="start">
-                  <EmailIcon />
-                </InputAdornment>
-              }}
+              inputProps={{ maxLength: 14 }}
             />
           </Grid>
           <Grid container alignItems="flex-start" justifyContent="flex-start" item xs={12} lg={12}>
