@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "41.15px",
     lineHeight: "57.61px",
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      fontSize: "3rem",
+      fontSize: "69px",
       lineHeight: "56px",
     },
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
@@ -50,8 +50,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projectCallDescription: {
     color: theme.palette.text.secondary,
-    fontSize: "1.5rem",
-    lineHeight: "32px",
+    fontSize: "1.125rem",
+    lineHeight: "100%",
+    fontWeight: 400,
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       fontSize: "2rem",
       lineHeight: "48px",
@@ -203,7 +204,7 @@ const IndexPage = () => {
                       </Typography>
                     </Grid>
                   </Grid>
-                  <Spacing smart={{ margin: "0px 0px 60px 40px" }}>
+                  <Spacing smart={{ margin: "40px 0px 40px 30px" }}>
                     <Typography
                       className={classes.projectCallDescription}
                       align="left"
