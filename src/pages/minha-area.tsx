@@ -5,8 +5,8 @@ import { makeStyles, Theme } from "@material-ui/core/styles"
 //Internal Components
 import Layout from "@components/layout"
 import Hacktoberfest from "@services/hacktoberfest"
+import User, { UserProps } from "@services/user"
 import { ExcludeAccountForm, PersonalDataForm } from "@components/forms"
-import { UserProps } from "@services/user"
 import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert"
 import { ParticipationHistory } from "@components/participations"
 import Spacing from '@components/spacing'
@@ -57,23 +57,7 @@ const PersonalAreaPage = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const user: UserProps = {
-        id: "123",
-        name: "Usuário Mock",
-        email: "mock@exemplo.com",
-        avatarURL: "https://example.com/avatar.png",
-        githubUser: "mockuser",
-        githubID: "mockgithubid",
-        city: "Mock City",
-        state: "Mock State",
-        postalCode: "12345-678",
-        address: "Rua Mock, 123",
-        shirtSize: "M",
-        shirtColor: "Azul",
-        linkedin: "LinkedIn do Usuário",
-        cpf: "123.456.789-00"
-        // Adicione outras propriedades obrigatórias aqui
-      }
+      const user = await User.Service.getInstance().GetUser()
       setUser(user)
       setIsLoaded(true)
 
