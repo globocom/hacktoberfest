@@ -84,8 +84,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: 22,
   },
   logoEdition: {
-    width: "446px",
-    height: "290px",
+    zIndex: 1,
   },
   character: {
   },
@@ -107,9 +106,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: "100%",
   },
   logoGlobo: {
-    width: "166px",
-    height: "48px",
-    marginBottom: "32px",
+    width: "201px",
+    height: "58px",
+    marginTop: "176px",
   },
   active: {
     borderBottom: `2px solid ${theme.palette.secondary.main}`,
@@ -309,7 +308,7 @@ const DesktopView = (props: DesktopViewProps) => {
   return (
     <Grid container alignItems="center" className={classes.wrapper}>
       <Grid item sm={4} className={classes.gridItem}>
-        <Image className={classes.logoGlobo} src={`2024/globo.svg`} />
+        <Image className={classes.logoGlobo} src={`2025/globo.svg`} />
         <Image className={classes.logoEdition} src={`2025/home-logo.svg`} />
         <Typography
           variant="h1"

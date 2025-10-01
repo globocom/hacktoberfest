@@ -218,7 +218,7 @@ const RulesDesktop = (props: RulesProps) => {
         justifyContent="center"
         alignItems="flex-start"
         className={classes.containerRules}
-        style={{ height: "100%" }}
+        style={{ height: "100%", paddingTop: isDesktop ? "90px" : "0px" }}
       >
         <Grid item key={"como-participar"} className={classes.projectTitle}>
           <Typography

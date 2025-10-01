@@ -8,17 +8,6 @@ import DesktopView from "./HeroDesktop"
 import { UserProps } from "@services/user"
 
 
-// Array com as imagens do carrossel
-const carouselImages = [
-  "/ademario-santana.png",
-  "/ada-lovelace.png",
-  "/alan-turing.png",
-  "/bill-gates.png",
-  "/grace-hopper.png",
-  "/linus-torvalds.png",
-  "/margaret-hamilton.png",
-  "/steve-jobs.png"
-]
 
 const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
@@ -49,7 +38,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: "0px -100px 0px 0px",
     height: "100%",
     transition: "background-image 1s ease-in-out",
-  }
+  },
+  gradientLine: { height: "24px", width: "100%", background: "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)", marginTop: "-20px" },
+
 }))
 
 const HeroCall = (props: HeroCallProps) => {
@@ -88,6 +79,7 @@ const HeroCall = (props: HeroCallProps) => {
           </Grid>
         </Grid>
       </Spacing>
+      <div className={classes.gradientLine}></div>
     </>
   )
 }
