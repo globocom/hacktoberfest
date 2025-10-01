@@ -148,7 +148,7 @@ const PersonalDataForm = (props: PersonalDataFormProps) => {
                 variant="outlined"
                 label="LinkedIn"
                 InputProps={{
-                  disabled: true
+                  // Removido a linha 'disabled: true' pois desabilita o input do campo LinkedIn
                 }}
               />
             </Grid>
