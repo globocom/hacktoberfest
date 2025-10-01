@@ -10,10 +10,12 @@ import { Link, Grid, Typography, useMediaQuery } from "@material-ui/core"
 import Button from "@material-ui/core/Button"
 import ProjectsList from "@components/projects"
 import User, { UserProps } from "@services/user"
+import ComeToGlobo from "@components/come-to-globo"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.primary.main,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       backgroundImage: "",
     },
@@ -37,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "41.15px",
     lineHeight: "57.61px",
     [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      fontSize: "3rem",
+      fontSize: "69px",
       lineHeight: "56px",
     },
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
@@ -47,8 +49,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: "30px",
   },
   projectCallDescription: {
-    fontSize: "1.5rem",
-    lineHeight: "32px",
+    color: theme.palette.text.secondary,
+    fontSize: "1.125rem",
+    lineHeight: "100%",
+    fontWeight: 400,
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       fontSize: "2rem",
       lineHeight: "48px",
@@ -67,9 +71,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     zIndex: 1,
   },
   secondaryPage: {
-    marginTop: "-10px",
   },
   projects: {
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.text.secondary,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
       paddingLeft: "0",
       paddingRight: "0",
@@ -90,6 +95,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projectItem: {
     width: "100%",
+    marginTop: "120px",
   },
   computer: {
     width: "165px",
@@ -100,17 +106,46 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: "60px 0px",
     justifyContent: "center",
   },
+  backgroundImage: {
+    position: "absolute",
+    zIndex: 1,
+    [theme.breakpoints.down("sm")]: {
+      width: "240%",
+      height: "auto",
+    },
+  },
+  backgroundImageContainer: {
+    height: "140px",
+    [theme.breakpoints.down("sm")]: {
+      height: "80px",
+    },
+  },
   allProjectsButton: {
-    width: "288px",
-    height: "70px",
-    fontFamily: "Globotipo Variable",
+    backgroundColor: "transparent",
+    border: `1px solid ${theme.palette.text.secondary}`,
+    borderRadius: "40px",
+    padding: "12px 32px",
     fontSize: "16px",
-    fontWeight: 700,
-    backgroundColor: "#07B1EF4D",
-    borderRadius: "2px",
-    border: "3px solid #02BBFF",
-    color: theme.palette.text.primary,
-    textTransform: "uppercase",
+    fontWeight: 400,
+    fontStyle: "normal",
+    color: theme.palette.text.secondary,
+    textTransform: "none",
+    minWidth: "280px",
+    height: "44px",
+    opacity: 1,
+    lineHeight: "100%",
+    letterSpacing: "0%",
+    textAlign: "center",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      backgroundColor: theme.palette.text.secondary,
+      color: theme.palette.secondary.main,
+      border: `1px solid ${theme.palette.secondary.main}`,
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      maxWidth: "306px",
+    },
   },
 }))
 
@@ -128,25 +163,12 @@ const IndexPage = () => {
     return theme.breakpoints.up(theme.breakpoints.values.lg)
   })
 
-  // TODO: trazer o padding que ficava dentro do layout, pra ca, ai a tela ia ficar com background color sem fazer gambiarra
   return (
     <Layout title="Globo Hacktoberfest">
       <div className={classes.root}>
         {user && !user?.email && <EmailPopin user={user} />}
         <HeroCall user={user} />
-        {isDesktop && (
-          <>
-            <Image
-              className={classes.separatorPink}
-              src={`2024/pink-line.svg`}
-            />
-            <Image
-              className={classes.separatorViolet}
-              src={`2024/violet-line.svg`}
-            />
-          </>
-        )}
-
+        <Rules user={user} />
         <div className={classes.secondaryPage}>
           <Grid
             container
@@ -155,7 +177,6 @@ const IndexPage = () => {
             alignItems="center"
             className={classes.projects}
           >
-            <Rules user={user} />
             <Spacing
               smart={{ padding: "0 16px" }}
               desktop={{ margin: "30px 0px" }}
@@ -174,7 +195,6 @@ const IndexPage = () => {
                     alignItems="center"
                   >
                     <Grid item className={classes.projectTitle}>
-                      <Image src={`2024/white-raio.svg`} />
                       <Typography
                         className={classes.projectFont}
                         variant="body1"
@@ -183,13 +203,8 @@ const IndexPage = () => {
                         Principais Projetos
                       </Typography>
                     </Grid>
-                    {isDesktop && (
-                      <Grid item className={classes.computer}>
-                        <Image src={`2024/computer.svg`} />
-                      </Grid>
-                    )}
                   </Grid>
-                  <Spacing smart={{ margin: "0px 0px 60px 40px" }}>
+                  <Spacing smart={{ margin: "40px 0px 40px 30px" }}>
                     <Typography
                       className={classes.projectCallDescription}
                       align="left"
@@ -211,7 +226,7 @@ const IndexPage = () => {
                         variant="outlined"
                         className={classes.allProjectsButton}
                       >
-                        VER TODOS OS PROJETOS
+                        Ver todos os projetos
                       </Button>
                     </Link>
                   </Grid>
@@ -219,6 +234,14 @@ const IndexPage = () => {
               </Grid>
             </Spacing>
           </Grid>
+        </div>
+
+          <Grid container justifyContent="center" alignItems="center" className={classes.backgroundImageContainer}>
+            <Image src="2025/come-to-globo.svg" className={classes.backgroundImage} />
+          </Grid>
+
+        <div>
+          <ComeToGlobo />
         </div>
       </div>
     </Layout>

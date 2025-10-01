@@ -7,7 +7,14 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
-    cursor: "pointer"
+    cursor: "pointer",
+    color: "#000000",
+    "& svg": {
+      fill: "#000000",
+    },
+    "& img": {
+      filter: "brightness(0)",
+    },
   },
 }))
 

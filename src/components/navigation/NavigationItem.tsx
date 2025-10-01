@@ -8,7 +8,7 @@ interface NavigationItemProps {
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
-    item: {
+  item: {
     marginBottom: 28,
     [theme.breakpoints.up("md")]: {
       color: "red",
@@ -37,7 +37,7 @@ const MenuItem = (props: NavigationItemProps) => {
   const classes = useStyles()
   return (
     <li className={classes.item}>
-      <a className={classes.typographyFontSize} href={props.link} style={{color: props.link == pathName ? "#FF0099" : ""}}>
+      <a className={classes.typographyFontSize} href={props.link} style={{color: props.link == pathName ? "#000000" : "#FFFFFF"}}>
         {" "}
         {props.label}{" "}</a>
     </li>

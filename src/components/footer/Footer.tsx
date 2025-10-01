@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import { makeStyles, Theme, Typography, useMediaQuery } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import { Image } from "@components/image"
@@ -17,14 +17,15 @@ interface MenuItem {
 }
 
 const MENU_ITEMS: Array<MenuItem> = [
-  { label: "github", link: "https://github.com/globocom/hacktoberfest" },
-  { label: "trabalhe conosco", link: "https://vempraglobo.g.globo/" },
+  { label: "globo.com opensource", link: "https://www.globo.com/" },
+  { label: "Github", link: "https://github.com/globocom/hacktoberfest" },
+  { label: "Open Source", link: "https://github.com/globocom/hacktoberfest" },
+  { label: "Trabalhe Conosco", link: "https://vempraglobo.g.globo/" },
 ]
 
 const makeCss = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.text.primary,
-    paddingTop: "32px",
     textAlign: "center",
     "& a": {
       color: theme.palette.text.primary,
@@ -34,58 +35,79 @@ const makeCss = makeStyles((theme: Theme) => ({
   },
   menuItem: {
     textAlign: "left",
+    fontWeight: 700,
+    fontStyle: "normal",
+    fontSize: "22px",
+    lineHeight: "33px",
+    letterSpacing: "0%",
   },
   footer: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.background.paper,
     width: "100%",
   },
   footerImage: {
     width: "100%",
   },
-  footercontent: { height: "331px", display: "flex" },
+  footercontent: { height: "316px", display: "flex", alignItems: "center", justifyItems: "center"},
+  footerTop: { height: "24px", width: "100%", background: "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)" },
 }))
 
 const FooterDesktop = (props: FooterItemsProps) => {
   const classes = makeCss()
   return (
     <div className={classes.footercontent}>
-      <Grid container justifyContent="space-around" alignItems="center">
+      <Grid container direction="column" justifyContent="center" style={{ height: "100%", padding: "40px 60px" }}>
         <Grid item>
-          <Image src="2023/globo.svg" width="190" height="54.79" />
-        </Grid>
-        <Grid item>
-          <Image src="2024/logo.png" width="278" height="90" />
-        </Grid>
-        {props.menuItems.map((item: MenuItem, i: number) => (
-          <Grid item key={i}>
-            <Typography
-              className={classes.menuItem}
-              variant="body1"
-              component="p"
-            >
-              <a target="_blank" href={item.link}>
-                {item.label}
-              </a>
-            </Typography>
+          <Grid container justifyContent="space-between" alignItems="center">
+            <Grid item>
+              <Image src="2025/globo.svg" width="166" height="48" />
+            </Grid>
+
+            <Grid item>
+              <Image src="2025/logo-footer.svg" width="256" height="138" />
+            </Grid>
+
+            <Grid item>
+              <Grid container direction="row" spacing={4}>
+                {props.menuItems.map((item: MenuItem, i: number) => (
+                  <Grid item key={i}>
+                    <Typography
+                      className={classes.menuItem}
+                      variant="body1"
+                      component="p"
+                    >
+                      <a target="_blank" href={item.link}>
+                        {item.label}
+                      </a>
+                    </Typography>
+                  </Grid>
+                ))}
+              </Grid>
+              <Grid container direction="column" alignItems="flex-start">
+                <Typography
+                  variant="body2"
+                  style={{
+                    fontStyle: "normal",
+                    lineHeight: "33px",
+                    letterSpacing: "2%",
+                    fontWeight: "400",
+                    fontSize: "14px",
+                    textAlign: "left",
+                  }}
+                >
+                  As imagens do site foram geradas com IA usando o modelo Stable Diffusion via Leonardo.ai e Chat GPT.
+                </Typography>
+              </Grid>
+            </Grid>
+
+            {/* Botão de scroll */}
+            <Grid item>
+              <ScrollTop />
+            </Grid>
           </Grid>
-        ))}
-        <Grid item>
-          <ScrollTop />
         </Grid>
+
       </Grid>
-      <br />
-      <p
-        style={{
-          fontWeight: "400",
-          fontSize: "14px",
-          marginLeft: "-848px",
-          marginTop: "188px",
-          color: "#A03FFF",
-        }}
-      >
-        As imagens do site foram geradas com IA usando o modelo Stable Diffusion
-        via Leonardo.ai.
-      </p>
     </div>
   )
 }
@@ -101,12 +123,12 @@ const FooterSmart = (props: FooterItemsProps) => {
     >
       <Spacing smart={{ margin: "10px 32px 0" }}>
         <Grid item>
-          <Image height="30" src="2023/globo.svg" />
+          <Image height="30" src="2025/globo.svg" />
         </Grid>
       </Spacing>
       <Spacing smart={{ margin: "0 18px 0" }}>
         <Grid item>
-          <Image src="2024/logo.png" with="278" height="90" />
+          <Image src="2025/logo-footer.svg" with="278" height="90" />
         </Grid>
       </Spacing>
       {props.menuItems.map((item: MenuItem, i: number) => (
@@ -146,10 +168,15 @@ const Footer = () => {
   const isDesktop = useMediaQuery((theme: Theme) =>
     theme.breakpoints.up(theme.breakpoints.values.lg)
   )
+  const [pathName, setPathName] = useState("")
+  
+  useEffect(() => {
+    setPathName(window.location.pathname)
+  }, [])
 
   return (
     <footer className={classes.root}>
-      <Image src="2024/footerimg.png" className={classes.footerImage} />
+      {pathName !== "/" && <div className={classes.footerTop}></div>}
       <div className={classes.footer}>
         {isDesktop ? (
           <FooterDesktop menuItems={MENU_ITEMS} />

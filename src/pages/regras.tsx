@@ -1,19 +1,92 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Layout from "@components/layout"
 import { Image } from "@components/image"
-import { Box, Grid, Typography, useMediaQuery } from "@material-ui/core"
+import { Grid, useMediaQuery, Typography } from "@material-ui/core"
 import Spacing from "@components/spacing"
-import { makeStyles, Theme } from "@material-ui/core"
+import { makeStyles, Theme } from "@material-ui/core/styles"
 import { HeaderTitle } from "@components/header"
 
-interface RuleProps {
-  title?: string
-  children: React.ReactNode
+const useGridDynamicPosition = () => {
+  const [gridStyles, setGridStyles] = useState({
+    top: "60vh",
+    height: "calc(100vh - 20px)",
+    bottom: "84px",
+  })
+
+  useEffect(() => {
+    const calculateGridPosition = () => {
+      const viewportHeight = window.innerHeight
+      const viewportWidth = window.innerWidth
+
+      if (viewportWidth >= 1024) {
+        const baseHeight = 900
+        const ratio = viewportHeight / baseHeight
+        const topValue = Math.max(600, 678 * ratio)
+        const heightOffset = Math.max(80, 100 * ratio)
+
+        setGridStyles({
+          top: `${topValue}px`,
+          height: `calc(100vh - ${heightOffset}px)`,
+          bottom: "84px",
+        })
+      }
+    }
+
+    calculateGridPosition()
+    window.addEventListener("resize", calculateGridPosition)
+    return () => window.removeEventListener("resize", calculateGridPosition)
+  }, [])
+
+  return gridStyles
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
+    backgroundColor: "#FFFFFF",
+    position: "relative",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: "60vh",
+      left: 0,
+      right: 0,
+      bottom: "84px",
+      width: "100%",
+      height: "calc(100vh - 20px)",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      opacity: 0.9,
+      zIndex: 0,
+      pointerEvents: "none",
+      transform: "scaleY(-1)",
+    },
+    "& > *": {
+      position: "relative",
+      zIndex: 1,
+    },
+  },
+  containerPadding: {
+    [theme.breakpoints.down("md")]: {
+      padding: "0 20px",
+    },
+  },
+  principiosTitle: {
+    width: "100%",
+    maxWidth: "274px",
+    height: "auto",
+    minHeight: "73px",
+    "& *": {
+      fontFamily: "Globotipo Variable, sans-serif !important",
+      fontWeight: "400 !important",
+      fontSize: "48px !important",
+      [theme.breakpoints.up("md")]: {
+        fontSize: "69px !important",
+      },
+      letterSpacing: "0px !important",
+      color: "#000000 !important",
+    },
   },
   fontSection: {
     fontSize: "2.25rem",
@@ -27,29 +100,33 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontSize: "2rem", //32
     },
   },
-  fontRule: {},
   separator: {
     width: "100%",
     marginBottom: "-10px",
   },
   principleTitle: {
-    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+    [theme.breakpoints.up("sm")]: {
       maxWidth: "100%",
       paddingBottom: "16px",
+      minWidth: "auto",
+      marginRight: "0px",
     },
-    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      maxWidth: "20%",
+    [theme.breakpoints.up("md")]: {
+      maxWidth: "30%",
+      minWidth: "20%",
+      marginRight: "20px",
+      paddingBottom: "0px",
     },
-    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
-      maxWidth: "20%",
+    [theme.breakpoints.up("xl")]: {
+      maxWidth: "18%",
     },
-    minWidth: "20%",
-    marginRight: "20px",
     fontFamily: "Globotipo Variable",
-    fontSize: "20px",
+    fontSize: "22px",
     fontWeight: 700,
-    lineHeight: "28px",
-    color: theme.palette.secondary.main,
+    fontStyle: "normal",
+    lineHeight: "124%",
+    letterSpacing: 0,
+    color: "#800BF8",
   },
   pinkLabel: {
     fontFamily: "Globotipo Variable",
@@ -59,90 +136,249 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   principleDescription: {
     fontFamily: "Globotipo Variable",
-    fontSize: "18px",
+    fontSize: "20px",
     fontWeight: 400,
-    lineHeight: "25.2px",
-    color: theme.palette.primary.light,
+    fontStyle: "normal",
+    lineHeight: "124%",
+    letterSpacing: "0.05em",
+    color: "#333333",
   },
   principlesContainer: {
-    backgroundColor: "#7F00FA33",
+    backgroundColor: "#F6F6F6",
+    marginTop: "40px",
   },
   principlesInsideContainer: {
-    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
+    [theme.breakpoints.up("sm")]: {
       justifyContent: "flex-start",
       alignItems: "flex-start",
+      padding: "20px",
     },
-    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+    [theme.breakpoints.up("md")]: {
       justifyContent: "center",
       alignItems: "center",
-    },
-    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
-      justifyContent: "center",
-      alignItems: "center",
+      padding: "30px",
     },
     flexWrap: "nowrap",
-    padding: "30px",
-    borderBottom: `0.1px solid ${theme.palette.primary.light}`,
+    padding: "20px",
+    borderBottom: `1px solid #E5E5E5`,
     "&:last-child": {
       borderBottom: "none",
     },
+    backgroundColor: "#F6F6F6",
+    width: "100%",
+    maxWidth: "1523px",
+    minHeight: "128px",
+    height: "auto",
+    margin: "0 auto",
   },
   rulesContainer: {
-    flexWrap: "nowrap",
-    backgroundColor: "#250849",
+    marginTop: "40px",
   },
-  rulesItemsContainer: {
-    flexWrap: "nowrap",
-    backgroundColor: "#230B42",
-    alignItems: "center",
-    margin: "30px 0px",
+  rulesGridContainer: {
+    backgroundColor: "#F6F6F6",
+    width: "100%",
+    maxWidth: "1523px",
+    padding: "0px",
+    margin: "0 auto",
+    height: "auto",
+    minHeight: "400px",
+    borderRadius: "8px",
   },
   rulesInsideContainer: {
-    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
-      margin: "30px 0px",
-      padding: "8px 12px",
+    [theme.breakpoints.up("sm")]: {
+      margin: "0px",
+      paddingTop: "8px",
+      paddingBottom: "8px",
+      paddingRight: "10px",
+      paddingLeft: "10px",
     },
-    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      margin: "30px 1px",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "flex-start",
+      textAlign: "left",
+      padding: "20px",
     },
-    [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
-      margin: "30px 1px",
+    [theme.breakpoints.up("md")]: {
+      margin: "0px",
+      padding: "30px",
     },
     flexWrap: "nowrap",
     alignItems: "center",
-    backgroundColor: "#7F00FA33",
-    height: "244px",
+    justifyContent: "flex-start",
+    color: theme.palette.text.primary,
+    height: "auto",
+    minHeight: "200px",
+    backgroundColor: "#F6F6F6",
+    padding: "20px",
+    position: "relative",
+    borderRadius: "8px",
   },
-  rulesSeparator: {
-    margin: "25px 0px",
-    display: "flex",
-    alignItems: "center",
+  ruleVerticalDivider: {
+    position: "absolute",
+    right: "0px",
+    top: "20%",
+    width: "2px",
+    height: "60%",
+    backgroundColor: "#000000",
+    opacity: 1,
   },
-  rulesSeparatorSvg: {
-    width: "38px",
-    height: "244px",
+  ruleVerticalDividerLeft: {
+    position: "absolute",
+    left: "0px",
+    top: "20%",
+    width: "2px",
+    height: "60%",
+    backgroundColor: "#000000",
+    opacity: 1,
+  },
+  ruleHorizontalDivider: {
+    position: "absolute",
+    bottom: "0px",
+    left: "0px",
+    width: "100%",
+    height: "2px",
+    backgroundColor: "#E5E5E5",
+    opacity: 1,
+  },
+  numberContainer: {
+    position: "absolute",
+    top: "20px",
+    left: "20px",
+    [theme.breakpoints.down("md")]: {
+      position: "relative",
+      top: "auto",
+      left: "auto",
+      display: "flex",
+      justifyContent: "flex-start",
+      marginRight: "15px",
+      marginBottom: "0px",
+    },
+    [theme.breakpoints.up("md")]: {
+      top: "47px",
+      left: "98px",
+    },
+  },
+  ruleTextContainer: {
+    marginTop: "20px",
+    paddingLeft: "80px",
+    paddingRight: "10px",
+    [theme.breakpoints.down("md")]: {
+      textAlign: "center",
+      paddingLeft: "0px",
+      paddingRight: "20px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      minHeight: "100px",
+      marginTop: "0px",
+      flex: 1,
+    },
+    [theme.breakpoints.up("md")]: {
+      marginTop: "30px",
+      paddingLeft: "146px",
+      paddingRight: "20px",
+    },
+  },
+  horizontalLineDesktop: {
+    width: "100%",
+    height: "3px",
+    margin: "8px auto",
   },
   number: {
-    margin: "0px 20px",
+    margin: "0px 20px 0px 0px",
     padding: "0px 10px",
-    borderRadius: "50%",
-    border: `5px solid ${theme.palette.secondary.dark}`,
-    width: "70px",
-    height: "70px",
-    lineHeight: "60px",
+    width: "48px",
+    height: "48px",
+    lineHeight: "48px",
     textAlign: "center",
+    color: theme.palette.secondary.contrastText,
+    background: theme.palette.secondary.main,
+    fontFamily: "Globotipo Variable",
+    fontSize: "24px",
+    fontWeight: 700,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0,
+    borderRadius: "8px",
+  },
+  rule: {
     color: theme.palette.text.primary,
     fontFamily: "Globotipo Variable",
-    fontSize: "34px",
-    fontWeight: 700,
+    fontSize: "16px",
+    fontWeight: 400,
+    lineHeight: "24px",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "20px",
+      lineHeight: "28px",
+    },
   },
+  importantRule: {
+    lineHeight: "24px",
+    color: theme.palette.secondary.main,
+    fontFamily: "Globotipo Variable",
+    fontSize: "16px",
+    fontWeight: 700,
+    [theme.breakpoints.up("md")]: {
+      fontSize: "20px",
+      lineHeight: "28px",
+    },
+  }
 }))
+
+interface DecorativeLineProps {
+  color: "yellow" | "darkGray" | string
+}
+
+const DecorativeLine: React.FC<DecorativeLineProps> = ({ color }) => {
+  const classes = useStyles()
+
+  const getColor = () => {
+    switch (color) {
+      case "yellow":
+        return "#FFD700"
+      case "darkGray":
+        return "#333333"
+      default:
+        return color
+    }
+  }
+
+  return (
+    <div
+      className={classes.horizontalLineDesktop}
+      style={{ backgroundColor: getColor() }}
+    />
+  )
+}
+
+interface DecorativeVerticalBarProps {
+  position: "left" | "right"
+}
+
+const DecorativeVerticalBar: React.FC<DecorativeVerticalBarProps> = ({
+  position,
+}) => {
+  const style = {
+    position: "absolute" as const,
+    width: "6px",
+    height: "54px",
+    top: "0px",
+    opacity: 1,
+    transform: "rotate(0deg)",
+    transformOrigin: "center",
+    background:
+      "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)",
+    ...(position === "left" ? { left: "0px" } : { right: "0px" }),
+  }
+
+  return <div style={style} />
+}
 
 const Principles = () => {
   const classes = useStyles()
-  const isDesktop = useMediaQuery((theme: Theme) => {
-    return theme.breakpoints.up(theme.breakpoints.values.lg)
-  })
+  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"))
 
   const principles = [
     {
@@ -163,126 +399,190 @@ const Principles = () => {
   ]
 
   return (
-    <>
-    <Spacing smart={{ margin: "40px 32px 40px 0" }}>
-      <Grid item xs={12} lg={6}>
+      <>
         <HeaderTitle title={"Princípios"} />
-      </Grid>
-    </Spacing>
-      <Grid
-        container
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="center"
-        className={classes.principlesContainer}
-      >
-        {principles.map((principle) => {
-          return (
-            <Grid
-              container
-              direction={isDesktop ? "row" : "column"}
-              className={classes.principlesInsideContainer}
-            >
-              <Grid item className={classes.principleTitle}>
-                {principle.title}
+        {isDesktop && (
+          <div style={{ position: "absolute", top: "-28px", right: "-14px" }}>
+            <Image
+              src="2025/ilustracao-regras.png"
+              style={{
+                width: "180px",
+                height: "auto",
+                maxWidth: "212px",
+              }}
+            />
+          </div>
+        )}
+        <Grid
+          container
+          direction="column"
+          justifyContent="flex-start"
+          alignItems="center"
+          className={classes.principlesContainer}
+          style={{ position: "relative" }}
+        >
+          {principles.map((principle) => {
+            return (
+              <Grid
+                container
+                direction={isDesktop ? "row" : "column"}
+                className={classes.principlesInsideContainer}
+              >
+                <Grid item className={classes.principleTitle}>
+                  <div>{principle.title}</div>
+                </Grid>
+                <Grid item className={classes.principleDescription}>
+                  <div>{principle.description}</div>
+                </Grid>
               </Grid>
-              <Grid item className={classes.principleDescription}>
-                {principle.description}
-              </Grid>
-            </Grid>
-          )
-        })}
-      </Grid>
-    </>
+            )
+          })}
+        </Grid>
+        </>
   )
 }
 
 const Rules = () => {
   const classes = useStyles()
-  const isDesktop = useMediaQuery((theme: Theme) => {
-    return theme.breakpoints.up(theme.breakpoints.values.lg)
-  })
+  const isMedium = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"))
 
   const rules = [
-    <Box>Para obter uma camiseta você pode enviar <span className={classes.pinkLabel}>quantos pull requests (PRs)</span> quiser e ter <span className={classes.pinkLabel}>pelo menos um deles aprovado</span>, entre 1 e 31 de Outubro de 2024.</Box>,
-    <Box>Os pull requests podem ser feitos <span className={classes.pinkLabel}>em qualquer repositório dos projetos open source da Globo</span>, não apenas para aqueles destacados.</Box>,
-    <Box>O PR deve conter <span className={classes.pinkLabel}>confirmações que você mesmo fez</span>.</Box>,
+    <Typography className={classes.rule}>
+      Para obter uma camiseta, você deve ter{" "}
+      <span className={classes.importantRule}>dois pull requests (PRs)</span>{" "}
+      enviados entre 1 e 31 de Outubro e{" "}
+      <span className={classes.importantRule}>
+        pelo menos um deles aprovado
+      </span>
+    </Typography>,
+    <Typography className={classes.rule}>
+      Os pull requests podem ser feitos{" "}
+      <span className={classes.importantRule}>
+        em qualquer repositório dos projetos open source da Globo
+      </span>
+      , não apenas para aqueles destacados.
+    </Typography>,
+    <Typography className={classes.rule}>
+      O PR deve conter{" "}
+      <span className={classes.importantRule}>
+        confirmações que você mesmo fez
+      </span>
+      .
+    </Typography>,
   ]
   const rules2 = [
-    <Box>Se um mantenedor reportar seu <span className={classes.pinkLabel}>PR como spam</span>, o mesmo <span className={classes.pinkLabel}>não será contabilizado</span> para sua participação no Hacktoberfest.</Box>,
-    <Box>Se um mantenedor reportar um <span className={classes.pinkLabel}>comportamento que não esteja de acordo com o código de conduta</span> do projeto, você <span className={classes.pinkLabel}>não poderá participar</span>.</Box>,
+    <Typography className={classes.rule}>
+      Se um mantenedor reportar seu{" "}
+      <span className={classes.importantRule}>PR como spam</span>, o mesmo{" "}
+      <span className={classes.importantRule}>não será contabilizado</span> para
+      sua participação no Hacktoberfest.
+    </Typography>,
+    <Typography className={classes.rule}>
+      Se um mantenedor reportar um{" "}
+      <span className={classes.importantRule}>
+        comportamento que não esteja de acordo com o código de conduta
+      </span>{" "}
+      do projeto, você{" "}
+      <span className={classes.importantRule}>não poderá participar</span>.
+    </Typography>,
   ]
 
   return (
-    <Grid container>
-      <Spacing smart={{ margin: "64px 32px 40px 0" }}>
-        <Grid item xs={10} lg={10}>
-          <HeaderTitle title={"Regras"} />
-        </Grid>
+    <>
+      <Spacing smart={{ margin: "32px 16px 20px 0" }}>
+        <HeaderTitle title={"Regras"}/>
       </Spacing>
-      <Grid item key={"inner_container"}>
-        <Grid
-          container
-          direction={isDesktop ? "row" : "column"}
-          justifyContent="space-between"
-          className={classes.rulesContainer}
-        >
-          {rules.map((rule, index) => (
+      <Grid
+        container
+        direction="column"
+        justifyContent="flex-start"
+        alignItems="center"
+        className={classes.rulesContainer}
+        style={{ position: "relative" }}
+      >
+        <div style={{ position: "relative" }}>
+          <div className={classes.rulesGridContainer}>
             <Grid
               container
               direction="row"
-              className={classes.rulesInsideContainer}
+              style={{
+                backgroundColor: "#F6F6F6",
+                flexWrap: "wrap",
+                height: "100%",
+                alignItems: "stretch",
+                position: "relative",
+              }}
             >
-              <Grid item key={index}>
-                <div className={classes.number} style={{"background": "linear-gradient(180deg, #21083B 18.5%, #510D5B 87%, #710568 96%)"}}>{index + 1}</div>
-              </Grid>
-              <Grid item key={`rule${index}`}>
-                {rule}
-              </Grid>
-            </Grid>
-          ))}
-        </Grid>
-        <Grid
-          container
-          direction={isDesktop ? "row" : "column"}
-          justifyContent="space-between"
-          className={classes.rulesContainer}
-        >
-          {rules2.map((rule, index) => (
-            <Grid
-              container
-              direction="row"
-              className={classes.rulesInsideContainer}
-            >
-              <Grid item key={index}>
-                <div className={classes.number}>{index + 4}</div>
-              </Grid>
-              <Grid item key={`rule${index}`}>
-                {rule}
-              </Grid>
-            </Grid>
-          ))}
+              {[...rules, ...rules2].map((rule, index) => (
+                <Grid
+                  key={`rule-${index}`}
+                  item
+                  className={classes.rulesInsideContainer}
+                  style={{
+                    flex: isMedium ? "1 1 calc(33.333% - 1px)" : "1 1 100%",
+                    position: "relative",
+                  }}
+                >
+                  <div className={classes.numberContainer}>
+                    <div className={classes.number}>{index + 1}</div>
+                  </div>
+                  <div className={classes.ruleTextContainer}>{rule}</div>
 
-          {isDesktop && (
-            <Grid
-              container
-              direction="row"
-              className={classes.rulesInsideContainer}
-              justifyContent="center"
-            >
-              <Grid item>
-                <Image src={`2024/flag-rules.svg`} />
-              </Grid>
+                  {isMedium && (index + 1) % 3 !== 0 && index < 4 && (
+                    <div className={classes.ruleVerticalDivider} />
+                  )}
+
+                  {(isMedium ? index < 3 : index < 5) && (
+                    <div className={classes.ruleHorizontalDivider} />
+                  )}
+                </Grid>
+              ))}
+              
+              <Grid
+                  key={`rule-999`}
+                  item
+                  className={classes.rulesInsideContainer}
+                  style={{
+                    flex: isMedium ? "1 1 calc(33.333% - 1px)" : "1 1 100%",
+                    position: "relative",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    display: "flex",
+                  }}
+                >
+                  {isMedium && <div className={classes.ruleVerticalDividerLeft} />}
+                  <Image src='2025/flag-rules-25.svg' alt='Flag Rules 25' />
+                </Grid>
             </Grid>
-          )}
-          </Grid>
+          </div>
+        </div>
       </Grid>
-    </Grid>
+    </>
   )
 }
 
 const RuleBookPage = () => {
   const classes = useStyles()
+  const gridStyles = useGridDynamicPosition()
+  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"))
+
+  useEffect(() => {
+    if (isDesktop) {
+      const styleElement = document.createElement("style")
+      styleElement.innerHTML = `
+        .${classes.root}::before {
+          top: ${gridStyles.top} !important;
+          height: ${gridStyles.height} !important;
+          bottom: ${gridStyles.bottom} !important;
+        }
+      `
+      document.head.appendChild(styleElement)
+
+      return () => {
+        document.head.removeChild(styleElement)
+      }
+    }
+  }, [gridStyles, isDesktop, classes.root])
 
   return (
     <Layout
@@ -290,20 +590,44 @@ const RuleBookPage = () => {
       description="Regras e Princípos - Globo Hacktoberfest"
       headerTitle="Regras e Princípios"
     >
-      <Grid
-        className={classes.root}
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Grid item xs={10} lg={10}>
-          <Principles />
+      <div style={{ backgroundColor: "#FFFFFF", minHeight: "100vh" }}>
+        <Grid
+          className={classes.root}
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Spacing
+            desktop={{ margin: "50px 40px 80px 40px" }}
+            smart={{ margin: "50px 40px 80px 40px" }}
+          >
+            <div>
+          <Grid
+            item
+            xs={12}
+            lg={12}
+            style={{ width: "100%", maxWidth: "1523px" }}
+            className={classes.containerPadding}
+          >
+            <Principles />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            lg={12}
+            style={{
+              width: "100%",
+              maxWidth: "1523px",
+            }}
+            className={classes.containerPadding}
+          >
+            <Rules />
+          </Grid>
+          </div>
+          </Spacing>
         </Grid>
-        <Grid item xs={10} lg={10}>
-          <Rules />
-        </Grid>
-      </Grid>
+      </div>
     </Layout>
   )
 }

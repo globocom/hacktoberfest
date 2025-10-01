@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { useMediaQuery, Grid, Box } from "@material-ui/core"
@@ -6,9 +6,7 @@ import { useMediaQuery, Grid, Box } from "@material-ui/core"
 import SmartView from "./HeroSmart"
 import DesktopView from "./HeroDesktop"
 import { UserProps } from "@services/user"
-import { Image } from "@components/image"
 
-import headerBackground from "../../themes/images/2024/header-backgroud.png";
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -31,15 +29,18 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   backgroundImageBox: {
     position: "absolute",
+    background: theme.palette.background.paper,
     top: 0,
     left: 0,
     width: "100%",
     backgroundPosition: "center",
     backgroundSize: "cover",
-    backgroundImage: 'url("/header-backgroud.png")',
     padding: "0px -100px 0px 0px",
     height: "100%",
+    transition: "background-image 1s ease-in-out",
   },
+  gradientLine: { height: "24px", width: "100%", background: "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)", marginTop: "-20px" },
+
 }))
 
 const HeroCall = (props: HeroCallProps) => {
@@ -48,9 +49,17 @@ const HeroCall = (props: HeroCallProps) => {
     return theme.breakpoints.up(theme.breakpoints.values.lg)
   })
 
+
   return (
     <>
-      {isDesktop && <Box className={classes.backgroundImageBox} />}
+      {isDesktop && (
+          <Box
+            className={classes.backgroundImageBox}
+            style={{
+              backgroundImage: `url("")`,
+            }}
+          />
+      )}
       <Spacing
         desktop={{ padding: "0px 100px 0px 100px" }}
         smart={{ margin: "0" }}
@@ -70,6 +79,7 @@ const HeroCall = (props: HeroCallProps) => {
           </Grid>
         </Grid>
       </Spacing>
+      <div className={classes.gradientLine}></div>
     </>
   )
 }

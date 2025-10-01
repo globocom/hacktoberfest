@@ -1,7 +1,6 @@
 import React from "react"
-import { Grid, Box, Typography, useMediaQuery } from "@material-ui/core"
+import { Grid, Box, useMediaQuery } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core"
-import { Image } from "@components/image"
 import Layout from "@components/layout"
 import Spacing from "@components/spacing"
 import Tabs from "@components/tabs"
@@ -28,6 +27,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: "relative",
     top: -100,
   },
+  description: {
+    fontSize: "18px",
+    lineHeight: "100%",
+    color: theme.palette.primary.contrastText,
+    fontWeight: 400,
+    lineSpacing: "0%"
+  },
 }))
 
 const ParticipantsPage = () => {
@@ -48,32 +54,20 @@ const ParticipantsPage = () => {
         alignContent="center"
       >
         <Spacing
-          desktop={{ margin: "160px 0px 0px 0px" }}
-          smart={{ margin: "40px 32px" }}
+          desktop={{ margin: "50px 40px 80px 40px" }}
+          smart={{ margin: "50px 40px 80px 40px" }}
         >
           <Grid
             item
-            style={{ maxWidth: 1520, minHeight: "61vh", width: isDesktop ? "auto" : "340px" }}
+            style={{ maxWidth: 1400, minHeight: "61vh", width: isDesktop ? "auto" : "340px" }}
             xs={12}
-            lg={6}
+            lg={12}
           >
-            <HeaderTitle title={"Participantes"} />
-            {isDesktop && (
-              <Image className={classes.hero} src="2024/participant-hero.svg" />
-            )}
-            <Spacing
-              desktop={{ margin: "40px 0px 10vh 0px" }}
-              smart={{ margin: "24px 0 40px 0" }}
-            >
-              <Typography
-                component="p"
-                align="left"
-                color="textPrimary"
-                variant="body1"
-              >
-                Navegue e veja quem contribuiu com cada edição.
-              </Typography>
-            </Spacing>
+            <HeaderTitle 
+              title="Participantes"
+              description="Navegue e veja quem contribuiu com cada edição."
+              imagePath={"2025/participant-hero.svg"}
+            />
             <Box style={{ flexGrow: 1 }}>
               <Tabs />
             </Box>

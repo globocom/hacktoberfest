@@ -16,15 +16,17 @@ import { Image } from "@components/image"
 
 import CloseIcon from "@material-ui/icons/Close"
 import Spacing from "@components/spacing"
+import { Height } from '@material-ui/icons'
 
 interface NavigationItemsProps {
   items: Array<NavigationItemProps>
 }
 
 const MenuItems: Array<NavigationItemProps> = [
-  { label: "Projetos", link: "/projetos" },
-  { label: "Regras e Princípios", link: "/regras" },
-  { label: "Participantes", link: "/participantes" },
+  { label: "Home", link: "/" },
+  { label: "Projetos", link: "/projetos/" },
+  { label: "Regras e Princípios", link: "/regras/" },
+  { label: "Participantes", link: "/participantes/" },
 ]
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -50,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: "90%",
     marginLeft: "10%",
     height: "100%",
-    borderRadius:"6px 0px 0 6px",
+    borderRadius: "6px 0px 0 6px",
     background: "black",
     display: "flex",
     zIndex: 1,
@@ -67,6 +69,37 @@ const useStyles = makeStyles((theme: Theme) => ({
     top: "90%",
     marginRight: 40,
     right: 0,
+  },
+  textGlobocom: {
+    fontFamily: "Globotipo Corporativa",
+    fontWeight: 700,
+    fontStyle: "Bold",
+    fontSize: "16px",
+    leadingTrim: "NONE",
+    lineHeight: "33px",
+    letterSpacing: "0%",
+    textAlign: "right",
+  },
+  textOpensource: {
+    fontFamily: "Globotipo Corporativa",
+    fontWeight: 400,
+    fontStyle: "Web Regular",
+    fontSize: "16px",
+    leadingTrim: "NONE",
+    lineHeight: "33px",
+    letterSpacing: "0%",
+    textAlign: "right",
+  },
+  closeIcon: {
+    backgroundColor: "white",
+    width: 47,
+    height: 48,
+    border: "2px solid",
+    borderRadius: "8px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxShadow: "0px 2px 0px 0px #0F9BFF"
   },
 }))
 
@@ -110,7 +143,6 @@ const DeskMenu = () => {
   return (
     <Grid
       container
-      className={classes.container}
       direction="row"
       justifyContent="space-between"
       alignItems="center"
@@ -136,23 +168,34 @@ const MenuOpen = (props: MenuOpenProps) => {
     <div className={classes.smartMenu}>
       <Slide direction="left" in={true} mountOnEnter unmountOnExit>
         <Paper className={classes.smartMenuContainer}>
-          <Spacing smart={{ padding: "16px 40px 40px 16px"}}>
-            <Grid className={classes.smartMenuContainerGrid} style={{ background:"#1B0530", borderRadius:6, margin: 2}}>
-              <Spacing smart={{ margin: "0px 0px 8px", padding: "0 20px 20px 20px" }}>
-              <div style={{display:"flex", justifyContent: "space-between"}}>
-                <Image src="2024/carrovoador.png" style={{width:175, marginTop:12, marginLeft:-16}}/>
-                <div style={{ backgroundColor: "#0031CC", width:48, height:50, borderRadius:"8px", marginRight:-44, marginTop:-4}}>
-                  <div style={{ backgroundColor: "black", width:48, height:48, borderRadius:"8px", display: "flex",alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ backgroundColor: "white", width:44, height:44, borderRadius:"8px", display: "flex", alignItems: "center", justifyContent: "center"}} onClick={() => props.closeMenu()}>
-                      <CloseIcon style={{color:"#000000", fontSize: "38px"}} />
-                    </div>
+          <Spacing smart={{ padding: "16px 20px 20px 16px" }}>
+            <Grid
+              className={classes.smartMenuContainerGrid}
+              style={{ background: "linear-gradient(90deg, #07A3FF 0%, #8405F8 100%)", padding: 20}}
+            >
+              <Spacing
+                smart={{ margin: "0px 0px 8px", padding: "0 0px 20px 20px" }}
+              >
+                <div
+                  style={{ display: "flex", justifyContent: "flex-end" }}
+                >  
+                  <div
+                    className={classes.closeIcon}
+                    onClick={() => props.closeMenu()}
+                  >
+                    <CloseIcon
+                      style={{ color: "#000000", fontSize: "38px" }}
+                    />
                   </div>
-                </div>
                 </div>
               </Spacing>
               <Spacing smart={{ margin: "0px 0px 0px" }}>
-                <NavigationItems items={[{ label: "Home", link: "/" }, ...MenuItems]} />
+                <NavigationItems items={MenuItems} />
               </Spacing>
+
+              <p style={{color: "#FFFFFF", marginLeft: 16, position: 'fixed', bottom: 33}}>
+                <span className={classes.textGlobocom}>globo.com</span><span className={classes.textOpensource}> opensource</span>
+              </p>
             </Grid>
           </Spacing>
         </Paper>
@@ -162,13 +205,11 @@ const MenuOpen = (props: MenuOpenProps) => {
 }
 
 const SmartMenu = () => {
-  const classes = useStyles()
   const [menuOpened, setMenuOpened] = useState<boolean>(false)
 
   return (
     <Grid
       container
-      className={classes.container}
       direction="row"
       justifyContent="space-between"
       alignItems="center"
@@ -178,10 +219,15 @@ const SmartMenu = () => {
       </Grid>
       <Grid item xs={2} md={1}>
         <Button
-          style={{ display: "block", float: "right", marginTop:8, marginRight:8 }}
+          style={{
+            display: "block",
+            float: "right",
+            marginTop: 8,
+            marginRight: 8,
+          }}
           onClick={() => setMenuOpened(!menuOpened)}
         >
-          <Image src="2023/menu.svg" />
+          <Image src="2025/menu.svg" />
         </Button>
         {menuOpened && <MenuOpen closeMenu={() => setMenuOpened(false)} />}
       </Grid>

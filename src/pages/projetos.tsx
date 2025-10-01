@@ -1,6 +1,5 @@
 import React from "react"
-import { Grid, Typography } from "@material-ui/core"
-import { Image } from "@components/image"
+import { Grid } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import Layout from "@components/layout"
@@ -17,12 +16,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: 32,
   },
   description: {
-    fontSize: "20px",
-    lineHeight: "28px",
+    fontSize: "18px",
+    lineHeight: "100%",
     color: theme.palette.primary.contrastText,
-    fontFamily: "Globotipo Variable",
     fontWeight: 400,
-    marginLeft: "32px",
+    lineSpacing: "0%",
+    marginTop: "32px",
   },
   separator: {
     width: "100%",
@@ -45,33 +44,21 @@ const ProjectsPage = () => {
     >
       <div className={classes.root}>
         <Grid container justifyContent="center">
-          <Grid style={{ maxWidth: 1523 }} item xs={5} lg={10}>
-            <Spacing
-              desktop={{ margin: "5vh 0px 40px 0px" }}
-              smart={{ margin: "64px 32px 0 32px" }}
-            >
-              <div className={classes.headerTitle}>
-                <div>
-                  <HeaderTitle title={"Projetos"} />
-                  <Typography
-                    className={classes.description}
-                    component="p"
-                    align="left"
-                    color="textPrimary"
-                    variant="body1"
-                  >
-                    Todos os nossos projetos Open Source em um só lugar.
-                    Incentivamos sua contribuição no projeto que mais lhe
-                    agradar.
-                  </Typography>
-                </div>
-                <Image src={`2024/notebook.svg`} />
-              </div>
-            </Spacing>
-            <div>
+          <Spacing
+            desktop={{ margin: "50px 40px 80px 40px" }}
+            smart={{ margin: "50px 40px 80px 40px" }}
+          >
+            <Grid style={{ maxWidth: 1400, minHeight: "61vh" }}
+            xs={12}
+            lg={12}>
+              <HeaderTitle
+                title="Projetos"
+                description="Todos os nossos projetos Open Source em um só lugar. Incentivamos sua contribuição no projeto que mais lhe agradar."
+                imagePath="2025/project.svg"
+              />
               <ProjectsList useMansonry={false} />
-            </div>
-          </Grid>
+            </Grid>
+          </Spacing>
         </Grid>
       </div>
     </Layout>

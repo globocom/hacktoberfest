@@ -16,16 +16,50 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: "180px",
   },
   button: {
-    width: "100%",
-    backgroundColor: "#07B1EF4D",
-    fontFamily: "inherit",
-    borderRadius: "2px",
-    border: "3px solid #02BBFF",
+    width: "320px",
+    height: "44px",
+    fontFamily: "Globotipo Variable",
+    fontSize: "16px",
+    fontWeight: 400,
+    fontStyle: "normal",
+    lineHeight: "100%",
+    letterSpacing: "0%",
+    borderRadius: "40px",
+    border: "none",
+    background: "transparent",
     color: theme.palette.text.primary,
-    textTransform: "uppercase",
+    textAlign: "center",
+    textTransform: "none",
+    opacity: 1,
+    transform: "rotate(0deg)",
+    position: "relative",
+    transition: "all 0.3s ease",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      borderRadius: "40px",
+      padding: "1px",
+      background: "linear-gradient(90deg, #FFBD09 0%, #FF111E 100%)",
+      mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+      maskComposite: "xor",
+      WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+      WebkitMaskComposite: "xor",
+      zIndex: -1,
+    },
+    "&:hover": {
+      background: "linear-gradient(90deg, #FFBD09 0%, #FF111E 100%)",
+      color: "#FFFFFF",
+      "&::before": {
+        display: "none",
+      },
+    },
   },
   buttonContainer: {
-    marginTop: "16px",
+    marginTop: "44px",
   },
   howWorks: {
     position: "absolute",
@@ -50,42 +84,38 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: 22,
   },
   logoEdition: {
-    width: "110%",
-    display: "block",
-    webkitTransform: "translate3d(0,0,0)",
-    WebkitBackfaceVisibility: "hidden",
-    marginLeft: "-64px"
+    zIndex: 1,
   },
   character: {
-    width: "700px !important",
   },
   message: {
-    width: "500px",
-    marginBottom: "212px",
-    marginRight: "-16px",
+    width: "164px",
+    height: "120px",
+
   },
   gridItem: {
-    // height: "800px",
     height: "100%",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center"
   },
   gridMessage: {
     display: "flex",
     justifyContent: "flex-end",
+    height: "100%",
   },
   logoGlobo: {
-    width: "190px",
-    display: "block",
-    webkitTransform: "translate3d(0,0,0)",
-    WebkitBackfaceVisibility: "hidden",
+    width: "201px",
+    height: "58px",
+    marginTop: "176px",
   },
   active: {
     borderBottom: `2px solid ${theme.palette.secondary.main}`,
   },
   buttonText: {
     padding: 16,
-    color: "#FFF",
+    color: theme.palette.text.primary,
     fontSize: "1rem",
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       fontSize: "1.125rem",
@@ -96,6 +126,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up(theme.breakpoints.values.xl)]: {
       fontSize: "1.125rem",
     },
+  },
+  gradientBar: {
+    position: "relative",
+    width: "100vw",
+    height: "24px",
+    marginLeft: "calc(-50vw + 50%)",
+    marginTop: "60px",
+    opacity: 1,
+    background:
+      "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)",
   },
   drone: {
     display: "flex",
@@ -250,19 +290,11 @@ const UnloggedView = () => {
         <Grid item md={12} className={classes.buttonContainer}>
           <Button
             href="/login"
-            style={{ display: "block" }}
             className={classes.button}
             size="large"
             fullWidth
           >
-            <Typography
-              className={classes.buttonText}
-              component="p"
-              variant="body2"
-              align="center"
-            >
-              <b>participar com sua conta do github</b>
-            </Typography>
+            Participar com sua conta do Github
           </Button>
         </Grid>
       </Grid>
@@ -273,56 +305,51 @@ const UnloggedView = () => {
 const DesktopView = (props: DesktopViewProps) => {
   const classes = useStyles()
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  }
-
   return (
     <Grid container alignItems="center" className={classes.wrapper}>
       <Grid item sm={4} className={classes.gridItem}>
-        <Image className={classes.logoGlobo} src={`2024/globo.svg`} />
-        <Image className={classes.logoEdition} src={`2024/logo.png`} />
+        <Image className={classes.logoGlobo} src={`2025/globo.svg`} />
+        <Image className={classes.logoEdition} src={`2025/home-logo.svg`} />
         <Typography
           variant="h1"
-          align="left"
+          align="center"
           style={{
-            fontSize: '26px',
+            fontSize: '24px',
             fontWeight: 700,
+            fontStyle: 'normal',
             lineHeight: '31.47px',
-            letterSpacing: '0.06em',
-            textAlign: 'left',
-            marginTop: "1.2vw"
+            letterSpacing: '6%',
+            textAlign: 'center',
+            marginTop: "1.2vw",
+            color: "#000000"
           }}
           component="h2"
         >
-          01.10.2024 — 31.10.2024
+          01.10.2025 — 31.10.2025
         </Typography>
         <Typography
           style={{
-            fontSize: '20px',
+            fontSize: '18px',
             fontWeight: 400,
-            lineHeight: '24.2px',
-            textAlign: 'left',
-            marginTop: "1vw"
+            fontStyle: 'normal',
+            letterSpacing: '0%',
+            color: '#939598',
+            textAlign: 'center',
+            marginTop: "1vw",
+            width: "446px"
           }}
-          align="left">
-          O Hacktober está aberto a todos os que desejam trilhar o caminho da
-          colaboração e deixar sua marca nos projetos open source.
+          align="center">
+          O Hacktober está aberto a todos os que desejam trilhar o caminho da colaboração e deixar sua marca nos projetos open source.
         </Typography>
         {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
       </Grid>
       <Grid item sm={4} className={classes.gridItem} >
-        <Box display="flex" marginTop={"auto"}>
-          <Image classnName={classes.character} src={`2024/character.png`} />
+        <Box display="flex" alignItems="center" justifyContent="center" height="100%" paddingLeft={"440px"}>
+          <Image className={classes.character} src={`2025/ilustracao-home.svg`} />
         </Box>
       </Grid>
       <Grid item sm={4} className={classes.gridMessage}>
-        <Image className={classes.message} src={`2024/message.png`} />
+        <Image className={classes.message} src={`2025/message.svg`} />
 
         {/* <div className={classes.droneAnimation2}>
           <Lottie options={defaultOptions} height={300} width={350} />

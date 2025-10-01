@@ -2,31 +2,33 @@ import React, { useState, useEffect } from "react"
 import {
   Avatar,
   IconButton,
-  ListItem,
-  ListItemAvatar,
-  ListItemSecondaryAction,
-  ListItemText,
   Tab,
   Tabs,
   Typography,
   Box,
   Grid,
   Card,
+  CardHeader,
 } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { CircularProgress } from "@material-ui/core"
 import { Image } from "@components/image"
 import Participants, { ParticipantProps } from "@services/participants"
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
-const EDITIONS = [2024, 2023, 2022, 2021, 2020, 2019]
+const EDITIONS = [2025, 2024, 2023, 2022, 2021, 2020, 2019]
 
 const useStyles = makeStyles((theme: Theme) => ({
   tab: {
+    color: theme.palette.text.primary,
     minWidth: 68,
-    fontSize: "1rem",
+    fontSize: "22px",
+    fontWeight: 900,
+    lineHeight: "100%",
+    letterSpacing: "0%",
+    paddingRight: 40,
   },
   list: {
-    borderRadius: 8,
     "&.empty": {
       border: "1px solid white",
       margin: "48px 0px",
@@ -36,28 +38,45 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   listItem: {
-    padding: 24,
-    backgroundColor: "#491B77",
-    width: 482,
-  },
-  complete: {
-    color: "#33DD99",
-  },
-  incomplete: {
-    color: "#ff0000",
+    padding: 5,
+    backgroundColor: "#FFFFFF",
+    color: "#000000",
+    width: "100%",
+    height: "110px",
+    borderRadius: 0,
+    border: "1px solid #C4C4C4"
   },
   gutterRemove: {
     padding: "0 0 16px 0",
   },
   loading: {
     textAlign: "center",
-    marginTop: 10,
+    marginTop: 20,
   },
+  githubUser: {
+    fontSize: 20,
+    fontWeight: 700,
+    fontStyle: "bold",
+    lineHeight: "100%",
+    letterSpacing: "0%",
+    color: "#000000",
+  },
+  pullRequest: {
+    fontSize: 15,
+    fontWeight: 400,
+    fontStyle: "bold",
+    lineHeight: "100%",
+    letterSpacing: "0%",
+    color: "#383838",
+  },
+  listItemText: {
+    marginLeft: 16,
+  }
 }))
 
 const ParticipantsTabs = () => {
   const [tabValue, setTabValue] = useState<number>(0)
-  const [edition, setEdition] = useState<number>(2024)
+  const [edition, setEdition] = useState<number>(2025)
   const [participants, setParticipants] = useState<Array<ParticipantProps>>([])
   const [loading, setLoading] = useState(false)
   const classes = useStyles()
@@ -89,12 +108,12 @@ const ParticipantsTabs = () => {
       <Tabs
         value={tabValue}
         onChange={handleChange}
-        indicatorColor="secondary"
+        indicatorColor="primary"
         textColor="inherit"
-        style={{marginBottom: 20}}
+        style={{marginBottom: 20, borderBottom: "1px solid #05A6FF"}}
         TabIndicatorProps={{
           style: {
-            backgroundColor: "#FF0099"
+            backgroundColor: "primary",
           },
         }}
       >
@@ -107,66 +126,18 @@ const ParticipantsTabs = () => {
         <TabPanel key={index} value={tabValue} index={index}>
           {loading && (
             <div className={classes.loading}>
-              <CircularProgress />
+              <CircularProgress color='primary' />
             </div>
           )}
           {!loading &&
             (participants.length ? (
-              <Grid container spacing={3}>
+              <Grid container>
                 {!loading &&
                   participants.map &&
                   participants.map((participant, index) => (
-                    <Grid container item xs={12} sm={12} md={6} lg={6} xl={4} spacing={1}>
-                      <Card className={classes.listItem}>
-                        <ListItem
-                          key={index}
-                          className={classes.gutterRemove}
-                          alignItems="center"
-                        >
-                          <ListItemAvatar>
-                            <Avatar
-                              alt={participant.githubUser}
-                              src={participant.avatar}
-                            />
-                          </ListItemAvatar>
-                          <ListItemText
-                            primary={`@${participant.githubUser}`}
-                          />
-                          <a
-                            href={`https://github.com/${participant.githubUser}`}
-                            target="_blank"
-                          >
-                            <ListItemSecondaryAction>
-                              <IconButton edge="end" aria-label="GitHub">
-                                <Image src="github-logo.svg" />
-                              </IconButton>
-                            </ListItemSecondaryAction>
-                          </a>
-                        </ListItem>
-                        <Typography component="span" variant="caption">
-                          {" "}
-                          {participant.total_pull_requests} pull requests{" "}
-                        </Typography>
-                        <Typography
-                          component="span"
-                          variant="caption"
-                          className={
-                            participant.approved
-                              ? classes.complete
-                              : classes.incomplete
-                          }
-                        >
-                          {" "}
-                          •{" "}
-                        </Typography>
-                        <Typography component="span" variant="caption">
-                          {" "}
-                          {participant.approved
-                            ? "desafio completo"
-                            : "desafio incompleto"}{" "}
-                        </Typography>
-                      </Card>
-                    </Grid>
+                    <UserCard
+                      key={index}
+                      participant={participant} />
                   ))}
               </Grid>
             ) : (
@@ -207,5 +178,54 @@ const EmptyList = ({ className }: EmptyListProps) => (
     </Box>
   </Box>
 )
+
+interface UserCardProps {
+  participant: ParticipantProps,
+  key?: number
+}
+
+const UserCard = ({ participant, key }: UserCardProps) => {
+  const classes = useStyles()
+  return (
+    <Grid container item xs={12} sm={12} md={6} lg={4} xl={4} key={key}>
+      <Card className={classes.listItem}>
+        <CardHeader
+          avatar={
+            <Avatar
+              alt={participant.githubUser}
+              src={participant.avatar}
+            />
+          }
+            action={
+              <a
+                href={`https://github.com/${participant.githubUser}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconButton aria-label="GitHub">
+                  <Image src="github-logo.png" width={24} height={24} />
+                </IconButton>
+              </a>
+            }
+          title={`@${participant.githubUser}`}
+          subheader={
+            <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "flex-start"}}><Typography component="span" variant="caption" className={classes.pullRequest}>
+              {" "}
+              {participant.total_pull_requests} pull requests{" "}
+            </Typography>
+            <Typography component="span" variant="caption" className={classes.pullRequest}>
+              {" "}
+              {participant.approved
+                ? "desafio completo"
+                : "desafio incompleto"}{" "}
+            </Typography>
+            <FiberManualRecordIcon htmlColor={participant.approved ? "#33DD99" : "#ff0000"} />
+            </div>
+          }
+        />
+      </Card>
+    </Grid>
+    )
+}
 
 export default ParticipantsTabs

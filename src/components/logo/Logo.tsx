@@ -9,24 +9,25 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "flex-end",
     alignItems: "center",
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
-    justifyContent: "flex-start",
+      justifyContent: "flex-start",
     },
   },
 }))
-
 
 const Logo = () => {
   const classes = useStyles()
   const isDesktop = useMediaQuery((theme: Theme) => {
     return theme.breakpoints.up(theme.breakpoints.values.lg)
-  });
-  return (
-    <a href="/" className={classes.logo}>
-      {isDesktop ?
-      <Image src="2023/header-raio.svg" /> :
-      <span>Hacktoberfest Globo</span>}
-    </a>
-  )
+  })
+  return null
+  // <a href="/" className={classes.logo}>
+  //   {isDesktop ? (
+  //     <Image src="2023/header-raio.svg" />
+  //   ) : (
+  //     <span>Hacktoberfest Globo</span>
+  //   )}
+  //   </a>
+  // )
 }
 
 export default Logo
