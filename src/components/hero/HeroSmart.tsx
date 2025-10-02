@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   progression: {
     border: '2px solid #fff',
-    background-color: '#05A6FF',
+    backgroundColor: '#05A6FF',
     display: 'flex',
     justifyContent: 'space-between',
     borderRadius: 8,
