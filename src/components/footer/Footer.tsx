@@ -83,23 +83,6 @@ const FooterDesktop = (props: FooterItemsProps) => {
                   </Grid>
                 ))}
               </Grid>
-              <Grid container direction="column" alignItems="flex-start">
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontStyle: "normal",
-                    lineHeight: "33px",
-                    letterSpacing: "2%",
-                    fontWeight: "400",
-                    fontSize: "14px",
-                    textAlign: "left",
-                  }}
-                >
-                  As imagens do site foram geradas com IA usando o modelo Stable Diffusion via Leonardo.ai e Chat GPT.
-                </Typography>
-              </Grid>
-            </Grid>
-
             {/* Botão de scroll */}
             <Grid item>
               <ScrollTop />
