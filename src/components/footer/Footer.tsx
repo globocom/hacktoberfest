@@ -83,6 +83,8 @@ const FooterDesktop = (props: FooterItemsProps) => {
                   </Grid>
                 ))}
               </Grid>
+            </Grid>
+
             {/* Botão de scroll */}
             <Grid item>
               <ScrollTop />
