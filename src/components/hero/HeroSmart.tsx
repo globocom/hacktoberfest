@@ -209,6 +209,7 @@ const LoggedView = (user: UserProps) => {
           <Image className={state == 2 ? classes.active : ''} src="hero/Shirt.svg" /> {/* Ativo se completed e aproved for true*/}
         </div>
       </div>
+      // acessibilidade: contraste de cores não adequado para a versão desktop, necessário melhoria no contraste de cores utilizando cor diferente de #fff
     </React.Fragment>
   )
 }
