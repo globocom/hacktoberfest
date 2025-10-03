@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: "30vw",
   },
   progression: {
-    border: "2px solid #fff",
+    border: `2px solid ${theme.palette.primary.main}`,
     display: "flex",
     justifyContent: "space-between",
     borderRadius: 8,
@@ -85,8 +85,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   logoEdition: {
     zIndex: 1,
+    width: "35vw",
   },
   character: {
+    width: "60vw",
   },
   message: {
     width: "164px",

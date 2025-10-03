@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: "100%",
     transition: "background-image 1s ease-in-out",
   },
-  gradientLine: { height: "24px", width: "100%", background: "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)", marginTop: "-20px" },
+  gradientLine: { height: "24px", width: "100%", background: "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)", marginTop: "-20px", position: "absolute", zIndex: 2},
 
 }))
 

@@ -19,7 +19,7 @@ interface MenuItem {
 const MENU_ITEMS: Array<MenuItem> = [
   { label: "globo.com opensource", link: "https://www.globo.com/" },
   { label: "Github", link: "https://github.com/globocom/hacktoberfest" },
-  { label: "Open Source", link: "https://github.com/globocom/hacktoberfest" },
+  { label: "Open Source", link: "https://github.com/globocom/" },
   { label: "Trabalhe Conosco", link: "https://vempraglobo.g.globo/" },
 ]
 
@@ -82,21 +82,6 @@ const FooterDesktop = (props: FooterItemsProps) => {
                     </Typography>
                   </Grid>
                 ))}
-              </Grid>
-              <Grid container direction="column" alignItems="flex-start">
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontStyle: "normal",
-                    lineHeight: "33px",
-                    letterSpacing: "2%",
-                    fontWeight: "400",
-                    fontSize: "14px",
-                    textAlign: "left",
-                  }}
-                >
-                  As imagens do site foram geradas com IA usando o modelo Stable Diffusion via Leonardo.ai e Chat GPT.
-                </Typography>
               </Grid>
             </Grid>
 

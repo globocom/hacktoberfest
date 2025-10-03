@@ -209,17 +209,13 @@ const UserCard = ({ participant, key }: UserCardProps) => {
             }
           title={`@${participant.githubUser}`}
           subheader={
-            <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "flex-start"}}><Typography component="span" variant="caption" className={classes.pullRequest}>
-              {" "}
-              {participant.total_pull_requests} pull requests{" "}
-            </Typography>
-            <Typography component="span" variant="caption" className={classes.pullRequest}>
-              {" "}
-              {participant.approved
-                ? "desafio completo"
-                : "desafio incompleto"}{" "}
-            </Typography>
-            <FiberManualRecordIcon htmlColor={participant.approved ? "#33DD99" : "#ff0000"} />
+            <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "flex-start"}}>
+              <Typography component="span" variant="caption" className={classes.pullRequest}>
+                {`${participant.total_pull_requests} pull requests, ${
+                  participant.approved ? "desafio completo" : "desafio incompleto"
+                }`}
+              </Typography>
+              <FiberManualRecordIcon htmlColor={participant.approved ? "#33DD99" : "#ff0000"} />
             </div>
           }
         />

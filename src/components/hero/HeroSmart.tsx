@@ -67,6 +67,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   progression: {
     border: '2px solid #fff',
+    backgroundColor: '#05A6FF',
     display: 'flex',
     justifyContent: 'space-between',
     borderRadius: 8,
@@ -84,6 +85,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: 40,
     marginBottom: 10,
     alignItems: 'flex-start',
+    color: '#000',
+    [theme.breakpoints.between("sm", "md")]: {
+      color: '#fff'
+    }
   },
   titleData: {
     fontSize: '7.5vw',
