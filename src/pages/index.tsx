@@ -238,7 +238,9 @@ const IndexPage = () => {
 
           <Grid container justifyContent="center" alignItems="center" className={classes.backgroundImageContainer}>
             <Image src="2025/come-to-globo.svg" className={classes.backgroundImage} />
+            // Overflow de imagem come-to-globo.svg na versão responsiva para iPad mini e para media queries max-width:2048px
           </Grid>
+
 
         <div>
           <ComeToGlobo />
