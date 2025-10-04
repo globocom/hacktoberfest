@@ -349,6 +349,7 @@ const DesktopView = (props: DesktopViewProps) => {
         <Box display="flex" alignItems="center" justifyContent="center" height="100%" paddingLeft={"440px"}>
           <Image className={classes.character} src={`2025/ilustracao-home.svg`} />
         </Box>
+         // Baixo contraste de cores na versão desktop para a sessão que indica PR enviados e aprovados, somente as cores estão adequadas quanto ao contraste na verão responsiva.
       </Grid>
       <Grid item sm={4} className={classes.gridMessage}>
         <Image className={classes.message} src={`2025/message.svg`} />
