@@ -250,7 +250,7 @@ const LoggedView = (user: UserProps) => {
 
 const ProgressMessage = (props: any) => (
   <div style={{ maxWidth: 400 }}>
-    <Typography align="left" component="p">
+    <Typography align="left" component="p" color="textPrimary">
       {" "}
       Você tem <b> {props.opened} pull requests enviados</b> e{" "}
       <b>{props.merged} aceito(s) </b>{" "}
@@ -260,7 +260,7 @@ const ProgressMessage = (props: any) => (
 
 const ConfirmMessage = () => (
   <div style={{ maxWidth: 430 }}>
-    <Typography align="left" component="p">
+    <Typography align="left" component="p" color="textPrimary">
       {" "}
       <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o
       endereço de envio no minha área.{" "}
@@ -270,7 +270,7 @@ const ConfirmMessage = () => (
 
 const CongratsMessage = () => (
   <div style={{ maxWidth: 430 }}>
-    <Typography align="left" component="p">
+    <Typography align="left" component="p" color="textPrimary">
       {" "}
       <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest.{" "}
       <b>Agora é só esperar sua camiseta chegar</b>{" "}
