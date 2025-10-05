@@ -95,7 +95,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   projectItem: {
     width: "100%",
-    marginTop: "120px",
+    marginTop: "60px",
   },
   computer: {
     width: "165px",
@@ -110,6 +110,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: "absolute",
     maxWidth: "100vw",
     zIndex: 1,
+    maxWidth: "100%",
     [theme.breakpoints.down("sm")]: {
       width: "240%",
       height: "auto",
