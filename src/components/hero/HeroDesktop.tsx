@@ -310,8 +310,8 @@ const DesktopView = (props: DesktopViewProps) => {
   return (
     <Grid container alignItems="center" className={classes.wrapper}>
       <Grid item sm={4} className={classes.gridItem}>
-        <Image className={classes.logoGlobo} src={`2025/globo.svg`} />
-        <Image className={classes.logoEdition} src={`2025/home-logo.svg`} />
+        <Image className={classes.logoGlobo} src={`2025/globo.svg`} alt="Logo da Globo" />
+        <Image className={classes.logoEdition} src={`2025/home-logo.svg`} alt="Logo Hacktoberfest 2025" />
         <Typography
           variant="h1"
           align="center"
@@ -351,7 +351,7 @@ const DesktopView = (props: DesktopViewProps) => {
         </Box>
       </Grid>
       <Grid item sm={4} className={classes.gridMessage}>
-        <Image className={classes.message} src={`2025/message.svg`} />
+        <Image className={classes.message} src={`2025/message.svg`} alt="Contribua e ganhe 1 camiseta exclusiva" />
 
         {/* <div className={classes.droneAnimation2}>
           <Lottie options={defaultOptions} height={300} width={350} />

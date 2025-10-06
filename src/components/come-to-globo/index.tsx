@@ -135,7 +135,7 @@ const ComeToGlobo = () => {
           <Grid container className={classes.mainContent} spacing={4} direction="row" alignItems="center" justifyContent="center">
             <Grid item xs={12} md={6} className={classes.rightColumn}>
               <Box className={classes.hexagonContainer}>
-                <Image src="2025/challenge.svg" className={classes.challengeImage} />
+                <Image src="2025/challenge.svg" className={classes.challengeImage} alt="Temos desafios para você" />
               </Box>
             </Grid>
             <Grid item xs={12} md={6} className={classes.leftColumn}>
