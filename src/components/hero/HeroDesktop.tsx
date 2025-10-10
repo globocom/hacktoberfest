@@ -4,8 +4,6 @@ import { Grid, Typography, Button, Box } from "@material-ui/core"
 import { Image } from "@components/image"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { Edition, UserProps } from "@services/user"
-import Lottie from "react-lottie"
-import animationData from "../../themes/images/2023/drone.json"
 
 const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
@@ -14,6 +12,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   title: {
     width: "80%",
     height: "180px",
+  },
+  textColor: {
+    color: "#939598",
   },
   button: {
     width: "320px",
@@ -46,7 +47,8 @@ const useStyles = makeStyles((theme: Theme) => ({
       background: "linear-gradient(90deg, #FFBD09 0%, #FF111E 100%)",
       mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
       maskComposite: "xor",
-      WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+      WebkitMask:
+        "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
       WebkitMaskComposite: "xor",
       zIndex: -1,
     },
@@ -93,14 +95,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   message: {
     width: "164px",
     height: "120px",
-
   },
   gridItem: {
     height: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    textAlign: "center"
+    textAlign: "center",
   },
   gridMessage: {
     display: "flex",
@@ -214,11 +215,16 @@ const LoggedView = (user: UserProps) => {
         >
           <Spacing smart={{ margin: "0px 0px 5px" }}>
             <Grid item>
-              <Typography align="left" component="p">
-                {" "}
+              <Typography
+                align="left"
+                component="p"
+                className={classes.textColor}
+              >
                 Olá <b>@{user.githubUser}!</b>
               </Typography>
-              <TextComponent />
+              <div className={classes.textColor}>
+                <TextComponent />
+              </div>
             </Grid>
           </Spacing>
           <Grid item>
@@ -251,7 +257,6 @@ const LoggedView = (user: UserProps) => {
 const ProgressMessage = (props: any) => (
   <div style={{ maxWidth: 400 }}>
     <Typography align="left" component="p">
-      {" "}
       Você tem <b> {props.opened} pull requests enviados</b> e{" "}
       <b>{props.merged} aceito(s) </b>{" "}
     </Typography>
@@ -261,7 +266,6 @@ const ProgressMessage = (props: any) => (
 const ConfirmMessage = () => (
   <div style={{ maxWidth: 430 }}>
     <Typography align="left" component="p">
-      {" "}
       <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o
       endereço de envio no minha área.{" "}
     </Typography>
@@ -271,7 +275,6 @@ const ConfirmMessage = () => (
 const CongratsMessage = () => (
   <div style={{ maxWidth: 430 }}>
     <Typography align="left" component="p">
-      {" "}
       <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest.{" "}
       <b>Agora é só esperar sua camiseta chegar</b>{" "}
     </Typography>
@@ -316,14 +319,14 @@ const DesktopView = (props: DesktopViewProps) => {
           variant="h1"
           align="center"
           style={{
-            fontSize: '24px',
+            fontSize: "24px",
             fontWeight: 700,
-            fontStyle: 'normal',
-            lineHeight: '31.47px',
-            letterSpacing: '6%',
-            textAlign: 'center',
+            fontStyle: "normal",
+            lineHeight: "31.47px",
+            letterSpacing: "6%",
+            textAlign: "center",
             marginTop: "1.2vw",
-            color: "#000000"
+            color: "#000000",
           }}
           component="h2"
         >
@@ -331,23 +334,34 @@ const DesktopView = (props: DesktopViewProps) => {
         </Typography>
         <Typography
           style={{
-            fontSize: '18px',
+            fontSize: "18px",
             fontWeight: 400,
-            fontStyle: 'normal',
-            letterSpacing: '0%',
-            color: '#939598',
-            textAlign: 'center',
+            fontStyle: "normal",
+            letterSpacing: "0%",
+            color: "#939598",
+            textAlign: "center",
             marginTop: "1vw",
-            width: "446px"
+            width: "446px",
           }}
-          align="center">
-          O Hacktober está aberto a todos os que desejam trilhar o caminho da colaboração e deixar sua marca nos projetos open source.
+          align="center"
+        >
+          O Hacktober está aberto a todos os que desejam trilhar o caminho da
+          colaboração e deixar sua marca nos projetos open source.
         </Typography>
         {props.user ? <LoggedView {...props.user} /> : <UnloggedView />}
       </Grid>
-      <Grid item sm={4} className={classes.gridItem} >
-        <Box display="flex" alignItems="center" justifyContent="center" height="100%" paddingLeft={"440px"}>
-          <Image className={classes.character} src={`2025/ilustracao-home.svg`} />
+      <Grid item sm={4} className={classes.gridItem}>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height="100%"
+          paddingLeft={"440px"}
+        >
+          <Image
+            className={classes.character}
+            src={`2025/ilustracao-home.svg`}
+          />
         </Box>
       </Grid>
       <Grid item sm={4} className={classes.gridMessage}>
