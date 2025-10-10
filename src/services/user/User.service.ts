@@ -17,9 +17,9 @@ export default class UserService {
         try{
             const isLogged = await this.GetUser();
             if(isLogged && isLogged.id) return true
-            return true
+            return false
         }catch(e){
-            return true
+            return false
         }
         
     }
