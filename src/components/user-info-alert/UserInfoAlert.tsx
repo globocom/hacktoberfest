@@ -12,6 +12,18 @@ const COOKIE_NAME = "ACCEPT_GLOBO_HACKTOBERFEST_LGPD"
 const COOKIE_EXPIRATION = 330
 
 const useStyles = makeStyles((theme: Theme) => ({
+  snackbarRoot: {
+    [theme.breakpoints.down("lg")]: {
+      left: "8px",
+      right: "8px",
+      display: "flex",
+      zIndex: 1400,
+      position: "fixed",
+      alignItems: "center",
+      justifyContent: "center",
+      transform: "none",
+    },
+  },
   snackbar: {
     backgroundColor: theme.palette.background.paper,
     color: '#000',
@@ -32,6 +44,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     width: "100%",
     gap: "8px",
+    [theme.breakpoints.down("sm")]: {
+      flexFlow: "column",
+    },
   },
   message: {
     flex: 1,
@@ -105,6 +120,7 @@ const UserInfoAlert = () => {
   return (
     !hideSnackbar ? (
       <Snackbar
+        className={classes.snackbarRoot}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open
       >
