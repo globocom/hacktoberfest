@@ -106,7 +106,7 @@ const FooterSmart = (props: FooterItemsProps) => {
       justifyContent="space-around"
       alignItems="flex-start"
     >
-      <Spacing smart={{ margin: "10px 32px 0" }}>
+      <Spacing smart={{ margin: "24px 32px 0" }}>
         <Grid item>
           <Image height="30" src="2025/globo.svg" />
         </Grid>
@@ -139,7 +139,7 @@ const FooterSmart = (props: FooterItemsProps) => {
           justifyContent="flex-end"
           alignItems="flex-end"
         >
-          <Grid item sm={12}>
+          <Grid item style={{ marginBottom: "9px" }} sm={12}>
             <ScrollTop />
           </Grid>
         </Grid>
