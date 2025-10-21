@@ -233,16 +233,19 @@ const LoggedView = (user: UserProps) => {
                 <Image
                   className={state == 0 ? classes.active : ""}
                   src="hero/PR.svg"
+                  alt=""
                 />{" "}
                 {/** Ativo se Approved e Completed for false */}
                 <Image
                   className={state == 1 ? classes.active : ""}
                   src="hero/Check.svg"
+                  alt=""
                 />{" "}
                 {/** Ativo se Approved true e completed false */}
                 <Image
                   className={state == 2 ? classes.active : ""}
                   src="hero/Shirt.svg"
+                  alt=""
                 />{" "}
                 {/* Ativo se completed e aproved for true*/}
               </div>
@@ -361,6 +364,7 @@ const DesktopView = (props: DesktopViewProps) => {
           <Image
             className={classes.character}
             src={`2025/ilustracao-home.svg`}
+            alt=""
           />
         </Box>
       </Grid>
