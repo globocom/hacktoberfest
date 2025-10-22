@@ -235,7 +235,7 @@ function ProjectsListError() {
 
 function ProjectTableRow(props: ProjectProps) {
   const classes = useStyles()
-  const { name, description, repo, imageUrl, stats = {}, isHome } = props
+  const { name, description, repo, stats = {} } = props
   function accessProjectRepo() {
     window.open(repo, "_blank", "noopener,noreferrer")
   }
@@ -288,7 +288,7 @@ function ProjectTableRow(props: ProjectProps) {
 }
 function ProjectCard(props: ProjectProps) {
   const classes = useStyles()
-  const { name, description, repo, imageUrl, stats = {}, isHome } = props
+  const { name, description, repo, stats = {}, isHome } = props
   function accessProjectRepo() {
     window.open(repo, "_blank", "noopener,noreferrer")
   }

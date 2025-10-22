@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react'
-import { Grid, Typography, TextField, InputAdornment, makeStyles, Theme } from '@material-ui/core'
+import { Grid, InputAdornment } from '@material-ui/core'
 
 
 //Internal
 import User, { UserProps } from '@services/user'
-import Spacing from '@components/spacing'
 import LoadingButton from '@components/loading-button'
 import { SnackbarContext } from '@components/snackbar/HacktoberfestSnackbar'
 import { HacktoberfestTextInput } from '@components/text-input'
@@ -26,23 +25,7 @@ const validationSchema = () => Yup.object().shape({
   githubUser: Yup.string().required("Preenchimento do usuário Github obrigatório")
 })
 
-const useStyles = makeStyles((theme: Theme) => ({
-  fontCall: {
-    fontSize: "2.25rem",
-    [theme.breakpoints.up("lg")]: {
-      fontSize: "3.5rem",
-    }
-  },
-  subFontCall: {
-    fontSize: "1.125rem",
-    [theme.breakpoints.up("lg")]: {
-      fontSize: "1.5rem",
-    }
-  }
-}))
-
 const PersonalDataForm = (props: PersonalDataFormProps) => {
-  const classes = useStyles();
   const { user, onSuccess, showOnlyEmailField = false } = props
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const snackbarContext = useContext(SnackbarContext)

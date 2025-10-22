@@ -6,7 +6,7 @@ import Spacing from "@components/spacing"
 import HeroCall from "@components/hero"
 import Rules from "@components/rules"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Link, Grid, Typography, useMediaQuery } from "@material-ui/core"
+import { Link, Grid, Typography } from "@material-ui/core"
 import Button from "@material-ui/core/Button"
 import ProjectsList from "@components/projects"
 import User, { UserProps } from "@services/user"
@@ -161,9 +161,6 @@ const IndexPage = () => {
   }, [])
 
   const classes = useStyles()
-  const isDesktop = useMediaQuery((theme: Theme) => {
-    return theme.breakpoints.up(theme.breakpoints.values.lg)
-  })
 
   return (
     <Layout title="Globo Hacktoberfest">

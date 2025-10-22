@@ -4,7 +4,6 @@ import { makeStyles, Theme } from "@material-ui/core/styles"
 interface NavigationItemProps {
   label: string
   link: string
-  diferentColor: string
 }
 
 const useStyles = makeStyles((theme: Theme) => ({

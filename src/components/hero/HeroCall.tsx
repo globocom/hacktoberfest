@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { useMediaQuery, Grid, Box } from "@material-ui/core"
-
 import SmartView from "./HeroSmart"
 import DesktopView from "./HeroDesktop"
 import { UserProps } from "@services/user"
-
-
 
 const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
