@@ -8,9 +8,6 @@ import { makeStyles, Theme } from '@material-ui/core/styles'
 import EmojiEventIcon from '@material-ui/icons/EmojiEvents'
 import { HeaderTitle } from "@components/header"
 
-
-
-
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexDirection: 'row',

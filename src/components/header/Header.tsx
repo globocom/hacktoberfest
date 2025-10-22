@@ -1,7 +1,6 @@
 import React from "react"
 import { Theme, useMediaQuery } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import Hidden from "@material-ui/core/Hidden"
 import Navigation from "@components/navigation"
 
 const useStyles = makeStyles((theme: Theme) => ({
