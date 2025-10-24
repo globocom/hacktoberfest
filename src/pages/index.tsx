@@ -238,7 +238,7 @@ const IndexPage = () => {
         </div>
 
           <Grid container justifyContent="center" alignItems="center" className={classes.backgroundImageContainer}>
-            <Image src="2025/come-to-globo.svg" className={classes.backgroundImage} />
+            <Image src="2025/come-to-globo.svg" alt="Imagem vem pra Globo" className={classes.backgroundImage} />
           </Grid>
 
         <div>

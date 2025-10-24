@@ -268,9 +268,9 @@ const SmartView = (props: SmartViewProps) => {
         justifyContent="center"
       >
         <Grid item sm={12}>
-          <Image className={classes.logoGlobo} src={`2024/globo.svg`} />
+          <Image className={classes.logoGlobo} src={`2024/globo.svg`} alt="Logo da Globo" />
           <div className={classes.contentCenter}>
-            <Image className={classes.logoEdition} src={`2025/home-logo.svg`} />
+            <Image className={classes.logoEdition} src={`2025/home-logo.svg`} alt="Logo Hacktoberfest 2025" />
             <Typography
               variant="h1"
               align="center"
@@ -306,7 +306,7 @@ const SmartView = (props: SmartViewProps) => {
         </Grid>
         <Grid item sm={6}></Grid>
         <Grid item sm={4} className={classes.messageImage}  >
-          <Image  src={`2025/message.svg`} />
+          <Image  src={`2025/message.svg`} alt="Contribua e ganhe 1 camiseta exclusiva" />
           {/* <div className={classes.droneAnimation2}>
             <Lottie
               className={classes.drone}

@@ -28,7 +28,7 @@ const ScrollTop = () => {
 
   return (
     <div className={classes.scrollTop}>
-      <Image src="2023/scroll-top.svg" onClick={scrollToTop} />
+      <Image src="2023/scroll-top.svg" alt="Voltar para o topo" onClick={scrollToTop} />
     </div>
   )
 }

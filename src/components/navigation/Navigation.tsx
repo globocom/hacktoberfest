@@ -219,6 +219,7 @@ const SmartMenu = () => {
       </Grid>
       <Grid item xs={2} md={1}>
         <Button
+          aria-label="Abrir menu lateral"
           style={{
             display: "block",
             float: "right",
@@ -227,7 +228,7 @@ const SmartMenu = () => {
           }}
           onClick={() => setMenuOpened(!menuOpened)}
         >
-          <Image src="2025/menu.svg" />
+          <Image alt="" src="2025/menu.svg" />
         </Button>
         {menuOpened && <MenuOpen closeMenu={() => setMenuOpened(false)} />}
       </Grid>
