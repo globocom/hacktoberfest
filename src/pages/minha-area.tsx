@@ -7,7 +7,6 @@ import Layout from "@components/layout"
 import Hacktoberfest from "@services/hacktoberfest"
 import User, { UserProps } from "@services/user"
 import { ExcludeAccountForm, PersonalDataForm } from "@components/forms"
-import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert"
 import { ParticipationHistory } from "@components/participations"
 import Spacing from '@components/spacing'
 
@@ -34,26 +33,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-interface HacktoberFestAlertProps extends AlertProps {
-  message?: string
-}
-
-const Alert = (props: HacktoberFestAlertProps) => (
-  <MuiAlert elevation={6} variant="filled" {...props}>
-    {" "}
-    {props.message}{" "}
-  </MuiAlert>
-)
-
 const PersonalAreaPage = () => {
-  const [alert, setAlert] = useState<HacktoberFestAlertProps>()
   const [loaded, setIsLoaded] = useState<boolean>(false)
   const [user, setUser] = useState<UserProps>()
-  const [currentEdition, setCurrentEdition] = useState<number>(0)
-
-  const closeSnackbar = () => setAlert(undefined)
-  const showSnackBar = (severity: Color, message: string) =>
-    setAlert({ severity, message })
+  const [_, setCurrentEdition] = useState<number>(0)
 
   useEffect(() => {
     const fetchUser = async () => {

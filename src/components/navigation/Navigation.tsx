@@ -5,18 +5,15 @@ import {
   Typography,
   Slide,
   Paper,
-  useMediaQuery,
 } from "@material-ui/core"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 import { NavigationItemProps, NavigationProps } from "./index"
-import Logo from "@components/logo"
 import NavigationItem from "./NavigationItem"
 import User from "@services/user"
 import { Image } from "@components/image"
 
 import CloseIcon from "@material-ui/icons/Close"
 import Spacing from "@components/spacing"
-import { Height } from '@material-ui/icons'
 
 interface NavigationItemsProps {
   items: Array<NavigationItemProps>
@@ -105,9 +102,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const NavigationItems = (props: NavigationItemsProps) => {
   const [isLogged, setIsLogged] = useState<boolean>()
-  const isDesktop = useMediaQuery((theme: Theme) => {
-    return theme.breakpoints.up(theme.breakpoints.values.lg)
-  })
 
   useEffect(() => {
     const checkIfLogged = async () =>
@@ -118,11 +112,6 @@ const NavigationItems = (props: NavigationItemsProps) => {
   const classes = useStyles()
   return (
     <ul className={classes.navigation}>
-      {isDesktop && (
-        <li style={{ marginLeft: 20 }}>
-          <Logo />
-        </li>
-      )}
       {props.items.map((def: NavigationItemProps) => (
         <NavigationItem key={def.label} {...def} />
       ))}
@@ -139,7 +128,6 @@ const HomeCall = () => (
 )
 
 const DeskMenu = () => {
-  const classes = useStyles()
   return (
     <Grid
       container
@@ -214,9 +202,6 @@ const SmartMenu = () => {
       justifyContent="space-between"
       alignItems="center"
     >
-      <Grid item xs={6} md={3} lg={1}>
-        <Logo />
-      </Grid>
       <Grid item xs={2} md={1}>
         <Button
           style={{

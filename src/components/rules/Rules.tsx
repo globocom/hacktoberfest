@@ -1,9 +1,8 @@
 import React from "react"
 import Spacing from "@components/spacing"
 import { Image } from "@components/image"
-import { makeStyles, Theme, useTheme } from "@material-ui/core/styles"
+import { makeStyles, Theme } from "@material-ui/core/styles"
 import { useMediaQuery, Grid, Button, Typography, Box } from "@material-ui/core"
-import InfoSharpIcon from "@material-ui/icons/InfoSharp"
 
 import { UserProps } from "@services/user"
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography, Button, FormControl, makeStyles, Theme } from '@material-ui/core'
+import { Grid, Button, makeStyles, Theme } from '@material-ui/core'
 import Spacing from '@components/spacing'
 import { HeaderTitle } from '@components/header'
 

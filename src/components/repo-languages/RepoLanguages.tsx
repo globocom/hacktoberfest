@@ -1,6 +1,5 @@
 import React from "react"
-import { colorLanguage } from "./color-language"
-import { makeStyles, Typography } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core"
 import { Image } from "@components/image"
 
 
@@ -33,22 +32,6 @@ const useStyles = makeStyles({
 
 interface RepoLanguagesProps {
   languages: string[]
-}
-
-interface CircleLanguageProps {
-  language: string
-}
-
-const CircleLanguage = (props: CircleLanguageProps) => {
-  const classes = useStyles()
-  return (
-    <div
-      className={classes.repoLanguageColor}
-      style={{ backgroundColor: colorLanguage[`${props.language.name}`] }}
-    >
-      {props.language.name}
-    </div>
-  )
 }
 
 const LANGUAGES:object = {
