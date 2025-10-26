@@ -108,6 +108,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   backgroundImage: {
     position: "absolute",
+    maxWidth: "100vw",
     zIndex: 1,
     [theme.breakpoints.down("sm")]: {
       width: "240%",
