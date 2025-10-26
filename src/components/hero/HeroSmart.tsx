@@ -197,7 +197,7 @@ const LoggedView = (user: UserProps) => {
       <Grid container className={classes.loggedViewContainer} direction="column" justifyContent="flex-start" alignItems="flex-start">
         <Spacing smart={{ margin: "0px 0px 5px" }}>
           <Grid item xs={12}>
-            <Typography align="left" component="p"> Olá <b>@{user.githubUser}!</b></Typography>
+            <Typography align="left" component="p" color="textSecondary"> Olá <b>@{user.githubUser}!</b></Typography>
             <TextComponent />
           </Grid>
         </Spacing>
@@ -214,19 +214,19 @@ const LoggedView = (user: UserProps) => {
 }
 
 const ProgressMessage = (props: any) => (
-  <Typography align="left" variant="body1" component="h5">  Você tem <b> {props.opened} PRs enviados e {props.merged} aceito(s) </b> </Typography>
+  <Typography align="left" variant="body1" component="h5" color="textSecondary">  Você tem <b> {props.opened} PRs enviados e {props.merged} aceito(s) </b> </Typography>
 )
 
 const ConfirmMessage = () => (
   <div style={{ minWidth: '100%' }}>
-    <Typography align="left" variant="body1" component="h5">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
+    <Typography align="left" variant="body1" component="h5" color="textSecondary">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. Confirme o endereço de envio no minha área. </Typography>
   </div>
 )
 
 
 const CongratsMessage = () => (
   <div style={{ minWidth: '100%' }}>
-    <Typography align="left" variant="body1" component="h5" >  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar!</b> </Typography>
+    <Typography align="left" variant="body1" component="h5" color="textSecondary">  <b>Parabéns!</b> Você concluiu o desafio Hacktoberfest. <b>Agora é só esperar sua camiseta chegar!</b> </Typography>
   </div>
 )
 

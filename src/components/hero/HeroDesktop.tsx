@@ -84,6 +84,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     borderRadius: 8,
     padding: 22,
+    color: "#939598",
   },
   logoEdition: {
     zIndex: 1,
