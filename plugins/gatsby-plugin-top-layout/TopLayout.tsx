@@ -18,6 +18,7 @@ export default function TopLayout(props) {
           href="https://s3.glbimg.com/v1/AUTH_b922f1376f6c452e9bb337cc7d996a6e/qa/foundation/typefaces/globotipo.css"
           rel="stylesheet"
         />
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
       </Helmet>
       <ThemeProvider theme={CurrentTheme}>
         <CssBaseline />

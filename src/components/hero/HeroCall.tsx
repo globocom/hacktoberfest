@@ -1,110 +1,88 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Spacing from "@components/spacing"
 import { makeStyles, Theme } from "@material-ui/core/styles"
-import { Hidden, useMediaQuery, Grid, Box, Typography } from "@material-ui/core"
-import { Image } from "@components/image"
+import { useMediaQuery, Grid, Box } from "@material-ui/core"
 
-
-import Carousel from "./Carousel"
 import SmartView from "./HeroSmart"
 import DesktopView from "./HeroDesktop"
 import { UserProps } from "@services/user"
 
 
+
 const useStyles = makeStyles((theme: Theme) => ({
+  wrapper: {
+    height: "100%",
+  },
   heroPanel: {
-    height: '75vh',
     position: "relative",
     overflow: "hidden",
     width: "100%",
     zIndex: 1,
-    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      height: '80vh',
-    }
+    padding: "32px",
+    paddingBottom: "0px",
+    height: "calc(100vh - 77px)",
+    alignItems: "baseline",
   },
   terms: {
     width: "100%",
     display: "block",
   },
-  boxContainer: {
-    fontWeight: 300,
-    margin: '.4em 0px',
-    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      fontSize: "2rem",
-      maxWidth: '33%',
-    },
-    border: '2px solid #fff',
-    boxShadow: "0px 0px 4px #FFFFFF, 0px 4px 4px rgba(255, 255, 255, 0.25)",
-    backdropFilter: "blur(16px)",
-    padding: '32px',
-    display: 'flex',
-    alignItems: 'flex-start',
-    borderRadius: '.9em',
-    lineHeight: '1.3em'
+  backgroundImageBox: {
+    position: "absolute",
+    background: theme.palette.background.paper,
+    top: 0,
+    left: 0,
+    width: "100%",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    padding: "0px -100px 0px 0px",
+    height: "100%",
+    transition: "background-image 1s ease-in-out",
   },
-  rule: {
-    fontSize: "1.5em",
-    lineHeight: "32px",
-    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      fontSize: "2rem",
-      lineHeight: '48px'
-    },
-  },
-  number: {
-    backdropFilter: "blur(8px)",
-    padding: "0px 10px",
-    backgroundColor: "#4c4c4c",
-    borderRadius: "7px"
-  }
+  gradientLine: { height: "24px", width: "100%", background: "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)", marginTop: "-20px", position: "absolute", zIndex: 2},
+
 }))
-
-
 
 const HeroCall = (props: HeroCallProps) => {
   const classes = useStyles()
   const isDesktop = useMediaQuery((theme: Theme) => {
     return theme.breakpoints.up(theme.breakpoints.values.lg)
-  });
+  })
 
-  const rules = [
-    <Typography className={classes.rule}>Contribua com <b>dois Pull Requests</b> em qualquer projeto Open Source da Globo <b>durante o mês de outubro</b>.</Typography>,
-    <Typography className={classes.rule}>Garanta que pelo menos <b>um pull request</b> seja <b>ACEITO</b>.</Typography>,
-    <Typography className={classes.rule}>Os 100 primeiros inscritos que completarem os requisitos mínimos <b>ganharão uma camiseta</b>.*</Typography>,
-  ]
 
   return (
-    <div>
-      <Spacing desktop={{margin: "0px"}} smart={{margin: "8vh 0px 0px 0px"}}>
-        <Grid container alignItems="flex-end" className={classes.heroPanel} id="hero_panel">
-          <Grid item xs={12}>
-                {isDesktop ? <DesktopView user={props.user} /> : <SmartView user={props.user} />}
+    <>
+      {isDesktop && (
+          <Box
+            className={classes.backgroundImageBox}
+            style={{
+              backgroundImage: `url("")`,
+            }}
+          />
+      )}
+      <Spacing
+        desktop={{ padding: "0px 100px 0px 100px" }}
+        smart={{ margin: "0" }}
+      >
+        <Grid
+          container
+          alignItems="flex-end"
+          className={classes.heroPanel}
+          id="hero_panel"
+        >
+          <Grid item xs={12} className={classes.wrapper}>
+            {isDesktop ? (
+              <DesktopView user={props.user} />
+            ) : (
+              <SmartView user={props.user} />
+            )}
           </Grid>
         </Grid>
       </Spacing>
-      <Spacing smart={{ margin: "90px auto" }} desktop={{ margin: "30vh auto" }}>
-        <Grid container justifyContent="space-between" >
-          {
-            rules.map((rule, index) =>
-              <Grid item xs={12} lg={4} justifyContent="space-between" alignItems="flex-start" className={classes.boxContainer}>
-                <Grid container direction="row">
-                  <Grid item xs={2}>
-                    <span className={classes.number}>
-                      <b>{index + 1}</b>
-                    </span>
-                  </Grid>
-                  <Grid xs={10}>
-                      {rule}
-                  </Grid>
-                </Grid>
-              </Grid>
-            )
-          }
-        </Grid>
-      </Spacing>
-    </div>
+      <div className={classes.gradientLine}></div>
+    </>
   )
 }
-
 
 interface HeroCallProps {
   user?: UserProps

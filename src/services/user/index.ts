@@ -43,6 +43,8 @@ export interface UserProps {
     shirtColor: string,
     hacktoberfest?: Hacktoberfest,
     editions?: Edition
+    linkedin?: string
+    cpf?: string
 }
 
 

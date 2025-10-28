@@ -1,17 +1,18 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { makeStyles, Theme } from "@material-ui/core/styles"
 
 interface NavigationItemProps {
   label: string
   link: string
+  diferentColor: string
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
-    item: {
+  item: {
     marginBottom: 28,
     [theme.breakpoints.up("md")]: {
       color: "red",
-      padding: 15,
+      padding: 25,
       margin: 0,
       cursor: "pointer"
     }
@@ -27,10 +28,16 @@ const useStyles = makeStyles((theme: Theme) => ({
 }))
 
 const MenuItem = (props: NavigationItemProps) => {
+  const [pathName, setPathName] = useState("")
+
+  useEffect(() => {
+    setPathName(window.location.pathname)
+  }, [])
+
   const classes = useStyles()
   return (
     <li className={classes.item}>
-      <a className={classes.typographyFontSize} href={props.link}> 
+      <a className={classes.typographyFontSize} href={props.link} style={{color: props.link == pathName ? "#000000" : "#FFFFFF"}}>
         {" "}
         {props.label}{" "}</a>
     </li>

@@ -4,10 +4,6 @@
 }
 
 body {
-    background: linear-gradient(180deg, rgba(0,0,0,1) 32%, rgba(0,78,130,1) 41%, rgba(53,146,214,1) 46%, rgba(255,255,255,1) 51%);
-    animation: gradient-effect 5s ease;
-    background-attachment: fixed;
-    background-size: 200% 200%;
 	height: 100vh;
 }
 
@@ -24,8 +20,8 @@ ul.slick-dots {
 }
 
 @media (min-width: 1024px) {
-    
-    ul.slick-dots {  
+
+    ul.slick-dots {
         display: flex !important;
         justify-content: center;
         margin: 0px auto;
@@ -36,6 +32,6 @@ ul.slick-dots {
     .slick-dots li button:before {
         font-size: 12px !important
     }
-    
-    
+
+
 }
