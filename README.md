@@ -103,3 +103,37 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+Improve README with Project Overview, Contribution Guidelines, and Setup Instructions
+## 📌 Summary
+The current `README.md` contains the default Gatsby starter template and does not reflect the actual purpose of this repository or its participation in Hacktoberfest. Updating the README will make the project more welcoming, informative, and contributor-friendly.
+
+## ✅ Proposed Enhancements
+- Replace the default Gatsby starter text with project-specific information
+- Add a clear description of the project goals and Hacktoberfest relevance
+- Include installation and setup instructions
+- Add contribution guidelines for beginners and open-source participants
+- Provide a project structure overview and technologies used
+- Improve overall readability with proper Markdown formatting
+
+## 🎯 Benefits
+- Helps new contributors understand the purpose of the project
+- Encourages meaningful participation during Hacktoberfest
+- Improves documentation quality
+- Enhances community engagement
+
+## 📂 Checklist
+- [ ] Project overview added
+- [ ] Quick start instructions updated
+- [ ] Contribution guidelines added
+- [ ] Tech stack and folder structure documented
+- [ ] License details verified
+
+## 🔖 Suggested Labels
+`documentation`, `good first issue`, `hacktoberfest`
+
+---
+
+### 🙋‍♂️ Additional Notes
+This update will set a solid foundation for future contributors and make it easier for newcomers to get started with the project.
+
