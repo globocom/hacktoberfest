@@ -216,7 +216,7 @@ const ProjectsList = (props: ProjectListProps) => {
 
 function ProjectsListLoading() {
   return <Box display="flex" width="100%" justifyContent="center">
-      <CircularProgress />
+      <CircularProgress aria-label="Carregando projetos" aria-busy="true" />
     </Box>
 }
 

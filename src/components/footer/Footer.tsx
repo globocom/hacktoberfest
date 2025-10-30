@@ -60,11 +60,11 @@ const FooterDesktop = (props: FooterItemsProps) => {
         <Grid item>
           <Grid container justifyContent="space-between" alignItems="center">
             <Grid item>
-              <Image src="2025/globo.svg" width="166" height="48" />
+              <Image src="2025/globo.svg" alt="Logo da Globo" width="166" height="48" />
             </Grid>
 
             <Grid item>
-              <Image src="2025/logo-footer.svg" width="256" height="138" />
+              <Image src="2025/logo-footer.svg" alt="Logo Hacktoberfest 2025" width="256" height="138" />
             </Grid>
 
             <Grid item>
@@ -108,12 +108,12 @@ const FooterSmart = (props: FooterItemsProps) => {
     >
       <Spacing smart={{ margin: "24px 32px 0" }}>
         <Grid item>
-          <Image height="30" src="2025/globo.svg" />
+          <Image height="30" src="2025/globo.svg" alt="Logo da Globo" />
         </Grid>
       </Spacing>
       <Spacing smart={{ margin: "0 18px 0" }}>
         <Grid item>
-          <Image src="2025/logo-footer.svg" with="278" height="90" />
+          <Image src="2025/logo-footer.svg" alt="Logo Hacktoberfest 2025" with="278" height="90" />
         </Grid>
       </Spacing>
       {props.menuItems.map((item: MenuItem, i: number) => (
