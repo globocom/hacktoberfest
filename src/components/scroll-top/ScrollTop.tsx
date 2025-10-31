@@ -18,7 +18,6 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-
 const ScrollTop = () => {
   const classes = useStyles()
 
@@ -32,6 +31,5 @@ const ScrollTop = () => {
     </div>
   )
 }
-
 
 export default ScrollTop

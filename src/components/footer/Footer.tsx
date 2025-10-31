@@ -3,8 +3,6 @@ import { makeStyles, Theme, Typography, useMediaQuery } from "@material-ui/core"
 import Spacing from "@components/spacing"
 import { Image } from "@components/image"
 import { Grid } from "@material-ui/core"
-import Box from "@mui/material/Box"
-import Logo from "@components/logo"
 import ScrollTop from "@components/scroll-top"
 
 interface FooterItemsProps {

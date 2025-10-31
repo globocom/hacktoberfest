@@ -327,55 +327,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-interface DecorativeLineProps {
-  color: "yellow" | "darkGray" | string
-}
-
-const DecorativeLine: React.FC<DecorativeLineProps> = ({ color }) => {
-  const classes = useStyles()
-
-  const getColor = () => {
-    switch (color) {
-      case "yellow":
-        return "#FFD700"
-      case "darkGray":
-        return "#333333"
-      default:
-        return color
-    }
-  }
-
-  return (
-    <div
-      className={classes.horizontalLineDesktop}
-      style={{ backgroundColor: getColor() }}
-    />
-  )
-}
-
-interface DecorativeVerticalBarProps {
-  position: "left" | "right"
-}
-
-const DecorativeVerticalBar: React.FC<DecorativeVerticalBarProps> = ({
-  position,
-}) => {
-  const style = {
-    position: "absolute" as const,
-    width: "6px",
-    height: "54px",
-    top: "0px",
-    opacity: 1,
-    transform: "rotate(0deg)",
-    transformOrigin: "center",
-    background:
-      "linear-gradient(90deg, #05A6FF 0%, #8800F8 38.94%, #FF0C1F 71.15%, #FFD006 100%)",
-    ...(position === "left" ? { left: "0px" } : { right: "0px" }),
-  }
-
-  return <div style={style} />
-}
-
 const Principles = () => {
   const classes = useStyles()
   const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"))
