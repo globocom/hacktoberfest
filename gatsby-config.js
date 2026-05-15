@@ -1,5 +1,6 @@
 const path = require("path")
 module.exports = {
+  trailingSlash: "never",
   siteMetadata: {
     title: `Hacktoberfest`,
     description: `Projeto opensource do Hacktoberfest promovido pela Globo.com`,
