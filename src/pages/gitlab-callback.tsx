@@ -19,11 +19,17 @@ const OAuthCallbackPage = () => {
   useEffect(() => {
     if (typeof window === "undefined") return
 
-    // Gatsby pode redirecionar /gitlab-callback?code=X para /gitlab-callback/?code=X
-    // preservando os params — mas em alguns cenários os query params são perdidos
-    // na normalização do trailing slash. Tenta tanto window.location.search
-    // quanto o hash como fallback.
-    const params = new URLSearchParams(window.location.search)
+    // O Gatsby pode normalizar /gitlab-callback?code=X para /gitlab-callback/?code=X
+    // Os query params são preservados em window.location.search mesmo com trailing slash.
+    // Caso raro: o nginx pode ter stripped os params — tenta recuperar do referrer.
+    let search = window.location.search
+
+    // Fallback: se não há search mas há params no hash (alguns proxies movem params)
+    if (!search && window.location.hash.includes("code=")) {
+      search = window.location.hash.replace("#", "?")
+    }
+
+    const params = new URLSearchParams(search)
     const code = params.get("code")
     const state = params.get("state")
 
@@ -36,8 +42,7 @@ const OAuthCallbackPage = () => {
       return
     }
 
-    // Se não há code/state, o fluxo já foi processado (auto-redirect do backend
-    // aconteceu antes) ou os params foram perdidos. Redireciona para a home.
+    // Se não há code/state, redireciona para a home.
     window.location.replace("/")
   }, [])
 
