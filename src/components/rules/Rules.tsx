@@ -283,12 +283,22 @@ const RulesDesktop = (props: RulesProps) => {
               <Grid item />
               <Grid item className={classes.buttonContainer}>
                 <Button
-                  href="/login"
+                  onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login` }}
                   className={classes.button}
                   size="large"
                   variant="outlined"
                 >
                   Participe com sua conta do Github
+                </Button>
+              </Grid>
+              <Grid item className={classes.buttonContainer}>
+                <Button
+                  onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login?provider=gitlab` }}
+                  className={classes.button}
+                  size="large"
+                  variant="outlined"
+                >
+                  Participe com sua conta Gitlab
                 </Button>
               </Grid>
             </Grid>
@@ -345,15 +355,26 @@ const RulesSmart = (props: RulesProps) => {
         </Box>
 
         {!props.user && (
-          <div className={classes.buttonSmart}>
-            <Button
-              href="/login"
-              className={classes.button}
-              size="large"
-            >
-              Participar com sua conta do Github
-            </Button>
-          </div>
+          <React.Fragment>
+            <div className={classes.buttonSmart}>
+              <Button
+                onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login` }}
+                className={classes.button}
+                size="large"
+              >
+                Participar com sua conta do Github
+              </Button>
+            </div>
+            <div className={classes.buttonSmart}>
+              <Button
+                onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login?provider=gitlab` }}
+                className={classes.button}
+                size="large"
+              >
+                Participar com sua conta Gitlab
+              </Button>
+            </div>
+          </React.Fragment>
         )}
       </div>
     </Spacing>

@@ -294,12 +294,22 @@ const UnloggedView = () => {
         <Grid item xs={12}></Grid>
         <Grid item md={12} className={classes.buttonContainer}>
           <Button
-            href="/login"
+            onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login` }}
             className={classes.button}
             size="large"
             fullWidth
           >
             Participar com sua conta do Github
+          </Button>
+        </Grid>
+        <Grid item md={12} className={classes.buttonContainer}>
+          <Button
+            onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login?provider=gitlab` }}
+            className={classes.button}
+            size="large"
+            fullWidth
+          >
+            Participar com sua conta Gitlab
           </Button>
         </Grid>
       </Grid>

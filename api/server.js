@@ -91,6 +91,14 @@ server.post("/subscribeEmail", (req, res, next) => {
 })
 
 
+server.get("/login", (req, res) => {
+  res.status(200).json({ message: "GitHub login not implemented in mock" })
+})
+
+server.get("/login?provider=gitlab", (req, res) => {
+  res.status(200).json({ message: "GitLab login not implemented in mock" })
+})
+
 server.use(router)
 server.listen(3000, () => {
   console.log("Demo api server is running...")

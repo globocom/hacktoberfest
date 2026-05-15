@@ -239,7 +239,7 @@ function ProjectTableRow(props: ProjectProps) {
   function accessProjectRepo() {
     window.open(repo, "_blank", "noopener,noreferrer")
   }
-  const items: string[] = _.get(stats, "repository.repoLanguages.items", [])
+  const items: string[] = _.get(stats, "repository.repoLanguages.items", []) ?? []
   let filtered: string[] = []
   if (items.length > 0) {
     filtered = items.filter(
@@ -292,7 +292,7 @@ function ProjectCard(props: ProjectProps) {
   function accessProjectRepo() {
     window.open(repo, "_blank", "noopener,noreferrer")
   }
-  const items: string[] = _.get(stats, "repository.repoLanguages.items", [])
+  const items: string[] = _.get(stats, "repository.repoLanguages.items", []) ?? []
   const filtered = items.filter(
     (item) => item.name && !excludedLanguages.includes(item?.name.toLowerCase())
   )
