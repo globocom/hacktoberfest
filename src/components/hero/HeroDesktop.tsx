@@ -294,7 +294,7 @@ const UnloggedView = () => {
         <Grid item xs={12}></Grid>
         <Grid item md={12} className={classes.buttonContainer}>
           <Button
-            onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login` }}
+            onClick={() => { window.location.href = `/login` }}
             className={classes.button}
             size="large"
             fullWidth
@@ -304,7 +304,7 @@ const UnloggedView = () => {
         </Grid>
         <Grid item md={12} className={classes.buttonContainer}>
           <Button
-            onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login?provider=gitlab` }}
+            onClick={() => { window.location.href = `/login?provider=gitlab` }}
             className={classes.button}
             size="large"
             fullWidth

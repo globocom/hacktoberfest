@@ -283,7 +283,7 @@ const RulesDesktop = (props: RulesProps) => {
               <Grid item />
               <Grid item className={classes.buttonContainer}>
                 <Button
-                  onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login` }}
+                  onClick={() => { window.location.href = `/login` }}
                   className={classes.button}
                   size="large"
                   variant="outlined"
@@ -293,7 +293,7 @@ const RulesDesktop = (props: RulesProps) => {
               </Grid>
               <Grid item className={classes.buttonContainer}>
                 <Button
-                  onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login?provider=gitlab` }}
+                  onClick={() => { window.location.href = `/login?provider=gitlab` }}
                   className={classes.button}
                   size="large"
                   variant="outlined"
@@ -358,7 +358,7 @@ const RulesSmart = (props: RulesProps) => {
           <React.Fragment>
             <div className={classes.buttonSmart}>
               <Button
-                onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login` }}
+                onClick={() => { window.location.href = `/login` }}
                 className={classes.button}
                 size="large"
               >
@@ -367,7 +367,7 @@ const RulesSmart = (props: RulesProps) => {
             </div>
             <div className={classes.buttonSmart}>
               <Button
-                onClick={() => { window.location.href = `${process.env.GATSBY_API_URL}/login?provider=gitlab` }}
+                onClick={() => { window.location.href = `/login?provider=gitlab` }}
                 className={classes.button}
                 size="large"
               >
